@@ -1,10 +1,12 @@
 language: java
 jdk: openjdk11
-services: mongodb
+services:
+  - mongodb
+  - kafka
 cache:
   directories:
   - "$HOME/.m2/repository"
-#before_install:
+##before_install:
 #  # Install Kafka
 ##  - wget http://www.us.apache.org/dist/kafka/0.8.2.1/kafka_2.10-0.8.2.1.tgz -O kafka.tgz
 #  - wget http://mirrors.estointernet.in/apache/kafka/2.1.1/kafka-2.1.1-src.tgz -O kafka.tgz
