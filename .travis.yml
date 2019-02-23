@@ -6,8 +6,8 @@ cache:
   directories:
   - "$HOME/.m2/repository"
 
-#before_install:
-  # Install Kafka
+before_install:
+#   Install Kafka
 #  - wget http://www.us.apache.org/dist/kafka/0.8.2.1/kafka_2.10-0.8.2.1.tgz -O kafka.tgz
   - bash wget http://mirrors.estointernet.in/apache/kafka/2.1.1/kafka-2.1.1-src.tgz -O kafka.tgz
   - bash mkdir -p kafka && tar xzf kafka.tgz -C kafka --strip-components 1
