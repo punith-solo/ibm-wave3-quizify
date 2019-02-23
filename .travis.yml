@@ -9,20 +9,17 @@ cache:
 before_install:
 #   Install Kafka
 #  - wget http://www.us.apache.org/dist/kafka/0.8.2.1/kafka_2.10-0.8.2.1.tgz -O kafka.tgz
-  - wget http://mirrors.estointernet.in/apache/kafka/2.1.1/kafka-2.1.1-src.tgz -O kafka.tgz
-  - mkdir -p kafka && tar xzf kafka.tgz -C kafka --strip-components 1
-  - ls
+#  - wget http://mirrors.estointernet.in/apache/kafka/2.1.1/kafka-2.1.1-src.tgz -O kafka.tgz
+#  - mkdir -p kafka && tar xzf kafka.tgz -C kafka --strip-components 1
+#  - ls
   - cd kafka
-  - ls
   # Run Zookeeper/Kafka on localhost (default ports for ZK, Kafka: 2181, 9092)
   - bin/zookeeper-server-start.sh config/zookeeper.properties &
-  - ls
 #  - sleep 3
   - bin/kafka-server-start.sh config/server.properties &
-  - ls
 #  - sleep 5
   # Create 'scholars' topic with 3 partitions
   - cd ../
-  - ls
+
 after_success:
 - bash <(curl -s https://codecov.io/bash)
