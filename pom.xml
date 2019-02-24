@@ -35,7 +35,7 @@
 	    <module>user-registration-service</module>
         <module>question-manager-service</module>
         <module>game-manager-service</module>
-        <module>signle-player-engine</module>
+        <module>single-player-engine</module>
     </modules>
     <dependencies>
         <dependency>
