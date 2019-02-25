@@ -1,5 +1,7 @@
 package com.stackroute.quizify.recommendationservice.domain;
 
+import com.stackroute.quizify.kafka.domain.Topic;
+import com.stackroute.quizify.kafka.domain.User;
 import org.neo4j.ogm.annotation.*;
 
 import java.util.ArrayList;

@@ -1,5 +1,6 @@
 package com.stackroute.quizify.recommendationservice.domain;
 
+import com.stackroute.quizify.kafka.domain.Topic;
 import lombok.Data;
 import org.springframework.data.annotation.Id;
 
@@ -18,7 +19,7 @@ import java.sql.Timestamp;
         private int likes;
         private int gamesPlayed;
         private String genre;
-        private String domain;
+        private String category;
         private Topic topic;
 
 //

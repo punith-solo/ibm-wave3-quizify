@@ -1,9 +1,9 @@
 package com.stackroute.quizify.kafka.domain;
 
-import com.stackroute.quizify.recommendationservice.domain.Admin;
-import com.stackroute.quizify.recommendationservice.domain.Category;
-import com.stackroute.quizify.recommendationservice.domain.Question;
-import com.stackroute.quizify.recommendationservice.domain.Topic;
+import com.stackroute.quizify.kafka.domain.Admin;
+import com.stackroute.quizify.kafka.domain.Category;
+import com.stackroute.quizify.kafka.domain.Question;
+import com.stackroute.quizify.kafka.domain.Topic;
 import lombok.Data;
 import org.neo4j.ogm.annotation.GeneratedValue;
 import org.neo4j.ogm.annotation.Id;

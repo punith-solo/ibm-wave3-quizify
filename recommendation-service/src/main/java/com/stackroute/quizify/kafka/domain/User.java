@@ -1,4 +1,4 @@
-package com.stackroute.quizify.recommendationservice.domain;
+package com.stackroute.quizify.kafka.domain;
 
 
 import io.swagger.annotations.ApiModelProperty;

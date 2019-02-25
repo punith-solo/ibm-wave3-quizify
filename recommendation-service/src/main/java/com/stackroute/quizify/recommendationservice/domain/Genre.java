@@ -1,12 +1,20 @@
 package com.stackroute.quizify.recommendationservice.domain;
 
 import com.stackroute.quizify.kafka.domain.Game;
+import org.neo4j.ogm.annotation.GeneratedValue;
+import org.neo4j.ogm.annotation.Id;
+import org.neo4j.ogm.annotation.Property;
 
 import java.util.List;
 
 public class Genre {
+    @Id
+    @GeneratedValue
     private Long genreId;
+    @Property
     private String genreName;
+    @Property
     private String imageUrl;
-    private List<Game> game;
+//    @Property
+//    private List<Game> game;
 }
