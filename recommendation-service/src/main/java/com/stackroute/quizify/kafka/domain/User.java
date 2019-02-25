@@ -1,6 +1,7 @@
 package com.stackroute.quizify.kafka.domain;
 
 
+import com.stackroute.quizify.recommendationservice.domain.Genre;
 import io.swagger.annotations.ApiModelProperty;
 
 import lombok.Data;
@@ -24,9 +25,9 @@ public class User {
     private String password;
     private String confirmPassword;
     private String emailId;
-    @Property
-    private List<String> interests;
-    private List<String> topics;
+    //@Property
+    private Topic topic;
+    private List<Genre> genres;
 
     @Property
     private String gender;;

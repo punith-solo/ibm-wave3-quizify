@@ -47,7 +47,7 @@ public class GenreController {
         }
         catch (GenreAlreadyExistsException e)
         {
-            return new ResponseEntity<String >(e.getMessage(), HttpStatus.NOT_FOUND);
+            return new ResponseEntity<String>(e.getMessage(), HttpStatus.NOT_FOUND);
         }
 
     }

@@ -1,4 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { Admin } from '../../tsclasses/admin';
+import { Game } from '../../tsclasses/game';
+import { Category } from '../../tsclasses/category';
+import { Topic } from '../../tsclasses/topic';
+import { Level } from '../question-generator/question-generator.component';
+import { GameserviceService } from '../../services/gameservice.service';
+import { MatSnackBar } from '@angular/material';
 // import { Topic } from '../pclasses/topic';
 // import { GameserviceService } from './gameservice.service';
 // import { Router } from '@angular/router';

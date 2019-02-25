@@ -102,9 +102,9 @@ services:
     expose:
       - 8095
 
-  user-service:
-    image: userservice
-    build: userservice/
+  user-registration-service:
+    image: user-registration-service
+    build: user-registration-service/
     restart: always
     network_mode: host
     depends_on:
@@ -125,6 +125,7 @@ services:
     restart: always
     network_mode: host
     depends_on:
+      - zookeeper
       - kafka
       - mongo
       - eurekaserver
@@ -136,9 +137,9 @@ services:
       - 8001
 
 
-  game-manager:
-    image: game-manager
-    build: game-manager/
+  game-manager-service:
+    image: game-manager-service
+    build: game-manager-service/
     restart: always
     network_mode: host
     depends_on:
@@ -164,8 +165,8 @@ services:
     restart: always
 
   single-player-engine:
-    image: single-player-service
-    build: single-player-service/
+    image: single-player-engine
+    build: single-player-engine/
     restart: always
     network_mode: host
     depends_on:

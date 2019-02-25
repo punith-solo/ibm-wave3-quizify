@@ -1,9 +1,6 @@
 package com.stackroute.quizify.kafka.domain;
 
-import com.stackroute.quizify.kafka.domain.Admin;
-import com.stackroute.quizify.kafka.domain.Category;
-import com.stackroute.quizify.kafka.domain.Question;
-import com.stackroute.quizify.kafka.domain.Topic;
+
 import lombok.Data;
 import org.neo4j.ogm.annotation.GeneratedValue;
 import org.neo4j.ogm.annotation.Id;
@@ -17,19 +14,24 @@ import java.util.List;
 public class Game {
 
         @Id @GeneratedValue
-        public long gameId;
+        public long id;
         @Property
         private String name;
         private Category category;
+        @Property
         private Topic topic;
         private int playCount;
         private int numOfQuestion;
+        private String imageUrl;
         private List<Question> questions;
         private Admin admin;
         private String level;
+        @Property
         private String genre;
         private String tag;
         private int liked;
         private int played;
         private int timestamp;
+        private String rules;
+        private long timeDuration;
 }

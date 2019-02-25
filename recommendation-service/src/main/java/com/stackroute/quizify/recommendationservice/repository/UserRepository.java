@@ -1,6 +1,6 @@
 package com.stackroute.quizify.recommendationservice.repository;
 
-import com.stackroute.quizify.recommendationservice.domain.User;
+import com.stackroute.quizify.kafka.domain.User;
 import org.springframework.data.neo4j.annotation.Query;
 import org.springframework.data.neo4j.repository.Neo4jRepository;
 import org.springframework.data.repository.query.Param;
@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-
+@Repository
 public interface UserRepository extends Neo4jRepository<User, Long> {
     
     @Query("MATCH (User) RETURN User")
@@ -18,7 +18,7 @@ public interface UserRepository extends Neo4jRepository<User, Long> {
     public User getNode(@Param("userId") long userId);
 
     @Query("CREATE (u:User) SET u.id={userId},u.userName={userName},u.gender={gender} RETURN u")
-    User createNode( long userId,String userName, String gender, List<String> interests);
+    User createNode( long userId,String userName, String gender);
 
     @Query("MATCH (n:User) WHERE id(n)={userId} DETACH DELETE n RETURN 'node deleted' ")
     User deleteNode(@Param("userId") long userId);
