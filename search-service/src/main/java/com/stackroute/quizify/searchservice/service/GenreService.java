@@ -1,6 +1,6 @@
 package com.stackroute.quizify.searchservice.service;
 
-import com.stackroute.quizify.searchservice.domain.Genre;
+import com.stackroute.quizify.searchservice.domain.Genres;
 import com.stackroute.quizify.searchservice.exception.GenreAlreadyExistsException;
 import com.stackroute.quizify.searchservice.exception.GenreDoesNotExistsException;
 
@@ -13,7 +13,7 @@ import java.util.List;
 
 public interface GenreService {
 
-    Genre saveGenre(Genre genre) throws GenreAlreadyExistsException;
+    Genres saveGenre(Genres genre) throws GenreAlreadyExistsException;
 //    List<Genre> getAllGenreByName(String topicName) throws GenreDoesNotExistsException;
-    List<Genre> getAllGenreByStartsWith(String genreName)throws GenreDoesNotExistsException;
+    List<Genres> getAllGenreByStartsWith(String genreName)throws GenreDoesNotExistsException;
 }

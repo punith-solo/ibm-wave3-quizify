@@ -1,7 +1,7 @@
 package com.stackroute.quizify.searchservice.service;
 
 
-import com.stackroute.quizify.searchservice.domain.Genre;
+import com.stackroute.quizify.searchservice.domain.Genres;
 import com.stackroute.quizify.searchservice.exception.GenreAlreadyExistsException;
 import com.stackroute.quizify.searchservice.exception.GenreDoesNotExistsException;
 import com.stackroute.quizify.searchservice.repository.GenreRepository;
@@ -36,13 +36,22 @@ public class GenreServiceImpl implements GenreService{
 //    }
 
     @Override
-    public Genre saveGenre(Genre genre) throws GenreAlreadyExistsException {
-        return genreRepository.save(genre);
+    public Genres saveGenre(Genres genre) throws GenreAlreadyExistsException {
+        if (this.genreRepository.existsById(genre.getId()))
+            throw new GenreAlreadyExistsException("Genre Already Exists!");
+        else
+        {
+            if(this.genreRepository.findTopByOrderByIdDesc().isEmpty())
+                genre.setId(1);
+            else
+                genre.setId(this.genreRepository.findTopByOrderByIdDesc().get().getId()+1);
+            return genreRepository.save(genre);
+        }
     }
 
     @Override
-    public List<Genre> getAllGenreByStartsWith(String genreName) throws GenreDoesNotExistsException {
-        List<Genre> genres = genreRepository.searchByGenreAlphabet(genreName);
+    public List<Genres> getAllGenreByStartsWith(String genreName) throws GenreDoesNotExistsException {
+        List<Genres> genres = genreRepository.searchByGenreAlphabet(genreName);
         if(genres==null)
             throw new GenreDoesNotExistsException("No Game Found");
         else

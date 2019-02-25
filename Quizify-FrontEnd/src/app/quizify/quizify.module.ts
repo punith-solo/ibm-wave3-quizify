@@ -22,6 +22,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { SingleplayerComponent } from './components/singleplayer/singleplayer.component';
 
 import { GamedetailsComponent } from './components/gamedetails/gamedetails.component';
+import { SearchService } from './services/search.service';
 
 @NgModule({
   declarations: [ CardsComponent,
@@ -38,7 +39,7 @@ import { GamedetailsComponent } from './components/gamedetails/gamedetails.compo
     SingleplayerComponent
      ],
      providers: [ CardService,
-      GamedetailsService],
+      GamedetailsService, SearchService],
 
   imports: [
     CommonModule,
