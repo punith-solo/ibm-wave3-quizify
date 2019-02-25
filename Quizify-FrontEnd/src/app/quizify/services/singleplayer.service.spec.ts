@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 
-import { SharedServiceService } from './shared-service.service';
+import { SingleplayerService } from './singleplayer.service';
 
-describe('SharedServiceService', () => {
+describe('SingleplayerService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: SharedServiceService = TestBed.get(SharedServiceService);
+    const service: SingleplayerService = TestBed.get(SingleplayerService);
     expect(service).toBeTruthy();
   });
 });

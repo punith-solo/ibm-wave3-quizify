@@ -1,16 +1,23 @@
 import { Component, OnInit } from '@angular/core';
-import { Admin } from '../../tsclasses/admin';
-import { Game } from '../../tsclasses/game';
-import { Category } from '../../tsclasses/category';
+import { Admin } from '../../classes/admin';
+import { Category } from '../../classes/category';
 import { Topic } from '../../tsclasses/topic';
-import { Level } from '../question-generator/question-generator.component';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { GameserviceService } from '../../services/gameservice.service';
-import { MatSnackBar } from '@angular/material';
+import { Game } from '../../tsclasses/game';
 // import { Topic } from '../pclasses/topic';
 // import { GameserviceService } from './gameservice.service';
 // import { Router } from '@angular/router';
 
+export interface Type {
+  value: string;
+  viewValue: string;
+}
 
+export interface Level {
+  value: string;
+  viewValue: string;
+}
 @Component({
   selector: 'app-game',
   templateUrl: './game.component.html',
