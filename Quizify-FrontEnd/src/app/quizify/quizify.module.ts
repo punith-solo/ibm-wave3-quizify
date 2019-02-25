@@ -18,7 +18,9 @@ import { GameComponent } from './components/game/game.component';
 import { QuestionGeneratorComponent } from './components/question-generator/question-generator.component';
 import { HeaderComponent } from './components/header/header.component';
 import { GamedetailsService } from './services/gamedetails.service';
-import { BrowserModule } from '@angular/platform-browser'; import { CookieService } from 'ngx-cookie-service';
+import { BrowserModule } from '@angular/platform-browser';
+
+import { CookieService } from 'ngx-cookie-service';
 import { GamedetailsComponent } from './components/gamedetails/gamedetails.component';
 
 @NgModule({
@@ -32,6 +34,7 @@ import { GamedetailsComponent } from './components/gamedetails/gamedetails.compo
     GameComponent,
     QuestionGeneratorComponent,
     HeaderComponent,
+    // SingleplayerComponent,
     GamedetailsComponent
      ],
      providers: [ CardService, CookieService, GamedetailsService],
@@ -58,8 +61,7 @@ import { GamedetailsComponent } from './components/gamedetails/gamedetails.compo
     GamehistoryComponent,
     GameComponent,
     QuestionGeneratorComponent,
-    GamedetailsComponent,
-    HeaderComponent
+    GamedetailsComponent
    ],
 
 })
