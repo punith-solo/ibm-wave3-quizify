@@ -45,6 +45,6 @@ export class GameserviceService {
 
   deleteGame(game: Game) {
     console.log( game);
-    return this.http.delete(this.url + 'tracks/track/' + game, { observe: 'response' });
+    return this.http.delete(this.url + 'games/game/' + game, { observe: 'response' });
   }
 }

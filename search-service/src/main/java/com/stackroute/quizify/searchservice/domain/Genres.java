@@ -2,12 +2,12 @@ package com.stackroute.quizify.searchservice.domain;
 
 import lombok.Data;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-import java.sql.Timestamp;
 import java.util.List;
 
 /*
- * This "Game" class is used to get game names from our message bus(Kafka).
+ * This "Genre" class is used to create documents which will store genre names when searched.
  *
  * The Annotation "@Data" is used as a convenient shortcut annotation that bundles the features
  * of @ToString, @EqualsAndHashCode, @Getter / @Setter and @RequiredArgsConstructor together:
@@ -18,18 +18,11 @@ import java.util.List;
  * Non-Null and Unique.
  */
 
+@Document(collection="genres")
 @Data
-public class Game {
-
+public class Genres {
     @Id
-    private long gameId;
-    private String gameName;
-    private int gamesPlayed;
-    private String level;
-    private String imageUrl;
-    private String description;
-    private Timestamp duration;
-    private int likes;
-    private int numOfQuestion;
-
+    private long id;
+    private String name;
+    private List<Games> game;
 }

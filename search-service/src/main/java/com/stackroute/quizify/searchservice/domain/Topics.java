@@ -18,13 +18,12 @@ import java.util.List;
  * Non-Null and Unique.
  */
 
+@Document(collection="topics")
 @Data
-@Document(collection="topic")
-public class Topic {
+public class Topics {
     @Id
-    private long topicId;
-    private String topicName;
-    private String imageUrl;
-    private List<Game> game;
+    private long id;
+    private String name;
+    private List<Games> game;
 
 }
