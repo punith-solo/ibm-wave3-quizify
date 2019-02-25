@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Admin } from '../../classes/admin';
-import { Category } from '../../classes/category';
-import { Topic } from '../../classes/topic';
-import { Question } from '../../classes/question';
+import { Admin } from '../../tsclasses/admin';
+import { Category } from '../../tsclasses/category';
+import { Topic } from '../../tsclasses/topic';
+import { Question } from '../../tsclasses/question';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { QuestionService } from '../../services/question.service';
 
