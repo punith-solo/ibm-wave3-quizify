@@ -23,7 +23,7 @@ import java.util.List;
  */
 
 @Repository
-public interface GenreRepository extends MongoRepository<Genre,String> {
+public interface GenreRepository extends MongoRepository<Genre,Long> {
 
 //    List<Genre> searchByGenreName(String genreName);
 

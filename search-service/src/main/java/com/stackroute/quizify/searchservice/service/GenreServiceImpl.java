@@ -1,9 +1,10 @@
 package com.stackroute.quizify.searchservice.service;
 
-import com.stackroute.quizify.searchservice.repository.GenreRepository;
+
 import com.stackroute.quizify.searchservice.domain.Genre;
 import com.stackroute.quizify.searchservice.exception.GenreAlreadyExistsException;
 import com.stackroute.quizify.searchservice.exception.GenreDoesNotExistsException;
+import com.stackroute.quizify.searchservice.repository.GenreRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

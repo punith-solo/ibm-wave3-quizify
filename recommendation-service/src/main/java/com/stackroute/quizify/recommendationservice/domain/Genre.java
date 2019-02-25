@@ -1,5 +1,7 @@
 package com.stackroute.quizify.recommendationservice.domain;
 
+import com.stackroute.quizify.kafka.domain.Game;
+
 import java.util.List;
 
 public class Genre {

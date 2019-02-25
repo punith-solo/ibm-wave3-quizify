@@ -1,10 +1,11 @@
+import { JwtHelperService } from '@auth0/angular-jwt';
 import { AuthenticationService } from './../../services/authentication.service';
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router' ;
 import { first } from 'rxjs/operators' ;
 import { HttpErrorResponse } from '@angular/common/http';
 import { FormBuilder, Validators } from '@angular/forms';
-import { JwtHelperService } from '@auth0/angular-jwt';
+
 import { SharedServiceService } from '../../services/shared-service.service';
 import { EventHandlerVars } from '@angular/compiler/src/compiler_util/expression_converter';
 // import { EventEmitter } from 'protractor';

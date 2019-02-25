@@ -1,9 +1,9 @@
 package com.stackroute.quizify.searchservice.controller;
 
+import com.stackroute.quizify.searchservice.domain.Genre;
 import com.stackroute.quizify.searchservice.exception.GenreAlreadyExistsException;
 import com.stackroute.quizify.searchservice.exception.GenreDoesNotExistsException;
 import com.stackroute.quizify.searchservice.service.GenreService;
-import com.stackroute.quizify.searchservice.domain.Genre;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,7 +39,7 @@ public class GenreController {
 //    }
 
     @ApiOperation(value = "Save Genre")
-    @PostMapping
+    @PostMapping("/search-genre")
     public ResponseEntity<?> saveGenre(@RequestBody Genre genre){
         try
         {
@@ -47,14 +47,14 @@ public class GenreController {
         }
         catch (GenreAlreadyExistsException e)
         {
-            return new ResponseEntity<String >(e.getMessage(), HttpStatus.NOT_FOUND);
+            return new ResponseEntity<String>(e.getMessage(), HttpStatus.NOT_FOUND);
         }
 
     }
 
     @ApiOperation(value = "Search Genre By Starts With")
-    @GetMapping("/search/{genreName}")
-    public ResponseEntity<?>searchGenreByStartsWith(@PathVariable String genreName){
+    @GetMapping("/search-genre/{genreName}")
+    public ResponseEntity<?>searchGenreByStartsWith(@PathVariable("genreName") String genreName){
         try {
             return new ResponseEntity<List<Genre>>(genreService.getAllGenreByStartsWith(genreName), HttpStatus.OK);
         }

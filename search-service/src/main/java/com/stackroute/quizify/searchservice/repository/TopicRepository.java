@@ -23,7 +23,7 @@ import java.util.List;
  */
 
 @Repository
-public interface TopicRepository extends MongoRepository<Topic,String> {
+public interface TopicRepository extends MongoRepository<Topic,Long> {
 //    List<Topic> searchByTopicName(String topicName);
 
     @Query("{ topicName: { $regex: '?0', $options: 'i'} }")

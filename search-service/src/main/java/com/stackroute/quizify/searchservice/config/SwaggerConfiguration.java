@@ -19,7 +19,7 @@ public class SwaggerConfiguration implements WebMvcConfigurer {
 
         return new Docket(DocumentationType.SWAGGER_2)
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("com.stackroute.searchservice.controller"))
+                .apis(RequestHandlerSelectors.basePackage("com.stackroute.quizify.searchservice.controller"))
                 .paths(PathSelectors.any())
                 .build();
     }

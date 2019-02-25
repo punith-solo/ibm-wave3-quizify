@@ -4,6 +4,7 @@ import lombok.Data;
 import org.springframework.data.annotation.Id;
 
 import java.sql.Timestamp;
+import java.util.List;
 
 /*
  * This "Game" class is used to get game names from our message bus(Kafka).
@@ -21,7 +22,7 @@ import java.sql.Timestamp;
 public class Game {
 
     @Id
-    private Long gameId;
+    private long gameId;
     private String gameName;
     private int gamesPlayed;
     private String level;
@@ -29,5 +30,6 @@ public class Game {
     private String description;
     private Timestamp duration;
     private int likes;
-    private int noOfQuestions;
+    private int numOfQuestion;
+
 }

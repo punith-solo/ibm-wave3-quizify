@@ -20,7 +20,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { GamedetailsService } from './services/gamedetails.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { SingleplayerComponent } from './components/singleplayer/singleplayer.component';
-import { CookieService } from 'ngx-cookie-service';
+
 import { GamedetailsComponent } from './components/gamedetails/gamedetails.component';
 
 @NgModule({
@@ -63,8 +63,6 @@ import { GamedetailsComponent } from './components/gamedetails/gamedetails.compo
     GameComponent,
     QuestionGeneratorComponent,
     GamedetailsComponent
-   ],
-  
-
+   ]
 })
 export class QuizifyModule { }
