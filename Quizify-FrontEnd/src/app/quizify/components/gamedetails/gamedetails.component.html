@@ -1,16 +1,20 @@
  <div class="container">
    <div *ngFor="let q of quiz">
+      
   <mat-card class="example-card">
     <!-- <img mat-card-image src="../assets/images/33.jpg" alt="Photo " />
     <div class="overlay">
       <div class="text"> -->
+          <b class="mid"><u>{{ q.gameName }}</u></b>
         <ul >
 
-          <b><u><li>{{ q.gameName }}</li></u></b>
-          <li>{{ q.gamesPlayed }}</li>
-          <li>{{ q.level }}</li>
-
-        </ol>
+          <!-- <li>{{ q.gamesPlayed }}</li> -->
+          <li>Game Level is  {{ q.level }}</li>
+          <li>Rules: {{ q.description }}</li>
+          <!-- <li>{{ q.likes }}</p></li> -->
+          <li>Total no.of. questions: {{ q.noOfQuestion }}</li>
+        </ul>
+        <button class="btn">Start Quiz</button> 
       <!-- </div>
     </div> -->
   </mat-card>
