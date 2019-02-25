@@ -2,22 +2,35 @@
     "game": [
       {
         "gameId": 1,
-        "gameName": "BREAKING BAD",
+        "gameName": "Breaking Bad",
         "gamesPlayed": 2,
         "level": "Easy",
         "imageUrl": "json-server",
-        "description": null,
+        "description": [ "Only one pass is allowed for a question. Answering time per question is only 30 seconds."
+                        ],
         "likes": 20,
         "noOfQuestion": 10
       },
       {
         "gameId": 2,
         "gameName": "Mr. Bean",
-        "gamesPlayed": 2,
+        "gamesPlayed": 4,
         "level": "Medium",
         "imageUrl": "json-server",
-        "description": null,
-        "likes": 20,
+        "description": ["Only one pass is allowed for a question. Answering time per question is only 30 seconds."
+         ],
+        "likes": 15,
+        "noOfQuestion": 10
+      },
+      {
+        "gameId": 3,
+        "gameName": "Mission",
+        "gamesPlayed": 1,
+        "level": "Hard",
+        "imageUrl": "json-server",
+        "description": ["Only one pass is allowed for a question. Answering time per question is only 30 seconds."
+         ],
+        "likes": 5,
         "noOfQuestion": 10
       }
     ]
