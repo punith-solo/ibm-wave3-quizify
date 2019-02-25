@@ -20,8 +20,8 @@ img {
    height:250px;
   
    padding-right: 100px;
-   padding-top: 60px;
-   padding-left: 100px;
+   padding-top: 50px;
+   padding-left: 90px;
 
 }
 // .sub-image{
@@ -81,12 +81,13 @@ img {
 
 .example-card {
   top: 150px;
-  max-width: 400px;
-  height: 400px;
+  width: 400px;
+  height: 425px;
   left: 30px;
   right: 30px;
-  box-shadow: 3px 3px silver, -1em 0 .4em gainsboro;
+ box-shadow: 3px 3px 3px 3px black;
   border-color: black;
+  margin: 25px;
 }
 
 .example-header-image {
