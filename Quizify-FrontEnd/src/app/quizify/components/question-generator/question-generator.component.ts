@@ -1,10 +1,10 @@
+import { Category } from './../../tsclasses/category';
 import { Component, OnInit } from '@angular/core';
-import { Admin } from '../../tsclasses/admin';
-import { Category } from '../../tsclasses/category';
-import { Topic } from '../../tsclasses/topic';
-import { Question } from '../../tsclasses/question';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { QuestionService } from '../../services/question.service';
+import { Admin } from '../../tsclasses/admin';
+import { Topic } from '../../tsclasses/topic';
+import { Question } from '../../tsclasses/question';
 
 export interface Type {
   value: string;
