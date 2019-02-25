@@ -1,5 +1,5 @@
 package com.stackroute.quizify.controller;
-import com.stackroute.exceptions.*;
+import com.stackroute.quizify.exceptions.*;
 import com.stackroute.quizify.domain.User;
 import com.stackroute.quizify.exceptions.PasswordNotMatchException;
 import com.stackroute.quizify.exceptions.UserNameNotFoundException;
