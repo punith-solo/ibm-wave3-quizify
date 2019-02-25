@@ -1,4 +1,3 @@
-import { JwtHelperService } from '@auth0/angular-jwt';
 
 import { QuizifyModule } from './quizify/quizify.module';
 import { BrowserModule } from '@angular/platform-browser';
@@ -27,9 +26,7 @@ import { GameserviceService } from './quizify/services/gameservice.service';
     MatCardModule,
     MatSelectModule,
     BrowserAnimationsModule,
-    HttpClientModule,
-    QuizifyMaterialModule,
-    JwtHelperService
+    HttpClientModule
   ],
   providers: [QuestionService,
   GameserviceService] ,

@@ -4,9 +4,9 @@
         "gameId": 1,
         "gameName": "BREAKING BAD",
         "gamesPlayed": 2,
-        "level": "Easy",
+        "level": "easy",
         "imageUrl": "json-server",
-        "description": null,
+        "description": "string",
         "likes": 20,
         "noOfQuestion": 10
       },
@@ -14,9 +14,9 @@
         "gameId": 2,
         "gameName": "Mr. Bean",
         "gamesPlayed": 2,
-        "level": "Medium",
+        "level": "medium",
         "imageUrl": "json-server",
-        "description": null,
+        "description": "string",
         "likes": 20,
         "noOfQuestion": 10
       }
