@@ -179,3 +179,19 @@ services:
       - 8108:8108
     expose:
       - 8108
+
+  search-service:
+    image: search-service
+    build: search-service/
+    restart: always
+    network_mode: host
+    depends_on:
+      - kafka
+      - mongo
+      - eurekaserver
+      - configserver
+      - apigateway
+    ports:
+      - 8106:8106
+    expose:
+      - 8106

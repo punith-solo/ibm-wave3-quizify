@@ -22,6 +22,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { CookieService } from 'ngx-cookie-service';
 import { GamedetailsComponent } from './components/gamedetails/gamedetails.component';
+import { SearchService } from './services/search.service';
 
 @NgModule({
   declarations: [ CardsComponent,
