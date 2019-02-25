@@ -4,8 +4,9 @@ import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { RegisterService } from '../../services/register.service';
 import { HttpClient } from '@angular/common/http';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { Level } from '../game/game.component';
+// import { Level } from '../game/game.component';
 import { Register } from '../../tsclasses/register';
+import { Level } from '../question-generator/question-generator.component';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',

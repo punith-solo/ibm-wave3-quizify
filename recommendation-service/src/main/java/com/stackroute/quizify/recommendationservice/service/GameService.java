@@ -1,6 +1,6 @@
 package com.stackroute.quizify.recommendationservice.service;
 
-import com.stackroute.quizify.recommendationservice.domain.Game;
+import com.stackroute.quizify.kafka.domain.Game;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

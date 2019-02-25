@@ -45,14 +45,17 @@ import java.util.List;
 @Data
 public class Question {
     @Id
-    private String id;
+    private long id;
     private Category category;
     private Topic topic;
+    private String tag;
+    private String genre;
     private String level;
     private String type;
     private String statement;
     private List<String> options;
     private String answer;
-    private long timeStamp;
+    private String playerAnswer;
+    private String timeStamp;
     private Admin admin;
 }

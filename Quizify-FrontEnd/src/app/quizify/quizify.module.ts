@@ -18,7 +18,9 @@ import { GameComponent } from './components/game/game.component';
 import { QuestionGeneratorComponent } from './components/question-generator/question-generator.component';
 import { HeaderComponent } from './components/header/header.component';
 import { GamedetailsService } from './services/gamedetails.service';
-import { BrowserModule } from '@angular/platform-browser'; import { CookieService } from 'ngx-cookie-service';
+import { BrowserModule } from '@angular/platform-browser';
+import { SingleplayerComponent } from './components/singleplayer/singleplayer.component';
+
 import { GamedetailsComponent } from './components/gamedetails/gamedetails.component';
 
 @NgModule({
@@ -32,9 +34,11 @@ import { GamedetailsComponent } from './components/gamedetails/gamedetails.compo
     GameComponent,
     QuestionGeneratorComponent,
     HeaderComponent,
-    GamedetailsComponent
+    GamedetailsComponent,
+    SingleplayerComponent
      ],
-     providers: [ CardService, CookieService, GamedetailsService],
+     providers: [ CardService,
+      GamedetailsService],
 
   imports: [
     CommonModule,
@@ -59,7 +63,6 @@ import { GamedetailsComponent } from './components/gamedetails/gamedetails.compo
     GameComponent,
     QuestionGeneratorComponent,
     GamedetailsComponent
-   ],
-
+   ]
 })
 export class QuizifyModule { }

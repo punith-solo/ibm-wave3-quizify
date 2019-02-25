@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { logging } from 'protractor';
+import { Component, OnInit } from '@angular/core';
+// import { SharedServiceService } from "./quizify/services/shared-service.service";
 
 @Component({
   selector: 'app-root',

@@ -27,7 +27,7 @@ public class User {
     @Property
     private List<String> interests;
     private List<String> topics;
-    
+
     @Property
     private String gender;;
 }
