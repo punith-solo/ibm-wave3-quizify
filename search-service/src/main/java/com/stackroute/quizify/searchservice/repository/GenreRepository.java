@@ -1,11 +1,12 @@
 package com.stackroute.quizify.searchservice.repository;
 
-import com.stackroute.quizify.searchservice.domain.Genre;
+import com.stackroute.quizify.searchservice.domain.Genres;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.mongodb.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 
 /*
@@ -23,10 +24,16 @@ import java.util.List;
  */
 
 @Repository
-public interface GenreRepository extends MongoRepository<Genre,Long> {
+public interface GenreRepository extends MongoRepository<Genres,Long> {
 
 //    List<Genre> searchByGenreName(String genreName);
 
-    @Query("{ genreName: { $regex: '?0', $options: 'i'} }")
-    List<Genre> searchByGenreAlphabet(String genreName);
+    @Query("{ name: { $regex: '?0', $options: 'i'} }")
+    List<Genres> searchByGenreAlphabet(String genreName);
+
+    boolean existsByName(String genreName);
+
+    Genres findByName(String genreName);
+
+    Optional<Genres> findTopByOrderByIdDesc();
 }

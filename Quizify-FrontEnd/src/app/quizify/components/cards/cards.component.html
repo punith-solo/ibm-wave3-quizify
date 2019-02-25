@@ -1,5 +1,5 @@
-<app-header></app-header>
 
+<!-- <app-header></app-header>
 <div class="container">
 <div *ngFor="let q of quiz">
   <mat-card class="example-card">
@@ -19,5 +19,27 @@
         favorite play_arrow settings
       </i>
     </mat-card-actions>
+</div>
+</div> -->
+
+<!-- <app-header></app-header> -->
+<div class="container">
+<div *ngFor="let q of quiz">
+<mat-card class="example-card">
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title>{{ q.Description }}</mat-card-title>
+      <mat-card-subtitle>{{ q.Name }}</mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image src="{{ q.image_Url }}" alt="Game image">
+    <mat-card-content>
+          <mat-card-actions>
+              <button mat-button>LIKE</button>
+              <button mat-button>PLAY</button>
+              <button mat-button>DETAILS</button>
+            </mat-card-actions>
+      
+    </mat-card-content>
+    </mat-card>
 </div>
 </div>

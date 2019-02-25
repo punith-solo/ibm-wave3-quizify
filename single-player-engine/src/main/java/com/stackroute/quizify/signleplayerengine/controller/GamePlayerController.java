@@ -33,7 +33,7 @@ public class GamePlayerController {
 
     @ApiOperation(value = "Get User Game")
     @GetMapping(value = "/{userId}/{gameId}")
-    public ResponseEntity<?> getGame(@PathVariable String gameId)
+    public ResponseEntity<?> getGame(@PathVariable String userId, @PathVariable String gameId)
     {
             SinglePlayer singlePlayer = playerService.getUserGame(gameId);
             String url = "http://13.232.243.68:8102/api/v1/games/game/" +

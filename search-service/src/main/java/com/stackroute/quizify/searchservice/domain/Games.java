@@ -2,12 +2,12 @@ package com.stackroute.quizify.searchservice.domain;
 
 import lombok.Data;
 import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.sql.Timestamp;
 import java.util.List;
 
 /*
- * This "Topic" class is used to create documents which will store topic names when searched.
+ * This "Game" class is used to get game names from our message bus(Kafka).
  *
  * The Annotation "@Data" is used as a convenient shortcut annotation that bundles the features
  * of @ToString, @EqualsAndHashCode, @Getter / @Setter and @RequiredArgsConstructor together:
@@ -19,12 +19,16 @@ import java.util.List;
  */
 
 @Data
-@Document(collection="topic")
-public class Topic {
+public class Games {
     @Id
-    private long topicId;
-    private String topicName;
+    private long gameId;
+    private String gameName;
+    private int gamesPlayed;
+    private String level;
     private String imageUrl;
-    private List<Game> game;
+    private String description;
+    private long duration;
+    private int likes;
+    private int numOfQuestion;
 
 }

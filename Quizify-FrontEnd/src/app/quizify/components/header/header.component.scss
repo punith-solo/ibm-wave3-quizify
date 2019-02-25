@@ -11,25 +11,72 @@ header h1{
 header{
   z-index: 1;
   width: 100%;
-  background-color:black;
+  background-color:white;
   position: fixed;
   height: 80px;
   top:0%;
   left: 0%;
   bottom: 200px;
 }
-.button
+.wrap
 {
   float: right;
   position: relative;
   top: 30px;
   padding-right: 40px;
   right: 20px;
+  color: gainsboro;
 }
+
+mat-form-field {
+  float: right;
+  width: 300px;
+  font-size: 15px;
+  padding: 0px;
+  padding-right: 300px;
+  padding-top: 8px;
+  color: black;
+  size: 12px;
+  top : 50px;
+}
+
+input {
+  color:black;
+  position: absolute;
+  height: 30px;
+  width: 100%;
+  font-size: 15px;
+  bottom: 100px;
+  //background-color: grey;
+}
+.box {
+  padding-top: 0%;
+  background-color: rgb(121, 94, 94);
+  border-radius: 8px;
+}
+mat-icon {
+  position: absolute;
+  color: gray;
+  float: left;
+  top: -115px;
+  padding-left: 250px;
+}
+
 .img
 {
-  top: 0px;
+  
+  float: left;
   position: relative;
-  height: 60px;
-  width: 60px;
+  top: 10px;
+ // padding-right: 40px;
+  right: 20px;
+}
+.wrap {
+  top: 10px;
+  color: gray;
+  background-color: white;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
 }
