@@ -30,9 +30,9 @@ import java.util.List;
 @Data
 public class Topic {
     @Id
+    private long id;
     private String name;
     private String imageUrl;
-    private long timeStamp;
-    private List<Topic> subTopics;
+    private String timeStamp;
     private Admin admin;
 }

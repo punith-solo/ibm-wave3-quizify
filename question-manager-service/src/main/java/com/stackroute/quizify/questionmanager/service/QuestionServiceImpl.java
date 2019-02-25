@@ -1,11 +1,17 @@
 package com.stackroute.quizify.questionmanager.service;
 
+import com.stackroute.quizify.questionmanager.config.KafkaProducerConfig;
 import com.stackroute.quizify.questionmanager.domain.Question;
 import com.stackroute.quizify.questionmanager.exception.NoQuestionFoundException;
 import com.stackroute.quizify.questionmanager.exception.QuestionAlreadyExistsException;
 import com.stackroute.quizify.questionmanager.exception.QuestionDoesNotExistException;
-import com.stackroute.quizify.questionmanager.producer.QuestionProducer;
+import com.stackroute.quizify.questionmanager.kafka.Producer;
 import com.stackroute.quizify.questionmanager.repository.QuestionRepository;
+import org.apache.kafka.clients.producer.KafkaProducer;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.kafka.annotation.KafkaListener;
+import org.springframework.kafka.core.KafkaTemplate;
+import org.springframework.messaging.handler.annotation.Payload;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -21,14 +27,14 @@ import java.util.List;
 @Service
 public class QuestionServiceImpl implements QuestionService {
 
-    /*Kafka Settings  */
-    private String bootstrapServer = "localhost:9092";
-    private String topicName = "question";
-
     private QuestionRepository questionRepository;
+    private Producer producer;
 
-    public QuestionServiceImpl(QuestionRepository questionRepository) {
+    @Autowired
+    public QuestionServiceImpl(QuestionRepository questionRepository, Producer producer)
+    {
         this.questionRepository = questionRepository;
+        this.producer = producer;
     }
 
 
@@ -40,8 +46,16 @@ public class QuestionServiceImpl implements QuestionService {
     public Question addNewQuestion(Question question) throws QuestionAlreadyExistsException {
         if (this.questionRepository.existsById(question.getId()))
             throw new QuestionAlreadyExistsException("Question Already Exists!");
-        else
-            return QuestionProducer.produce(this.questionRepository.save(question), this.bootstrapServer, this.topicName);
+        else {
+            if(this.questionRepository.findTopByOrderByIdDesc().isEmpty())
+                question.setId(1);
+            else
+                question.setId(this.questionRepository.findTopByOrderByIdDesc().get().getId()+1);
+            return producer.send(this.questionRepository.save(question));
+//            return this.questionRepository.save(question);
+        }
+
+
     }
 
     /*
@@ -50,8 +64,10 @@ public class QuestionServiceImpl implements QuestionService {
     */
     @Override
     public Question updateQuestion(Question question) throws QuestionDoesNotExistException {
-        if (this.questionRepository.existsById(question.getId()))
-            return QuestionProducer.produce(this.questionRepository.save(question), this.bootstrapServer, this.topicName);
+        if (this.questionRepository.existsById(question.getId())) {
+            return producer.send(this.questionRepository.save(question));
+//            return this.questionRepository.save(question);
+        }
         else
             throw new QuestionDoesNotExistException("Question Does Not Exist!");
 
@@ -66,25 +82,20 @@ public class QuestionServiceImpl implements QuestionService {
     public Question removeQuestion(Question question) throws QuestionDoesNotExistException {
         if (this.questionRepository.existsById(question.getId())) {
             this.questionRepository.delete(question);
-            return QuestionProducer.produce(question, this.bootstrapServer, this.topicName);
+            return question;
         }
         else
             throw new QuestionDoesNotExistException("Question Does Not Exist!");
     }
 
-    /*
-     * The Method "getQuestion" fetches specific number of Questions matching a given categoryName, a given topicName
-     * and a given level.
-     * If no Question found then it throws the exception "NoQuestionFoundException".
-     */
     @Override
-    public List<Question> getQuestion(String categoryName, String topicName, String level, int numOfQuestions) throws NoQuestionFoundException {
-        List<Question> questionList = this.questionRepository.getQuestions(categoryName, topicName, level);
+    public List<Question> getQuestionsByTagByLevel(String tag, String level, int numberOfQuestions) throws NoQuestionFoundException {
+        List<Question> questionList = this.questionRepository.getQuestionsByTagByLevel(tag, level);
         if (questionList.isEmpty())
             throw new NoQuestionFoundException("No Question Found!");
         else {
             List<Question> resultList = new ArrayList<>();
-            List<Integer> randomList = randomNumbers(questionList.toArray().length, numOfQuestions);
+            List<Integer> randomList = randomNumbers(questionList.toArray().length, numberOfQuestions);
 
             for (int i: randomList)
                 resultList.add(questionList.get(i));
@@ -93,13 +104,109 @@ public class QuestionServiceImpl implements QuestionService {
         }
     }
 
-    /*
-     * The Method "getAllQuestions" fetches all of the Questions matching a given categoryName and a given topicName.
-     * If no Question found then it throws the exception "NoQuestionFoundException".
-     */
     @Override
-    public List<Question> getAllQuestions(String categoryName, String topicName) throws NoQuestionFoundException {
-        List<Question> questionList = this.questionRepository.getAllQuestions(categoryName, topicName);
+    public List<Question> getQuestionsByTag(String tag, int numberOfQuestions) throws NoQuestionFoundException {
+        List<Question> questionList = this.questionRepository.getQuestionsByTag(tag);
+        if (questionList.isEmpty())
+            throw new NoQuestionFoundException("No Question Found!");
+        else {
+            List<Question> resultList = new ArrayList<>();
+            List<Integer> randomList = randomNumbers(questionList.toArray().length, numberOfQuestions);
+
+            for (int i: randomList)
+                resultList.add(questionList.get(i));
+
+            return resultList;
+        }
+    }
+
+    @Override
+    public List<Question> getAllQuestionsByTag(String tag) throws NoQuestionFoundException {
+        List<Question> questionList = this.questionRepository.getQuestionsByTag(tag);
+        if (questionList.isEmpty())
+            throw new NoQuestionFoundException("No Question Found!");
+        else {
+            return questionList;
+        }
+    }
+
+    @Override
+    public List<Question> getQuestionsByTopicByLevel(String topicName, String level, int numberOfQuestions) throws NoQuestionFoundException {
+        List<Question> questionList = this.questionRepository.getQuestionsByTopicByLevel(topicName, level);
+        if (questionList.isEmpty())
+            throw new NoQuestionFoundException("No Question Found!");
+        else {
+            List<Question> resultList = new ArrayList<>();
+            List<Integer> randomList = randomNumbers(questionList.toArray().length, numberOfQuestions);
+
+            for (int i: randomList)
+                resultList.add(questionList.get(i));
+
+            return resultList;
+        }
+    }
+
+    @Override
+    public List<Question> getQuestionsByTopic(String topicName, int numberOfQuestions) throws NoQuestionFoundException {
+        List<Question> questionList = this.questionRepository.getQuestionsByTopic(topicName);
+        if (questionList.isEmpty())
+            throw new NoQuestionFoundException("No Question Found!");
+        else {
+            List<Question> resultList = new ArrayList<>();
+            List<Integer> randomList = randomNumbers(questionList.toArray().length, numberOfQuestions);
+
+            for (int i: randomList)
+                resultList.add(questionList.get(i));
+
+            return resultList;
+        }
+    }
+
+    @Override
+    public List<Question> getAllQuestionsByTopic(String topicName) throws NoQuestionFoundException {
+        List<Question> questionList = this.questionRepository.getQuestionsByTopic(topicName);
+        if (questionList.isEmpty())
+            throw new NoQuestionFoundException("No Question Found!");
+        else {
+            return questionList;
+        }
+    }
+
+    @Override
+    public List<Question> getQuestionsByGenreByLevel(String genre, String level, int numberOfQuestions) throws NoQuestionFoundException {
+        List<Question> questionList = this.questionRepository.getQuestionsByGenreByLevel(genre, level);
+        if (questionList.isEmpty())
+            throw new NoQuestionFoundException("No Question Found!");
+        else {
+            List<Question> resultList = new ArrayList<>();
+            List<Integer> randomList = randomNumbers(questionList.toArray().length, numberOfQuestions);
+
+            for (int i: randomList)
+                resultList.add(questionList.get(i));
+
+            return resultList;
+        }
+    }
+
+    @Override
+    public List<Question> getQuestionsByGenre(String genre, int numberOfQuestions) throws NoQuestionFoundException {
+        List<Question> questionList = this.questionRepository.getQuestionsByGenre(genre);
+        if (questionList.isEmpty())
+            throw new NoQuestionFoundException("No Question Found!");
+        else {
+            List<Question> resultList = new ArrayList<>();
+            List<Integer> randomList = randomNumbers(questionList.toArray().length, numberOfQuestions);
+
+            for (int i: randomList)
+                resultList.add(questionList.get(i));
+
+            return resultList;
+        }
+    }
+
+    @Override
+    public List<Question> getAllQuestionsByGenre(String genre) throws NoQuestionFoundException {
+        List<Question> questionList = this.questionRepository.getQuestionsByGenre(genre);
         if (questionList.isEmpty())
             throw new NoQuestionFoundException("No Question Found!");
         else {
@@ -120,5 +227,6 @@ public class QuestionServiceImpl implements QuestionService {
             result.add(numbers.get(i));
         return result;
     }
+
 
 }

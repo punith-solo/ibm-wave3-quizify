@@ -35,7 +35,19 @@ public interface QuestionService {
     Question updateQuestion(Question question) throws QuestionDoesNotExistException;
     Question removeQuestion(Question question) throws QuestionDoesNotExistException;
 
+    List<Question> getQuestionsByTagByLevel(String tag, String level, int numberOfQuestions)throws NoQuestionFoundException;
+    List<Question> getQuestionsByTag(String tag, int numberOfQuestions)throws NoQuestionFoundException;
+    List<Question> getAllQuestionsByTag(String tag)throws NoQuestionFoundException;
 
-    List<Question> getQuestion(String categoryName, String topicName, String level, int numOfQuestions) throws NoQuestionFoundException;
-    List<Question> getAllQuestions(String categoryName, String topicName) throws NoQuestionFoundException;
+    List<Question> getQuestionsByTopicByLevel(String topicName, String level, int numberOfQuestions)throws NoQuestionFoundException;
+    List<Question> getQuestionsByTopic(String topicName, int numberOfQuestions)throws NoQuestionFoundException;
+    List<Question> getAllQuestionsByTopic(String topicName)throws NoQuestionFoundException;
+
+    List<Question> getQuestionsByGenreByLevel(String genre, String level, int numberOfQuestions)throws NoQuestionFoundException;
+    List<Question> getQuestionsByGenre(String genre, int numberOfQuestions)throws NoQuestionFoundException;
+    List<Question> getAllQuestionsByGenre(String genre)throws NoQuestionFoundException;
+
+
+//    List<Question> getQuestionsByCategoryByLevel(String categoryName, String level)throws NoQuestionFoundException;
+//    List<Question> getQuestionsByCategory(String categoryName)throws NoQuestionFoundException;
 }

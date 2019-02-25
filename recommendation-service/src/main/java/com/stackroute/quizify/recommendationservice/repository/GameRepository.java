@@ -1,6 +1,6 @@
 package com.stackroute.quizify.recommendationservice.repository;
 
-import com.stackroute.quizify.recommendationservice.domain.Game;
+import com.stackroute.quizify.kafka.domain.Game;
 import org.springframework.data.neo4j.annotation.Query;
 import org.springframework.data.neo4j.repository.Neo4jRepository;
 import org.springframework.data.repository.query.Param;
