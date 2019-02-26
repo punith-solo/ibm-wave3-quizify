@@ -1,5 +1,4 @@
-// import { RegisterService } from './../../services/register.service';
-
+// import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { RegisterService } from '../../services/register.service';
 import { HttpClient } from '@angular/common/http';
@@ -12,6 +11,7 @@ import { Register } from '../../tsclasses/register';
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent implements OnInit {
+
   formGroup2: FormGroup;
   // tslint:disable-next-line:no-inferrable-types
   isOptional: boolean = false;
@@ -19,17 +19,26 @@ export class RegisterComponent implements OnInit {
   formGroup3: FormGroup;
   userForm: any;
   value1: String;
+  disabled = false;
+  ShowFilter = false;
+  limitSelection = false;
+  generes: any = [];
+  selectedItems: any = [];
+  dropdownSettings: any = {};
+
+
   @Input()
   register: Register;
   private userName: string;
   private password: string;
-  private confirmpassword: string;
-  private emailid: string;
+  private confirmPassword: string;
+  private emailId: string;
   private interests: string;
   private gender: string;
   private levels: Level[];
 
   @ViewChild('myStep') myStep;
+  myForm: FormGroup;
 
   // tslint:disable-next-line:max-line-length
   constructor(private _formBuilder: FormBuilder, private regserv: RegisterService,  private http: HttpClient) {
@@ -38,21 +47,21 @@ export class RegisterComponent implements OnInit {
       {value: 'tvshows', viewValue: 'TvShows'},
     ];
  }
-//  submit(event: any) {
-//   this.register = new Register();
-//   this.register.userName = this.userName;
-//   this.register.password = this.password;
-//   this.register.interests = this.interests;
-//   this.register.gender = this.gender;
-//   this.register.emailid = this.emailid;
-//   this.register.confirmpassword = this.confirmpassword;
-//   console.log(this.register);
-//   this.value1 = event.target.value;
-//   this.regserv.addUser(this.register).subscribe(data => {
-//     console.log('user data', data);
-//   });
+ submit(event: any) {
+  this.register = new Register();
+  this.register.userName = this.userName;
+  this.register.password = this.password;
+  this.register.interests = this.interests;
+  this.register.gender = this.gender;
+  this.register.emailId = this.emailId;
+  this.register.confirmPassword = this.confirmPassword;
+   console.log(this.register);
+  this.value1 = event.target.value;
+  this.regserv.addUser(this.register).subscribe((data: any) => {
+   console.log('user data', data);
+  });
 
-// }
+}
   ngOnInit() {
     this.formGroup1 = this._formBuilder.group({
       firstCtrl: ['', Validators.required]
@@ -64,5 +73,13 @@ export class RegisterComponent implements OnInit {
       thirdCtrl: ['', Validators.required]
     });
   }
+}
+  //   addUser(searchText: string) {
+  //      console.log('hi');
+  //    this.http.get('https://localhost:8899/api/v1/user').subscribe(resp => {
+  //        console.log(resp);
+  //    this.response = resp;
+  //        });
+  //    return this.response;
+  //    }
 
-  }

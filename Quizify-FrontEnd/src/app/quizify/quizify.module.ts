@@ -19,11 +19,9 @@ import { QuestionGeneratorComponent } from './components/question-generator/ques
 import { HeaderComponent } from './components/header/header.component';
 import { GamedetailsService } from './services/gamedetails.service';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { CookieService } from 'ngx-cookie-service';
 import { GamedetailsComponent } from './components/gamedetails/gamedetails.component';
-import { SearchService } from './services/search.service';
-
+// import {NgMultiSelectDropDownModule} from 'ng-multiselect-dropdown';
 @NgModule({
   declarations: [ CardsComponent,
     ProfileComponent,
@@ -35,7 +33,6 @@ import { SearchService } from './services/search.service';
     GameComponent,
     QuestionGeneratorComponent,
     HeaderComponent,
-    // SingleplayerComponent,
     GamedetailsComponent
      ],
      providers: [ CardService, CookieService, GamedetailsService],
@@ -52,6 +49,7 @@ import { SearchService } from './services/search.service';
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule
+   // NgMultiSelectDropDownModule.forRoot()
   ],
   exports: [ CardsComponent,
     ProfileComponent,

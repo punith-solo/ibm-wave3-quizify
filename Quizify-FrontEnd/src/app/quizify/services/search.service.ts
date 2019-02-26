@@ -17,23 +17,26 @@ export class SearchService {
     this.microServiceUrl = 'http://0.0.0.0:8106/search-service/api/v1/';
    }
 
-   saveGenre(genre: string) {
-     return this.http.post(this.microServiceUrl + 'search-genre', { observe: 'response' })
-     .pipe(catchError(this.handleError));
-   }
+  //  saveGenre(genre: string) {
+  //    return this.http.post(this.microServiceUrl + 'search-genre', { observe: 'response' })
+  //    .pipe(catchError(this.handleError));
+  //  }
 
    searchByGenreStartsWith(genreName: string) {
+
+    console.log(this.microServiceUrl + 'search-genre/' + genreName);
      return this.http.get(this.microServiceUrl + 'search-genre/' + genreName, { observe: 'response' })
      .pipe(catchError(this.handleError));
    }
 
-   saveTopic(genre: string) {
-    return this.http.post(this.microServiceUrl + 'search-topic', { observe: 'response' })
-    .pipe(catchError(this.handleError));
-  }
+  //  saveTopic(genre: string) {
+  //   return this.http.post(this.microServiceUrl + 'search-topic', { observe: 'response' })
+  //   .pipe(catchError(this.handleError));
+  // }
 
   searchByTopicStartsWith(topicName: string) {
-    return this.http.get(this.microServiceUrl + 'search-genre/' + topicName, { observe: 'response' })
+    console.log(this.microServiceUrl + 'search-genre/' + topicName);
+    return this.http.get(this.microServiceUrl + 'search-topic/' + topicName, { observe: 'response' })
     .pipe(catchError(this.handleError));
   }
 

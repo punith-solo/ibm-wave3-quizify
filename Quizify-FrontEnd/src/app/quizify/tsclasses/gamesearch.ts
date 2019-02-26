@@ -1,6 +1,6 @@
 export class Gamesearch {
     gameId: string;
-    gamename: string;
+    gameName: string;
     gamesPlayed: number;
     level: string;
     imageUrl: string;

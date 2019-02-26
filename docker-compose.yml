@@ -86,13 +86,14 @@ services:
     expose:
       - 8888
 
-
   user-login:
     image: user-service
-    build: user-authentication/
+    build: user-authentication-service/
     restart: always
     network_mode: host
     depends_on:
+      - zookeeper
+      - kafka
       - mysql
       - eurekaserver
       - configserver
