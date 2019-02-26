@@ -7,6 +7,8 @@ import { Type } from '@angular/compiler';
 import { Level } from '../question-generator/question-generator.component';
 import { Game } from '../../tsclasses/game';
 import { User } from '../../tsclasses/user';
+import { MatSnackBar } from '@angular/material/snack-bar';
+
 
 @Component({
   selector: 'app-singleplayer',
