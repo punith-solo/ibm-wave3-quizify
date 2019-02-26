@@ -13,6 +13,7 @@ import { QuizifyMaterialModule } from './quizify/quizify.material.module';
 import { FormsModule } from '@angular/forms';
 import { QuestionService } from './quizify/services/question.service';
 import { GameserviceService } from './quizify/services/gameservice.service';
+import { RouterModule } from '@angular/router';
 
 
 @NgModule({
@@ -26,6 +27,7 @@ import { GameserviceService } from './quizify/services/gameservice.service';
     MatCardModule,
     MatSelectModule,
     BrowserAnimationsModule,
+    RouterModule,
     HttpClientModule
   ],
   providers: [QuestionService,

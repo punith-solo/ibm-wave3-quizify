@@ -3,8 +3,8 @@
     <div class="wrap">
         <mat-card-actions>
             <!-- <button mat-raised-button (click)="Login()">Login</button> -->
-            <button mat-raised-button (click)="Signup()">SignIn</button>
-            <button mat-raised-button (click)="Signup()">Register</button>
+            <button mat-raised-button [routerLink]="['/register']" routerLinkActive="router-link-active" >SignUp</button>
+            <!-- <button mat-raised-button (click)="Signup()">Register</button> -->
         </mat-card-actions>
     </div>
     <h1>Quizify</h1>
