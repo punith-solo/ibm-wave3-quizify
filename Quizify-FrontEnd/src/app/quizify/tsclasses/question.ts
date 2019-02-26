@@ -7,6 +7,7 @@ export class Question {
 
      id: string;
      category: Category;
+     genre: string;
      topic: Topic;
      level: string;
      type: string;

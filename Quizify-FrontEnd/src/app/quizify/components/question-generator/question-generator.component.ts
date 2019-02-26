@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Admin } from '../../classes/admin';
-import { Category } from '../../classes/category';
-import { Topic } from '../../classes/topic';
-import { Question } from '../../classes/question';
+import { Admin } from '../../tsclasses/admin';
+import { Category } from '../../tsclasses/category';
+import { Topic } from '../../tsclasses/topic';
+import { Question } from '../../tsclasses/question';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { QuestionService } from '../../services/question.service';
 
@@ -27,7 +27,7 @@ export class QuestionGeneratorComponent implements OnInit {
   private topic1: Topic;
   private topic2: Topic;
   private currentTopic: Topic;
-
+  private questionGenre: string;
   private question: Question;
   private questions: Question[];
 
@@ -56,7 +56,6 @@ export class QuestionGeneratorComponent implements OnInit {
         this.admin = new Admin();
         this.admin.name = 'Dummy_Admin';
         this.admin.id = '123ABC';
-
         // Dummy Data For Category Class
         this.category = new Category();
         this.category.name = 'Entertainment';
@@ -111,6 +110,7 @@ export class QuestionGeneratorComponent implements OnInit {
       this.question.level = this.tfselectedLevel;
       this.question.type = this.selectedType;
       this.question.statement = this.tfStatement;
+      this.question.genre = this.questionGenre;
       this.question.options = new Array();
       this.question.options[0] = 'true';
       this.question.options[1] = 'false';
@@ -136,6 +136,7 @@ export class QuestionGeneratorComponent implements OnInit {
       this.question = new Question();
       this.question.id = '' + Date.now();
       this.question.category = this.category;
+      this.question.genre = this.questionGenre;
       this.question.topic = this.currentTopic;
       this.question.level = this.mcqSelectedLevel;
       this.question.type = this.selectedType;

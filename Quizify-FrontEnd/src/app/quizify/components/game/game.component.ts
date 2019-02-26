@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Admin } from '../../classes/admin';
-import { Category } from '../../classes/category';
+import { Admin } from '../../tsclasses/admin';
+import { Category } from '../../tsclasses/category';
 import { Topic } from '../../tsclasses/topic';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { GameserviceService } from '../../services/gameservice.service';
@@ -43,6 +43,7 @@ export class GameComponent implements OnInit {
     private questionNumber = '';
     private statusCode: number;
     private gameName: string;
+    private gameGenre: string;
 
 
   constructor(private gameService: GameserviceService, private snackBar: MatSnackBar) {
@@ -102,6 +103,7 @@ export class GameComponent implements OnInit {
       this.game.level = this.selectedLevel;
       this.game.numOfQuestion = Number(this.questionNumber);
       this.game.playcount = 0;
+      this.game.genre = this.gameGenre;
       this.game.admin = this.admin;
       console.log(this.game);
       this.addGame(this.game);
