@@ -1,6 +1,11 @@
+<!-- <div class="text">
+<h1>Login</h1>
+</div> -->
 <div class="container" >
     <div class="pics">
+      <h1>Login</h1>
     <form [formGroup]="user" (ngSubmit)="login()">
+        
      <mat-form-field appearance="outline" class="id">
       <mat-label>Username</mat-label>
       <input matInput placeholder="Enter your username" type="text" class="username"
@@ -14,9 +19,9 @@
      <mat-hint></mat-hint>
      </mat-form-field>
      <div mat-card-action>
-     <button mat-raised-button class = "btn" color="primary" type="submit" [disabled]="!user.valid" (click) = "login()">Login</button>
-     <p>Not An Existing  User?</p>
-     <button mat-button class="btn1" [routerLink]="[ '/register' ]" color="primary">Register</button>
+        <button mat-raised-button class = "btn" [routerLink]="[ '/cards' ]" color="primary" type="submit" [disabled]="!user.valid" (click) = "login()">Login</button>
+         <p>Not An Existing  User?</p> 
+     <button mat-button class="btn1" [routerLink]="[ '/register' ]" color="primary">Register</button> 
     </div>
     </form>
     </div>

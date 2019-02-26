@@ -62,8 +62,7 @@ import { AdminpageComponent } from './components/adminpage/adminpage.component';
     GamehistoryComponent,
     GameComponent,
     QuestionGeneratorComponent,
-    GamedetailsComponent,
-    AdminpageComponent
+    GamedetailsComponent
    ],
 
 })

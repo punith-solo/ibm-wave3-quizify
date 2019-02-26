@@ -12,6 +12,7 @@ import { CardsComponent } from './quizify/components/cards/cards.component';
 import { SearchComponent } from './quizify/components/search/search.component';
 import { QuestionGeneratorComponent } from './quizify/components/question-generator/question-generator.component';
 import { GamedetailsComponent } from './quizify/components/gamedetails/gamedetails.component';
+import { AdminpageComponent } from './quizify/components/adminpage/adminpage.component';
 
 
 const routes: Routes = [
@@ -25,9 +26,9 @@ const routes: Routes = [
 
   {path: 'game', component: GameComponent},
   {path: 'register', component: RegisterComponent},
-  {path: 'cards', component: CardsComponent},
   {path: 'search', component: SearchComponent},
   { path: 'question', component: QuestionGeneratorComponent },
+  { path: 'adminpage', component: AdminpageComponent },
     { path: '**', component: HeaderComponent
   }
 
