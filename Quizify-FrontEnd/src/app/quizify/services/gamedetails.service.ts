@@ -10,7 +10,7 @@ export class GamedetailsService {
   constructor(private http: HttpClient) {   }
 
   getDetails() {
-      this.url = 'http://localhost:3000/game';
+      this.url = 'http://localhost:3001/game';
       return this.http.get(this.url);
   }
 }

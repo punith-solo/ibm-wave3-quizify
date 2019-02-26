@@ -1,66 +1,23 @@
-<form [formGroup]="user" (ngSubmit)="login()">
-    <!-- <mat-label>USER ID</mat-label> -->
-    <table width="40%">
-    <tr>
-      <td>USER ID</td>
-    <!-- <mat-form-field appearance="outline" class="id"> -->
-    <td><input  placeholder="Enter your email id" type="text"
-    formControlName="userId" class="id" required /></td>
-    <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
-    <!-- <mat-hint></mat-hint> -->
-    <!-- </mat-form-field> -->
-    </tr>
-    <tr>
-    <!-- <mat-label>PASSWORD</mat-label> -->
-    <td>PASSWORD</td>
-    <!-- <mat-form-field appearance="outline" class="password"> -->
-    <td><input  placeholder="Enter your password" type="password"
-    formControlName="password" required /></td>
-    <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
-    <!-- <mat-hint></mat-hint> -->
-    <!-- </mat-form-field> -->
-  </tr>
-    <tr >
-
-    <td colspan="2"><button mat-button color="primary" type="submit" [disabled]="!user.valid">Login</button></td>
-  </tr>
-  </table>
-  </form>
-
-<!--first part <div *ngIf="isLoginError" class="red-text center error-message">
-  <i class="material-icons">error</i> Incorrect username or password
-</div>
-<form #loginForm="ngForm" class="col s12 white" (ngSubmit)="OnSubmit(userId.value,password.value)">
- <div class="row">
-   <div class="input-field col s12">
-     <i class="material-icons prefix">account_circle</i>
-     <input type="text" #userId ngModel name="userId" placeholder="Username" required>
-   </div>
- </div>
- <div class="row">
-    <div class="input-field col s12">
-      <i class="material-icons prefix">vpn_key</i>
-      <input type="password" #password ngModel name="password" placeholder="Password" required>
+<div class="container" >
+    <div class="pics">
+    <form [formGroup]="user" (ngSubmit)="login()">
+     <mat-form-field appearance="outline" class="id">
+      <mat-label>Username</mat-label>
+      <input matInput placeholder="Enter your username" type="text" class="username"
+       formControlName="username" required />
+      <mat-hint></mat-hint>
+     </mat-form-field>
+     <mat-form-field appearance="outline" class="password" style="color:black">
+      <mat-label>Password</mat-label>
+      <input matInput placeholder="Enter your password" type="password"
+       formControlName="password" required />
+     <mat-hint></mat-hint>
+     </mat-form-field>
+     <div mat-card-action>
+     <button mat-raised-button class = "btn" color="primary" type="submit" [disabled]="!user.valid" (click) = "login()">Login</button>
+     <p>Not An Existing  User?</p>
+     <button mat-button class="btn1" [routerLink]="[ '/register' ]" color="primary">Register</button>
     </div>
-  </div>
-  <div class="row">
-      <div class="input-field col s12">
-        <button [disabled]="!loginForm.valid" class="btn-large btn-submit" type="submit">Login</button>
-      </div>
+    </form>
     </div>
-</form> -->
-<!--end part-->
-  <!-- <table width="50%" align="center">
-    <tr>
-      <td>username</td>
-      <td><input type="text" name="t1" [(ngModel)]="userId">
-    </tr>
-    <tr>
-      <td>password</td>
-      <td><input type="password" name="t2" [(ngModel)]="password">
-    </tr>
-    <tr>
-      <td></td>
-      <td><button type="button"  (click)="Login()" name="bt1">LOGIN</button></td>
-    </tr>
-  </table> -->
+    </div>

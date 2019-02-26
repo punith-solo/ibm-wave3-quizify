@@ -1,3 +1,8 @@
+.container3
+{
+  background-image: url("../../../../assets/images/22.jpg");
+  background-image: cover;
+}
 .container {
   padding: 20px;
  }
@@ -20,6 +25,11 @@ h3 {
   margin-left: 40.5%;
   width: 20%;
   
+}
+.mat-raised-button
+{
+  margin-left: 43%;
+  width: 15%;
 }
 
 .password{
@@ -54,7 +64,7 @@ h3 {
 }
 
 .nextbtn {
-  margin-left: 43%;
+  margin-left: 80%;
   width: 15%;
 
 }
@@ -64,12 +74,12 @@ h3 {
 
 }
 .prebtn {
-  margin-left: 43%;
+  margin-right: 80%;
   width: 15%;
 
 }
 .btn {
-  margin-left: 43%;
+  margin-left: 80%;
   width: 15%;
 
 }

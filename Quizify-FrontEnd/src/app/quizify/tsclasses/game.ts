@@ -12,5 +12,4 @@ export class Game {
      questions: Array<Question>;
      admin: Admin;
      level: string;
-     genre: string;
 }
