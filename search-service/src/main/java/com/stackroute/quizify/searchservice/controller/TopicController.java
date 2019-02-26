@@ -1,6 +1,6 @@
 package com.stackroute.quizify.searchservice.controller;
 
-import com.stackroute.quizify.searchservice.domain.Topic;
+import com.stackroute.quizify.searchservice.domain.Topics;
 import com.stackroute.quizify.searchservice.exception.TopicAlreadyExistsException;
 import com.stackroute.quizify.searchservice.exception.TopicDoesNotExistsException;
 import com.stackroute.quizify.searchservice.service.TopicService;
@@ -39,10 +39,10 @@ public class TopicController {
 
     @ApiOperation(value = "Save Genre")
     @PostMapping("/search-topic")
-    public ResponseEntity<?> saveTopic(@RequestBody Topic topic){
+    public ResponseEntity<?> saveTopic(@RequestBody Topics topic){
         try
         {
-            return new ResponseEntity<Topic>(topicService.saveTopic(topic), HttpStatus.OK);
+            return new ResponseEntity<Topics>(topicService.saveTopic(topic), HttpStatus.OK);
         }
         catch (TopicAlreadyExistsException e)
         {
@@ -55,7 +55,7 @@ public class TopicController {
     @GetMapping("/search-topic/{topicName}")
     public ResponseEntity<?>searchTopicByStartsWith(@PathVariable String topicName){
         try {
-            return new ResponseEntity<List<Topic>>(topicService.getAllTopicByStartsWith(topicName), HttpStatus.OK);
+            return new ResponseEntity<List<Topics>>(topicService.getAllTopicByStartsWith(topicName), HttpStatus.OK);
         }
         catch (TopicDoesNotExistsException e)
         {

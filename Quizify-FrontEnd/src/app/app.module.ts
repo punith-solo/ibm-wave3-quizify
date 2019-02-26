@@ -1,4 +1,5 @@
 
+
 import { QuizifyModule } from './quizify/quizify.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
@@ -27,8 +28,9 @@ import { RouterModule } from '@angular/router';
     MatCardModule,
     MatSelectModule,
     BrowserAnimationsModule,
-    RouterModule,
-    HttpClientModule
+    HttpClientModule,
+    QuizifyMaterialModule,
+    
   ],
   providers: [QuestionService,
   GameserviceService] ,

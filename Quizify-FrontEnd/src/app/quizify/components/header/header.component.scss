@@ -1,7 +1,7 @@
 header h1{
   padding-top: 0px;
   text-align: center;
-  color: gray;
+  color: white;
   font-family: Arial, Helvetica, sans-serif;
 }
 .id{
@@ -22,9 +22,10 @@ header{
 {
   float: right;
   position: relative;
-  top: 30px;
+  top: 15px;
   padding-right: 40px;
-  right: 20px;
+  right: 10px;
+  color: rebeccapurple;
 }
 
 mat-form-field {
@@ -70,3 +71,13 @@ mat-icon {
  // padding-right: 40px;
   right: 20px;
 }
+// .wrap {
+//   top: 10px;
+//   color: gray;
+//   background-color:rebeccapurple;
+//   // background-color:;
+//   display: inline-block;
+//   font-size: 16px;
+//   margin: 4px 2px;
+//   cursor: pointer;
+// }

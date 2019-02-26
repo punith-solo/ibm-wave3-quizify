@@ -1,20 +1,24 @@
 <div>
-    <p>
-        <mat-list>
-            <h3 matSubheader>Folders</h3>
-            <mat-list-item *ngFor="let folder of folders">
-               <mat-icon matListIcon>folder</mat-icon>
-               <h4 matLine>{{folder.name}}</h4>
-               <p matLine class="demo-2"> {{folder.updated}} </p>
+    
+    <mat-nav-list>
+        <mat-list-item *ngFor="let question of questions; index as i">
+            <h4 matLine>Q.{{i}}.{{question.statement}}</h4>
+            <mat-list-item *ngFor="let option of question.options">
+                <mat-radio-group>
+                    <mat-radio-button value="1">{{option}}</mat-radio-button>
+                </mat-radio-group>
             </mat-list-item>
-
             
-            <mat-divider></mat-divider>
-            <h3 matSubheader>Notes</h3>
-            <mat-list-item *ngFor="let note of notes">
-               <mat-icon matListIcon>note</mat-icon>
-               <h4 matLine>{{note.name}}</h4>
-               <p matLine class="demo-2"> {{note.updated}} </p>
-            </mat-list-item>
-         </mat-list>    </p>
+
+        </mat-list-item>
+   </mat-nav-list>
 </div>
+
+<div layout="row" layout-align="end center">
+    <md-button class="md-accent md-raised" ng-click="quizzCtrl.goPreviousStep($index)" ng-if="$index !== 0">
+        <span>{{'QUIZZ_PREVIOUS_BUTTON' | translate}}</span>	
+    </md-button>
+    <md-button class="md-accent md-raised" ng-click="quizzCtrl.goNextStep($index)" ng-if="$index !== quizzCtrl.quizzModel.questions.length">
+        <span>{{'QUIZZ_NEXT_BUTTON' | translate}}</span>	
+    </md-button>								
+</div> 
