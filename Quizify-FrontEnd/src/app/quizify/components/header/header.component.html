@@ -1,5 +1,20 @@
 <header>
-    <button class="button" type="submit">Login</button>
+       
+    <div class="wrap">
+        <mat-card-actions>
+            
+            <button mat-raised-button (click)="Signup()">Signup</button>
+            </mat-card-actions>
+    </div>
     <h1>Quizify</h1>
-    <img class="img" src="https://img.freepik.com/free-vector/yellow-quiz-background-hand-drawn-style_23-2147592672.jpg?size=338&ext=jpg"  alt="W3Schools.com">
-</header>
+    
+    <mat-form-field appearance="inline" >
+        <div class="box">
+            <input matInput placeholder="Search for quizes" (input)="search($event.target.value)">
+            <mat-icon  matSuffix>search</mat-icon>
+          </div>
+        </mat-form-field>
+        <!-- <div class="img">
+                <img mat-card-image src="https://img.freepik.com/free-vector/background-test-elements-flat-design_23-2147596141.jpg?size=338&ext=jpg" alt="Photo of a Shiba Inu" height="40px" width="40px">
+            </div> -->
+    </header>

@@ -4,9 +4,11 @@ import com.stackroute.quizify.kafka.domain.Game;
 import org.springframework.data.neo4j.annotation.Query;
 import org.springframework.data.neo4j.repository.Neo4jRepository;
 import org.springframework.data.repository.query.Param;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+@Repository
 public interface GameRepository extends Neo4jRepository<Game,Long> {
     @Query("MATCH (Game) RETURN Game")
     public List<Game> getAllNodes();

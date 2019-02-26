@@ -1,6 +1,6 @@
 package com.stackroute.quizify.recommendationservice.controller;
 
-import com.stackroute.quizify.recommendationservice.domain.User;
+import com.stackroute.quizify.kafka.domain.User;
 import com.stackroute.quizify.recommendationservice.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

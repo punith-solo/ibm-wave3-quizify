@@ -1,112 +1,96 @@
-.container{
+ .container{
   display: flex;
-  width: 100%;
-  bottom: 300px;
-  padding-top:50px;
-}
+//   width: 100%;
+//   bottom: 300px;
+ 
+//   padding-top:250px;
+ 
+ }
 
-.contain{
-  padding-top:20px;
-  display: flex;
-  width: 100%;
-}
-ul 
-{
-  list-style-type: none;
+
+// ul 
+// {
+//   list-style-type: none; 
   
-}
+// }
 
 
 img {
-  width: 350px;
-   height:350px;
-   padding-right: 20px;
-   padding-top: 100px;
-   padding-left: 8px;
-
-}
-.sub-image{
- // position: relative;
   width: 250px;
-  height:250px;
+   height:250px;
   
-  // padding-right: 20px;
-  // padding-top: 50px;
-  // padding-left: 8px;
+   padding-right: 100px;
+   padding-top: 50px;
+   padding-left: 90px;
 
 }
+// .sub-image{
+//  // position: relative;
+//   width: 250px;
+//   height:250px;
+  
+ 
+// }
 
 
 
 
-.example-card
-{
-  box-shadow: 3px 3px black, -1em 0 .4em gray;
+// .example-card
+// {
+//   box-shadow: 3px 3px black, -1em 0 .4em gray;
+// }
+// .overlay {
+//   position: absolute;
+//   bottom: 0;
+//   left: 0;
+//   right: 0;
+//   background-color:black;
+//   overflow: hidden;
+//   width: 100%;
+//   height: 100%;
+//   transform: scale(0);
+//   transition: .3s ease;
+// }
+// .container .example-card:hover .overlay {
+//   transform: scale(1);
+// }
+
+// .example-cards
+// {
+//   box-shadow: 3px 3px black, -1em 0 .4em gray;
+// }
+
+
+
+// .text {
+//   color: white;
+//   font-size: 20px;
+//   position: absolute;
+//   top: 50%;
+//   left: 50%;
+//   -webkit-transform: translate(-50%, -50%);
+//   -ms-transform: translate(-50%, -50%);
+//   transform: translate(-50%, -50%);
+//   white-space: nowrap;
+// }
+
+// h2{
+//     padding: 2%;
+//     color: white;
+// }
+
+.example-card {
+  top: 150px;
+  width: 400px;
+  height: 425px;
+  left: 30px;
+  right: 30px;
+ box-shadow: 3px 3px 3px 3px black;
+  border-color: black;
+  margin: 25px;
 }
-.overlay {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background-color:black;
-  overflow: hidden;
-  width: 100%;
-  height: 100%;
-  transform: scale(0);
-  transition: .3s ease;
-}
-.container .example-card:hover .overlay {
-  transform: scale(1);
-}
-.overlays {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background-color:black;
-  overflow: hidden;
-  width: 100%;
-  height: 100%;
-  transform: scale(0);
-  transition: .3s ease;
 
-
-}
-.example-cards
-{
-  box-shadow: 3px 3px black, -1em 0 .4em gray;
-}
-
-.contain .example-cards:hover .overlays {
-  bottom: 0;
- height: 100%;
-  transform: scale(1);
-
-}
-
-.text {
-  color: white;
-  font-size: 20px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-  white-space: nowrap;
-}
-.text1 {
-  color:white;
-  font-size: 20px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-  white-space: nowrap;
-}
-h2{
-    padding: 2%;
-    color: white;
+.example-header-image {
+  background-image: url('https://e3.365dm.com/18/10/1600x900/skynews-quiz-time_4458210.jpg?20181019225508');
+  background-size: cover;
 }

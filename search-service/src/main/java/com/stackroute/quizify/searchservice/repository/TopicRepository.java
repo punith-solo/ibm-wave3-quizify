@@ -1,11 +1,12 @@
 package com.stackroute.quizify.searchservice.repository;
 
-import com.stackroute.quizify.searchservice.domain.Topic;
+import com.stackroute.quizify.searchservice.domain.Topics;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.mongodb.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 
 /*
@@ -23,9 +24,15 @@ import java.util.List;
  */
 
 @Repository
-public interface TopicRepository extends MongoRepository<Topic,Long> {
+public interface TopicRepository extends MongoRepository<Topics,Long> {
 //    List<Topic> searchByTopicName(String topicName);
 
-    @Query("{ topicName: { $regex: '?0', $options: 'i'} }")
-    List<Topic> searchByTopicAlphabet(String topicName);
+    @Query("{ name: { $regex: '?0', $options: 'i'} }")
+    List<Topics> searchByTopicAlphabet(String topicName);
+
+    boolean existsByName(String genreName);
+
+    Topics findByName(String topicName);
+
+    Optional<Topics> findTopByOrderByIdDesc();
 }

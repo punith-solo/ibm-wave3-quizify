@@ -1,6 +1,6 @@
 package com.stackroute.quizify.searchservice.service;
 
-import com.stackroute.quizify.searchservice.domain.Topic;
+import com.stackroute.quizify.searchservice.domain.Topics;
 import com.stackroute.quizify.searchservice.exception.TopicAlreadyExistsException;
 import com.stackroute.quizify.searchservice.exception.TopicDoesNotExistsException;
 import com.stackroute.quizify.searchservice.repository.TopicRepository;
@@ -35,13 +35,22 @@ public class TopicServiceImpl implements TopicService{
 //    }
 
     @Override
-    public Topic saveTopic(Topic topic) throws TopicAlreadyExistsException {
-        return topicRepository.save(topic);
+    public Topics saveTopic(Topics topic) throws TopicAlreadyExistsException {
+        if (this.topicRepository.existsById(topic.getId()))
+            throw new TopicAlreadyExistsException("Genre Already Exists!");
+        else
+        {
+            if(this.topicRepository.findTopByOrderByIdDesc().isEmpty())
+                topic.setId(1);
+            else
+                topic.setId(this.topicRepository.findTopByOrderByIdDesc().get().getId()+1);
+            return topicRepository.save(topic);
+        }
     }
 
     @Override
-    public List<Topic> getAllTopicByStartsWith(String topicName) throws TopicDoesNotExistsException {
-        List<Topic> topics = topicRepository.searchByTopicAlphabet(topicName);
+    public List<Topics> getAllTopicByStartsWith(String topicName) throws TopicDoesNotExistsException {
+        List<Topics> topics = topicRepository.searchByTopicAlphabet(topicName);
         if(topics==null)
             throw new TopicDoesNotExistsException("No Game Found");
         else
