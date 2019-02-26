@@ -1,3 +1,4 @@
+import { HeaderComponent } from './quizify/components/header/header.component';
 
 import { LoginComponent } from './quizify/components/login/login.component';
 import { ProfileComponent } from './quizify/components/profile/profile.component';
@@ -24,11 +25,11 @@ const routes: Routes = [
 
   {path: 'game', component: GameComponent},
   {path: 'register', component: RegisterComponent},
-  // {path: 'register', component: LoginComponent},
   {path: 'cards', component: CardsComponent},
   {path: 'search', component: SearchComponent},
   { path: 'question', component: QuestionGeneratorComponent },
-
+    { path: '**', component: HeaderComponent
+  }
 
 ];
 

@@ -13,7 +13,7 @@ export class LoginComponent  {
   isLoginError: boolean ;
   user = this.fb.group({ // for reactive groups, we are creating form builder groups which is where we create
     // one group and add multiple properties
-  userId: ['', Validators.required],
+  username: ['', Validators.required],
   password: ['', Validators.required]
 });
 
