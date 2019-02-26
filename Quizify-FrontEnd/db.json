@@ -1,40 +1,49 @@
 {
   "quiz":[
 {
-  "GameId":"101",
-  "Name": "Entertainment",
-  "Duration": "30 min",
-  "Description": "QUIZ",
-  "Level": "Easy",
-  "image_Url": "https://files.slack.com/files-pri/TEKVBAYJ1-FGF323XFS/02_preview_landing.jpg",
+  "gameId":"101",
+  "gameName": "Entertainment",
+  "duration": "30 min",
+  "description": "QUIZ",
+  "level": "Easy",
+  "imageUrl": "https://files.slack.com/files-pri/TEKVBAYJ1-FGF323XFS/02_preview_landing.jpg",
   "Geners":"",
   "topic":"",
-  "Domain":""
+  "Domain":"",
+  "gamesPlayed": "",
+  "likes": "",
+  "numOfQuestion": ""
 },
 {
-  "GameId":"201",
-  "Name": "Romantic",
-  "Duration": "30 min",
-  "Description": "QUIZ",
-  "Level": "Easy",
-  "image_Url": "https://files.slack.com/files-pri/TEKVBAYJ1-FGH8CF09L/depositphotos_195915692-stock-illustration-cartoon-people-quiz-game-show.jpg",
+  "gameId":"201",
+  "gameName": "Romantic",
+  "duration": "30 min",
+  "description": "QUIZ",
+  "Llevel": "Easy",
+  "imageUrl": "https://files.slack.com/files-pri/TEKVBAYJ1-FGH8CF09L/depositphotos_195915692-stock-illustration-cartoon-people-quiz-game-show.jpg",
   "Geners":"",
   "topic":"",
-  "Domain":""
+  "Domain":"",
+  "gamesPlayed": "",
+  "likes": "",
+  "numOfQuestion": ""
 },
 {
-  "GameId":"301",
-  "Name": "Stand-up Comedy",
-  "Duration": "30 min",
-  "Description": "QUIZ",
-  "Level": "Easy",
-  "image_Url": "https://files.slack.com/files-pri/TEKVBAYJ1-FGFPRQE3W/checkered-background-with-notebook-game-items_23-2147593456.jpg",
+  "gameId":"301",
+  "gameName": "Stand-up Comedy",
+  "duration": "30 min",
+  "description": "QUIZ",
+  "level": "Easy",
+  "imageUrl": "https://files.slack.com/files-pri/TEKVBAYJ1-FGFPRQE3W/checkered-background-with-notebook-game-items_23-2147593456.jpg",
   "Geners":"",
   "topic":"",
-  "Domain":""
+  "Domain":"",
+  "gamesPlayed": "",
+  "likes": "",
+  "numOfQuestion": ""
 }
 
 
-  ]
+]
   
 }

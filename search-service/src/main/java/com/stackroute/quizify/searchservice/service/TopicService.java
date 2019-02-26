@@ -1,8 +1,8 @@
 package com.stackroute.quizify.searchservice.service;
 
 import com.stackroute.quizify.searchservice.domain.Topics;
-import com.stackroute.quizify.searchservice.exception.TopicAlreadyExistsException;
 import com.stackroute.quizify.searchservice.exception.TopicDoesNotExistsException;
+import com.stackroute.quizify.searchservice.exception.TopicAlreadyExistsException;
 
 import java.util.List;
 

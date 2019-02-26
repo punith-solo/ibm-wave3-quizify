@@ -28,16 +28,16 @@
 <mat-card class="example-card">
     <mat-card-header>
       <div mat-card-avatar class="example-header-image"></div>
-      <mat-card-title>{{ q.Description }}</mat-card-title>
-      <mat-card-subtitle>{{ q.Name }}</mat-card-subtitle>
+      <mat-card-title>{{ q.description }}</mat-card-title>
+      <mat-card-subtitle>{{ q.gameName }}</mat-card-subtitle>
     </mat-card-header>
-    <img mat-card-image src="{{ q.image_Url }}" alt="Game image">
+    <img mat-card-image src="{{ q.imageUrl }}" alt="Game image">
     <mat-card-content>
           <mat-card-actions>
               <button mat-button>LIKE</button>
               <button mat-button>PLAY</button>
               <button mat-button>DETAILS</button>
-            </mat-card-actions>
+          </mat-card-actions>
       
     </mat-card-content>
     </mat-card>
