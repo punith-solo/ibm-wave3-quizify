@@ -1,11 +1,11 @@
 package com.stackroute.quizify.recommendationservice.service;
 
-import com.stackroute.quizify.recommendationservice.domain.User;
+import com.stackroute.quizify.kafka.domain.User;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Service
+
 public interface UserService {
     public List<User> getAll();
 

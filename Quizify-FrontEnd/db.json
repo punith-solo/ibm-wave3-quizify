@@ -1,29 +1,35 @@
 {
   "quiz":[
 {
-  "GameId":"101",
-  "Name": "Entertainment",
-  "Duration": "30 min",
-  "Description": "QUIZ",
-  "Level": "Easy",
-  "image_Url": "https://files.slack.com/files-pri/TEKVBAYJ1-FGF323XFS/02_preview_landing.jpg",
+  "gameId":"101",
+  "gameName": "Entertainment",
+  "duration": "30 min",
+  "description": "QUIZ",
+  "level": "Easy",
+  "imageUrl": "https://files.slack.com/files-pri/TEKVBAYJ1-FGF323XFS/02_preview_landing.jpg",
   "Geners":"",
   "topic":"",
-  "Domain":""
+  "Domain":"",
+  "gamesPlayed": "",
+  "likes": "",
+  "numOfQuestion": ""
 },
 {
-  "GameId":"201",
+  "GameId":"Id=201",
   "Name": "Romantic",
   "Duration": "30 min",
   "Description": "QUIZ",
   "Level": "Easy",
-  "image_Url": "https://files.slack.com/files-pri/TEKVBAYJ1-FGH8CF09L/depositphotos_195915692-stock-illustration-cartoon-people-quiz-game-show.jpg",
+  "image_Url": "https://media.istockphoto.com/videos/pub-quiz-neon-sign-mounted-on-brick-wall-video-id918061080?s=640x640",
   "Geners":"",
   "topic":"",
-  "Domain":""
+  "Domain":"",
+  "gamesPlayed": "",
+  "likes": "",
+  "numOfQuestion": ""
 },
 {
-  "GameId":"301",
+  "GameId":"391",
   "Name": "Stand-up Comedy",
   "Duration": "30 min",
   "Description": "QUIZ",
@@ -32,9 +38,62 @@
   "Geners":"",
   "topic":"",
   "Domain":""
+},
+{
+  "GameId":"331",
+  "Name": "Stand-up Comedy",
+  "Duration": "30 min",
+  "Description": "QUIZ",
+  "Level": "Easy",
+  "image_Url": "https://files.slack.com/files-pri/TEKVBAYJ1-FGFPRQE3W/checkered-background-with-notebook-game-items_23-2147593456.jpg",
+  "Geners":"",
+  "topic":"",
+  "Domain":""
+},
+{
+  "GameId":"305",
+  "Name": "Stand-up Comedy",
+  "Duration": "30 min",
+  "Description": "QUIZ",
+  "Level": "Easy",
+  "image_Url": "https://files.slack.com/files-pri/TEKVBAYJ1-FGFPRQE3W/checkered-background-with-notebook-game-items_23-2147593456.jpg",
+  "Geners":"",
+  "topic":"",
+  "Domain":""
+},
+{
+  "GameId":"301",
+  "gameId":"301",
+  "gameName": "Stand-up Comedy",
+  "duration": "30 min",
+  "description": "QUIZ",
+  "level": "Easy",
+  "imageUrl": "https://files.slack.com/files-pri/TEKVBAYJ1-FGFPRQE3W/checkered-background-with-notebook-game-items_23-2147593456.jpg",
+  "Name": "Stand-up Comedy",
+  "Duration": "30 min",
+  "Description": "QUIZ",
+  "Level": "Easy",
+  "image_Url": "https://cdn.pixabay.com/photo/2017/02/17/15/25/quiz-2074324__340.png",
+  "Geners":"",
+  "topic":"",
+  "Domain":""
+},
+{
+  "GameId":"Id=401",
+  "Name": "Horror",
+  "Duration": "30 min",
+  "Description": "QUIZ",
+  "Level": "Easy",
+  "image_Url": "https://cdn2.vectorstock.com/i/1000x1000/64/21/quiz-background-vector-10236421.jpg",
+  "Geners":"",
+  "topic":"",
+  "Domain":"",
+  "gamesPlayed": "",
+  "likes": "",
+  "numOfQuestion": ""
 }
 
 
-  ]
+]
   
 }

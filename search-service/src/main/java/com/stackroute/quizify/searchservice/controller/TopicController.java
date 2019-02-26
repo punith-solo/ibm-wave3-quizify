@@ -1,9 +1,9 @@
 package com.stackroute.quizify.searchservice.controller;
 
 import com.stackroute.quizify.searchservice.domain.Topics;
-import com.stackroute.quizify.searchservice.exception.TopicAlreadyExistsException;
 import com.stackroute.quizify.searchservice.exception.TopicDoesNotExistsException;
 import com.stackroute.quizify.searchservice.service.TopicService;
+import com.stackroute.quizify.searchservice.exception.TopicAlreadyExistsException;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;

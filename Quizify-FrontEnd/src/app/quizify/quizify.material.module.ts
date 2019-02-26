@@ -17,6 +17,7 @@ import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 // import { FlexLayoutModule } from '@angular/flex-layout';
 import {MatStepperModule} from '@angular/material/stepper';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 
 
@@ -35,7 +36,7 @@ import {MatStepperModule} from '@angular/material/stepper';
        MatRadioModule,
        MatChipsModule,
        MatSelectModule,
-       RouterModule, MatStepperModule,
+       RouterModule, MatStepperModule, MatProgressSpinnerModule,
       // FlexLayoutModule,
        MatButtonModule,
        MatCheckboxModule,
@@ -67,7 +68,7 @@ import {MatStepperModule} from '@angular/material/stepper';
           MatInputModule,
           MatChipsModule,
           MatSelectModule,
-          RouterModule, MatStepperModule,
+          RouterModule, MatStepperModule, MatProgressSpinnerModule,
          // FlexLayoutModule,
           MatButtonModule,
           MatCheckboxModule,

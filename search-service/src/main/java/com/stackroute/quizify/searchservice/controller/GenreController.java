@@ -2,8 +2,8 @@ package com.stackroute.quizify.searchservice.controller;
 
 import com.stackroute.quizify.searchservice.domain.Genres;
 import com.stackroute.quizify.searchservice.exception.GenreAlreadyExistsException;
-import com.stackroute.quizify.searchservice.exception.GenreDoesNotExistsException;
 import com.stackroute.quizify.searchservice.service.GenreService;
+import com.stackroute.quizify.searchservice.exception.GenreDoesNotExistsException;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
