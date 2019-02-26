@@ -1,73 +1,149 @@
- <!-- <form #userDetails = "ngForm" (ngSubmit) = "saveDetails(userDetails)">
-   <div class = "heading">
-     <h3 class = "heading"> Registration</h3>
-   </div> -->
-
-
-  <mat-horizontal-stepper linear>
-  <mat-step #myStep  [stepControl]="formGroup1" optional editable = "true" >
+ <mat-horizontal-stepper linear>
+  <mat-step #myStep  [stepControl]="formGroup1" optional editable = "true">
+    
     <form [formGroup] = "formGroup1">
       <mat-form-field appearance="outline"  class = "username"> 
-          <mat-label for = "userName">UserName</mat-label>
-          <input matInput placeholder="UserId"  formControlName="firstCtrl" autocomplete="off"
-          [(ngModel)]="UserName"required>
+          <mat-label for = "userName">userName</mat-label>
+          <input matInput placeholder="userName"  formControlName="firstCtrl" autocomplete="off"
+          [(ngModel)]="userName" name = "userName"required>
         </mat-form-field> <br>
+        
         
           <mat-form-field appearance="outline" class="password">
               <mat-label for = "psw">Password</mat-label>
               <input type = "password"matInput placeholder="password" name = "psw" formControlName="firstCtrl" autocomplete="off"
-              [(ngModel)]="Password"required />
+              [(ngModel)]="password" name ="password"required />
               <mat-hint></mat-hint>
-            </mat-form-field> 
+            </mat-form-field>  <br>
 
             <mat-form-field appearance="outline" class="confirmpassword">
-                <mat-label for = "psw">ConfirmPassword</mat-label>
+                <mat-label for = "psw">confirmPassword</mat-label>
                 <input type = "password"matInput placeholder="Confirm password" name = "psw" formControlName="firstCtrl" autocomplete="off"
-                [(ngModel)]="ConfirmPassword" required/>
+                [(ngModel)]="confirmPassword" required/>
                 <mat-hint></mat-hint>
               </mat-form-field> <br>
-             
+              <mat-form-field appearance="outline"  class = "emailid" > 
+                  <mat-label for = "emailid">emailId</mat-label>
+                  <input matInput placeholder="emailId"  autocomplete="off"
+                  [(ngModel)]="emailId" name = "emailId" formControlName="firstCtrl" required>
+                </mat-form-field> <br>
+                <mat-radio-group appearance="outline" class="gender" name = "gender" required>
+                    <mat-label>Gender</mat-label>
+                    <mat-radio-button value="1">Male </mat-radio-button> 
+                    <mat-radio-button value="2">Female</mat-radio-button>
+                  </mat-radio-group>
+                  <br> <br> <br>
+    
           <button mat-button class = "nextbtn" matStepperNext>Next</button>
     </form>
     </mat-step>
 
-  <mat-step #myStep [stepControl]="formGroup2" optionl editable = "false" >
+  <mat-step #myStep [stepControl]="formGroup2" optional editable = "true" >
       <form  [formGroup] = "formGroup2" >
-          <mat-form-field appearance="outline"  class = "userid" > 
-              <mat-label for = "emailid">EmailId</mat-label>
-              <input matInput placeholder="EmailId"  autocomplete="off"
-              [(ngModel)]="Emaild" formControlName="secondCtrl" required>
-            </mat-form-field> <br>
+        <section class = "container">
+       
+          <mat-card class="example-card">
+              <mat-card-header>
+                <div mat-card-avatar class="example-header-image"></div>
+              
+              </mat-card-header>
+              <img mat-card-image src="https://ak1.picdn.net/shutterstock/videos/13811981/thumb/9.jpg" alt="Photo">
+              
+            </mat-card>
+            <mat-card class="example-card1">
+                <mat-card-header>
+                  <div mat-card-avatar class="example-header-image"></div>
+             
+                </mat-card-header>
+                <img mat-card-image src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXc1AyI6o9J0H8PKOe2bNzOk_TbNuXEcO9XpK6QsLcOwp0lY35" alt="Photo">
+                
+              </mat-card>
+        </section>
+         
+        
+          <section class = "container1">
+       
+              <mat-card class="example-card">
+                  <mat-card-header>
+                    <div mat-card-avatar class="example-header-image"></div>
+                  
+                  </mat-card-header>
+                  <img mat-card-image src="https://tubeoh.com/wp-content/uploads/2018/10/2018-film-action-hd-film-action-barat-terbaik-2018-sub-indo-320x180.jpg" alt="Photo">
+                  
+                </mat-card>
+                <mat-card class="example-card1">
+                    <mat-card-header>
+                      <div mat-card-avatar class="example-header-image"></div>
+                 
+                    </mat-card-header>
+                    <img mat-card-image src="https://lh3.googleusercontent.com/proxy/D-FtEPoG67QhXltzc1uqzyebiu4tRPzFGVx02MxpCx3hkTOPT8Z8TAugPNgeSIyXv3H9QJdiCtOYxIkzGwhJfUkfd40TaME8jraSrbM=s0-d" alt="Photo">
+                    
+                  </mat-card>
+                  <mat-card class="example-card1">
+                      <mat-card-header>
+                        <div mat-card-avatar class="example-header-image"></div>
+                   
+                      </mat-card-header>
+                      <img mat-card-image src="" alt="Photo">
+                      
+                    </mat-card>
+                    <mat-card class="example-card1">
+                        <mat-card-header>
+                          <div mat-card-avatar class="example-header-image"></div>
+                     
+                        </mat-card-header>
+                        <img mat-card-image src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKHJB12KhCu7D51-Jf4mXGQty4_LncW2BwX1JCeW_Uh6KrbXEX" alt="Photo of a Shiba Inu">
+                        
+                      </mat-card>
+          </section> <br>
 
-            <div class="Level-container" fxLayout="row" fxLayoutAlign="center center">
-              <mat-form-field appearance="outline" class = "interests" required>
-                <mat-select
-                    placeholder="Select Interests"
-                    [(value)]="selectedLevel"
-                  >
-                    <mat-option *ngFor="let level of levels" [value]="level.value">
-                      {{ level.viewValue }}
-                    </mat-option>
-                </mat-select>
-              </mat-form-field>
-              </div>
+                      <section class = "container2">
+                        <mat-card class="example-card1">
+                            <mat-card-header>
+                              <div mat-card-avatar class="example-header-image"></div>
+                         
+                            </mat-card-header>
+                            <img mat-card-image src="https://vignette.wikia.nocookie.net/logopedia/images/f/f9/Comedy_Central_HD.png/revision/latest?cb=20110408015054" alt="Photo">
+                            
+                          </mat-card>
+                          <mat-card class="example-card1">
+                              <mat-card-header>
+                                <div mat-card-avatar class="example-header-image"></div>
+                           
+                              </mat-card-header>
+                              <img mat-card-image src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTk1rIREyTDvG-Rde6HuYa2Oea8q1Nd4pC0MCZzp2BxheittWrF">
+                              
+                            </mat-card>
+                            <mat-card class="example-card1">
+                                <mat-card-header>
+                                  <div mat-card-avatar class="example-header-image"></div>
+                             
+                                </mat-card-header>
+                                <img mat-card-image src="data:image/jpeg;base64,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" alt="Photo">
+                                
+                              </mat-card>
+                              <mat-card class="example-card1">
+                                  <mat-card-header>
+                                    <div mat-card-avatar class="example-header-image"></div>
+                               
+                                  </mat-card-header>
+                                  <img mat-card-image src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSo156JjkV6NcPB244IyQzG7dBw8Zg0g3yIESLZVwyvZzCYCMxG" alt="Photo">
+                                  
+                                </mat-card>
+            </section>
            <br>
-            <mat-radio-group appearance="outline" class="gender" required>
-                <mat-label>Gender</mat-label> 
-                <mat-radio-button value="1">Male</mat-radio-button> 
-                <mat-radio-button value="2">Female</mat-radio-button>
-              </mat-radio-group>
-              <br> <br> <br>
-              <button mat-button class = "prebtn" matStepperPrevious>Back</button> <br> <br> <br>
+          <button mat-button class = "prebtn" matStepperPrevious>Back</button> <br> <br> <br>
+  
+  <button mat-raised-button class = "btn"(click)="submit($event)" matStepperNext>Submit</button>
 
-      <button mat-raised-button class = "btn"(click)="submit($event)" matStepperNext>Submit</button>
-
+      
       </form>
       
     </mat-step>
     <mat-step #myStep [stepControl]="formGroup3" optional editable = "false">
         <form [formGroup] = "formGroup3">
-          
+         
+
          <p><b> Thank you for registering</b> <br><br>
 
       <b> You have successfully signed up as a user!</b> </p>
@@ -76,4 +152,4 @@
         
       </mat-step>
 
-</mat-horizontal-stepper>
+</mat-horizontal-stepper> 

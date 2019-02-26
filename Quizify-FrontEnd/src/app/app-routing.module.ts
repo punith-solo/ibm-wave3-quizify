@@ -14,8 +14,8 @@ import { GamedetailsComponent } from './quizify/components/gamedetails/gamedetai
 
 
 const routes: Routes = [
-  { path: 'profile' , component: ProfileComponent },
-  { path: 'login', component: LoginComponent},
+   { path: 'profile' , component: ProfileComponent },
+  {path: 'login', component: LoginComponent},
  { path: 'profileuser', component: ProfileuserComponent },
 
   { path: 'gamehistory', component: GamehistoryComponent },
@@ -24,7 +24,6 @@ const routes: Routes = [
 
   {path: 'game', component: GameComponent},
   {path: 'register', component: RegisterComponent},
-  {path: 'register', component: LoginComponent},
   {path: 'cards', component: CardsComponent},
   {path: 'search', component: SearchComponent},
   { path: 'question', component: QuestionGeneratorComponent }
