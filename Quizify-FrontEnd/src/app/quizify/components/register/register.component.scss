@@ -14,7 +14,7 @@ h3 {
   text-align: center;
   font-family: sans-serif;
 }
-.userid
+.username
 {
   margin-top: 2%;
   margin-left: 40.5%;
@@ -33,7 +33,7 @@ h3 {
   width: 20%;
 
 }
-.email {
+.emailid {
 
   margin-left: 40.5%;
   width: 20%;
@@ -54,6 +54,11 @@ h3 {
 }
 
 .nextbtn {
+  margin-left: 43%;
+  width: 15%;
+
+}
+.nextbtn1 {
   margin-left: 43%;
   width: 15%;
 
@@ -88,6 +93,34 @@ h3 {
   margin-left: 40.5%;
   width: 20%;
 }
+.example-card {
+  
+  max-width: 50px;;
+  margin-right:10px;
+}
+.example-card1 {
+  
+  max-width: 50px;
+  
+}
+.container{
+display: flex;
+margin-left: 630px;
+}
+.container1{
+  display: flex;
+  margin-left: 590px;
+  }
+  
+  .container2{
+    display: flex;
+    margin-left: 590px;
+    }
+    
+      
+
+
+
 
 // .btn:hover {
 //   opacity: 1;

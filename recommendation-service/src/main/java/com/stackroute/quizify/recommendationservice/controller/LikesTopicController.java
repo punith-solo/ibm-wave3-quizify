@@ -20,7 +20,7 @@ public class LikesTopicController {
 
     @GetMapping("/")
     public List<LikesTopic> getAll(){
-        return likesTopicService.getAllRealtionships();
+        return likesTopicService.getAllRelationships();
     }
 
 //    @GetMapping("/id")
@@ -29,13 +29,9 @@ public class LikesTopicController {
 //    }
 
 //    @PostMapping("/")
-//    public LikesTopic create(@RequestParam("")){
-//        return likesTopicService.createRelationship(LikesTopic);
+//    public LikesTopic create(@RequestParam("userId") long userId, @RequestParam("topicId") long topicId){
+//        return likesTopicService.createRelationship(userId, topicId);
 //    }
-
-    @DeleteMapping("/")
-    public LikesTopic delete(@RequestParam("userId") long userId, @RequestParam("topicId") long topicId){
-        return likesTopicService.deleteRelationship(userId,topicId);
-    }
+//
 
 }
