@@ -1,21 +1,12 @@
 {
   "quiz":[
 {
-<<<<<<< HEAD
   "gameId":"101",
   "gameName": "Entertainment",
   "duration": "30 min",
   "description": "QUIZ",
   "level": "Easy",
   "imageUrl": "https://files.slack.com/files-pri/TEKVBAYJ1-FGF323XFS/02_preview_landing.jpg",
-=======
-  "GameId":"Id=101",
-  "Name": "Entertainment",
-  "Duration": "30 min",
-  "Description": "QUIZ",
-  "Level": "Easy",
-  "image_Url": "https://e3.365dm.com/18/10/1600x900/skynews-quiz-time_4458210.jpg?20181019225508",
->>>>>>> 27e43fa68a8722810f32c055c79e1fbc81e02929
   "Geners":"",
   "topic":"",
   "Domain":"",
@@ -24,21 +15,12 @@
   "numOfQuestion": ""
 },
 {
-<<<<<<< HEAD
-  "gameId":"201",
-  "gameName": "Romantic",
-  "duration": "30 min",
-  "description": "QUIZ",
-  "Llevel": "Easy",
-  "imageUrl": "https://files.slack.com/files-pri/TEKVBAYJ1-FGH8CF09L/depositphotos_195915692-stock-illustration-cartoon-people-quiz-game-show.jpg",
-=======
   "GameId":"Id=201",
   "Name": "Romantic",
   "Duration": "30 min",
   "Description": "QUIZ",
   "Level": "Easy",
   "image_Url": "https://media.istockphoto.com/videos/pub-quiz-neon-sign-mounted-on-brick-wall-video-id918061080?s=640x640",
->>>>>>> 27e43fa68a8722810f32c055c79e1fbc81e02929
   "Geners":"",
   "topic":"",
   "Domain":"",
@@ -47,15 +29,46 @@
   "numOfQuestion": ""
 },
 {
-<<<<<<< HEAD
+  "GameId":"391",
+  "Name": "Stand-up Comedy",
+  "Duration": "30 min",
+  "Description": "QUIZ",
+  "Level": "Easy",
+  "image_Url": "https://files.slack.com/files-pri/TEKVBAYJ1-FGFPRQE3W/checkered-background-with-notebook-game-items_23-2147593456.jpg",
+  "Geners":"",
+  "topic":"",
+  "Domain":""
+},
+{
+  "GameId":"331",
+  "Name": "Stand-up Comedy",
+  "Duration": "30 min",
+  "Description": "QUIZ",
+  "Level": "Easy",
+  "image_Url": "https://files.slack.com/files-pri/TEKVBAYJ1-FGFPRQE3W/checkered-background-with-notebook-game-items_23-2147593456.jpg",
+  "Geners":"",
+  "topic":"",
+  "Domain":""
+},
+{
+  "GameId":"305",
+  "Name": "Stand-up Comedy",
+  "Duration": "30 min",
+  "Description": "QUIZ",
+  "Level": "Easy",
+  "image_Url": "https://files.slack.com/files-pri/TEKVBAYJ1-FGFPRQE3W/checkered-background-with-notebook-game-items_23-2147593456.jpg",
+  "Geners":"",
+  "topic":"",
+  "Domain":""
+},
+{
+  "GameId":"301",
   "gameId":"301",
   "gameName": "Stand-up Comedy",
   "duration": "30 min",
   "description": "QUIZ",
   "level": "Easy",
   "imageUrl": "https://files.slack.com/files-pri/TEKVBAYJ1-FGFPRQE3W/checkered-background-with-notebook-game-items_23-2147593456.jpg",
-=======
-  "GameId":"Id=301",
   "Name": "Stand-up Comedy",
   "Duration": "30 min",
   "Description": "QUIZ",
@@ -72,7 +85,6 @@
   "Description": "QUIZ",
   "Level": "Easy",
   "image_Url": "https://cdn2.vectorstock.com/i/1000x1000/64/21/quiz-background-vector-10236421.jpg",
->>>>>>> 27e43fa68a8722810f32c055c79e1fbc81e02929
   "Geners":"",
   "topic":"",
   "Domain":"",
@@ -82,11 +94,6 @@
 }
 
 
-<<<<<<< HEAD
 ]
-=======
-
-  ]
->>>>>>> 27e43fa68a8722810f32c055c79e1fbc81e02929
   
 }

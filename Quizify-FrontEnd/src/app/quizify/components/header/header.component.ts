@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { SearchService } from '../../services/search.service';
+import { Gamesearch } from '../../tsclasses/gamesearch';
 
 @Component({
   selector: 'app-header',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  private games: Gamesearch[];
+  constructor(private searchService: SearchService) { }
 
   ngOnInit() {
   }
 
+  search(value){
+    this.searchService.searchByTopicStartsWith(value).subscribe((res: any) =>{
+      this.games = res.body[0].game;
+      console.log(this.games);
+    });
+  }
 }

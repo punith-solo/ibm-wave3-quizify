@@ -16,13 +16,24 @@
     <mat-form-field>
       <input
         matInput
+        placeholder="Enter Genre"
+        autocomplete="off"
+        [(ngModel)]="gameGenre"
+      />
+    </mat-form-field>
+</div>
+
+
+<div fxLayout="row" fxLayoutAlign="center center">
+    <mat-form-field>
+      <input
+        matInput
         placeholder="Enter Name for Game"
         autocomplete="off"
         [(ngModel)]="gameName"
       />
     </mat-form-field>
 </div>
-
 
 <div class="Level-container" fxLayout="row" fxLayoutAlign="center center">
 <mat-form-field>
