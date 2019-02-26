@@ -23,10 +23,13 @@ const routes: Routes = [
   { path: 'gamedetails', component: GamedetailsComponent},
 
   {path: 'game', component: GameComponent},
-  {path: 'register', component: RegisterComponent},
+  // {path: 'register', component: RegisterComponent},
+  {path: 'register', component: LoginComponent},
   {path: 'cards', component: CardsComponent},
   {path: 'search', component: SearchComponent},
-  { path: 'question', component: QuestionGeneratorComponent }
+  { path: 'question', component: QuestionGeneratorComponent },
+  { path: 'gamedetails' , component: GamedetailsComponent }
+
 ];
 
 @NgModule({

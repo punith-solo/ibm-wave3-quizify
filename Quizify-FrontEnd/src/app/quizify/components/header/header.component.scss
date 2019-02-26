@@ -1,7 +1,7 @@
 header h1{
   padding-top: 0px;
   text-align: center;
-  color: gray;
+  color: white;
   font-family: Arial, Helvetica, sans-serif;
 }
 .id{
@@ -11,10 +11,73 @@ header h1{
 header{
   z-index: 1;
   width: 100%;
-  background-color:black;
+  background-color:rebeccapurple;
   position: fixed;
   height: 80px;
   top:0%;
   left: 0%;
   bottom: 200px;
 }
+.wrap
+{
+  float: right;
+  position: relative;
+  top: 15px;
+  padding-right: 40px;
+  right: 10px;
+  color: rebeccapurple;
+}
+
+mat-form-field {
+  float: right;
+  width: 300px;
+  font-size: 15px;
+  padding: 0px;
+  padding-right: 300px;
+  padding-top: 8px;
+  color: black;
+  size: 12px;
+  top : 50px;
+}
+
+input {
+  color:black;
+  position: absolute;
+  height: 30px;
+  width: 100%;
+  font-size: 15px;
+  bottom: 100px;
+  background-color:whitesmoke;
+}
+.box {
+  padding-top: 0%;
+  background-color: rgb(121, 94, 94);
+  border-radius: 8px;
+}
+mat-icon {
+  position: absolute;
+  color: gray;
+  float: left;
+  top: -115px;
+  padding-left: 250px;
+}
+
+.img
+{
+  
+  float: left;
+  position: relative;
+  top: 10px;
+ // padding-right: 40px;
+  right: 20px;
+}
+// .wrap {
+//   top: 10px;
+//   color: gray;
+//   background-color:rebeccapurple;
+//   // background-color:;
+//   display: inline-block;
+//   font-size: 16px;
+//   margin: 4px 2px;
+//   cursor: pointer;
+// }
