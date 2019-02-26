@@ -1,4 +1,7 @@
 
+
+// import { JwtHelperService } from '@auth0/angular-jwt';
+
 import { QuizifyModule } from './quizify/quizify.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
@@ -28,8 +31,8 @@ import { RouterModule } from '@angular/router';
     MatSelectModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    QuizifyMaterialModule,
-  ],
+    QuizifyMaterialModule
+    ],
   providers: [QuestionService,
   GameserviceService] ,
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ],

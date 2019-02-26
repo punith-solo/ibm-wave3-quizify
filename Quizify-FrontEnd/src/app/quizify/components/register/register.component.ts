@@ -1,4 +1,4 @@
-import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
+// import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { RegisterService } from '../../services/register.service';
 import { HttpClient } from '@angular/common/http';

@@ -21,7 +21,7 @@ import { GamedetailsService } from './services/gamedetails.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { CookieService } from 'ngx-cookie-service';
 import { GamedetailsComponent } from './components/gamedetails/gamedetails.component';
-import {NgMultiSelectDropDownModule} from 'ng-multiselect-dropdown';
+// import {NgMultiSelectDropDownModule} from 'ng-multiselect-dropdown';
 @NgModule({
   declarations: [ CardsComponent,
     ProfileComponent,
@@ -48,8 +48,8 @@ import {NgMultiSelectDropDownModule} from 'ng-multiselect-dropdown';
     BrowserModule,
     MatFormFieldModule,
     MatInputModule,
-    MatButtonModule,
-    NgMultiSelectDropDownModule.forRoot()
+    MatButtonModule
+   // NgMultiSelectDropDownModule.forRoot()
   ],
   exports: [ CardsComponent,
     ProfileComponent,
