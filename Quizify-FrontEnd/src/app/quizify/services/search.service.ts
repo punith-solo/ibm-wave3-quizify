@@ -14,7 +14,7 @@ export class SearchService {
 
 
   constructor(private http: HttpClient) {
-    this.microServiceUrl = 'http://0.0.0.0:8106/search-service/api/v1/';
+    this.microServiceUrl = 'http://13.232.243.68:8092/search-service/api/v1/';
    }
 
   //  saveGenre(genre: string) {
@@ -22,12 +22,12 @@ export class SearchService {
   //    .pipe(catchError(this.handleError));
   //  }
 
-   searchByGenreStartsWith(genreName: string) {
+  //  searchByGenreStartsWith(genreName: string) {
 
-    console.log(this.microServiceUrl + 'search-genre/' + genreName);
-     return this.http.get(this.microServiceUrl + 'search-genre/' + genreName, { observe: 'response' })
-     .pipe(catchError(this.handleError));
-   }
+  //   console.log(this.microServiceUrl + 'search-genre/' + genreName);
+  //    return this.http.get(this.microServiceUrl + 'search-genre/' + genreName, { observe: 'response' })
+  //    .pipe(catchError(this.handleError));
+  //  }
 
   //  saveTopic(genre: string) {
   //   return this.http.post(this.microServiceUrl + 'search-topic', { observe: 'response' })
@@ -35,7 +35,7 @@ export class SearchService {
   // }
 
   searchByTopicStartsWith(topicName: string) {
-    console.log(this.microServiceUrl + 'search-genre/' + topicName);
+    console.log(this.microServiceUrl + 'search-topic/' + topicName);
     return this.http.get(this.microServiceUrl + 'search-topic/' + topicName, { observe: 'response' })
     .pipe(catchError(this.handleError));
   }

@@ -21,6 +21,7 @@ import { GamedetailsService } from './services/gamedetails.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { CookieService } from 'ngx-cookie-service';
 import { GamedetailsComponent } from './components/gamedetails/gamedetails.component';
+import { AdminpageComponent } from './components/adminpage/adminpage.component';
 // import {NgMultiSelectDropDownModule} from 'ng-multiselect-dropdown';
 @NgModule({
   declarations: [ CardsComponent,
@@ -33,7 +34,8 @@ import { GamedetailsComponent } from './components/gamedetails/gamedetails.compo
     GameComponent,
     QuestionGeneratorComponent,
     HeaderComponent,
-    GamedetailsComponent
+    GamedetailsComponent,
+    AdminpageComponent
      ],
      providers: [ CardService, CookieService, GamedetailsService],
 

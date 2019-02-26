@@ -12,7 +12,9 @@ header h1{
  header{
   z-index: 1;
   width: 100%;
-  background-color:rebeccapurple;
+  background-color:black;
+  // background-image: url('src/app/quizify/2.jpg');
+
   position: fixed;
   height: 80px;
   top:0%;
@@ -26,7 +28,7 @@ header h1{
   top: 15px;
   padding-right: 40px;
   right: 10px;
-  color: rebeccapurple;
+  color: red($color: #000000);
  }
  
  mat-form-field {
