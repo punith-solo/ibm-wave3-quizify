@@ -12,5 +12,5 @@ export class GamedetailsService {
   getDetails() {
       this.url = 'http://localhost:3000/game';
       return this.http.get(this.url);
-}
+  }
 }

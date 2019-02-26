@@ -3,8 +3,10 @@ export class Register {
 
     userName: string;
     password: string;
-    confirmpassword: string;
-    emailid: string;
+    confirmPassword: string;
+    emailId: string;
     interests: string;
+    // geners: string;
     gender: string;
+
 }
