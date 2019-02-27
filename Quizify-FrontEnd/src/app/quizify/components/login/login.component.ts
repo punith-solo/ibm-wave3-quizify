@@ -23,6 +23,7 @@ constructor(private fb: FormBuilder, private loginService: AuthenticationService
 // to reroute valid logged in user to some other page
 helper = new JwtHelperService();
 login() {
+ // console.log(this.user);
   this.loginService.login(this.user.value)
   .subscribe(res => {
   console.log('Res: ', res);
@@ -36,7 +37,7 @@ login() {
       // let token = this.loginService.getCookie('token');
     }
     if ((this.helper.decodeToken(res.token).sub === 'player' )) {
-      this.router.navigate([`/game`]);
+      this.router.navigate([`/cards`]);
       this.loginService.setCookie('token', res.token, 1);
       this.isLoggedIn = true;
       // this.loginService.setCookie('message', res.message, 1);
