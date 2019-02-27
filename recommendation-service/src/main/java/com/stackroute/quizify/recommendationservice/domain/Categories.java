@@ -6,16 +6,14 @@ import org.neo4j.ogm.annotation.Id;
 import org.neo4j.ogm.annotation.NodeEntity;
 import org.neo4j.ogm.annotation.Property;
 
-import java.util.List;
-
-@Data
 @NodeEntity
-public class Genre {
-    @Id
-    @GeneratedValue
-    private Long genreId;
+@Data
+public class Categories {
+
+    @Id @GeneratedValue
+    private long id;
     @Property
-    private String genreName;
+    private String categoryName;
     @Property
     private String imageUrl;
 }

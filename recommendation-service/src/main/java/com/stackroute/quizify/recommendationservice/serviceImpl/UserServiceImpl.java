@@ -1,6 +1,6 @@
 package com.stackroute.quizify.recommendationservice.serviceImpl;
 
-import com.stackroute.quizify.kafka.domain.User;
+import com.stackroute.quizify.recommendationservice.domain.Users;
 import com.stackroute.quizify.recommendationservice.repository.UserRepository;
 import com.stackroute.quizify.recommendationservice.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,32 +19,32 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public List<User> getAll() {
+    public List<Users> getAll() {
         return userRepository.getAllNodes();
     }
 
     @Override
-    public User getone(long userId) {
+    public Users getone(long userId) {
         return userRepository.getNode(userId);
     }
 
     @Override
-    public User create(User user) {
-        long id=user.getUserId();
-        String name=user.getUserName();
-        String gender=user.getGender();
+    public Users create(Users users) {
+        long id= users.getUserId();
+        String name= users.getUserName();
+        String gender= users.getGender();
         return userRepository.createNode(id,name,gender);
     }
     @Override
-    public User delete(long userId) {
+    public Users delete(long userId) {
         return userRepository.deleteNode(userId);
     }
 
     @Override
-    public User update(User user) {
-        long id=user.getUserId();
-        String name=user.getUserName();
-        String gender=user.getGender();
+    public Users update(Users users) {
+        long id= users.getUserId();
+        String name= users.getUserName();
+        String gender= users.getGender();
         return userRepository.updateNode(id,name,gender);
     }
 }

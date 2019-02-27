@@ -1,8 +1,7 @@
 package com.stackroute.quizify.recommendationservice.service;
 
-import com.stackroute.quizify.kafka.domain.SinglePlayer;
 import com.stackroute.quizify.recommendationservice.domain.Played;
-import org.springframework.stereotype.Service;
+import com.stackroute.quizify.recommendationservice.domain.SinglePlayer;
 
 import java.util.List;
 

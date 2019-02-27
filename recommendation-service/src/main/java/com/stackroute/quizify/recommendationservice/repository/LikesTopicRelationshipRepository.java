@@ -11,12 +11,12 @@ import java.util.List;
 @Repository
 public interface LikesTopicRelationshipRepository extends Neo4jRepository<LikesTopic,String> {
 
-    @Query("MATCH p=(User)-[r:LikesTopic]->(Topic) RETURN p")
+    @Query("MATCH p=(Users)-[r:LikesTopic]->(Topics) RETURN p")
     public List<LikesTopic> getAllRelationships();
 
-    @Query("MATCH (p:User),(t:Topic) WHERE id(p)={userId} and id(t)={topicId} CREATE (p)-[q:LikesTopic}]->(t) RETURN p,q,t")
+    @Query("MATCH (p:Users),(t:Topics) WHERE id(p)={userId} and id(t)={topicId} CREATE (p)-[q:LikesTopic}]->(t) RETURN p,q,t")
     LikesTopic createRelationship(@Param("userId") long userId, @Param("topicId") long topicId);
 
-    @Query("MATCH (p:User)-[r:LikesTopic]->(t:Topic) WHERE id(p)={userId} and id(t)={topicId} DELETE r RETURN 'relationship deleted' ")
+    @Query("MATCH (p:Users)-[r:LikesTopic]->(t:Topics) WHERE id(p)={userId} and id(t)={topicId} DELETE r RETURN 'relationship deleted' ")
     LikesTopic deleteRelationship(@Param("userId") Long userId, @Param("topicId") long topicId);
 }

@@ -1,18 +1,13 @@
 package com.stackroute.quizify.kafka.domain;
 
 import lombok.Data;
-import org.neo4j.ogm.annotation.GeneratedValue;
-import org.neo4j.ogm.annotation.Id;
-import org.neo4j.ogm.annotation.NodeEntity;
-import org.neo4j.ogm.annotation.Property;
+import org.springframework.data.annotation.Id;
 
-@NodeEntity
 @Data
 public class Category{
-    @Id @GeneratedValue
+
+    @Id
     private long id;
-    @Property
     private String categoryName;
-    @Property
     private String imageUrl;
 }

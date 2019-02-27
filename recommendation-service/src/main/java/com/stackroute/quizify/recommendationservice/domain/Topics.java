@@ -1,17 +1,20 @@
-package com.stackroute.quizify.kafka.domain;
+package com.stackroute.quizify.recommendationservice.domain;
 
 import lombok.Data;
 import org.neo4j.ogm.annotation.GeneratedValue;
+import org.neo4j.ogm.annotation.Id;
 import org.neo4j.ogm.annotation.NodeEntity;
 import org.neo4j.ogm.annotation.Property;
-import org.springframework.data.annotation.Id;
 
 
+@NodeEntity
 @Data
-public class Topic {
-
+public class Topics {
     @Id
+    @GeneratedValue
     private long id;
-    private String topciName;
+    @Property
+    private String topicName;
+    @Property
     private String imageUrl;
 }

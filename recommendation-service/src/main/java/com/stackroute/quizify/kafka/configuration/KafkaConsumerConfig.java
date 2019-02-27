@@ -1,6 +1,9 @@
-package com.stackroute.quizify.kafka.configuration;//package com.stackroute.quizify.kafka.configuration;
+/*
+//package com.stackroute.quizify.kafka.configuration;
 //
 //import com.stackroute.quizify.kafka.domain.Game;
+//import com.stackroute.quizify.kafka.domain.SinglePlayer;
+//import com.stackroute.quizify.kafka.domain.Users;
 //import org.apache.kafka.clients.consumer.ConsumerConfig;
 //import org.apache.kafka.common.serialization.StringDeserializer;
 //import org.springframework.beans.factory.annotation.Value;
@@ -22,12 +25,13 @@ package com.stackroute.quizify.kafka.configuration;//package com.stackroute.quiz
 //    @Value("${kafka.bootstrap-server}")
 //    private String bootstrapServer;
 //
-//    @Value("${kafka.group-id}")
 //    private String consumersId;
 //
+//
 //    @Bean
-//    public ConsumerFactory<String, Game> consumerFactory()
+//    public ConsumerFactory<String, Game> gameConsumerFactory()
 //    {
+//        this.consumersId = "recommendation-game-consumer";
 //        Map<String, Object> configs = new HashMap<>();
 //        configs.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, this.bootstrapServer);
 //        configs.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
@@ -41,12 +45,63 @@ package com.stackroute.quizify.kafka.configuration;//package com.stackroute.quiz
 //    }
 //
 //    @Bean
-//    public ConcurrentKafkaListenerContainerFactory<String, Game> kafkaListenerContainerFactory ()
+//    public ConcurrentKafkaListenerContainerFactory<String, Game> kafkaListenerGameContainerFactory ()
 //    {
 //        ConcurrentKafkaListenerContainerFactory<String, Game> factory = new ConcurrentKafkaListenerContainerFactory<>();
-//        factory.setConsumerFactory(consumerFactory());
+//        factory.setConsumerFactory(gameConsumerFactory());
+//
+//        return factory;
+//    }
+//
+//    @Bean
+//    public ConsumerFactory<String, Users> userConsumerFactory()
+//    {
+//        this.consumersId = "recommendation-users-consumer";
+//        Map<String, Object> configs = new HashMap<>();
+//        configs.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, this.bootstrapServer);
+//        configs.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
+//        configs.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, JsonDeserializer.class);
+//        configs.put(ConsumerConfig.GROUP_ID_CONFIG, this.consumersId);
+//        configs.put(JsonDeserializer.VALUE_DEFAULT_TYPE, Users.class);
+//        configs.put(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG, "latest");
+//        configs.put(ConsumerConfig.ENABLE_AUTO_COMMIT_CONFIG, "true");
+//
+//        return new DefaultKafkaConsumerFactory<>(configs);
+//    }
+//
+//    @Bean
+//    public ConcurrentKafkaListenerContainerFactory<String, Users> kafkaListenerUserContainerFactory ()
+//    {
+//        ConcurrentKafkaListenerContainerFactory<String, Users> factory = new ConcurrentKafkaListenerContainerFactory<>();
+//        factory.setConsumerFactory(userConsumerFactory());
+//
+//        return factory;
+//    }
+//
+//    @Bean
+//    public ConsumerFactory<String, SinglePlayer> singlePlayerConsumerFactory()
+//    {
+//        this.consumersId = "recommendation-single-player-consumer";
+//        Map<String, Object> configs = new HashMap<>();
+//        configs.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, this.bootstrapServer);
+//        configs.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
+//        configs.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, JsonDeserializer.class);
+//        configs.put(ConsumerConfig.GROUP_ID_CONFIG, this.consumersId);
+//        configs.put(JsonDeserializer.VALUE_DEFAULT_TYPE, SinglePlayer.class);
+//        configs.put(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG, "latest");
+//        configs.put(ConsumerConfig.ENABLE_AUTO_COMMIT_CONFIG, "true");
+//
+//        return new DefaultKafkaConsumerFactory<>(configs);
+//    }
+//
+//    @Bean
+//    public ConcurrentKafkaListenerContainerFactory<String, SinglePlayer> kafkaListenerSinglePlayerContainerFactory ()
+//    {
+//        ConcurrentKafkaListenerContainerFactory<String, SinglePlayer> factory = new ConcurrentKafkaListenerContainerFactory<>();
+//        factory.setConsumerFactory(singlePlayerConsumerFactory());
 //
 //        return factory;
 //    }
 //
 //}
+//*/

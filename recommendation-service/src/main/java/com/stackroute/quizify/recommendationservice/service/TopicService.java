@@ -1,12 +1,13 @@
 package com.stackroute.quizify.recommendationservice.service;
 
-import com.stackroute.quizify.kafka.domain.Topic;
-import org.springframework.stereotype.Service;
+import com.stackroute.quizify.recommendationservice.domain.Topics;
 
 import java.util.List;
 
 
 public interface TopicService {
 
-    public List<Topic> getAll();
+    public List<Topics> getAllTopicsforCategory(long categoryId);
+
+    public List<Topics> getAll();
 }
