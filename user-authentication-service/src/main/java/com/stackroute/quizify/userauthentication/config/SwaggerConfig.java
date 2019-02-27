@@ -27,8 +27,8 @@ public class SwaggerConfig {
     public Docket productapi(){
         return new Docket(DocumentationType.SWAGGER_2)
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("com.stackroute.controller"))
-                .paths(regex("/api.*"))
+                .apis(RequestHandlerSelectors.basePackage("com.stackroute.quizify.userauthentication.controller"))
+                .paths(PathSelectors.any())
                 .build();
 
     }
