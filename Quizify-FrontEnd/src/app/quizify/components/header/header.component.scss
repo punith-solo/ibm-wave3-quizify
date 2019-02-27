@@ -12,7 +12,9 @@ header h1{
  header{
   z-index: 1;
   width: 100%;
-  background-color:rebeccapurple;
+  background-color:black;
+ // background-image: url('src/app/quizify/2.jpg');
+
   position: fixed;
   height: 80px;
   top:0%;
@@ -26,9 +28,8 @@ header h1{
   top: 15px;
   padding-right: 40px;
   right: 10px;
-  color: rebeccapurple;
+  color: red($color: #000000);
  }
- 
  mat-form-field {
   float: right;
   width: 300px;
@@ -54,6 +55,7 @@ header h1{
   padding-top: 0%;
   background-color: rgb(121, 94, 94);
   border-radius: 8px;
+  margin-left: 800px;;
  }
  mat-icon {
   position: absolute;
@@ -71,6 +73,33 @@ header h1{
   top: 10px;
  // padding-right: 40px;
   right: 20px;
+ }
+ footer
+ {
+ position: relative;
+ // float: right;
+ top:700px;
+ background-color: black;
+ width: 1533px;
+ height: 75px;
+ right: 0px;
+ position: fixed;
+ 
+ }
+ h1
+ {
+ color:  white;
+ float: right;
+ padding-right: 20px;
+ font-size: 24px;
+ }
+ a
+ {
+ float: left;
+ padding-top: 20px;
+ padding-left: 35px;
+ top: 500px;
+ color:  white;
  }
  // .wrap {
  //   top: 10px;

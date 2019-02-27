@@ -29,7 +29,7 @@ login() {
   console.log(this.helper.decodeToken(res.token).jti, ' :this is the value of the username');
   console.log(this.helper.decodeToken(res.token).sub, ' :this is the value of the role');
      if ((this.helper.decodeToken(res.token).sub === 'admin' )) {
-      this.router.navigate([`/profile`]);
+      this.router.navigate([`/adminpage`]);
       this.loginService.setCookie('token', res.token, 1);
       this.isLoggedIn = true;
       // this.loginService.setCookie('message', res.message, 1);

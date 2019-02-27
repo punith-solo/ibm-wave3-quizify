@@ -1,6 +1,7 @@
 import { Router } from '@angular/router';
 import { Component, OnInit, Input } from '@angular/core';
 import { Gamesearch } from '../../tsclasses/gamesearch';
+import { SearchService } from '../../services/search.service';
 
 @Component({
   selector: 'app-search',
@@ -8,14 +9,21 @@ import { Gamesearch } from '../../tsclasses/gamesearch';
   styleUrls: ['./search.component.scss']
 })
 export class SearchComponent implements OnInit {
-  @Input() game: Gamesearch; 
+  Gamesearch: any;
+  private games: Gamesearch[];
+  @Input() game: Gamesearch;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private searchService: SearchService) { }
 
   ngOnInit() {
-  }
-  // openSearch() {
-  //   this.router.navigate(['profile']);
-  // }
 
+  }
+
+  search(value) {
+    this.searchService.searchByTopicStartsWith(value).subscribe((res: any) => {
+      this.games = res.body[0].game;
+      console.log(this.games);
+    });
+
+}
 }

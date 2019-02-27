@@ -1,7 +1,41 @@
-<!-- 
-<mat-form-field appearance="inline" >
-  <div class="box">
-      <input matInput placeholder="Search for product, brand and more" (input)="search($event.target.value)">
-      <mat-icon (click)="openSearch()"  matSuffix>search</mat-icon>
-    </div>
-  </mat-form-field> -->
+<h1>Search</h1>
+
+<mat-form-field appearance="outline" >
+      <input type="text" matInput placeholder="Search for quizes" (input)="search($event.target.value)">
+      <mat-icon  matSuffix>search</mat-icon>
+</mat-form-field>
+
+<!-- <mat-form-field appearance="outline">
+  <mat-label>Outline form field</mat-label>
+  <input matInput placeholder="Placeholder">
+  <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+  <mat-hint>Hint</mat-hint>
+</mat-form-field> -->
+
+<!-- <input type="text" name="" id="" (input)="search($event.target.value)"> -->
+
+<!-- <app-card *ngFor="let track of tracks" [track]="track" class="track-card"
+    (trackAddEvent)="addToPlayList($event)"
+    ></app-card> -->
+  <div class="container">
+  <div *ngFor="let q of games">
+  <mat-card class="example-card">
+      <mat-card-header>
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-title>{{ q.gameName }}</mat-card-title>
+        <mat-card-subtitle>{{ q.description }}</mat-card-subtitle>
+      </mat-card-header>
+      <img mat-card-image src="{{ q.imageUrl }}" alt="Game image">
+      <mat-card-content>
+            <mat-card-actions>
+                <button mat-raised-button>LIKE</button>
+                <button mat-raised-button>PLAY</button>
+                <button mat-raised-button  [routerLink]="[ '/gamedetails']">DETAILS</button>
+               
+              </mat-card-actions>
+        
+      </mat-card-content>
+      </mat-card>
+  </div>
+  </div>
+  

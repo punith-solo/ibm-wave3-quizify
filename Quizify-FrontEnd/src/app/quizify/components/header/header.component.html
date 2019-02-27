@@ -1,12 +1,16 @@
 <header>
-       
+    <!-- <a href="/">
+        <img src="src/assets/images/logo3.png">
+    </a>
+        -->
     <div class="wrap">
         <mat-card-actions>
-            <!-- <button mat-raised-button (click)="Login()">Login</button> -->
-            <button mat-raised-button  [routerLink]="[ '/register']">Signup</button>
-            </mat-card-actions>
+           <button mat-raised-button color="" [routerLink]="[ '/login']">Login</button>
+           <button mat-raised-button  [routerLink]="[ '/adminpage']">Admin</button>
+        </mat-card-actions>
     </div>
     <h1>Quizify</h1>
+    <!-- <h3>Test Your Knowledge</h3> -->
     
     <mat-form-field appearance="inline" >
         <div class="box">
@@ -16,8 +20,15 @@
         </mat-form-field>
         <!-- <div class="img">
                 <img mat-card-image src="https://img.freepik.com/free-vector/background-test-elements-flat-design_23-2147596141.jpg?size=338&ext=jpg" alt="Photo of a Shiba Inu" height="40px" width="40px">
-            </div> -->
+        </div> -->
     </header>
     <body>
-        <app-cards></app-cards>
+        <!-- <app-cards></app-cards> -->
+        <app-search></app-search>
     </body>
+    <footer>
+            <h1>©2019 Quizify All rights reserved</h1>
+            <a href = "#">Gmail</a>
+            <a href = "#">Facebook</a>
+            <a href = "#">Twitter</a>
+    </footer>
