@@ -1,4 +1,4 @@
-package com.stackroute.quizify.signleplayerengine.domain;
+package com.stackroute.quizify.kafka.domain;
 
 import lombok.Data;
 import org.springframework.data.annotation.Id;

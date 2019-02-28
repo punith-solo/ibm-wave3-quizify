@@ -138,82 +138,99 @@ services:
     expose:
       - 8102
 
-#  search-service:
-#    image: search-service
-#    build: search-service/
-#    restart: always
-#    network_mode: host
-#    depends_on:
-#      - zookeeper
-#      - kafka
-#      - mongo
-#      - eurekaserver
-#      - configserver
-#      - apigateway
-#    ports:
-#      - 8106:8106
-#    expose:
-#      - 8106
-#
-#  user-registration-service:
-#    image: user-registration-service
-#    build: user-registration-service/
-#    restart: always
-#    network_mode: host
-#    depends_on:
-#      - zookeeper
-#      - kafka
-#      - mongo
-#      - eurekaserver
-#      - configserver
-#      - apigateway
-#    ports:
-#      - 8999:8999
-#    expose:
-#      - 8999
-#
-#  user-authentication-service:
-#    image: user-authentication-service
-#    build: user-authentication-service/
-#    restart: always
-#    network_mode: host
-#    depends_on:
-#      - zookeeper
-#      - kafka
-#      - mysql
-#      - eurekaserver
-#      - configserver
-#      - apigateway
-#    ports:
-#      - 8095:8095
-#    expose:
-#      - 8095
-#
-#  recommendation-service:
-#    image: recommendation-service
-#    build: recommendation-service/
-#    restart: always
-#    network_mode: host
-#    depends_on:
-#      - zookeeper
-#      - kafka
-#      - neo4j
-#      - eurekaserver
-#      - configserver
-#      - apigateway
-#    ports:
-#      - 8104:8104
-#    expose:
-#      - 8104
+  search-service:
+    image: search-service
+    build: search-service/
+    restart: always
+    network_mode: host
+    depends_on:
+      - zookeeper
+      - kafka
+      - mongo
+      - eurekaserver
+      - configserver
+      - apigateway
+    ports:
+      - 8106:8106
+    expose:
+      - 8106
 
-#  quizify-front-end:
-#    image: quizify-front-end
-#    build: Quizify-FrontEnd/
-#    container_name: quizify-front-end
-#    network_mode: host
-#    hostname: 0.0.0.0
-#    ports:
-#      - 4200:4200
-#    expose:
-#      - 4200
-#    restart: always
+  user-registration-service:
+    image: user-registration-service
+    build: user-registration-service/
+    restart: always
+    network_mode: host
+    depends_on:
+      - zookeeper
+      - kafka
+      - mongo
+      - eurekaserver
+      - configserver
+      - apigateway
+    ports:
+      - 8999:8999
+    expose:
+      - 8999
+
+  user-authentication-service:
+    image: user-authentication-service
+    build: user-authentication-service/
+    restart: always
+    network_mode: host
+    depends_on:
+      - zookeeper
+      - kafka
+      - mysql
+      - eurekaserver
+      - configserver
+      - apigateway
+    ports:
+      - 8095:8095
+    expose:
+      - 8095
+
+  recommendation-service:
+    image: recommendation-service
+    build: recommendation-service/
+    restart: always
+    network_mode: host
+    depends_on:
+      - zookeeper
+      - kafka
+      - neo4j
+      - eurekaserver
+      - configserver
+      - apigateway
+    ports:
+      - 8104:8104
+    expose:
+      - 8104
+
+  single-player-engine:
+    image: single-player-engine
+    build: single-player-engine/
+    restart: always
+    network_mode: host
+    depends_on:
+      - zookeeper
+      - kafka
+      - neo4j
+      - eurekaserver
+      - configserver
+      - apigateway
+    ports:
+      - 8108:8108
+    expose:
+      - 8108
+
+  quizify-front-end:
+    image: quizify-front-end
+    build: Quizify-FrontEnd/
+    container_name: quizify-front-end
+    network_mode: host
+    hostname: 0.0.0.0
+    ports:
+      - 4200:4200
+    expose:
+      - 4200
+    restart: always

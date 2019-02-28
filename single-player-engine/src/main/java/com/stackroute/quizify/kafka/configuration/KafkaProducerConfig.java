@@ -1,6 +1,6 @@
 package com.stackroute.quizify.kafka.configuration;
 
-import com.stackroute.quizify.signleplayerengine.domain.SinglePlayer;
+import com.stackroute.quizify.kafka.domain.SinglePlayer;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.common.serialization.StringSerializer;
 import org.springframework.beans.factory.annotation.Value;

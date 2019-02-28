@@ -4,9 +4,9 @@ import lombok.Data;
 import org.springframework.data.annotation.Id;
 
 @Data
-public class SinglePlayer {
+public class Tag {
     @Id
     private long id;
-    private Game game;
-    private User users;
+    private String name;
+    private String imageUrl;
 }

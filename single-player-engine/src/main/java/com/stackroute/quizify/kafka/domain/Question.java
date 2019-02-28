@@ -2,6 +2,7 @@ package com.stackroute.quizify.kafka.domain;
 
 import lombok.Data;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.List;
 
@@ -39,21 +40,18 @@ import java.util.List;
  *
  * The Field "timeStamp" is used to store the Timestamp of last time the document is edited.
  */
-
 @Data
 public class Question {
     @Id
     private long id;
     private Category category;
     private Topic topic;
-    private String tag;
-    private String genre;
+    private Genre genre;
+    private Tag tag;
     private String level;
     private String type;
     private String statement;
     private List<String> options;
-    private String answer;
+    private String correctAnswer;
     private String playerAnswer;
-    private String timeStamp;
-    private Admin admin;
 }

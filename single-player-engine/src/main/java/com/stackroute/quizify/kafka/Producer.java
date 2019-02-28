@@ -1,5 +1,5 @@
 package com.stackroute.quizify.kafka;
-import com.stackroute.quizify.signleplayerengine.domain.SinglePlayer;
+import com.stackroute.quizify.kafka.domain.SinglePlayer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

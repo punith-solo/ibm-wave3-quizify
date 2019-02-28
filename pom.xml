@@ -31,10 +31,11 @@
         <module>config-server</module>
 	    <module>question-manager-service</module>
         <module>game-manager-service</module>
-        <!--<module>search-service</module>-->
-        <!--<module>user-registration-service</module>-->
-        <!--<module>user-authentication-service</module>-->
-        <!--<module>recommendation-service</module>-->
+        <module>search-service</module>
+        <module>user-registration-service</module>
+        <module>user-authentication-service</module>
+        <module>recommendation-service</module>
+        <module>single-player-engine</module>
     </modules>
     <dependencies>
         <dependency>

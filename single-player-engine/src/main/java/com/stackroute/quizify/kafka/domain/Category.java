@@ -29,6 +29,5 @@ public class Category {
     private long id;
     private String name;
     private String imageUrl;
-    private String timeStamp;
-    private Admin admin;
+
 }
