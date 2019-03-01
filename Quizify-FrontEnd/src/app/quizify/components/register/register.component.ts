@@ -1,5 +1,4 @@
 import { Topic } from './../../tsclasses/topic';
-// import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { RegisterService } from '../../services/register.service';
 import { HttpClient } from '@angular/common/http';
@@ -24,18 +23,18 @@ export class RegisterComponent implements OnInit {
   disabled = false;
   ShowFilter = false;
   limitSelection = false;
-  generes: any = [];
+  topic: any = [];
+  genre: any = [];
   selectedItems: any = [];
   dropdownSettings: any = {};
 
-
   @Input()
   register: Register;
-  private userName: string;
+  private name: string;
   private password: string;
   private confirmPassword: string;
   private emailId: string;
-  private topic: Topic;
+  private topics: Topic[];
   private genres: Genre[];
   private gender: string;
 
@@ -50,9 +49,9 @@ export class RegisterComponent implements OnInit {
  }
  submit(event: any) {
   this.register = new Register();
-  this.register.userName = this.userName;
+  this.register.name = this.name;
   this.register.password = this.password;
-  this.register.topic = this.topic;
+  this.register.topics = this.topics;
   this.register.genres = this.genres;
   this.register.gender = this.gender;
   this.register.emailId = this.emailId;
@@ -90,12 +89,3 @@ export class RegisterComponent implements OnInit {
   }
 
 }
-  //   addUser(searchText: string) {
-  //      console.log('hi');
-  //    this.http.get('https://localhost:8899/api/v1/user').subscribe(resp => {
-  //        console.log(resp);
-  //    this.response = resp;
-  //        });
-  //    return this.response;
-  //    }
-

@@ -1,16 +1,21 @@
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { AuthenticationService } from './../../services/authentication.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router' ;
 import { first } from 'rxjs/operators' ;
 import { HttpErrorResponse } from '@angular/common/http';
 import { FormBuilder, Validators } from '@angular/forms';
+import { User } from '../../tsclasses/user';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent  {
+  @Input()
+  private user1: User; // variable of class User
+  private username: string;
+  private password: string;
   isLoginError: boolean ;
   isLoggedIn = false ;
   user = this.fb.group({ // for reactive groups, we are creating form builder groups which is where we create
@@ -22,41 +27,47 @@ export class LoginComponent  {
 constructor(private fb: FormBuilder, private loginService: AuthenticationService, private router: Router) { } // using router
 // to reroute valid logged in user to some other page
 helper = new JwtHelperService();
+helper1 = new JwtHelperService();
 login() {
- // console.log(this.user);
+  this.user1 = new User();
+  this.user1.username = this.username;
+  this.user1.password = this.password;
+  console.log('i am a user:' + ' ' + this.user1.username); // what u entered in the textbox
+  console.log('my password is' + '' + this.user1.password);
+  // console.log(this.user);
   this.loginService.login(this.user.value)
   .subscribe(res => {
   console.log('Res: ', res);
   console.log(this.helper.decodeToken(res.token).jti, ' :this is the value of the username');
   console.log(this.helper.decodeToken(res.token).sub, ' :this is the value of the role');
      if ((this.helper.decodeToken(res.token).sub === 'admin' )) {
+      localStorage.setItem('token' , res.token);
       this.router.navigate([`/adminpage`]);
-      this.loginService.setCookie('token', res.token, 1);
       this.isLoggedIn = true;
-      // this.loginService.setCookie('message', res.message, 1);
-      // let token = this.loginService.getCookie('token');
     }
     if ((this.helper.decodeToken(res.token).sub === 'player' )) {
-      this.router.navigate([`/cards`]);
-      this.loginService.setCookie('token', res.token, 1);
-      this.isLoggedIn = true;
-      // this.loginService.setCookie('message', res.message, 1);
-      // let token = this.loginService.getCookie('token');
-    }
-    // only this one needed
-  // this.loginService.login(this.user.value)
-  // .subscribe(res => {
-  //   console.log('Res: ', res);
-  //   if (res.message === 'User successfully logged in') {
-  //     this.router.navigate([`/profile`]);
-  //     this.loginService.setCookie('token', res.token, 1);
-  //     // this.loginService.setCookie('message', res.message, 1);
-  //     // let token = this.loginService.getCookie('token');
-  //   } else {
-  //     console.log('you entered the wrong credentials');
-  //     window.alert('Credentials you entered are incorrect');
-  //   }
-  });
+      this.helper1 = this.helper.decodeToken(res.token).jti ;
+      console.log(' user value in token :' + this.helper1);
+      console.log(' user value from textbox :' + this.user1.username);
+       if ( this.helper.decodeToken(res.token).jti === this.user1.username) {
+        localStorage.setItem('token' , res.token);
+        console.log('token value is' + '' + res.token);
+        this.router.navigate([`/cards`]); // it will route to single player engine
+        this.isLoggedIn = true;
+       }
+      }
+       // else {
+// console.log('invalid username');
+// window.alert('invalid credential');
+} ,
+error => {
+  console.log('wrong credentials');
+  window.alert('wrong credentials');
+  // alert('Invalid credentials');
+  // this.alertService.error(error);
+  // this.loading = false;
+  // this.errormessage = false;
+});
 }
 
 }

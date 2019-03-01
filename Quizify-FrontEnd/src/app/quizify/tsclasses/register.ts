@@ -3,13 +3,12 @@ import { Topic } from './topic';
 
 export class Register {
 
-    userName: string;
+    name: string;
     password: string;
     confirmPassword: string;
     emailId: string;
-    topic: Topic;
+    topics: Topic[];
     genres: Genre[];
     gender: string;
-
 }
 

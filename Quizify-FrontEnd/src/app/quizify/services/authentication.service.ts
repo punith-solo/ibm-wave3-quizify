@@ -18,6 +18,11 @@ export class AuthenticationService {
   login(user: any): Observable<any> {
       return this.http.post<any>(this.loginUrl, user);
   }
+  logout() {
+    console.log('i have entered in the logout function');
+    localStorage.removeItem('token');
+    this.router.navigate([`/cards`]);  // after logging out ,it should redirect to homepage
+  }
 
   setCookie(cname: string, cvalue: string, exdays: number) {
       const date = new Date();
