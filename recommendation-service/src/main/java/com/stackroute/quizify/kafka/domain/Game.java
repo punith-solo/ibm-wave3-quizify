@@ -6,11 +6,9 @@ import com.stackroute.quizify.recommendationservice.domain.Genre;
 import com.stackroute.quizify.recommendationservice.domain.Tag;
 import com.stackroute.quizify.recommendationservice.domain.Topic;
 import lombok.Data;
-
 import org.springframework.data.annotation.Id;
 
 import java.util.List;
-
 
 @Data
 public class Game {

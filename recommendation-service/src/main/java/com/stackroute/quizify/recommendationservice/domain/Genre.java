@@ -13,9 +13,9 @@ import java.util.List;
 public class Genre {
     @Id
     @GeneratedValue
-    private Long genreId;
+    private long id;
     @Property
-    private String genreName;
+    private String name;
     @Property
     private String imageUrl;
 }

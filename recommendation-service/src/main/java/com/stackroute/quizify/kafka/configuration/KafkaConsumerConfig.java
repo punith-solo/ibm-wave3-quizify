@@ -49,6 +49,7 @@ public class KafkaConsumerConfig {
     @Bean
     public ConsumerFactory<String, Game> gameConsumerFactory()
     {
+        System.out.println("-----------------------------------------------------------");
         this.consumersId = "recommendation-game-consumer";
         Map<String, Object> configs = new HashMap<>();
         configs.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, this.bootstrapServer);
@@ -65,6 +66,7 @@ public class KafkaConsumerConfig {
     @Bean
     public ConcurrentKafkaListenerContainerFactory<String, Game> kafkaListenerGameContainerFactory ()
     {
+        System.out.println("-----------------------------------------------------------------------");
         ConcurrentKafkaListenerContainerFactory<String, Game> factory = new ConcurrentKafkaListenerContainerFactory<>();
         factory.setConsumerFactory(gameConsumerFactory());
 
@@ -74,7 +76,9 @@ public class KafkaConsumerConfig {
     @Bean
     public ConsumerFactory<String, User> userConsumerFactory()
     {
+        System.out.println("---------------------------------------------------");
         this.consumersId = "recommendation-users-consumer";
+        System.out.println("-----------------"+this.consumersId);
         Map<String, Object> configs = new HashMap<>();
         configs.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, this.bootstrapServer);
         configs.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
@@ -90,6 +94,7 @@ public class KafkaConsumerConfig {
     @Bean
     public ConcurrentKafkaListenerContainerFactory<String, User> kafkaListenerUserContainerFactory ()
     {
+        System.out.println("---------------------------------------------------------------------");
         ConcurrentKafkaListenerContainerFactory<String, User> factory = new ConcurrentKafkaListenerContainerFactory<>();
         factory.setConsumerFactory(userConsumerFactory());
 

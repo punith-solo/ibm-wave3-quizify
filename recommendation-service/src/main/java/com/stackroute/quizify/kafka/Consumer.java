@@ -3,8 +3,12 @@ package com.stackroute.quizify.kafka;
 import com.stackroute.quizify.kafka.domain.Game;
 import com.stackroute.quizify.kafka.domain.SinglePlayer;
 import com.stackroute.quizify.kafka.domain.User;
+import com.stackroute.quizify.recommendationservice.domain.GameIsATopic;
+import com.stackroute.quizify.recommendationservice.domain.GameTypeOfGenre;
 import com.stackroute.quizify.recommendationservice.domain.Games;
 import com.stackroute.quizify.recommendationservice.domain.Users;
+import com.stackroute.quizify.recommendationservice.service.GameIsATopicService;
+import com.stackroute.quizify.recommendationservice.service.GameTypeOfGenreService;
 import com.stackroute.quizify.recommendationservice.service.GamesService;
 import com.stackroute.quizify.recommendationservice.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,28 +20,22 @@ import org.springframework.stereotype.Component;
 @Component
 public class Consumer {
 
-//    private Game recievedPayload;
-@Autowired
+    @Autowired
     private GamesService gamesService;
 
-@Autowired
-private UserService userService;
+    @Autowired
+    private UserService userService;
 
  private  Games games= new Games();
  private Users users=new Users();
-//    public Game getRecievedPayload()
-//    {
-//        return this.recievedPayload;
-//    }
 
     @KafkaListener(topics = "games", groupId = "recommendation-game-consumer", containerFactory = "kafkaListenerGameContainerFactory")
     public void receiveGame(@Payload Game payload) {
         System.out.println("-----------------------------------------------------------------------------------------");
         System.out.println("Game Received To Recommendation : ");
         System.out.println(payload);
-        System.out.println("----------lsdavjkklv"+ payload.getPlayCount());
-        System.out.println("--------------------------------------------------------");
-        System.out.println("----------"+ payload.getPlayCount());
+        System.out.println("----------------------------------------------------------------------------------------------");
+
        // Games games=new Games();
         games.setId(payload.getId());
         games.setName(payload.getName());
@@ -49,10 +47,16 @@ private UserService userService;
         games.setLevel(payload.getLevel());
         games.setLiked(payload.getLiked());
         games.setNumOfQuestion(payload.getNumOfQuestion());
-        System.out.println("------------------------------------------------------");
+        games.setCategory(payload.getCategory());
+        games.setGenre(payload.getGenre());
+        games.setTopic(payload.getTopic());
+        games.setTag(payload.getTag());
+        System.out.println("----------------------------------------------------------------------------------------------------------------------------------");
         System.out.println(games.toString());
 
+        System.out.println("---------------------------------------------------------------------------------------------------------------------------------------------------");
         gamesService.create(games);
+
     }
 
     @KafkaListener(topics = "users", groupId = "recommendation-users-consumer", containerFactory = "kafkaListenerUserContainerFactory")
@@ -65,7 +69,7 @@ private UserService userService;
         users.setId(payload.getId());
         users.setName(payload.getName());
         users.setGender(payload.getGender());
-        users.setTopic(payload.getTopics());
+        users.setTopics(payload.getTopics());
         users.setGenres(payload.getGenres());
         System.out.println("----------------------------------------------------------"+users.toString());
 
