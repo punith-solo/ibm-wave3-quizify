@@ -40,7 +40,7 @@ export class QuestionGeneratorComponent implements OnInit {
   private types: Types[];
   private levels: Levels[];
   private categories: Categories[];
-  private topics: Topic[];
+  private topics: Topics[];
   private genres: Genres[];
 
 
