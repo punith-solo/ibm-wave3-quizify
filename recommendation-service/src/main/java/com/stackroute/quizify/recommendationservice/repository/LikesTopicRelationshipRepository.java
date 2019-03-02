@@ -1,4 +1,3 @@
-/*
 package com.stackroute.quizify.recommendationservice.repository;
 
 import com.stackroute.quizify.recommendationservice.domain.LikesTopic;
@@ -15,10 +14,9 @@ public interface LikesTopicRelationshipRepository extends Neo4jRepository<LikesT
     @Query("MATCH p=(Users)-[r:LikesTopic]->(Topic) RETURN p")
     public List<LikesTopic> getAllRelationships();
 
-    @Query("MATCH (p:Users),(t:Topic) WHERE id(p)={userId} and id(t)={topicId} CREATE (p)-[q:LikesTopic}]->(t) RETURN p,q,t")
-    LikesTopic createRelationship(@Param("userId") long userId, @Param("topicId") long topicId);
+    @Query("MATCH (p:Users),(t:Topic) WHERE p.id={userId} and t.id={topicId} CREATE (p)-[q:LikesTopic}]->(t) RETURN p,q,t")
+    LikesTopic createRelationship(long userId,long topicId);
 
-    @Query("MATCH (p:Users)-[r:LikesTopic]->(t:Topic) WHERE id(p)={userId} and id(t)={topicId} DELETE r RETURN 'relationship deleted' ")
-    LikesTopic deleteRelationship(@Param("userId") Long userId, @Param("topicId") long topicId);
+//    @Query("MATCH (p:Users)-[r:LikesTopic]->(t:Topic) WHERE p.id={userId} and t.id={topicId} DELETE r RETURN 'relationship deleted' ")
+//    LikesTopic deleteRelationship(@Param("userId") Long userId, @Param("topicId") long topicId);
 }
-*/

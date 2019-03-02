@@ -11,7 +11,6 @@ import java.util.List;
 
 @Data
 public class Question {
-
     @Id
     private long id;
     private Category category;

@@ -13,16 +13,16 @@ public interface GamesRepository extends Neo4jRepository<Games,Long> {
     @Query("MATCH (Games) RETURN Games")
     public List<Games> getAllNodes();
 
-    @Query("MATCH (g:Games) WHERE gameId(g)={gameId} RETURN g")
+    @Query("MATCH (g:Games) WHERE g.id={gameId} RETURN g")
     public Games getNode(@Param("gameId") long gameId);
 
-    @Query("CREATE (g:Games) SET g.gameId={gameId},g.gameName={gameName} RETURN g")
+    @Query("CREATE (g:Games) SET g.id={gameId},g.name={gameName} RETURN g")
     Games createNode( long gameId,String gameName);
 
-    @Query("MATCH (g:Games) WHERE gameId(g)={gameId} DETACH DELETE g RETURN 'node deleted' ")
+    @Query("MATCH (g:Games) WHERE g.id={gameId} DETACH DELETE g RETURN 'node deleted' ")
     Games deleteNode(@Param("gameId") long gameId);
 
-    @Query("MATCH (g:Games) WHERE gameId(g)={gameId} SET g.gameName={gameName} RETURN g")
+    @Query("MATCH (g:Games) WHERE g.id={gameId} SET g.name={gameName} RETURN g")
     Games updateNode(@Param("gameId") long gameId,@Param("gameName") String gameName);
 
 }

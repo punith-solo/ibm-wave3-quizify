@@ -5,6 +5,7 @@ import lombok.Data;
 import org.neo4j.ogm.annotation.GeneratedValue;
 import org.neo4j.ogm.annotation.Id;
 import org.neo4j.ogm.annotation.NodeEntity;
+import org.neo4j.ogm.annotation.Property;
 
 import java.util.List;
 
@@ -14,9 +15,11 @@ import java.util.List;
 public class Users {
     @Id @GeneratedValue
     private long id;
+    @Property
     private String name;
-    private List<Topic> topic;
+    private List<Topic> topics;
     private List<Genre> genres;
+    @Property
     private String gender;
 }
 

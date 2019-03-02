@@ -1,9 +1,10 @@
 import { Admin } from './admin';
 export class Topic {
 
-     name: string;
-     imageUrl: string;
+     id: number;
+    name: string;
+    imageUrl: string;
     timeStamp: string;
-      subTopics: Topic[];
-      admin: Admin;
+    subTopics: Topic[];
+    admin: Admin;
 }
