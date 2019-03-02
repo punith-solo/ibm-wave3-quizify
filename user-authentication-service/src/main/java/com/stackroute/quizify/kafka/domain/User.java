@@ -7,11 +7,10 @@ import java.util.List;
 @Data
 public class User {
     @Id
-    private long id;
-    private String name;
+    private long userId;
+    private String userName;
     private String password;
     private String emailId;
-    private List<Topic> topics;
-    private List<Genre> genres;
+    private List<String> interests;
     private String gender;
 }

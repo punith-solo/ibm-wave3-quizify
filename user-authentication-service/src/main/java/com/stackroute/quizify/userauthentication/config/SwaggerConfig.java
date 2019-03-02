@@ -28,23 +28,23 @@ public class SwaggerConfig {
         return new Docket(DocumentationType.SWAGGER_2)
                 .select()
                 .apis(RequestHandlerSelectors.basePackage("com.stackroute.quizify.userauthentication.controller"))
-                .paths(PathSelectors.any())
+                .paths(regex("/api.*"))
                 .build();
 
     }
 
 
-//    private ApiInfo metaInfo() {
-//        return new ApiInfoBuilder()
-//                .title("(user-authentication) Spring Boot REST API")
-//                .description("\"Spring Boot REST API for USER AUTHENTICATION\"")
-//                .version("1.0.0")
-//                .termsOfServiceUrl("Term of service")
-//                .license("Apache License Version 2.0")
-//                .licenseUrl("https://www.apache.org/licenses/LICENSE-2.0\"")
-//                .contact(new Contact("JASLEEN", "https://github.com/jass2795", "jasleen@gmail.com"))
-//                .build();
-//    }
+    private ApiInfo metaInfo() {
+        return new ApiInfoBuilder()
+                .title("(user-authentication) Spring Boot REST API")
+                .description("\"Spring Boot REST API for USER AUTHENTICATION\"")
+                .version("1.0.0")
+                .termsOfServiceUrl("Term of service")
+                .license("Apache License Version 2.0")
+                .licenseUrl("https://www.apache.org/licenses/LICENSE-2.0\"")
+                .contact(new Contact("JASLEEN", "https://github.com/jass2795", "jasleen@gmail.com"))
+                .build();
+    }
 }
 
 
