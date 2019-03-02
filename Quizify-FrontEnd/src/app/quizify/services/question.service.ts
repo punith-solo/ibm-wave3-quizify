@@ -6,7 +6,7 @@ import { BehaviorSubject, throwError } from 'rxjs';
 
 import { catchError } from 'rxjs/operators';
 
-import { Question } from '../components/newClasses/question';
+import { Question } from '../tsclasses/question';
 
 ​
 
