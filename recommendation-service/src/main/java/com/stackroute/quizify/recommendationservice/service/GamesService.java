@@ -17,4 +17,6 @@ public interface GamesService {
     public Games delete(long gamed);
 
     public Games update(Games games);
+
+    List<Games> getMostPlayed();
 }

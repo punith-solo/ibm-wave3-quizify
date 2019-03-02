@@ -19,7 +19,12 @@ public class TopicServiceImpl implements TopicService {
     }
 
     @Override
-    public List<Topic> getAll(long categoryId) {
-        return topicRepository.getAllNodes(categoryId);
+    public List<Topic> getAll() {
+        return topicRepository.getAllNodes();
+    }
+
+    @Override
+    public List<Topic> getTopicsByCategory(long categoryId) {
+        return topicRepository.getTopicsByCategory(categoryId);
     }
 }
