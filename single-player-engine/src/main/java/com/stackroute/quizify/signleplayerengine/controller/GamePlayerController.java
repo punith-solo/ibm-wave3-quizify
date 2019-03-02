@@ -11,10 +11,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
-
-import java.util.ArrayList;
-import java.util.List;
-
 @CrossOrigin
 @RestController
 @RequestMapping("/api/v1")
