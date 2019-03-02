@@ -28,15 +28,17 @@ public class LikesTopicServiceImpl implements LikesTopicService {
 
 
     @Override
-    public LikesTopic createRelationship(Users user) {
+    public List<LikesTopic> createRelationship(Users user) {
         long userId=user.getId();
         List<Topic> topicList=user.getTopics();
-        ListIterator<Topic> genresIterator = topicList.listIterator();
-        while(genresIterator.hasNext()){
-            Topic genre=genresIterator.next();
-            long genreId=genre.getId();
-            System.out.println("userId: "+userId+"genreId: "+genreId);
-            likesTopicRelationshipRepository.createRelationship(userId,genreId);
+        ListIterator<Topic> topicsIterator = topicList.listIterator();
+        System.out.println(topicsIterator.hasNext());
+        while(topicsIterator.hasNext()){
+            Topic topic=topicsIterator.next();
+            System.out.println(topic.toString());
+            long topicId=topic.getId();
+            System.out.println("userId: "+userId+"topicId: "+topicId);
+            likesTopicRelationshipRepository.createRelationship(userId,topicId);
         }
         return null;
     }

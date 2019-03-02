@@ -71,7 +71,7 @@ public class Consumer {
         users.setGender(payload.getGender());
         users.setTopics(payload.getTopics());
         users.setGenres(payload.getGenres());
-        System.out.println("----------------------------------------------------------"+users.toString());
+        System.out.println("-------------------------------------------------------------------------------------\n"+users.toString());
 
         userService.create(users);
     }

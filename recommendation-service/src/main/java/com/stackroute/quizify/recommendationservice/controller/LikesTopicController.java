@@ -26,7 +26,7 @@ public class LikesTopicController {
     }
 
     @PostMapping("/")
-    public LikesTopic create(@RequestBody Users users){
+    public List<LikesTopic> create(@RequestBody Users users){
         return likesTopicService.createRelationship(users);
     }
 }
