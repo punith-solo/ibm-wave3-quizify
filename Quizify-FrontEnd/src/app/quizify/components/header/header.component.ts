@@ -30,11 +30,5 @@ ngOnInit() {
        this.flag = false;
        this.userLogged = true;
      // location.reload();
-    }
-  search(value) {
-    this.searchService.searchByTopicStartsWith(value).subscribe((res: any) => {
-      this.games = res.body[0].game;
-      console.log(this.games);
-    });
   }
 }
