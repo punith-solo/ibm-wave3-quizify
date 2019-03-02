@@ -18,8 +18,6 @@ import { FormsModule } from '@angular/forms';
 // import { FlexLayoutModule } from '@angular/flex-layout';
 import {MatStepperModule} from '@angular/material/stepper';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
-import {MatButtonToggleModule} from '@angular/material/button-toggle';
-
 
 
 
@@ -38,7 +36,7 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle';
        MatRadioModule,
        MatChipsModule,
        MatSelectModule,
-       RouterModule, MatStepperModule, MatProgressSpinnerModule, MatButtonToggleModule,
+       RouterModule, MatStepperModule, MatProgressSpinnerModule,
       // FlexLayoutModule,
        MatButtonModule,
        MatCheckboxModule,
@@ -70,7 +68,7 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle';
           MatInputModule,
           MatChipsModule,
           MatSelectModule,
-          RouterModule, MatStepperModule, MatProgressSpinnerModule, MatButtonToggleModule,
+          RouterModule, MatStepperModule, MatProgressSpinnerModule,
          // FlexLayoutModule,
           MatButtonModule,
           MatCheckboxModule,
