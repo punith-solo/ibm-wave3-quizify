@@ -9,6 +9,6 @@ public interface LikesTopicService {
 
     List<LikesTopic> getAllRelationships();
 
-    LikesTopic createRelationship(Users user);
+    List<LikesTopic> createRelationship(Users user);
 
 }
