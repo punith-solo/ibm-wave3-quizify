@@ -11,7 +11,7 @@ import java.util.List;
 @NodeEntity
 @Data
 public class Games {
-    @Id @GeneratedValue
+    @Id //@GeneratedValue
     private long id;
     @Property
     private String name;

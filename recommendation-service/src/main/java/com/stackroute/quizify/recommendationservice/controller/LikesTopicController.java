@@ -1,0 +1,33 @@
+package com.stackroute.quizify.recommendationservice.controller;
+
+
+import com.stackroute.quizify.recommendationservice.domain.LikesTopic;
+import com.stackroute.quizify.recommendationservice.domain.Users;
+import com.stackroute.quizify.recommendationservice.service.LikesTopicService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+@RestController
+@RequestMapping("/rest/neo4j/likestopic")
+public class LikesTopicController {
+
+    LikesTopicService likesTopicService;
+
+    @Autowired
+    public LikesTopicController(LikesTopicService likesTopicService) {
+        this.likesTopicService = likesTopicService;
+    }
+
+    @GetMapping("/")
+    public List<LikesTopic> getAll(){
+        return likesTopicService.getAllRelationships();
+    }
+
+    @PostMapping("/")
+    public LikesTopic create(@RequestBody Users users){
+        return likesTopicService.createRelationship(users);
+    }
+}
+

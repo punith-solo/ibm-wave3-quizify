@@ -4,14 +4,14 @@ import lombok.Data;
 import org.neo4j.ogm.annotation.*;
 
 @Data
-@RelationshipEntity(type = "LikesTopic")
-public class LikesTopic {
+@RelationshipEntity(type = "game_is_a")
+public class GameIsATopic {
     @Id
     @GeneratedValue
-    private String id;
+    private long id;
 
     @StartNode
-    private Users user;
+    private Games games;
     @EndNode
     private Topic topic;
 }

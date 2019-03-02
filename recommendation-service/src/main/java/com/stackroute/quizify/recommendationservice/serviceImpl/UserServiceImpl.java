@@ -2,6 +2,7 @@ package com.stackroute.quizify.recommendationservice.serviceImpl;
 
 import com.stackroute.quizify.recommendationservice.domain.Users;
 import com.stackroute.quizify.recommendationservice.repository.UserRepository;
+import com.stackroute.quizify.recommendationservice.service.LikesTopicService;
 import com.stackroute.quizify.recommendationservice.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,6 +13,9 @@ import java.util.List;
 public class UserServiceImpl implements UserService {
 
     UserRepository userRepository;
+
+    @Autowired
+    LikesTopicService likesTopicService;
 
     @Autowired
     public UserServiceImpl(UserRepository userRepository) {
@@ -45,6 +49,8 @@ public class UserServiceImpl implements UserService {
         long id= users.getId();
         String name= users.getName();
         String gender= users.getGender();
-        return userRepository.updateNode(id,name,gender);
+        Users users1=userRepository.updateNode(id,name,gender);
+        likesTopicService.createRelationship(users);
+        return users1;
     }
 }
