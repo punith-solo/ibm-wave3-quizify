@@ -28,7 +28,7 @@ public class Consumer {
         System.out.println(payload);
 
         LoginUser newUser = new LoginUser();
-        newUser.setUsername(payload.getName());
+        newUser.setUsername(payload.getUserName());
         newUser.setPassword(payload.getPassword());
         newUser.setRole("player");
 

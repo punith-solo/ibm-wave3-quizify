@@ -1,13 +1,14 @@
+import { Topic } from './topic';
+import { Genre } from './genre';
 
 export class Register {
 
-    id: number;
-    userName: string;
+    name: string;
     password: string;
-    // confirmPassword: string;
+    confirmPassword: string;
     emailId: string;
-    interests: string[];
-    // geners: string;
+    topics: Topic[];
+    genres: Genre[];
     gender: string;
-
 }
+
