@@ -1,111 +1,38 @@
 h1{
-
-  margin-top:100px;
-
- text-align:left;
-
- padding-left: 280px;
-
+   margin-top:100px;
+  // text-align:center;
+  padding-left: 650px;
+ 
 }
-
 .id
-
 {
-
 //   margin-top: 10%;
-
- margin-left: 40%;
-
- clear: both;
-
-}
-
-.password{
-
   margin-left: 40%;
-
+  clear: both;
 }
-
+.password{
+   margin-left: 40%;
+}
 .btn {
-
-  margin-left: 45%;
-
-  width: 5%;
-
+   margin-left: 45%;
+   width: 5%;
 }
-
 p{
-
- font-size: 20px;
-
- padding-left: 40%;}
-
+  font-size: 20px;
+  padding-left: 40%;}
 .btn1{
-
- margin-left: 44%;
-
- width: 5%;
-
- font-size: 20px;
-
+  margin-left: 44%;
+  width: 5%;
+  font-size: 20px;
 }
-
 mat-label{
-
-font-size: 20px;
-
+ font-size: 20px;
 }
-
 .pics
-
 {
-
- margin-top: 10px;
-
+  margin-top: 10px;
 }
 
-.backs
-
-{
-
- // background: url('src/assets/images/white-lines,-blue-background-189633.jpg') ;
-
- height:1000px;
-
-}
-
-.split {
-
- height: 100%;
-
- width: 50%;
-
- position: fixed;
-
- z-index: 1;
-
- top: 0;
-
- overflow-x: hidden;
-
- padding-top: 20px;
-
-}
-
-.right
-
-{  right: 0;
-
-}
-
-.left
-
-{
-
- top: 30%;
-
-//  background-color:grey; 
-
- bottom: 70%;
-
-}
+// .container{
+//  background-image: url('../../../../assets/images');
+// }

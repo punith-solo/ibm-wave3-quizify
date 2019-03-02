@@ -5,7 +5,6 @@ import { Genre } from './genre';
 import { Tag } from './tag';
 
 export class Game {
-     id: number;
      name: string;
      category: Category;
      topic: Topic;

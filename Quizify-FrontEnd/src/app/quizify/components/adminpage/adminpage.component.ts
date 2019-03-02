@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-adminpage',
@@ -6,10 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./adminpage.component.scss']
 })
 export class AdminpageComponent implements OnInit {
-
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
   }
-
 }
