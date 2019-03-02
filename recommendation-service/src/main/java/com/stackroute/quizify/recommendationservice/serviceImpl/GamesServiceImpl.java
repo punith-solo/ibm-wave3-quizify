@@ -57,4 +57,9 @@ public class GamesServiceImpl implements GamesService {
         String name=games.getName();
         return gamesRepository.updateNode(id,name);
     }
+
+    @Override
+    public List<Games> getMostPlayed() {
+        return gamesRepository.getMostPlayed();
+    }
 }

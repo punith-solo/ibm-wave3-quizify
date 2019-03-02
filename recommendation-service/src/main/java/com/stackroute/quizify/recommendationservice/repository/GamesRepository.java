@@ -25,4 +25,6 @@ public interface GamesRepository extends Neo4jRepository<Games,Long> {
     @Query("MATCH (g:Games) WHERE g.id={gameId} SET g.name={gameName} RETURN g")
     Games updateNode(@Param("gameId") long gameId,@Param("gameName") String gameName);
 
+    @Query("MATCH (g:Games)-[r:Played]->(u:User) RETURN g, COUNT(distinct g.playcount) AS cnt ORDER BY cnt DESC LIMIT 9")
+    List<Games> getMostPlayed();
 }

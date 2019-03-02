@@ -24,6 +24,8 @@ public class PlayedController {
         return playedRelationshipService.getAllRelationships();
     }
 
+
+
     @PostMapping("/")
     public Played Create(@RequestBody SinglePlayers singlePlayers){
         return playedRelationshipService.createRelationship(singlePlayers);

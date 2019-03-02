@@ -24,6 +24,11 @@ public class GamesController {
         return gamessService.getAll();
     }
 
+    @GetMapping("/mostplayed")
+    public List<Games> getMostPlayed(){
+        return gamessService.getMostPlayed();
+    }
+
     @GetMapping("/id")
     public Games getOne(@RequestParam("GamesId") long GamesId){
         return gamessService.getone(GamesId);
