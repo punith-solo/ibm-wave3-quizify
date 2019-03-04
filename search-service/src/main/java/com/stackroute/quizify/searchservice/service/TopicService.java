@@ -1,7 +1,7 @@
 package com.stackroute.quizify.searchservice.service;
 
 import com.stackroute.quizify.searchservice.domain.Game;
-import com.stackroute.quizify.searchservice.domain.Topic;
+import com.stackroute.quizify.searchservice.domain.Topics;
 import com.stackroute.quizify.searchservice.exception.NoGameFoundException;
 import com.stackroute.quizify.searchservice.exception.TopicDoesNotExistsException;
 import com.stackroute.quizify.searchservice.exception.TopicAlreadyExistsException;
@@ -14,9 +14,9 @@ import java.util.List;
  */
 
 public interface TopicService {
-    Topic saveTopic(Topic topic) throws TopicAlreadyExistsException;
+    Topics saveTopic(Topics topics) throws TopicAlreadyExistsException;
 //    List<Topic> getAllTopicByName(String topicName) throws TopicDoesNotExistsException;
-    List<Topic> getAllTopicByStartsWith(String topicName) throws TopicDoesNotExistsException;
+    List<Topics> getAllTopicByStartsWith(String topicName) throws TopicDoesNotExistsException;
 
     Game deleteGameById(long topicId, long gameId) throws TopicDoesNotExistsException, NoGameFoundException;
 }

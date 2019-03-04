@@ -1,8 +1,8 @@
 package com.stackroute.quizify.searchservice.service;
 
 import com.stackroute.quizify.searchservice.domain.Game;
-import com.stackroute.quizify.searchservice.domain.Genre;
-import com.stackroute.quizify.searchservice.domain.Topic;
+import com.stackroute.quizify.searchservice.domain.Genres;
+import com.stackroute.quizify.searchservice.domain.Topics;
 import com.stackroute.quizify.searchservice.exception.GenreDoesNotExistsException;
 import com.stackroute.quizify.searchservice.exception.NoGameFoundException;
 import com.stackroute.quizify.searchservice.exception.TopicDoesNotExistsException;
@@ -25,14 +25,14 @@ public class UniversalServiceImpl implements UniversalService {
     }
     @Override
     public List<Game> searchGame(String searchKey) throws NoGameFoundException, GenreDoesNotExistsException, TopicDoesNotExistsException {
-        List<Genre> genres= this.genreService.getAllGenreByStartsWith(searchKey);
-        List<Topic> topics = this.topicService.getAllTopicByStartsWith(searchKey);
+        List<Genres> genres= this.genreService.getAllGenreByStartsWith(searchKey);
+        List<Topics> topics = this.topicService.getAllTopicByStartsWith(searchKey);
         List<Game> games = new ArrayList<>();
-        for (Genre genre: genres)
+        for (Genres genre: genres)
         {
             games.addAll(genre.getGames());
         }
-        for (Topic topic: topics)
+        for (Topics topic: topics)
         {
             games.addAll(topic.getGames());
         }

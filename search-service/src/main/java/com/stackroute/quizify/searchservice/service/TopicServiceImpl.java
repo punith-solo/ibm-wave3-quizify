@@ -1,9 +1,7 @@
 package com.stackroute.quizify.searchservice.service;
 
 import com.stackroute.quizify.searchservice.domain.Game;
-import com.stackroute.quizify.searchservice.domain.Genre;
-import com.stackroute.quizify.searchservice.domain.Topic;
-import com.stackroute.quizify.searchservice.exception.GenreDoesNotExistsException;
+import com.stackroute.quizify.searchservice.domain.Topics;
 import com.stackroute.quizify.searchservice.exception.NoGameFoundException;
 import com.stackroute.quizify.searchservice.exception.TopicDoesNotExistsException;
 import com.stackroute.quizify.searchservice.exception.TopicAlreadyExistsException;
@@ -39,22 +37,22 @@ public class TopicServiceImpl implements TopicService{
 //    }
 
     @Override
-    public Topic saveTopic(Topic topic) throws TopicAlreadyExistsException {
-        if (this.topicRepository.existsById(topic.getId()))
+    public Topics saveTopic(Topics topics) throws TopicAlreadyExistsException {
+        if (this.topicRepository.existsById(topics.getId()))
             throw new TopicAlreadyExistsException("Genre Already Exists!");
         else
         {
             if(this.topicRepository.findTopByOrderByIdDesc().isEmpty())
-                topic.setId(1);
+                topics.setId(1);
             else
-                topic.setId(this.topicRepository.findTopByOrderByIdDesc().get().getId()+1);
-            return topicRepository.save(topic);
+                topics.setId(this.topicRepository.findTopByOrderByIdDesc().get().getId()+1);
+            return topicRepository.save(topics);
         }
     }
 
     @Override
-    public List<Topic> getAllTopicByStartsWith(String topicName) throws TopicDoesNotExistsException {
-        List<Topic> topics = topicRepository.searchByTopicAlphabet(topicName);
+    public List<Topics> getAllTopicByStartsWith(String topicName) throws TopicDoesNotExistsException {
+        List<Topics> topics = topicRepository.searchByTopicAlphabet(topicName);
         if(topics==null)
             throw new TopicDoesNotExistsException("No Game Found");
         else
@@ -65,8 +63,8 @@ public class TopicServiceImpl implements TopicService{
     public Game deleteGameById(long topicId, long gameId) throws TopicDoesNotExistsException, NoGameFoundException {
         if (this.topicRepository.existsById(topicId))
         {
-            Topic topic = this.topicRepository.findById(topicId).get();
-            List<Game> games = topic.getGames();
+            Topics topics = this.topicRepository.findById(topicId).get();
+            List<Game> games = topics.getGames();
             if (games.isEmpty())
                 throw new NoGameFoundException("No Game Found!");
             for (Game game: games)
@@ -75,7 +73,7 @@ public class TopicServiceImpl implements TopicService{
                 {
                     Game deletedGame = game;
                     games.remove(deletedGame);
-                    topic.setGames(games);
+                    topics.setGames(games);
                     return deletedGame;
                 }
             }

@@ -3,7 +3,7 @@ package com.stackroute.quizify.searchservice.service;
 
 import com.stackroute.quizify.searchservice.domain.Game;
 import com.stackroute.quizify.searchservice.exception.GenreAlreadyExistsException;
-import com.stackroute.quizify.searchservice.domain.Genre;
+import com.stackroute.quizify.searchservice.domain.Genres;
 import com.stackroute.quizify.searchservice.exception.GenreDoesNotExistsException;
 import com.stackroute.quizify.searchservice.exception.NoGameFoundException;
 import com.stackroute.quizify.searchservice.repository.GenreRepository;
@@ -38,22 +38,22 @@ public class GenreServiceImpl implements GenreService{
 //    }
 
     @Override
-    public Genre saveGenre(Genre genre) throws GenreAlreadyExistsException {
-        if (this.genreRepository.existsById(genre.getId()))
+    public Genres saveGenre(Genres genres) throws GenreAlreadyExistsException {
+        if (this.genreRepository.existsById(genres.getId()))
             throw new GenreAlreadyExistsException("Genre Already Exists!");
         else
         {
             if(this.genreRepository.findTopByOrderByIdDesc().isEmpty())
-                genre.setId(1);
+                genres.setId(1);
             else
-                genre.setId(this.genreRepository.findTopByOrderByIdDesc().get().getId()+1);
-            return genreRepository.save(genre);
+                genres.setId(this.genreRepository.findTopByOrderByIdDesc().get().getId()+1);
+            return genreRepository.save(genres);
         }
     }
 
     @Override
-    public List<Genre> getAllGenreByStartsWith(String genreName) throws GenreDoesNotExistsException {
-        List<Genre> genres = genreRepository.searchByGenreAlphabet(genreName);
+    public List<Genres> getAllGenreByStartsWith(String genreName) throws GenreDoesNotExistsException {
+        List<Genres> genres = genreRepository.searchByGenreAlphabet(genreName);
         if(genres==null)
             throw new GenreDoesNotExistsException("No Game Found");
         else
@@ -64,8 +64,8 @@ public class GenreServiceImpl implements GenreService{
     public Game deleteGameById(long genreId, long gameId) throws GenreDoesNotExistsException, NoGameFoundException {
         if (this.genreRepository.existsById(genreId))
         {
-            Genre genre = this.genreRepository.findById(genreId).get();
-            List<Game> games = genre.getGames();
+            Genres genres = this.genreRepository.findById(genreId).get();
+            List<Game> games = genres.getGames();
             if (games.isEmpty())
                 throw new NoGameFoundException("No Game Found!");
             for (Game game: games)
@@ -74,7 +74,7 @@ public class GenreServiceImpl implements GenreService{
                 {
                     Game deletedGame = game;
                     games.remove(deletedGame);
-                    genre.setGames(games);
+                    genres.setGames(games);
                     return deletedGame;
                 }
             }

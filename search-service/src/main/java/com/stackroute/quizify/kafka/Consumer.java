@@ -3,8 +3,8 @@ package com.stackroute.quizify.kafka;
 import com.stackroute.quizify.dto.mapper.GameMapper;
 import com.stackroute.quizify.dto.model.GameDTO;
 import com.stackroute.quizify.searchservice.domain.Game;
-import com.stackroute.quizify.searchservice.domain.Genre;
-import com.stackroute.quizify.searchservice.domain.Topic;
+import com.stackroute.quizify.searchservice.domain.Genres;
+import com.stackroute.quizify.searchservice.domain.Topics;
 import com.stackroute.quizify.searchservice.repository.GenreRepository;
 import com.stackroute.quizify.searchservice.repository.TopicRepository;
 import org.slf4j.Logger;
@@ -43,54 +43,54 @@ public class Consumer {
         logger.info("Game Received into Search : "+recievedGame);
 
         List<Game> newList;
-        Topic topic;
-        Genre genre;
+        Topics topics;
+        Genres genres;
 
 
         if (this.topicRepository.existsByName(payload.getTopic().getName()))
         {
-            topic = this.topicRepository.findByName(payload.getTopic().getName());
-            newList = topic.getGames();
+            topics = this.topicRepository.findByName(payload.getTopic().getName());
+            newList = topics.getGames();
             newList.add(recievedGame);
-            topic.setGames(newList);
-            this.topicRepository.save(topic);
+            topics.setGames(newList);
+            this.topicRepository.save(topics);
         }
         else
         {
-            topic = new Topic();
+            topics = new Topics();
             newList = new ArrayList<>();
             if(this.topicRepository.findTopByOrderByIdDesc().isEmpty())
-                topic.setId(1);
+                topics.setId(1);
             else
-                topic.setId(this.topicRepository.findTopByOrderByIdDesc().get().getId()+1);
-            topic.setName(payload.getTopic().getName());
-            topic.setImageUrl(payload.getImageUrl());
+                topics.setId(this.topicRepository.findTopByOrderByIdDesc().get().getId()+1);
+            topics.setName(payload.getTopic().getName());
+            topics.setImageUrl(payload.getImageUrl());
             newList.add(recievedGame);
-            topic.setGames(newList);
-            this.topicRepository.save(topic);
+            topics.setGames(newList);
+            this.topicRepository.save(topics);
         }
 
         if (this.genreRepository.existsByName(payload.getGenre().getName()))
         {
-            genre = this.genreRepository.findByName(payload.getGenre().getName());
-            newList = genre.getGames();
+            genres = this.genreRepository.findByName(payload.getGenre().getName());
+            newList = genres.getGames();
             newList.add(recievedGame);
-            genre.setGames(newList);
-            this.genreRepository.save(genre);
+            genres.setGames(newList);
+            this.genreRepository.save(genres);
         }
         else
         {
-            genre = new Genre();
+            genres = new Genres();
             newList = new ArrayList<>();
             if(this.genreRepository.findTopByOrderByIdDesc().isEmpty())
-                genre.setId(1);
+                genres.setId(1);
             else
-                genre.setId(this.genreRepository.findTopByOrderByIdDesc().get().getId()+1);
-            genre.setName(payload.getGenre().getName());
-            genre.setImageUrl(payload.getImageUrl());
+                genres.setId(this.genreRepository.findTopByOrderByIdDesc().get().getId()+1);
+            genres.setName(payload.getGenre().getName());
+            genres.setImageUrl(payload.getImageUrl());
             newList.add(recievedGame);
-            genre.setGames(newList);
-            this.genreRepository.save(genre);
+            genres.setGames(newList);
+            this.genreRepository.save(genres);
         }
     }
 }
