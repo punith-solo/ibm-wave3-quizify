@@ -11,8 +11,6 @@ import { SearchService } from '../../services/search.service';
 export class SearchComponent implements OnInit {
   Gamesearch: any;
   private games: Gamesearch[];
-  @Input() game: Gamesearch;
-
   constructor(private router: Router, private searchService: SearchService) { }
 
   ngOnInit() {
@@ -20,10 +18,21 @@ export class SearchComponent implements OnInit {
   }
 
   search(value) {
+    if (value === '') {
+      this.games = null;
+    } else {
     this.searchService.searchByTopicStartsWith(value).subscribe((res: any) => {
-      this.games = res.body[0].game;
+      this.games = res.body;
+      console.log(res);
       console.log(this.games);
     });
+  }
+  }
+  // search(value) {
+  //   this.searchService.searchByTopicStartsWith(value).subscribe((res: any) => {
+  //     this.games = res.body[0].game;
+  //     console.log(this.games);
+  //   });
 
-}
+
 }
