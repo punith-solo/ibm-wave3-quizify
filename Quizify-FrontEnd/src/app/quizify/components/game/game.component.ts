@@ -82,7 +82,6 @@ export class GameComponent implements OnInit {
     private questionNumber: number;
     private statusCode: number;
     private gameName: string;
-    private gameGenre: string;
 
     private timeDuration: number;
 

@@ -7,12 +7,15 @@
       <div mat-card-avatar class="example-header-image"></div>
       <mat-card-title>{{ q.Description }}</mat-card-title>
       <mat-card-subtitle>{{ q.Name }}</mat-card-subtitle>
+      <mat-card-subtitle>{{ q.GameId }}</mat-card-subtitle>
+      
     </mat-card-header>
     <img mat-card-image src="{{ q.image_Url }}" alt="Game image">
     <mat-card-content>
           <mat-card-actions>
               <button mat-raised-button>LIKE</button>
-              <button mat-raised-button>PLAY</button>
+              <button mat-raised-button   (click)="fetchGameId(q.GameId)">PLAY</button>
+              
               <button mat-raised-button  [routerLink]="[ '/gamedetails']">DETAILS</button>
              
             </mat-card-actions>
