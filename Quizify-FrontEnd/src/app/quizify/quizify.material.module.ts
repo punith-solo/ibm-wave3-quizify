@@ -56,7 +56,8 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle';
        MatInputModule,
        MatSelectModule,
        FormsModule,
-       MatRadioModule
+       MatRadioModule,
+       MatButtonModule
     ] ,
       schemas: [CUSTOM_ELEMENTS_SCHEMA] ,
       exports: [

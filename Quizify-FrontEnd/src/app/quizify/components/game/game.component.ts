@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { GameserviceService } from '../../services/gameservice.service';
-import { Game } from '../newClasses/game';
-import { Category } from '../newClasses/category';
-import { Topic } from '../newClasses/topic';
-import { Genre } from '../newClasses/genre';
+import { Game } from '../../tsclasses/game';
+import { Category } from '../../tsclasses/category';
+import { Topic } from '../../tsclasses/topic';
+import { Genre } from '../../tsclasses/genre';
 
 // import { Topic } from '../pclasses/topic';
 // import { GameserviceService } from './gameservice.service';

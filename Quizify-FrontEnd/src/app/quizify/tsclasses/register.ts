@@ -1,4 +1,4 @@
-import { Genre } from './Genre';
+import { Genre } from './genre';
 import { Topic } from './topic';
 
 export class Register {

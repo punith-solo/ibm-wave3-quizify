@@ -2,7 +2,7 @@ import { Category } from './category';
 import { Question } from './question';
 import { Admin } from './admin';
 import { Topic } from './topic';
-import { Genre } from './Genre';
+import { Genre } from './genre';
 
 export class Game {
      id: number;

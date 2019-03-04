@@ -4,7 +4,7 @@ import { QuestionService } from '../../services/question.service';
 import { Question } from '../../tsclasses/question';
 import { Category } from '../../tsclasses/category';
 import { Topic } from '../../tsclasses/topic';
-import { Genre } from '../../tsclasses/Genre';
+import { Genre } from '../../tsclasses/genre';
 
 export interface Types {
   value: string;
