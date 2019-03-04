@@ -28,6 +28,7 @@ public class Games {
     private int numOfQuestion;
     private int timeDuration;
     private int liked;
+    @Property
     private int playCount;
     private List<String> rules;
 }
