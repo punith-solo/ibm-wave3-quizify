@@ -1,6 +1,8 @@
 package com.stackroute.quizify.searchservice.service;
 
+import com.stackroute.quizify.searchservice.domain.Game;
 import com.stackroute.quizify.searchservice.domain.Topics;
+import com.stackroute.quizify.searchservice.exception.NoGameFoundException;
 import com.stackroute.quizify.searchservice.exception.TopicDoesNotExistsException;
 import com.stackroute.quizify.searchservice.exception.TopicAlreadyExistsException;
 import com.stackroute.quizify.searchservice.repository.TopicRepository;
@@ -35,16 +37,16 @@ public class TopicServiceImpl implements TopicService{
 //    }
 
     @Override
-    public Topics saveTopic(Topics topic) throws TopicAlreadyExistsException {
-        if (this.topicRepository.existsById(topic.getId()))
+    public Topics saveTopic(Topics topics) throws TopicAlreadyExistsException {
+        if (this.topicRepository.existsById(topics.getId()))
             throw new TopicAlreadyExistsException("Genre Already Exists!");
         else
         {
             if(this.topicRepository.findTopByOrderByIdDesc().isEmpty())
-                topic.setId(1);
+                topics.setId(1);
             else
-                topic.setId(this.topicRepository.findTopByOrderByIdDesc().get().getId()+1);
-            return topicRepository.save(topic);
+                topics.setId(this.topicRepository.findTopByOrderByIdDesc().get().getId()+1);
+            return topicRepository.save(topics);
         }
     }
 
@@ -55,5 +57,30 @@ public class TopicServiceImpl implements TopicService{
             throw new TopicDoesNotExistsException("No Game Found");
         else
             return topics;
+    }
+
+    @Override
+    public Game deleteGameById(long topicId, long gameId) throws TopicDoesNotExistsException, NoGameFoundException {
+        if (this.topicRepository.existsById(topicId))
+        {
+            Topics topics = this.topicRepository.findById(topicId).get();
+            List<Game> games = topics.getGames();
+            if (games.isEmpty())
+                throw new NoGameFoundException("No Game Found!");
+            for (Game game: games)
+            {
+                if (game.getId() == gameId)
+                {
+                    Game deletedGame = game;
+                    games.remove(deletedGame);
+                    topics.setGames(games);
+                    return deletedGame;
+                }
+            }
+            throw new NoGameFoundException("Game Not Found!");
+
+        }
+        else
+            throw new TopicDoesNotExistsException("Genre Doesn't Exist!");
     }
 }

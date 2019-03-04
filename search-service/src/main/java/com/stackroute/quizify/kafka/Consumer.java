@@ -1,15 +1,15 @@
 package com.stackroute.quizify.kafka;
 
-import com.stackroute.quizify.kafka.domain.Game;
-
-import com.stackroute.quizify.kafka.domain.Tag;
-import com.stackroute.quizify.searchservice.domain.Games;
+import com.stackroute.quizify.dto.mapper.GameMapper;
+import com.stackroute.quizify.dto.model.GameDTO;
+import com.stackroute.quizify.searchservice.domain.Game;
 import com.stackroute.quizify.searchservice.domain.Genres;
 import com.stackroute.quizify.searchservice.domain.Topics;
 import com.stackroute.quizify.searchservice.repository.GenreRepository;
 import com.stackroute.quizify.searchservice.repository.TopicRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.messaging.handler.annotation.Payload;
 import org.springframework.stereotype.Component;
@@ -21,55 +21,38 @@ import java.util.List;
 @Component
 public class Consumer {
 
-    private Games recievedGame;
+    private Game recievedGame;
     private GenreRepository genreRepository;
     private TopicRepository topicRepository;
+    private GameMapper gameMapper;
 
-    public Consumer(GenreRepository genreRepository, TopicRepository topicRepository) {
+
+    @Autowired
+    public Consumer(GenreRepository genreRepository, TopicRepository topicRepository, GameMapper gameMapper) {
         this.genreRepository = genreRepository;
         this.topicRepository = topicRepository;
+        this.gameMapper = gameMapper;
     }
 
     private Logger logger = LoggerFactory.getLogger(Consumer.class);
-    //private Game recievedPayload;
-
-
-
-    //public Game getRecievedPayload()
-   // {
-     //   return this.recievedPayload;
-    //}
 
     @KafkaListener(topics = "games", groupId = "search-games-consumers", containerFactory = "kafkaListenerContainerFactory")
-    public void receive(@Payload Game payload) {
+    public void receive(@Payload GameDTO payload) {
+        recievedGame = this.gameMapper.gameDTOToGame(payload);
         logger.info("------------------------------------------------------------------------------------------------");
-        logger.info("Game Received To Search : "+payload);
+        logger.info("Game Received into Search : "+recievedGame);
 
+        List<Game> newList;
+        Topics topics;
+        Genres genres;
 
-      //  this.recievedPayload = payload;
-
-        recievedGame = new Games();
-        recievedGame.setId(payload.getId());
-        recievedGame.setName(payload.getName());
-        recievedGame.setLevel(payload.getLevel());
-        recievedGame.setImageUrl(payload.getImageUrl());
-        recievedGame.setNumOfQuestion(payload.getNumOfQuestion());
-        recievedGame.setDuration(payload.getTimeDuration());
-        recievedGame.setDescription(payload.getRules());
-        recievedGame.setGamesPlayed(payload.getPlayCount());
-        recievedGame.setLikes(payload.getLiked());
-
-        List<Games> newList = null;
-        Topics topics =null;
-        Genres genres = null;
-        Tag tag = null;
 
         if (this.topicRepository.existsByName(payload.getTopic().getName()))
         {
             topics = this.topicRepository.findByName(payload.getTopic().getName());
-            newList = topics.getGame();
+            newList = topics.getGames();
             newList.add(recievedGame);
-            topics.setGame(newList);
+            topics.setGames(newList);
             this.topicRepository.save(topics);
         }
         else
@@ -83,16 +66,16 @@ public class Consumer {
             topics.setName(payload.getTopic().getName());
             topics.setImageUrl(payload.getImageUrl());
             newList.add(recievedGame);
-            topics.setGame(newList);
+            topics.setGames(newList);
             this.topicRepository.save(topics);
         }
 
         if (this.genreRepository.existsByName(payload.getGenre().getName()))
         {
             genres = this.genreRepository.findByName(payload.getGenre().getName());
-            newList = genres.getGame();
+            newList = genres.getGames();
             newList.add(recievedGame);
-            genres.setGame(newList);
+            genres.setGames(newList);
             this.genreRepository.save(genres);
         }
         else
@@ -106,11 +89,8 @@ public class Consumer {
             genres.setName(payload.getGenre().getName());
             genres.setImageUrl(payload.getImageUrl());
             newList.add(recievedGame);
-            genres.setGame(newList);
+            genres.setGames(newList);
             this.genreRepository.save(genres);
         }
-
-
     }
-
 }

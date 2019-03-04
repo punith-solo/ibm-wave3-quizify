@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/rest/neo4j/gametypeofgenre")
 public class GameTypeOfGenreController {

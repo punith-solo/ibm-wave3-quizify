@@ -9,6 +9,9 @@ import java.util.List;
 public interface TopicRepository extends Neo4jRepository<Topic,Long> {
 
 
-    @Query("MATCH p=(t:Topic)-[r:is_type_of]->(c:Category) WHERE id(c)={categoryId}  RETURN t")
-    public List<Topic> getAllNodes(long categoryId);
+    @Query("MATCH p=(t:Topic) RETURN t")
+    public List<Topic> getAllNodes();
+
+    @Query("MATCH p=(t:Topic)-[r:is_type_of]->(c:Category) WHERE c.id={categoryId}  RETURN t")
+    public List<Topic> getTopicsByCategory(long categoryId);
 }

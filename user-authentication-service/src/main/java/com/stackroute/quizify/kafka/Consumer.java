@@ -1,8 +1,10 @@
 package com.stackroute.quizify.kafka;
 
-import com.stackroute.quizify.kafka.domain.User;
-import com.stackroute.quizify.userauthentication.domain.LoginUser;
-import com.stackroute.quizify.userauthentication.repository.UserRepository;
+import com.stackroute.quizify.dto.mapper.UserMapper;
+import com.stackroute.quizify.dto.model.UserDTO;
+import com.stackroute.quizify.userauthentication.domain.User;
+import com.stackroute.quizify.userauthentication.exceptions.UserAlreadyExists;
+import com.stackroute.quizify.userauthentication.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.messaging.handler.annotation.Payload;
@@ -12,27 +14,30 @@ import org.springframework.stereotype.Component;
 @Component
 public class Consumer {
 
-    private UserRepository userRepository;
+    private UserService userService;
+    private UserMapper userMapper;
+    private User user;
 
     @Autowired
-    public Consumer(UserRepository userRepository)
+    public Consumer(UserService userService, UserMapper userMapper)
     {
-        this.userRepository = userRepository;
+        this.userService = userService;
+        this.userMapper = userMapper;
     }
 
 
     @KafkaListener(topics = "users", groupId = "login-users-consumers", containerFactory = "kafkaListenerContainerFactory")
-    public void receive(@Payload User payload) {
+    public void receive(@Payload UserDTO payload) throws UserAlreadyExists {
         System.out.println("-----------------------------------------------------------------------------------------");
         System.out.println("User data Received : ");
         System.out.println(payload);
+        System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
 
-        LoginUser newUser = new LoginUser();
-        newUser.setUsername(payload.getUserName());
-        newUser.setPassword(payload.getPassword());
-        newUser.setRole("player");
+        this.user = this.userMapper.userDTOToUser(payload);
+        user.setId(0);
+        user.setRole("player");
 
-        this.userRepository.save(newUser);
+        this.userService.saveUser(user);
 
 
     }

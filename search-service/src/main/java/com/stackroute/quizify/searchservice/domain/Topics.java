@@ -25,6 +25,6 @@ public class Topics {
     private long id;
     private String name;
     private String imageUrl;
-    private List<Games> game;
+    private List<Game> games;
 
 }

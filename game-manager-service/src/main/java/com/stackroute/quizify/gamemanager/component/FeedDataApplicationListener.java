@@ -1,10 +1,10 @@
 package com.stackroute.quizify.gamemanager.component;
 
 import com.stackroute.quizify.gamemanager.exception.GameAlreadyExistsException;
-import com.stackroute.quizify.kafka.domain.Category;
-import com.stackroute.quizify.kafka.domain.Game;
-import com.stackroute.quizify.kafka.domain.Genre;
-import com.stackroute.quizify.kafka.domain.Topic;
+import com.stackroute.quizify.gamemanager.domain.Category;
+import com.stackroute.quizify.gamemanager.domain.Game;
+import com.stackroute.quizify.gamemanager.domain.Genre;
+import com.stackroute.quizify.gamemanager.domain.Topic;
 import com.stackroute.quizify.gamemanager.service.GameService;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
@@ -20,6 +20,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
 
@@ -122,8 +123,6 @@ public class FeedDataApplicationListener implements ApplicationListener<ContextR
         this.historical.setName("Historical");
         this.historical.setImageUrl("https://www.listchallenges.com/f/lists/87b065de-25d3-4020-800e-ba0434ecb908.jpg");
 
-        this.game = new Game();
-
     };
 
 //    @Value("com/stackroute/quizify/questionmanager/data/MoviesBasicAll.xlsx")
@@ -153,17 +152,18 @@ public class FeedDataApplicationListener implements ApplicationListener<ContextR
             int j=0;
             while (rowIterator.hasNext()) {
                 Row row = rowIterator.next();
+//                System.out.println(row);
 
                 // For each row, iterate through each columns
                 Iterator<Cell> cellIterator = row.cellIterator();
                 Cell cell;
+                this.game = new Game();
                 game.setId(0);
                 List<String> rules = new ArrayList<>();
                 for (int i=1; cellIterator.hasNext(); i++)
                 {
                     cell = cellIterator.next();
                     String cellType = "" + cell.getCellType();
-                    System.out.println("Cell "+i+" : "+cellType);
                     switch (i)
                     {
                         case 1:
@@ -222,7 +222,7 @@ public class FeedDataApplicationListener implements ApplicationListener<ContextR
                                 case "Documentary":
                                     this.game.setGenre(this.documentary);
                                     break;
-                                case "Talkshow":
+                                case "Reality & Talk Shows":
                                     this.game.setGenre(this.talkshow);
                                     break;
                                 default:
@@ -246,7 +246,7 @@ public class FeedDataApplicationListener implements ApplicationListener<ContextR
                             this.game.setNumOfQuestion((int)cell.getNumericCellValue());
                             break;
                         case 9:
-                             rules.add(cell.getStringCellValue());
+                            this.game.setRules(Arrays.asList(cell.getStringCellValue().split("\\+")));
                             break;
                         case 10:
                             this.game.setTimeDuration((int)cell.getNumericCellValue());
@@ -254,8 +254,8 @@ public class FeedDataApplicationListener implements ApplicationListener<ContextR
                     }
 
                 }
-                System.out.println("Done");
-                this.game.setRules(rules);
+                if (this.game.getName() == null)
+                    break;
                 this.gameService.saveGame(this.game);
             }
         }

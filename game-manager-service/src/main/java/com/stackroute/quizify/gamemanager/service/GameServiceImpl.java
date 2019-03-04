@@ -1,9 +1,10 @@
 package com.stackroute.quizify.gamemanager.service;
 
+import com.stackroute.quizify.dto.model.GameDTO;
 import com.stackroute.quizify.gamemanager.exception.GameAlreadyExistsException;
 import com.stackroute.quizify.gamemanager.exception.GameNotFoundException;
 import com.stackroute.quizify.gamemanager.exception.NoGameFoundException;
-import com.stackroute.quizify.kafka.domain.Game;
+import com.stackroute.quizify.gamemanager.domain.Game;
 import com.stackroute.quizify.kafka.Producer;
 import com.stackroute.quizify.gamemanager.repository.GameRepository;
 import org.slf4j.Logger;
@@ -31,7 +32,7 @@ public class GameServiceImpl implements GameService {
      }
 
      @Override
-     public Game saveGame(Game game) throws GameAlreadyExistsException {
+     public GameDTO saveGame(Game game) throws GameAlreadyExistsException {
          if(this.gameRepository.existsById(game.getId()))
              throw new GameAlreadyExistsException("Game already exists");
          else {
@@ -57,7 +58,7 @@ public class GameServiceImpl implements GameService {
     }
 
     @Override
-    public Game updateGame(Game updatedGame) throws GameNotFoundException {
+    public GameDTO updateGame(Game updatedGame) throws GameNotFoundException {
 
     if(this.gameRepository.existsById(updatedGame.getId()))
         return producer.send(this.gameRepository.save(updatedGame));

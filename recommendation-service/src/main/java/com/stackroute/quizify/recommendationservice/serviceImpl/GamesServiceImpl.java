@@ -40,7 +40,14 @@ public class GamesServiceImpl implements GamesService {
     public Games create(Games games) {
         long id=games.getId();
         String name=games.getName();
-        Games games1=gamesRepository.createNode(id,name);
+        String level=games.getLevel();
+        String imageUrl=games.getImageUrl();
+        int numOfQuestion=games.getNumOfQuestion();
+        int timeDuration=games.getTimeDuration();
+        int liked=games.getLiked();
+        List<String> rules=games.getRules();
+        int playcount=games.getPlayCount();
+        Games games1=gamesRepository.createNode(id,name,playcount,level,imageUrl,numOfQuestion,timeDuration,liked,rules);
         gameIsATopicService.createRelationship(games);
         gameTypeOfGenreService.createRelationship(games);
         return games1;
@@ -56,5 +63,10 @@ public class GamesServiceImpl implements GamesService {
         long id=games.getId();
         String name=games.getName();
         return gamesRepository.updateNode(id,name);
+    }
+
+    @Override
+    public List<Games> getMostPlayed() {
+        return gamesRepository.getMostPlayed();
     }
 }

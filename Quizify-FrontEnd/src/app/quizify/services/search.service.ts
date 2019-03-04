@@ -14,7 +14,7 @@ export class SearchService {
 
 
   constructor(private http: HttpClient) {
-    this.microServiceUrl = 'http://13.232.243.68:8092/search-service/api/v1/';
+    this.microServiceUrl = 'http://13.232.243.68:8092/search-service/api/v1/search/';
    }
 
   //  saveGenre(genre: string) {
@@ -34,9 +34,9 @@ export class SearchService {
   //   .pipe(catchError(this.handleError));
   // }
 
-  searchByTopicStartsWith(topicName: string) {
-    console.log(this.microServiceUrl + 'search-topic/' + topicName);
-    return this.http.get(this.microServiceUrl + 'search-topic/' + topicName, { observe: 'response' })
+  searchByTopicStartsWith(searchKey: string) {
+    console.log(this.microServiceUrl + searchKey);
+    return this.http.get(this.microServiceUrl + searchKey, { observe: 'response' })
     .pipe(catchError(this.handleError));
   }
 

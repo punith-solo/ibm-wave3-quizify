@@ -1,19 +1,21 @@
 import { Category } from './category';
-import { Genre } from './genre';
+import { Admin } from './admin';
 import { Topic } from './topic';
-import { Tag } from './tag';
+
 
 export class Question {
 
-     id: number;
+     id: string;
      category: Category;
-     genre: Genre;
+     genre: string;
      topic: Topic;
-     tag: Tag;
      level: string;
      type: string;
      statement: string;
      options: string[];
-     correctAnswer: string;
-     playerAnswer: string;
+    answer: string;
+    correctAnswer: string;
+    playerAnswer: string;
+     admin: Admin;
+
 }

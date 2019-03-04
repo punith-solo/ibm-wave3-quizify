@@ -19,9 +19,14 @@ public class TopicController {
         this.topicService = topicService;
     }
 
+    @GetMapping("/")
+    public List<Topic> getAll(){
+        return topicService.getAll();
+    }
+
     @GetMapping("/{categoryId}")
-    public List<Topic> getAll(@PathVariable("categoryId") long categoryId){
-        return topicService.getAll(categoryId);
+    public List<Topic> getTopicsByCategory(@PathVariable("categoryId") long categoryId){
+        return topicService.getTopicsByCategory(categoryId);
     }
 }
 

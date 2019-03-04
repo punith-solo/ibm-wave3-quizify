@@ -1,9 +1,8 @@
 package com.stackroute.quizify.kafka.config;
 
-import com.stackroute.quizify.kafka.domain.Question;
+import com.stackroute.quizify.dto.model.QuestionDTO;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.common.serialization.StringSerializer;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.env.Environment;
@@ -27,7 +26,7 @@ public class KafkaProducerConfig {
     }
 
     @Bean
-    public ProducerFactory<String, Question> producerFactory() {
+    public ProducerFactory<String, QuestionDTO> producerFactory() {
         Map<String, Object> configs = new HashMap<>();
         configs.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, this.bootstrapServer);
         configs.put(JsonSerializer.ADD_TYPE_INFO_HEADERS, false);
@@ -38,7 +37,7 @@ public class KafkaProducerConfig {
     }
 
     @Bean
-    public KafkaTemplate<String, Question> kafkaTemplate() {
+    public KafkaTemplate<String, QuestionDTO> kafkaTemplate() {
         return new KafkaTemplate<>(producerFactory());
     }
 }

@@ -1,145 +1,164 @@
-.container3
-{
-  background-image: url("../../../../assets/images/22.jpg");
-  background-image: cover;
-}
-.container {
-  padding: 20px;
- }
- .container h1
- {
-   text-align: center;
- 
- }
- p {
-     font-family: sans-serif;
-     text-align: center;
- }
-h3 {
-  text-align: center;
-  font-family: sans-serif;
-}
-.username
-{
-  margin-top: 2%;
-  margin-left: 40.5%;
-  width: 20%;
-  
-}
-.mat-raised-button
-{
-  margin-left: 43%;
-  width: 15%;
-}
+#reg{
+  margin-top: 80px;
+  height: 1130px;
+  background-image:
+  url("http://szzljy.com/data/27/gray-color-wallpaper/gray-color-wallpaper-5.jpg");
 
-.password{
-  margin-left: 40.5%;  
-  width: 20%;
-
-}
-
-.confirmpassword{
-  margin-left: 40.5%;  
-  width: 20%;
-
-}
-.emailid {
-
-  margin-left: 40.5%;
-  width: 20%;
-
-}
-.username {
-  margin-left: 40.5%;
-  width: 20%;
-
-}
-.button{
-
-  margin-left: 50%;
-  width: 40%;
-  height: 100px;
-
-
-}
-
-.nextbtn {
-  margin-left: 80%;
-  width: 15%;
-
-}
-.nextbtn1 {
-  margin-left: 43%;
-  width: 15%;
-
-}
-.prebtn {
-  margin-right: 80%;
-  width: 15%;
-
-}
-.btn {
-  margin-left: 80%;
-  width: 15%;
-
-}
-
-
-.mat-radio-button {
-  margin-left: 16px;
- 
-  
-}
-.gender {
-  margin-left: 42.5%;
-  
-}
-.example-additional-selection {
-  opacity: 0.75;
-  font-size: 0.75em;
-}
-.interests {
-
-  margin-left: 40.5%;
-  width: 20%;
 }
 .example-card {
-  
-  max-width: 50px;;
-  margin-right:10px;
+  flex-wrap: wrap;
 }
-.example-card1 {
-  
-  max-width: 50px;
-  
-}
-.container{
-display: flex;
-margin-left: 630px;
-}
-.container1{
-  display: flex;
-  margin-left: 590px;
+ .container {
+  padding-left:350px;
   }
-  
-  .container2{
-    display: flex;
-    margin-left: 590px;
-    }
-    
+ .container h1 {
+   text-align: center;
+ }
+ 
+ .step3 {
+   margin-left: auto;
+   margin-right: auto;
+   width: 100%;
+   padding-left: 120px;
+ }
+ h4 {
+   color: black;
+ }
+ mat-card
+ {
+     margin-left: 530px;
+     width: 400px;
+     height: 250px;
+     background-color: lightgray;  
       
+     
+ }
+ 
+ .submit {
+   margin-left: 40.5%;
+   width: 20%;
+ }
+ p {
+   font-family: sans-serif;
+   text-align: center;
+ }
+ h3 {
+   text-align: center;
+   font-family: sans-serif;
+ }
+ 
+ h2 {
+ margin-left: 6.5%;
+ font-family: sans-serif;
+ }
+ .username {
+   margin-top: 2%;
+   margin-left: 40.5%;
+   width: 20%;
+ }
+ .mat-raised-button {
+   margin-left: 43%;
+   width: 15%;
+   background-color: lightgray;  
 
+ }
+ 
+ .password {
+   margin-left: 40.5%;
+   width: 20%;
+ }
+ 
+ .confirmpassword {
+   margin-left: 40.5%;
+   width: 20%;
+ }
+ .emailid {
+   margin-left: 40.5%;
+   width: 20%;
+ }
+ .username {
+   margin-left: 40.5%;
+   width: 20%;
+ }
+ .button {
+   margin-left: 50%;
+   width: 40%;
+   height: 100px;
+ }
+ 
+ .nextbtn {
+   margin-left: 80%;
+   width: 15%;
+ }
+ .nextbtn1 {
+   margin-left: 43%;
+   width: 15%;
+ }
+ .prebtn {
+   margin-right: 80%;
+   margin-bottom: 100px;
+   width: 15%;
+ }
+ .prebtn1 {
+   margin-left: 43%;
+   width: 15%;
+   background-color: lightgray;  
 
-
-
-// .btn:hover {
-//   opacity: 1;
+ }
+ .btn {
+   margin-left: 80%;
+   width: 15%;
+ }
+ .inside {
+   padding: 10px;
+   width: 250px;
+   height: 150px;
+   line-height: 50px;
+   font-weight:bolder;
+   font-size: 2em;
+   text-align: center;
+   margin-left:160px;
+   
+ }
+ .inside1 {
+  padding: 10px;
+  width: 250px;
+  height: 150px;
+  line-height: 50px;
+  font-weight:bolder;
+  font-size: 2em;
+  text-align: center;
+  margin-left:100px;
+  
+}
+// .inside2{
+//   top:40px;
+//   padding: 30px;
+//   width: 250px;
+//   height: 90px;
+//   line-height: 40px;
+//   font-weight:bolder;
+//   font-size: 3em;
+//   text-align: center;
+//   // margin-left:50px;
+//   // margin-right: 50px;
+  
 // }
-// .btn {
-//   color: white;
-//   padding: 15px 20px;
-//   border: none;
-//   cursor: pointer;
-//   width: 30%;
-//   opacity: 0.9;
-// }
+ li {
+  text-decoration: none;
+  display: inline;
+  margin: 1px;
+  }
+ .mat-radio-button {
+   margin-left: 16px;
+ }
+ .gender {
+   margin-left: 42.5%;
+ }
+ 
+ 
+//  .container2 {
+//    display: flex;
+//    margin-left: 590px;
+//  }
+ 

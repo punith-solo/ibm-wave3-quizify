@@ -1,7 +1,7 @@
 package com.stackroute.quizify.userauthentication.controller;
-import com.stackroute.quizify.userauthentication.exceptions.*;
-import com.stackroute.quizify.userauthentication.domain.LoginUser;
+import com.stackroute.quizify.userauthentication.domain.User;
 import com.stackroute.quizify.userauthentication.exceptions.PasswordNotMatchException;
+import com.stackroute.quizify.userauthentication.exceptions.UserAlreadyExists;
 import com.stackroute.quizify.userauthentication.exceptions.UserNameNotFoundException;
 import com.stackroute.quizify.userauthentication.exceptions.UserNameOrPasswordEmpty;
 import com.stackroute.quizify.userauthentication.jwt.SecurityTokenGenrator;
@@ -40,11 +40,11 @@ ResponseEntity responseEntity;
 
     @ApiOperation(value = "Accept user into repository and generating token")
     @PostMapping("user")
-    public ResponseEntity  login(@RequestBody LoginUser loginDetails) throws ServletException {
+    public ResponseEntity  login(@RequestBody User loginDetails) throws ServletException {
 
         try {
 
-            String username = loginDetails.getUsername();
+            String username = loginDetails.getName();
             String password = loginDetails.getPassword();
 
 
@@ -56,13 +56,13 @@ ResponseEntity responseEntity;
 
 
 
-            LoginUser user = userService.findByUserIdAndPassword(username, password);
+            User user = userService.findByUserIdAndPassword(username, password);
 
 
 
             if (user == null) {
 
-                throw new UserNameNotFoundException("LoginUser with given Id does not exists");
+                throw new UserNameNotFoundException("User with given Id does not exists");
 
             }
 
@@ -81,13 +81,13 @@ ResponseEntity responseEntity;
 
             // generating token
 
-            SecurityTokenGenrator securityTokenGenrator = (LoginUser userDetails) -> {
+            SecurityTokenGenrator securityTokenGenrator = (User userDetails) -> {
 
 
 
                 String jwtToken = "";
 
-                jwtToken = Jwts.builder().setId(user.getUsername()).setSubject(user.getRole()).setIssuedAt(new Date())
+                jwtToken = Jwts.builder().setId(user.getName()).setSubject(user.getRole()).setIssuedAt(new Date())
 
                         .signWith(SignatureAlgorithm.HS256, "secretkey").compact();
 
@@ -97,7 +97,7 @@ ResponseEntity responseEntity;
 
                 map1.put("token", jwtToken);
 
-                map1.put("message", "LoginUser successfully logged in");
+                map1.put("message", "User successfully logged in");
 
                 return map1;
 
@@ -126,21 +126,21 @@ ResponseEntity responseEntity;
     @GetMapping("user")
     public ResponseEntity<?> getAllUser()
     {
-        return new ResponseEntity<List<LoginUser>>(userService.getAllUsers(), HttpStatus.OK);
+        return new ResponseEntity<List<User>>(userService.getAllUsers(), HttpStatus.OK);
     }
 
     @ApiOperation(value = "It saves all the user details")
     @PostMapping("users")
-    public ResponseEntity<?> saveEvent(@RequestBody LoginUser user)  throws UserNameNotFoundException {
+    public ResponseEntity<?> saveEvent(@RequestBody User user) {
 
         try {
 
             userService.saveUser(user);
 
-            responseEntity = new ResponseEntity<LoginUser>(user, HttpStatus.OK);
+            responseEntity = new ResponseEntity<User>(user, HttpStatus.OK);
 
         }
-        catch (UserNameNotFoundException ex){
+        catch ( UserAlreadyExists ex){
 
             responseEntity =  new ResponseEntity<>(ex.getMessage(), HttpStatus.OK);
 
@@ -165,7 +165,7 @@ ResponseEntity responseEntity;
 //            String userId=user.getUserid();
 //            String pwd=user.getPassword();
 //
-//        LoginUser user1 = userService.findByUserIdAndPassword(userId, pwd);
+//        User user1 = userService.findByUserIdAndPassword(userId, pwd);
 //
 //        try {
 //            if (user.getUserid().equalsIgnoreCase(" ")|| user.getPassword().equalsIgnoreCase(" ")) {
@@ -175,12 +175,12 @@ ResponseEntity responseEntity;
 //            else
 //            {
 //                userService.saveUser(user);
-//                return new ResponseEntity<LoginUser>(user, HttpStatus.CREATED);
+//                return new ResponseEntity<User>(user, HttpStatus.CREATED);
 //            }
 //
 //            // generating token
 //
-//            SecurityTokenGenrator securityTokenGenrator = (LoginUser userDetails) -> {
+//            SecurityTokenGenrator securityTokenGenrator = (User userDetails) -> {
 //
 //
 //
@@ -196,7 +196,7 @@ ResponseEntity responseEntity;
 //
 //                map1.put("token", jwtToken);
 //
-//                map1.put("message", "LoginUser successfully logged in");
+//                map1.put("message", "User successfully logged in");
 //
 //                return map1;
 //

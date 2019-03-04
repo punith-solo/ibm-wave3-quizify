@@ -40,10 +40,10 @@ public class GenreController {
 
     @ApiOperation(value = "Save Genre")
     @PostMapping("/search-genre")
-    public ResponseEntity<?> saveGenre(@RequestBody Genres genre){
+    public ResponseEntity<?> saveGenre(@RequestBody Genres genres){
         try
         {
-            return new ResponseEntity<Genres>(genreService.saveGenre(genre), HttpStatus.OK);
+            return new ResponseEntity<Genres>(genreService.saveGenre(genres), HttpStatus.OK);
         }
         catch (GenreAlreadyExistsException e)
         {

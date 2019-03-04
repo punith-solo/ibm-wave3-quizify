@@ -102,7 +102,7 @@ public class KafkaConsumerConfig {
     }
 
 //    @Bean
-//    public ConsumerFactory<String, SinglePlayer> singlePlayerConsumerFactory()
+//    public ConsumerFactory<String, SinglePlayers> singlePlayerConsumerFactory()
 //    {
 //        this.consumersId = "recommendation-single-player-consumer";
 //        Map<String, Object> configs = new HashMap<>();
@@ -110,7 +110,7 @@ public class KafkaConsumerConfig {
 //        configs.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
 //        configs.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, JsonDeserializer.class);
 //        configs.put(ConsumerConfig.GROUP_ID_CONFIG, this.consumersId);
-//        configs.put(JsonDeserializer.VALUE_DEFAULT_TYPE, SinglePlayer.class);
+//        configs.put(JsonDeserializer.VALUE_DEFAULT_TYPE, SinglePlayers.class);
 //        configs.put(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG, "latest");
 //        configs.put(ConsumerConfig.ENABLE_AUTO_COMMIT_CONFIG, "true");
 //
@@ -118,9 +118,9 @@ public class KafkaConsumerConfig {
 //    }
 //
 //    @Bean
-//    public ConcurrentKafkaListenerContainerFactory<String, SinglePlayer> kafkaListenerSinglePlayerContainerFactory ()
+//    public ConcurrentKafkaListenerContainerFactory<String, SinglePlayers> kafkaListenerSinglePlayerContainerFactory ()
 //    {
-//        ConcurrentKafkaListenerContainerFactory<String, SinglePlayer> factory = new ConcurrentKafkaListenerContainerFactory<>();
+//        ConcurrentKafkaListenerContainerFactory<String, SinglePlayers> factory = new ConcurrentKafkaListenerContainerFactory<>();
 //        factory.setConsumerFactory(singlePlayerConsumerFactory());
 //
 //        return factory;

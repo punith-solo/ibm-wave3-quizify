@@ -1,9 +1,8 @@
 import { Category } from './category';
 import { Question } from './question';
-import { Topic } from './topic';
-import { Genre } from './genre';
-import { Tag } from './tag';
 import { Admin } from './admin';
+import { Topic } from './topic';
+import { Genre } from './Genre';
 
 export class Game {
      id: number;

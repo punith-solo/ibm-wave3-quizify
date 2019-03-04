@@ -1,7 +1,8 @@
 package com.stackroute.quizify.questionmanager.service;
 
+import com.stackroute.quizify.dto.model.QuestionDTO;
 import com.stackroute.quizify.kafka.Producer;
-import com.stackroute.quizify.kafka.domain.Question;
+import com.stackroute.quizify.questionmanager.domain.Question;
 import com.stackroute.quizify.questionmanager.exception.EnoughQuestionsNotFound;
 import com.stackroute.quizify.questionmanager.exception.NoQuestionFoundException;
 import com.stackroute.quizify.questionmanager.exception.QuestionAlreadyExistsException;
@@ -40,7 +41,7 @@ public class QuestionServiceImpl implements QuestionService {
      * If Question ID already exist then it throws the Exception "CategoryNameAlreadyExistsException".
      */
     @Override
-    public Question addNewQuestion(Question question) throws QuestionAlreadyExistsException {
+    public QuestionDTO addNewQuestion(Question question) throws QuestionAlreadyExistsException {
         if (this.questionRepository.existsById(question.getId()))
             throw new QuestionAlreadyExistsException("Question Already Exists!");
         else {

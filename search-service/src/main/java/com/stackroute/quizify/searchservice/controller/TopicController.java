@@ -40,10 +40,10 @@ public class TopicController {
 
     @ApiOperation(value = "Save Genre")
     @PostMapping("/search-topic")
-    public ResponseEntity<?> saveTopic(@RequestBody Topics topic){
+    public ResponseEntity<?> saveTopic(@RequestBody Topics topics){
         try
         {
-            return new ResponseEntity<Topics>(topicService.saveTopic(topic), HttpStatus.OK);
+            return new ResponseEntity<Topics>(topicService.saveTopic(topics), HttpStatus.OK);
         }
         catch (TopicAlreadyExistsException e)
         {

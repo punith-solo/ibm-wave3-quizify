@@ -6,9 +6,9 @@
 //import com.stackroute.quizify.questionmanager.exception.QuestionDoesNotExistException;
 //import com.stackroute.quizify.questionmanager.repository.QuestionRepository;
 //import com.stackroute.quizify.kafka.domain.Admin;
-//import com.stackroute.quizify.kafka.domain.Category;
-//import com.stackroute.quizify.kafka.domain.Question;
-//import com.stackroute.quizify.kafka.domain.Topic;
+//import Category;
+//import Question;
+//import Topic;
 //import org.junit.After;
 //import org.junit.Before;
 //import org.junit.Test;
