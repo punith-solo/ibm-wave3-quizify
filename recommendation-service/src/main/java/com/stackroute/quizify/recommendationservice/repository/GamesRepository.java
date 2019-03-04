@@ -16,8 +16,8 @@ public interface GamesRepository extends Neo4jRepository<Games,Long> {
     @Query("MATCH (g:Games) WHERE g.id={gameId} RETURN g")
     public Games getNode(@Param("gameId") long gameId);
 
-    @Query("CREATE (g:Games) SET g.id={gameId},g.name={gameName} RETURN g")
-    Games createNode( long gameId,String gameName);
+    @Query("CREATE (g:Games) SET g.id={gameId},g.name={gameName},g.playCount={playCount} RETURN g")
+    Games createNode( long gameId,String gameName,int playCount);
 
     @Query("MATCH (g:Games) WHERE g.id={gameId} DETACH DELETE g RETURN 'node deleted' ")
     Games deleteNode(@Param("gameId") long gameId);
@@ -25,6 +25,6 @@ public interface GamesRepository extends Neo4jRepository<Games,Long> {
     @Query("MATCH (g:Games) WHERE g.id={gameId} SET g.name={gameName} RETURN g")
     Games updateNode(@Param("gameId") long gameId,@Param("gameName") String gameName);
 
-    @Query("MATCH (g:Games)-[r:Played]->(u:User) RETURN g, COUNT(distinct g.playcount) AS cnt ORDER BY cnt DESC LIMIT 9")
+    @Query("MATCH (u:Users)-[r:Played]->(g:Games) RETURN g, COUNT(distinct g.playcount) AS cnt ORDER BY cnt DESC LIMIT 5")
     List<Games> getMostPlayed();
 }
