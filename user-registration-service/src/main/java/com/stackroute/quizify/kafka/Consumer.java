@@ -1,36 +1,33 @@
 package com.stackroute.quizify.kafka;
 
-import com.stackroute.quizify.kafka.domain.User;
+import com.stackroute.quizify.dto.mapper.UserMapper;
+import com.stackroute.quizify.dto.model.UserDTO;
+import com.stackroute.quizify.userregistrationservice.domain.User;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.messaging.handler.annotation.Payload;
 import org.springframework.stereotype.Component;
 
-
-
 @Component
 public class Consumer {
 
-
-    //private Game recievedPayload;
     private Logger logger = LoggerFactory.getLogger(Producer.class);
+    private UserMapper userMapper;
+    private User user;
 
-
-
-    //public Game getRecievedPayload()
-   // {
-     //   return this.recievedPayload;
-    //}
+    @Autowired
+    public Consumer(UserMapper userMapper)
+    {
+        this.userMapper = userMapper;
+    }
 
     @KafkaListener(topics = "users", groupId = "users-self-consumers", containerFactory = "kafkaListenerContainerFactory")
-    public void receive(@Payload User payload) {
+    public void receive(@Payload UserDTO payload) {
+        this.user = this.userMapper.userDTOToUser(payload);
         logger.info("------------------------------------------------------------------------------------------------");
-        logger.info("User Received At User Registration Service : "+payload);
-
-      //  this.recievedPayload = payload;
-
-
+        logger.info("User Received At User Registration Service : "+this.user);
     }
 
 }

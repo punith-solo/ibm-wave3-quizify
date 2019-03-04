@@ -1,6 +1,7 @@
 package com.stackroute.quizify.userregistrationservice.controller;
 
-import com.stackroute.quizify.kafka.domain.User;
+import com.stackroute.quizify.dto.model.UserDTO;
+import com.stackroute.quizify.userregistrationservice.domain.User;
 import com.stackroute.quizify.userregistrationservice.exceptions.UserAlreadyExistException;
 import com.stackroute.quizify.userregistrationservice.exceptions.UserNotFoundException;
 
@@ -30,10 +31,10 @@ public class UserController {
 
     @ApiOperation(value = "Accepts user into the repository")
     @PostMapping("/user")
-    public ResponseEntity<?> saveUser(@RequestBody User user) throws UserAlreadyExistException {
+    public ResponseEntity<?> saveUser(@RequestBody UserDTO userDTO) throws UserAlreadyExistException {
 
         try{
-            return new ResponseEntity<User>(this.userService.saveUser(user), HttpStatus.OK);
+            return new ResponseEntity<User>(this.userService.saveUser(userDTO), HttpStatus.OK);
         }
         catch (UserAlreadyExistException e){
             return new ResponseEntity<>(e.getMessage(),HttpStatus.CONFLICT);
@@ -53,11 +54,11 @@ public class UserController {
 
     @ApiOperation(value = "Updates user into the repository")
     @PutMapping("/user")
-    public ResponseEntity<?> UpdateUser(@RequestBody User user) throws UserNotFoundException, UserAlreadyExistException {
+    public ResponseEntity<?> UpdateUser(@RequestBody UserDTO userDTO) throws UserNotFoundException, UserAlreadyExistException {
         ResponseEntity responseEntity;
 
 
-        responseEntity=new ResponseEntity<User>( this.userService.updateUser(user), HttpStatus.CREATED);
+        responseEntity=new ResponseEntity<User>( this.userService.updateUser(userDTO), HttpStatus.CREATED);
 
         return responseEntity;
 

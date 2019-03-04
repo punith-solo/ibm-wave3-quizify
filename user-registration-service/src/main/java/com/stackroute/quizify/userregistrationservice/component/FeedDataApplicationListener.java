@@ -1,8 +1,9 @@
 package com.stackroute.quizify.userregistrationservice.component;
 
+import com.stackroute.quizify.dto.model.UserDTO;
 import com.stackroute.quizify.kafka.Producer;
-import com.stackroute.quizify.kafka.domain.User;
-import com.stackroute.quizify.userregistrationservice.UserService;
+import com.stackroute.quizify.userregistrationservice.exceptions.UserAlreadyExistException;
+import com.stackroute.quizify.userregistrationservice.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextRefreshedEvent;
@@ -20,20 +21,26 @@ public class FeedDataApplicationListener implements ApplicationListener<ContextR
     }
 
     @Override
-    public void onApplicationEvent(ContextRefreshedEvent contextRefreshedEvent) {
-
-//        userRepository.save(new User("1122","akhila","ak123","ak123", "akhila@gmail.com", ["Movies", "TV Shows"], "F"));
-//        userRepository.save(new User("2244","akhil","hello1","hello1", "akhila@gmail.com", {("Movies"), ("TvShows")},"M"));
-        User user = new User();
+    public void onApplicationEvent(ContextRefreshedEvent event)
+    {
+        UserDTO user = new UserDTO();
         user.setId(0);
-        user.setName("kaustav pal");
+        user.setName("kaustav");
         user.setEmailId("kaustavlogan@gmail.com");
         user.setPassword("1234567890");
         user.setTopics(null);
         user.setGenres(null);
         user.setGender("male");
 
-        producer.send(user);
+        try
+        {
+            this.userService.saveUser(user);
+            producer.send(user);
+        }
+        catch (UserAlreadyExistException e)
+        {
+            e.printStackTrace();
+        }
 
     }
 }

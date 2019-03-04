@@ -1,13 +1,12 @@
-package com.stackroute.quizify.kafka.domain;
+package com.stackroute.quizify.dto.model;
 
 import lombok.Data;
 import org.springframework.data.annotation.Id;
 
 @Data
-public class Genre {
-
+public class TopicDTO {
     @Id
-    private Long id;
+    private long id;
     private String name;
     private String imageUrl;
 }

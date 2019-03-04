@@ -1,6 +1,6 @@
 package com.stackroute.quizify.kafka.configuration;
 
-import com.stackroute.quizify.kafka.domain.User;
+import com.stackroute.quizify.dto.model.UserDTO;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.common.serialization.StringSerializer;
 import org.springframework.beans.factory.annotation.Value;
@@ -20,18 +20,18 @@ public class KafkaProducerConfig {
     private String bootstrapServer;
 
     @Bean
-    public ProducerFactory<String, User> producerFactory() {
+    public ProducerFactory<String, UserDTO> producerFactory() {
         Map<String, Object> configs = new HashMap<>();
         configs.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, this.bootstrapServer);
         configs.put(JsonSerializer.ADD_TYPE_INFO_HEADERS, false);
         configs.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
         configs.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, JsonSerializer.class);
 
-        return  new DefaultKafkaProducerFactory<String, User>(configs);
+        return  new DefaultKafkaProducerFactory<String, UserDTO>(configs);
     }
 
     @Bean
-    public KafkaTemplate<String, User> kafkaTemplate() {
+    public KafkaTemplate<String, UserDTO> kafkaTemplate() {
         return new KafkaTemplate<>(producerFactory());
     }
 }

@@ -1,6 +1,6 @@
 package com.stackroute.quizify.userregistrationservice.repository;
 
-import com.stackroute.quizify.kafka.domain.User;
+import com.stackroute.quizify.userregistrationservice.domain.User;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 

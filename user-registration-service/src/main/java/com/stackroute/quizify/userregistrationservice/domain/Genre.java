@@ -1,14 +1,12 @@
-package com.stackroute.quizify.kafka.domain;
+package com.stackroute.quizify.userregistrationservice.domain;
 
 import lombok.Data;
 import org.springframework.data.annotation.Id;
 
-
 @Data
-public class Topic {
-
+public class Genre {
     @Id
-    private long id;
+    private Long id;
     private String name;
     private String imageUrl;
 }
