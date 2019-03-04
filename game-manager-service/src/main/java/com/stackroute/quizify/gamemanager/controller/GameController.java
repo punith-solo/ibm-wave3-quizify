@@ -62,7 +62,7 @@ public class GameController {
     @PutMapping("/games/game")
     public ResponseEntity<?> updateGame(@RequestBody Game updatedGame){
         try {
-            return new ResponseEntity<Game>(this.gameService.updateGame(updatedGame), HttpStatus.OK);
+            return new ResponseEntity<GameDTO>(this.gameService.updateGame(updatedGame), HttpStatus.OK);
         } catch (GameNotFoundException e) {
             return new ResponseEntity<String>(e.getMessage(), HttpStatus.NOT_FOUND);
         }

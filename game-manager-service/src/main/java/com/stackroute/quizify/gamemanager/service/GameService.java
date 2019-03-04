@@ -15,7 +15,7 @@ public interface GameService {
 
    Game deleteGame(long gameId) throws GameNotFoundException;
 
-   Game updateGame(Game game) throws GameNotFoundException;
+   GameDTO updateGame(Game game) throws GameNotFoundException;
 
    Game findGameById(long id) throws GameNotFoundException;
 

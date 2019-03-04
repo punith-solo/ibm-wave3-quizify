@@ -58,10 +58,10 @@ public class GameServiceImpl implements GameService {
     }
 
     @Override
-    public Game updateGame(Game updatedGame) throws GameNotFoundException {
+    public GameDTO updateGame(Game updatedGame) throws GameNotFoundException {
 
     if(this.gameRepository.existsById(updatedGame.getId()))
-        return this.gameRepository.save(updatedGame);
+        return producer.send(this.gameRepository.save(updatedGame));
     else
         throw new GameNotFoundException("Game not found");
 

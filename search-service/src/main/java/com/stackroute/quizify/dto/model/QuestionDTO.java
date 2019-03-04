@@ -9,10 +9,10 @@ import java.util.List;
 public class QuestionDTO {
     @Id
     private long id;
-    private CategoryDTO categoryDTO;
-    private TopicDTO topicDTO;
-    private GenreDTO genreDTO;
-    private TagDTO tagDTO;
+    private CategoryDTO category;
+    private TopicDTO topic;
+    private GenreDTO genre;
+    private TagDTO tag;
     private String level;
     private String type;
     private String statement;

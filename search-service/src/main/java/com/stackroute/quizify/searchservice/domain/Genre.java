@@ -20,10 +20,10 @@ import java.util.List;
 
 @Document(collection="genres")
 @Data
-public class Genres {
+public class Genre {
     @Id
     private long id;
     private String name;
     private String imageUrl;
-    private List<Games> game;
+    private List<Game> games;
 }

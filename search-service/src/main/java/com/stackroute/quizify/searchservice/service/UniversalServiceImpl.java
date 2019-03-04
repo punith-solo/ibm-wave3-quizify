@@ -1,8 +1,8 @@
 package com.stackroute.quizify.searchservice.service;
 
-import com.stackroute.quizify.searchservice.domain.Games;
-import com.stackroute.quizify.searchservice.domain.Genres;
-import com.stackroute.quizify.searchservice.domain.Topics;
+import com.stackroute.quizify.searchservice.domain.Game;
+import com.stackroute.quizify.searchservice.domain.Genre;
+import com.stackroute.quizify.searchservice.domain.Topic;
 import com.stackroute.quizify.searchservice.exception.GenreDoesNotExistsException;
 import com.stackroute.quizify.searchservice.exception.NoGameFoundException;
 import com.stackroute.quizify.searchservice.exception.TopicDoesNotExistsException;
@@ -11,7 +11,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.PrimitiveIterator;
 
 @Service
 public class UniversalServiceImpl implements UniversalService {
@@ -25,22 +24,28 @@ public class UniversalServiceImpl implements UniversalService {
         this.topicService = topicService;
     }
     @Override
-    public List<Games> searchGame(String searchKey) throws NoGameFoundException, GenreDoesNotExistsException, TopicDoesNotExistsException {
-        List<Genres> genres= this.genreService.getAllGenreByStartsWith(searchKey);
-        List<Topics> topics = this.topicService.getAllTopicByStartsWith(searchKey);
-        List<Games> games = new ArrayList<>();
-        for (Genres genre: genres)
+    public List<Game> searchGame(String searchKey) throws NoGameFoundException, GenreDoesNotExistsException, TopicDoesNotExistsException {
+        List<Genre> genres= this.genreService.getAllGenreByStartsWith(searchKey);
+        List<Topic> topics = this.topicService.getAllTopicByStartsWith(searchKey);
+        List<Game> games = new ArrayList<>();
+        for (Genre genre: genres)
         {
-            games.addAll(genre.getGame());
+            games.addAll(genre.getGames());
         }
-        for (Topics topic: topics)
+        for (Topic topic: topics)
         {
-            games.addAll(topic.getGame());
+            games.addAll(topic.getGames());
         }
 
         if (games.isEmpty())
             throw new NoGameFoundException("No Game Found!");
         else
             return games;
+    }
+
+    @Override
+    public Game deleteGame(long topicId, long genreId, long gameId) throws NoGameFoundException, TopicDoesNotExistsException, GenreDoesNotExistsException {
+        this.topicService.deleteGameById(topicId, gameId);
+        return this.genreService.deleteGameById(genreId, gameId);
     }
 }

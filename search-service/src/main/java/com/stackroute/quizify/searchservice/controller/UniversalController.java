@@ -1,7 +1,6 @@
 package com.stackroute.quizify.searchservice.controller;
 
-import com.stackroute.quizify.searchservice.domain.Games;
-import com.stackroute.quizify.searchservice.domain.Topics;
+import com.stackroute.quizify.searchservice.domain.Game;
 import com.stackroute.quizify.searchservice.exception.GenreDoesNotExistsException;
 import com.stackroute.quizify.searchservice.exception.NoGameFoundException;
 import com.stackroute.quizify.searchservice.exception.TopicDoesNotExistsException;
@@ -30,11 +29,25 @@ public class UniversalController {
     @GetMapping("/search/{searchKey}")
     public ResponseEntity<?> searchTopicByStartsWith(@PathVariable String searchKey){
         try {
-            return new ResponseEntity<List<Games>>(this.universalService.searchGame(searchKey), HttpStatus.OK);
+            return new ResponseEntity<List<Game>>(this.universalService.searchGame(searchKey), HttpStatus.OK);
         }
         catch (TopicDoesNotExistsException | NoGameFoundException | GenreDoesNotExistsException e)
         {
             return new ResponseEntity<String>(e.getMessage(), HttpStatus.NOT_FOUND);
         }
     }
+
+    @ApiOperation(value = "Delete Game")
+    @DeleteMapping("/search/{topicId}/{genreId}/{gameId}")
+    public ResponseEntity<?> searchTopicByStartsWith(@PathVariable long topicId, @PathVariable long genreId, @PathVariable long gameId){
+        try {
+            return new ResponseEntity<Game>(this.universalService.deleteGame(topicId, genreId, gameId), HttpStatus.OK);
+        }
+        catch (TopicDoesNotExistsException | NoGameFoundException | GenreDoesNotExistsException e)
+        {
+            return new ResponseEntity<String>(e.getMessage(), HttpStatus.NOT_FOUND);
+        }
+    }
+
+
 }

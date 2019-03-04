@@ -1,9 +1,11 @@
 package com.stackroute.quizify.searchservice.service;
 
 
+import com.stackroute.quizify.searchservice.domain.Game;
 import com.stackroute.quizify.searchservice.exception.GenreAlreadyExistsException;
-import com.stackroute.quizify.searchservice.domain.Genres;
+import com.stackroute.quizify.searchservice.domain.Genre;
 import com.stackroute.quizify.searchservice.exception.GenreDoesNotExistsException;
+import com.stackroute.quizify.searchservice.exception.NoGameFoundException;
 import com.stackroute.quizify.searchservice.repository.GenreRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -36,7 +38,7 @@ public class GenreServiceImpl implements GenreService{
 //    }
 
     @Override
-    public Genres saveGenre(Genres genre) throws GenreAlreadyExistsException {
+    public Genre saveGenre(Genre genre) throws GenreAlreadyExistsException {
         if (this.genreRepository.existsById(genre.getId()))
             throw new GenreAlreadyExistsException("Genre Already Exists!");
         else
@@ -50,11 +52,37 @@ public class GenreServiceImpl implements GenreService{
     }
 
     @Override
-    public List<Genres> getAllGenreByStartsWith(String genreName) throws GenreDoesNotExistsException {
-        List<Genres> genres = genreRepository.searchByGenreAlphabet(genreName);
+    public List<Genre> getAllGenreByStartsWith(String genreName) throws GenreDoesNotExistsException {
+        List<Genre> genres = genreRepository.searchByGenreAlphabet(genreName);
         if(genres==null)
             throw new GenreDoesNotExistsException("No Game Found");
         else
             return genres;
     }
+
+    @Override
+    public Game deleteGameById(long genreId, long gameId) throws GenreDoesNotExistsException, NoGameFoundException {
+        if (this.genreRepository.existsById(genreId))
+        {
+            Genre genre = this.genreRepository.findById(genreId).get();
+            List<Game> games = genre.getGames();
+            if (games.isEmpty())
+                throw new NoGameFoundException("No Game Found!");
+            for (Game game: games)
+            {
+                if (game.getId() == gameId)
+                {
+                    Game deletedGame = game;
+                    games.remove(deletedGame);
+                    genre.setGames(games);
+                    return deletedGame;
+                }
+            }
+            throw new NoGameFoundException("Game Not Found!");
+
+        }
+        else
+            throw new GenreDoesNotExistsException("Genre Doesn't Exist!");
+    }
+
 }

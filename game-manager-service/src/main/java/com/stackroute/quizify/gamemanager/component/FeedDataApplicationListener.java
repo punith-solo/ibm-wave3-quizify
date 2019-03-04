@@ -164,8 +164,6 @@ public class FeedDataApplicationListener implements ApplicationListener<ContextR
                 {
                     cell = cellIterator.next();
                     String cellType = "" + cell.getCellType();
-//                    System.out.println("Cell "+i+" : "+cellType);
-//                    System.out.println("Cell Value : "+cell.getStringCellValue());
                     switch (i)
                     {
                         case 1:
@@ -224,7 +222,7 @@ public class FeedDataApplicationListener implements ApplicationListener<ContextR
                                 case "Documentary":
                                     this.game.setGenre(this.documentary);
                                     break;
-                                case "Talkshow":
+                                case "Reality & Talk Shows":
                                     this.game.setGenre(this.talkshow);
                                     break;
                                 default:
@@ -256,8 +254,8 @@ public class FeedDataApplicationListener implements ApplicationListener<ContextR
                     }
 
                 }
-//                System.out.println("Done");
-//                System.out.println(this.game);
+                if (this.game.getName() == null)
+                    break;
                 this.gameService.saveGame(this.game);
             }
         }
