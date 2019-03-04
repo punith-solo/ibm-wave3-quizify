@@ -1,4 +1,4 @@
-package com.stackroute.quizify.kafka.domain;
+package com.stackroute.quizify.questionmanager.domain;
 
 import lombok.Data;
 import org.springframework.data.annotation.Id;
@@ -14,11 +14,9 @@ import org.springframework.data.annotation.Id;
  *
  * The Field "name" must be unique.
  *
- * Uniqueness of "name" of each Topic document must be Maintained.
+ * Uniqueness of "name" of each category document must be Maintained.
  *
- * The Field "imageUrl" will contain the URL of an Image for that topic.
- *
- * The Field "subTopics" is a List of Topic (Objects of Topic Class) which will contain all the subTopics.
+ * The Field "imageUrl" will contain the URL of an Image for that category.
  *
  * The Field "admin" is used to store the data of the last Admin who Edited this category document.
  *
@@ -26,9 +24,10 @@ import org.springframework.data.annotation.Id;
  */
 
 @Data
-public class Topic {
+public class Category {
     @Id
     private long id;
     private String name;
     private String imageUrl;
+
 }

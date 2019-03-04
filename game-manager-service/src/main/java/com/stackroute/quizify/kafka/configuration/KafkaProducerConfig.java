@@ -1,9 +1,8 @@
 package com.stackroute.quizify.kafka.configuration;
 
-import com.stackroute.quizify.kafka.domain.Game;
+import com.stackroute.quizify.dto.model.GameDTO;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.common.serialization.StringSerializer;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.env.Environment;
@@ -27,7 +26,7 @@ public class KafkaProducerConfig {
     }
 
     @Bean
-    public ProducerFactory<String, Game> producerFactory() {
+    public ProducerFactory<String, GameDTO> producerFactory() {
         Map<String, Object> configs = new HashMap<>();
         configs.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, this.bootstrapServer);
         configs.put(JsonSerializer.ADD_TYPE_INFO_HEADERS, false);
@@ -38,7 +37,7 @@ public class KafkaProducerConfig {
     }
 
     @Bean
-    public KafkaTemplate<String, Game> kafkaTemplate() {
+    public KafkaTemplate<String, GameDTO> kafkaTemplate() {
         return new KafkaTemplate<>(producerFactory());
     }
 }

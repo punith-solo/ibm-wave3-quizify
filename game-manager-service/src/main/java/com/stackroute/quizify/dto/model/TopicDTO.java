@@ -1,10 +1,10 @@
-package com.stackroute.quizify.kafka.domain;
+package com.stackroute.quizify.dto.model;
 
 import lombok.Data;
 import org.springframework.data.annotation.Id;
 
 @Data
-public class Tag {
+public class TopicDTO {
     @Id
     private long id;
     private String name;

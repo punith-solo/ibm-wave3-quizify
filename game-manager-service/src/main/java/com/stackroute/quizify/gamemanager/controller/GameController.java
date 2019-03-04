@@ -1,17 +1,17 @@
 package com.stackroute.quizify.gamemanager.controller;
 
+import com.stackroute.quizify.dto.model.GameDTO;
 import com.stackroute.quizify.gamemanager.exception.GameAlreadyExistsException;
 import com.stackroute.quizify.gamemanager.exception.GameNotFoundException;
 import com.stackroute.quizify.gamemanager.exception.NoGameFoundException;
 import com.stackroute.quizify.gamemanager.service.GameService;
-import com.stackroute.quizify.kafka.domain.Game;
-import com.stackroute.quizify.kafka.domain.Genre;
-import com.stackroute.quizify.kafka.domain.Tag;
-import com.stackroute.quizify.kafka.domain.Topic;
+import com.stackroute.quizify.gamemanager.domain.Game;
+import com.stackroute.quizify.gamemanager.domain.Genre;
+import com.stackroute.quizify.gamemanager.domain.Tag;
+import com.stackroute.quizify.gamemanager.domain.Topic;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -42,7 +42,7 @@ public class GameController {
     @PostMapping("/games/game")
     public ResponseEntity<?> saveGame(@RequestBody Game game){
         try {
-            return new ResponseEntity<Game>(this.gameService.saveGame(game), HttpStatus.OK);
+            return new ResponseEntity<GameDTO>(this.gameService.saveGame(game), HttpStatus.OK);
         } catch (GameAlreadyExistsException e) {
             return new ResponseEntity<String>(e.getMessage(), HttpStatus.CONFLICT);
         }

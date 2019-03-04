@@ -1,10 +1,11 @@
 package com.stackroute.quizify.questionmanager.service;
 
+import com.stackroute.quizify.dto.model.QuestionDTO;
 import com.stackroute.quizify.questionmanager.exception.EnoughQuestionsNotFound;
 import com.stackroute.quizify.questionmanager.exception.NoQuestionFoundException;
 import com.stackroute.quizify.questionmanager.exception.QuestionAlreadyExistsException;
 import com.stackroute.quizify.questionmanager.exception.QuestionDoesNotExistException;
-import com.stackroute.quizify.kafka.domain.Question;
+import com.stackroute.quizify.questionmanager.domain.Question;
 
 import java.util.List;
 
@@ -32,7 +33,7 @@ import java.util.List;
  */
 
 public interface QuestionService {
-    Question addNewQuestion(Question question) throws QuestionAlreadyExistsException;
+    QuestionDTO addNewQuestion(Question question) throws QuestionAlreadyExistsException;
     Question updateQuestion(Question question) throws QuestionDoesNotExistException;
     Question removeQuestion(long questionId) throws QuestionDoesNotExistException;
 

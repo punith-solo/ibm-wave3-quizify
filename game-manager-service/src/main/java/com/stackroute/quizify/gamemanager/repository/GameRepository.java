@@ -1,7 +1,7 @@
 package com.stackroute.quizify.gamemanager.repository;
 
 
-import com.stackroute.quizify.kafka.domain.Game;
+import com.stackroute.quizify.gamemanager.domain.Game;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.mongodb.repository.Query;
 import org.springframework.stereotype.Repository;

@@ -1,17 +1,12 @@
-package com.stackroute.quizify.kafka.domain;
-
+package com.stackroute.quizify.dto.model;
 
 import lombok.Data;
 import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.List;
 
-
-
-@Document(collection="games")
 @Data
-public class Game {
+public class GameDTO {
     @Id
     private long id;
     private String name;

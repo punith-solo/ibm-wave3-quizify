@@ -1,16 +1,17 @@
 package com.stackroute.quizify.gamemanager.service;
 
+import com.stackroute.quizify.dto.model.GameDTO;
 import com.stackroute.quizify.gamemanager.exception.GameAlreadyExistsException;
 import com.stackroute.quizify.gamemanager.exception.GameNotFoundException;
 import com.stackroute.quizify.gamemanager.exception.NoGameFoundException;
-import com.stackroute.quizify.kafka.domain.Game;
+import com.stackroute.quizify.gamemanager.domain.Game;
 
 import java.util.List;
 
 
 public interface GameService {
 
-   Game saveGame(Game game) throws GameAlreadyExistsException;
+   GameDTO saveGame(Game game) throws GameAlreadyExistsException;
 
    Game deleteGame(long gameId) throws GameNotFoundException;
 

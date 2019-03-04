@@ -1,6 +1,6 @@
 package com.stackroute.quizify.questionmanager.component;
 
-import com.stackroute.quizify.kafka.domain.*;
+import com.stackroute.quizify.questionmanager.domain.*;
 import com.stackroute.quizify.questionmanager.exception.QuestionAlreadyExistsException;
 import com.stackroute.quizify.questionmanager.service.QuestionService;
 import org.apache.poi.ss.usermodel.Cell;

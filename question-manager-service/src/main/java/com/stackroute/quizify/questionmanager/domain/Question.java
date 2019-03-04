@@ -1,4 +1,4 @@
-package com.stackroute.quizify.kafka.domain;
+package com.stackroute.quizify.questionmanager.domain;
 
 import lombok.Data;
 import org.springframework.data.annotation.Id;

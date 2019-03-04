@@ -1,9 +1,8 @@
 package com.stackroute.quizify.kafka.config;
 
-import com.stackroute.quizify.kafka.domain.Question;
+import com.stackroute.quizify.dto.model.QuestionDTO;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.common.serialization.StringDeserializer;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.env.Environment;
@@ -32,14 +31,14 @@ public class KafkaConsumerConfig {
     }
 
     @Bean
-    public ConsumerFactory<String, Question> consumerFactory()
+    public ConsumerFactory<String, QuestionDTO> consumerFactory()
     {
         Map<String, Object> configs = new HashMap<>();
         configs.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, this.bootstrapServer);
         configs.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
         configs.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, JsonDeserializer.class);
         configs.put(ConsumerConfig.GROUP_ID_CONFIG, this.consumerId);
-        configs.put(JsonDeserializer.VALUE_DEFAULT_TYPE, Question.class);
+        configs.put(JsonDeserializer.VALUE_DEFAULT_TYPE, QuestionDTO.class);
         configs.put(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG, "latest");
         configs.put(ConsumerConfig.ENABLE_AUTO_COMMIT_CONFIG, "true");
 
@@ -47,9 +46,9 @@ public class KafkaConsumerConfig {
     }
 
     @Bean
-    public ConcurrentKafkaListenerContainerFactory<String, Question> kafkaListenerContainerFactory ()
+    public ConcurrentKafkaListenerContainerFactory<String, QuestionDTO> kafkaListenerContainerFactory ()
     {
-        ConcurrentKafkaListenerContainerFactory<String, Question> factory = new ConcurrentKafkaListenerContainerFactory<>();
+        ConcurrentKafkaListenerContainerFactory<String, QuestionDTO> factory = new ConcurrentKafkaListenerContainerFactory<>();
         factory.setConsumerFactory(consumerFactory());
 
         return factory;
