@@ -1,17 +1,12 @@
 package com.stackroute.quizify.userauthentication.domain;
 
-import javax.persistence.Id;
-
 import lombok.*;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
-
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import java.util.List;
 
 @Entity
 @Getter
@@ -19,11 +14,11 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-
-//@Data
-public class LoginUser {
+public class User {
     @Id
-    private String username;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long id;
+    private String name;
     private String password;
     private String role;
 
