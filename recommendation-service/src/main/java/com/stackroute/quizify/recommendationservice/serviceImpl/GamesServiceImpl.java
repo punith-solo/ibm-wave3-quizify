@@ -40,8 +40,14 @@ public class GamesServiceImpl implements GamesService {
     public Games create(Games games) {
         long id=games.getId();
         String name=games.getName();
+        String level=games.getLevel();
+        String imageUrl=games.getImageUrl();
+        int numOfQuestion=games.getNumOfQuestion();
+        int timeDuration=games.getTimeDuration();
+        int liked=games.getLiked();
+        List<String> rules=games.getRules();
         int playcount=games.getPlayCount();
-        Games games1=gamesRepository.createNode(id,name,playcount);
+        Games games1=gamesRepository.createNode(id,name,playcount,level,imageUrl,numOfQuestion,timeDuration,liked,rules);
         gameIsATopicService.createRelationship(games);
         gameTypeOfGenreService.createRelationship(games);
         return games1;
