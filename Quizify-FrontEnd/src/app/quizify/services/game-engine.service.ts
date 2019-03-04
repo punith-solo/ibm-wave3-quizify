@@ -10,7 +10,7 @@ export class GameEngineService {
 
   private  microServiceUrl: string;
 
-  private singlePlayers: SinglePlayer;
+  private singlePlayer: SinglePlayer;
 
   private errorMsg: string;
   private errorStatus: string;
@@ -20,10 +20,10 @@ export class GameEngineService {
     this.microServiceUrl = 'http://13.232.243.68:8108/single-player-service/';
    }
 
-   savePlayer(singlePlayers: SinglePlayer) {
-     console.log(singlePlayers);
+   savePlayer(singlePlayer: SinglePlayer) {
+     console.log(singlePlayer);
      return this.http
-    .post(this.microServiceUrl + '/singleplayer', singlePlayers, { observe: 'response' });
+    .post(this.microServiceUrl + '/singleplayer', singlePlayer, { observe: 'response' });
    }
 
    fetchGameHistory(gameName: string) {

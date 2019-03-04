@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { GameserviceService } from '../../services/gameservice.service';
-import { Game } from '../../tsclasses/game';
-import { Category } from '../../tsclasses/category';
-import { Topic } from '../../tsclasses/topic';
-import { Genre } from '../../tsclasses/genre';
+import { Game } from '../newClasses/game';
+import { Category } from '../newClasses/category';
+import { Topic } from '../newClasses/topic';
+import { Genre } from '../newClasses/genre';
 
 // import { Topic } from '../pclasses/topic';
 // import { GameserviceService } from './gameservice.service';
@@ -87,12 +87,13 @@ export class GameComponent implements OnInit {
     private timeDuration: number;
 
 
+
   constructor(private gameService: GameserviceService, private snackBar: MatSnackBar) {
     this.entertainment = new Category();
     this.entertainment.id = 1;
-    this.entertainment.name='Entertainment';
-    this.entertainment.imageUrl=
-    'https://mitaanexpress.com/wp-content/uploads/2017/12/336fdcf7d540e4b430a890b63da159c9-1503648561-768x432.png';
+    this.entertainment.name = 'Entertainment';
+    // tslint:disable-next-line:max-line-length
+    this.entertainment.imageUrl = 'https://mitaanexpress.com/wp-content/uploads/2017/12/336fdcf7d540e4b430a890b63da159c9-1503648561-768x432.png';
 
         this.movies = new Topic();
         this.movies.id=1;
@@ -112,8 +113,7 @@ export class GameComponent implements OnInit {
         this.talkshow = new Genre();
         this.talkshow.id=2;
         this.talkshow.name='Reality & Talk Shows';
-        this.talkshow.imageUrl=
-        'https://cmkt-image-prd.global.ssl.fastly.net/0.1.0/ps/2661428/580/386/m1/fpnw/wm1/c1-.jpg?1494334679&s=b42e439d379c45825713ec1c3421f902';
+        this.talkshow.imageUrl='https://cmkt-image-prd.global.ssl.fastly.net/0.1.0/ps/2661428/580/386/m1/fpnw/wm1/c1-.jpg?1494334679&s=b42e439d379c45825713ec1c3421f902';
 
         this.action = new Genre();
         this.action.id=3;

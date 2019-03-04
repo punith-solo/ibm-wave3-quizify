@@ -13,6 +13,7 @@ import { SearchComponent } from './quizify/components/search/search.component';
 import { QuestionGeneratorComponent } from './quizify/components/question-generator/question-generator.component';
 import { GamedetailsComponent } from './quizify/components/gamedetails/gamedetails.component';
 import { AdminpageComponent } from './quizify/components/adminpage/adminpage.component';
+import { AuthGuard } from './quizify/components/auth/auth.guard';
 
 
 const routes: Routes = [
@@ -29,7 +30,7 @@ const routes: Routes = [
   { path: 'login', component: CardsComponent},
   {path: 'search', component: SearchComponent},
   { path: 'question', component: QuestionGeneratorComponent },
-  { path: 'adminpage', component: AdminpageComponent },
+  { path: 'adminpage', component: AdminpageComponent, canActivate: [AuthGuard] },
     { path: '**', component: CardsComponent
   }
 

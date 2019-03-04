@@ -6,11 +6,15 @@
 //   margin-top:-100px;
  
 //  }
+
+
 // // ul 
 // // {
 // //   list-style-type: none; 
   
 // // }
+
+
 img {
   width: 242px;
    height:250px;
@@ -19,6 +23,7 @@ img {
    padding-top: 30px;
    padding-left: 5px;
    
+
  }
 // // .sub-image{
 // //  // position: relative;
@@ -27,6 +32,10 @@ img {
   
  
 // // }
+
+
+
+
 // // .example-card
 // // {
 // //   box-shadow: 3px 3px black, -1em 0 .4em gray;
@@ -46,10 +55,14 @@ img {
 // // .container .example-card:hover .overlay {
 // //   transform: scale(1);
 // // }
+
 // // .example-cards
 // // {
 // //   box-shadow: 3px 3px black, -1em 0 .4em gray;
 // // }
+
+
+
 // .text {
 //   color: white;
 //   font-size: 20px;
@@ -61,10 +74,12 @@ img {
 //   transform: translate(-50%, -50%);
 //   white-space: nowrap;
 // }
+
 // // h2{
 // //     padding: 2%;
 // //     color: white;
 // // }
+
 // .example-card {
 //   top: 150px;
 //   width: 400px;
@@ -75,6 +90,7 @@ img {
 //   border-color: black;
 //   margin: 25px;
 // }
+
 // .example-header-image {
 //   background-image: url('https://e3.365dm.com/18/10/1600x900/skynews-quiz-time_4458210.jpg?20181019225508');
 //   background-size: cover;
@@ -94,6 +110,9 @@ img {
 //   top: 0px;
  
 // }
+
+
+
 .container{
   display:flex;
 }
@@ -121,6 +140,7 @@ mat-card-title{
   padding-left: 40px;;
   top: 5px;
 }
+
 mat-card-actions{
   position:absolute;
   top: 315px;
@@ -146,6 +166,7 @@ mat-card-action button {
  
   
 }
+
 mat-card-action button:before {
   font-family: FontAwesome;
   content: '\f07A';
