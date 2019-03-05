@@ -1,8 +1,10 @@
 import { Router } from '@angular/router';
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Inject } from '@angular/core';
 import { Gamesearch } from '../../tsclasses/gamesearch';
 import { SearchService } from '../../services/search.service';
 import { GameEngineService } from '../../services/game-engine.service';
+import { MatDialog } from '@angular/material';
+import { DialogComponent } from '../dialog/dialog.component';
 
 
 @Component({
@@ -11,9 +13,12 @@ import { GameEngineService } from '../../services/game-engine.service';
   styleUrls: ['./search.component.scss']
 })
 export class SearchComponent implements OnInit {
+
   Gamesearch: any;
   private games: Gamesearch[];
-  constructor(private gameengineservice: GameEngineService, private router: Router, private searchService: SearchService ) { }
+  q: any;
+  dialogResult: any;
+  constructor(private router: Router, private searchService: SearchService, public dialog: MatDialog, private gameengineservice: GameEngineService) { }
 
   ngOnInit() {
 
@@ -40,6 +45,15 @@ export class SearchComponent implements OnInit {
   //     this.games = res.body[0].game;
   //     console.log(this.games);
   //   });
+  openDialog(q) {
+    const dialogRef = this.dialog.open(DialogComponent,  {
+      data: { q }
+   });
 
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+      this.dialogResult = result;
+    });
+  }
 
 }

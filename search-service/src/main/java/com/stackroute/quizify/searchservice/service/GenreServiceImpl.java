@@ -61,10 +61,10 @@ public class GenreServiceImpl implements GenreService{
     }
 
     @Override
-    public Game deleteGameById(long genreId, long gameId) throws GenreDoesNotExistsException, NoGameFoundException {
-        if (this.genreRepository.existsById(genreId))
+    public Game deleteGameById(String genreName, long gameId) throws GenreDoesNotExistsException, NoGameFoundException {
+        if (this.genreRepository.existsByName(genreName))
         {
-            Genres genres = this.genreRepository.findById(genreId).get();
+            Genres genres = this.genreRepository.findByName(genreName);
             List<Game> games = genres.getGames();
             if (games.isEmpty())
                 throw new NoGameFoundException("No Game Found!");
@@ -75,6 +75,7 @@ public class GenreServiceImpl implements GenreService{
                     Game deletedGame = game;
                     games.remove(deletedGame);
                     genres.setGames(games);
+                    this.genreRepository.save(genres);
                     return deletedGame;
                 }
             }

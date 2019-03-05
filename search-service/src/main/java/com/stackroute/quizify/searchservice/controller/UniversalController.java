@@ -38,10 +38,10 @@ public class UniversalController {
     }
 
     @ApiOperation(value = "Delete Game")
-    @DeleteMapping("/search/{topicId}/{genreId}/{gameId}")
-    public ResponseEntity<?> searchTopicByStartsWith(@PathVariable long topicId, @PathVariable long genreId, @PathVariable long gameId){
+    @DeleteMapping("/search/{topicName}/{genreName}/{gameId}")
+    public ResponseEntity<?> searchTopicByStartsWith(@PathVariable String topicName, @PathVariable String genreName, @PathVariable long gameId){
         try {
-            return new ResponseEntity<Game>(this.universalService.deleteGame(topicId, genreId, gameId), HttpStatus.OK);
+            return new ResponseEntity<Game>(this.universalService.deleteGame(topicName, genreName, gameId), HttpStatus.OK);
         }
         catch (TopicDoesNotExistsException | NoGameFoundException | GenreDoesNotExistsException e)
         {
