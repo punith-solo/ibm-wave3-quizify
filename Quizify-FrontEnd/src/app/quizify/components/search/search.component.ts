@@ -30,12 +30,12 @@ export class SearchComponent implements OnInit {
 
   search(value) {
     if (value === '') {
-      this.game = null;
+      this.games = null;
     } else {
-    this.searchService.searchByTopicStartsWith(value).subscribe((res: any) => {
-      this.game = res.body;
+    this.searchService.searchByTopicOrGenreOrQuizStartsWith(value).subscribe((res: any) => {
+      this.games = res.body;
       console.log(res);
-      console.log(this.game);
+      console.log(this.games);
     });
   }
 

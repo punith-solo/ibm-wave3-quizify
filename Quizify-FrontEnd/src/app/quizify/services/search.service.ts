@@ -34,7 +34,7 @@ export class SearchService {
   //   .pipe(catchError(this.handleError));
   // }
 
-  searchByTopicStartsWith(searchKey: string) {
+  searchByTopicOrGenreOrQuizStartsWith(searchKey: string) {
     console.log(this.microServiceUrl + searchKey);
     return this.http.get(this.microServiceUrl + searchKey, { observe: 'response' })
     .pipe(catchError(this.handleError));
