@@ -19,7 +19,7 @@ export class SearchComponent implements OnInit {
   q: any;
   dialogResult: any;
   constructor(private router: Router, private searchService: SearchService,
-    public dialog: MatDialog, private gameengineservice: GameEngineService) { }
+     public dialog: MatDialog, private gameengineservice: GameEngineService) { }
 
   ngOnInit() {
 
@@ -33,7 +33,7 @@ export class SearchComponent implements OnInit {
     if (value === '') {
       this.games = null;
     } else {
-    this.searchService.searchByTopicStartsWith(value).subscribe((res: any) => {
+    this.searchService.searchByTopicOrGenreOrQuizStartsWith(value).subscribe((res: any) => {
       this.games = res.body;
       console.log(res);
       console.log(this.games);
@@ -43,8 +43,8 @@ export class SearchComponent implements OnInit {
     }
   // search(value) {
   //   this.searchService.searchByTopicStartsWith(value).subscribe((res: any) => {
-  //     this.games = res.body[0].game;
-  //     console.log(this.games);
+  //     this.game = res.body[0].game;
+  //     console.log(this.game);
   //   });
   openDialog(q) {
     const dialogRef = this.dialog.open(DialogComponent,  {

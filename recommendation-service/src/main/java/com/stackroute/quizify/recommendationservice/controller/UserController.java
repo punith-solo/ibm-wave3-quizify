@@ -1,6 +1,6 @@
 package com.stackroute.quizify.recommendationservice.controller;
 
-import com.stackroute.quizify.recommendationservice.domain.Users;
+import com.stackroute.quizify.recommendationservice.domain.User;
 import com.stackroute.quizify.recommendationservice.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -9,7 +9,7 @@ import java.util.List;
 
 @CrossOrigin
 @RestController
-@RequestMapping("/rest/neo4j/users")
+@RequestMapping("/rest/neo4j/user")
 public class UserController {
 
     private UserService userService;
@@ -20,30 +20,30 @@ public class UserController {
     }
 
     @GetMapping("/")
-    public List<Users> getAll(){
+    public List<User> getAll(){
         return userService.getAll();
     }
 
     @GetMapping("/id")
-    public Users getOne(@RequestParam("userId") long userId){
+    public User getOne(@RequestParam("userId") long userId){
         return userService.getone(userId);
     }
 
     @PostMapping("/")
-    public Users create(@RequestBody Users users){
-        return userService.create(users);
+    public User create(@RequestBody User user){
+        return userService.create(user);
     }
 
     @DeleteMapping("/")
-    public Users delete(@RequestParam("userId") long userId){
+    public User delete(@RequestParam("userId") long userId){
         System.out.println(userId);
         return userService.delete(userId);
     }
 
     @PutMapping("/")
-    public Users update(@RequestBody Users users)
+    public User update(@RequestBody User user)
     {
-        return userService.update(users);
+        return userService.update(user);
     }
 
 }

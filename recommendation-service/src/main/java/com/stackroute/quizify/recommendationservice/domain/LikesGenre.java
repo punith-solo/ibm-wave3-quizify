@@ -11,7 +11,7 @@ public class LikesGenre {
     private long id;
 
     @StartNode
-    private Users user;
+    private User user;
     @EndNode
     private Genre genre;
 }

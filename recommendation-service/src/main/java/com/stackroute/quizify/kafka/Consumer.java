@@ -1,14 +1,16 @@
 package com.stackroute.quizify.kafka;
 
-import com.stackroute.quizify.kafka.domain.Game;
-import com.stackroute.quizify.kafka.domain.SinglePlayer;
-import com.stackroute.quizify.kafka.domain.User;
+import com.stackroute.quizify.dto.mapper.*;
+import com.stackroute.quizify.dto.model.GameDTO;
+import com.stackroute.quizify.dto.model.UserDTO;
 import com.stackroute.quizify.recommendationservice.domain.*;
 import com.stackroute.quizify.recommendationservice.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.messaging.handler.annotation.Payload;
 import org.springframework.stereotype.Component;
+
+import java.util.List;
 
 
 @Component
@@ -18,75 +20,101 @@ public class Consumer {
     private UserService userService;
     private PlayedRelationshipService playedRelationshipService;
 
-    private  Games games= new Games();
-    private Users users=new Users();
-    private SinglePlayers singlePlayers=new SinglePlayers();
+    private UserMapper userMapper;
+    private GameMapper gameMapper;
+    private SinglePlayerMapper singlePlayerMapper;
+    @Autowired
+    private TopicMapper topicMapper;
+    @Autowired
+    private GenreMapper genreMapper;
+
+    private Game game = new Game();
+    private User user =new User();
+    private SinglePlayer singlePlayer =new SinglePlayer();
+    private List<Topic> topics;
+    private List<Genre> genres;
 
     @Autowired
-    public Consumer(GamesService gamesService, UserService userService, PlayedRelationshipService playedRelationshipService) {
+    public Consumer(GamesService gamesService, UserService userService, PlayedRelationshipService playedRelationshipService, UserMapper userMapper,GameMapper gameMapper,SinglePlayerMapper singlePlayerMapper) {
         this.gamesService = gamesService;
         this.userService = userService;
         this.playedRelationshipService = playedRelationshipService;
+        this.gameMapper=gameMapper;
+        this.userMapper=userMapper;
+        this.singlePlayerMapper=singlePlayerMapper;
     }
 
-    @KafkaListener(topics = "games", groupId = "recommendation-game-consumer", containerFactory = "kafkaListenerGameContainerFactory")
-    public void receiveGame(@Payload Game payload) {
+    @KafkaListener(topics = "game", groupId = "recommendation-game-consumer", containerFactory = "kafkaListenerGameContainerFactory")
+    public void receiveGame(@Payload GameDTO payload) {
         System.out.println("-----------------------------------------------------------------------------------------------------------------------------------------");
         System.out.println("Game Received To Recommendation : ");
         System.out.println(payload);
         System.out.println("---------------------------------------------------------------------------------------------------------------------------------------");
 
-        games.setId(payload.getId());
-        games.setName(payload.getName());
-        games.setRules(payload.getRules());
-        games.setTimeDuration(payload.getTimeDuration());
-        games.setPlayCount(payload.getPlayCount());
-        games.setImageUrl(payload.getImageUrl());
-        games.setLevel(payload.getLevel());
-        games.setLiked(payload.getLiked());
-        games.setNumOfQuestion(payload.getNumOfQuestion());
-        games.setCategory(payload.getCategory());
-        games.setGenre(payload.getGenre());
-        games.setTopic(payload.getTopic());
-        games.setTag(payload.getTag());
+        this.game =gameMapper.gameDTOToGame(payload);
+
+//        game.setId(payload.getId());
+//        game.setName(payload.getName());
+//        game.setRules(payload.getRules());
+//        game.setTimeDuration(payload.getTimeDuration());
+//        game.setPlayCount(payload.getPlayCount());
+//        game.setImageUrl(payload.getImageUrl());
+//        game.setLevel(payload.getLevel());
+//        game.setLiked(payload.getLiked());
+//        game.setNumOfQuestion(payload.getNumOfQuestion());
+////        game.setCategory(payload.getCategory());
+//        game.setGenre(genreMapper.genreDTOToGenre(payload.getGenre()));
+//        game.setTopic(topicMapper.topicDTOToTopic(payload.getTopic()));
+////        game.setTag(payload.getTag());
         System.out.println("------------------------------------------------------------------------------------------------------------------------------------------------------");
-        System.out.println(games.toString());
+        System.out.println(game.toString());
 
         System.out.println("---------------------------------------------------------------------------------------------------------------------------------------------------");
-        gamesService.create(games);
+        gamesService.create(game);
 
     }
 
-    @KafkaListener(topics = "users", groupId = "recommendation-users-consumer", containerFactory = "kafkaListenerUserContainerFactory")
-    public void receiveUser(@Payload User payload) {
+    @KafkaListener(topics = "user", groupId = "recommendation-user-consumer", containerFactory = "kafkaListenerUserContainerFactory")
+    public void receiveUser(@Payload UserDTO payload) {
         System.out.println("----------------------------------------------------------------------------------------------------------------------------------------");
-        System.out.println("Users Received To Recommendation : ");
+        System.out.println("User Received To Recommendation : ");
         System.out.println(payload);
         System.out.println("-----------------------------------------------------------------------------------------------------------------------------------------");
+        this.user = this.userMapper.userDTOToUser(payload);
 
-        users.setId(payload.getId());
-        users.setName(payload.getName());
-        users.setGender(payload.getGender());
-        users.setTopics(payload.getTopics());
-        users.setGenres(payload.getGenres());
-        System.out.println("---------------------------------------------------------------------------------------------------------------------------------------\n"+users.toString());
+//        user.setId(payload.getId());
+//        user.setName(payload.getName());
+//        user.setGender(payload.getGender());
+//        ListIterator<TopicDTO> topicsIterator = payload.getTopics().listIterator();
+//        while(topicsIterator.hasNext()){
+//            Topic topic=topicMapper.topicDTOToTopic(topicsIterator.next());
+//            topics.add(topic);
+//        }
+//        ListIterator<GenreDTO> genresIterator = payload.getGenres().listIterator();
+//        while(genresIterator.hasNext()){
+//            Genre genre=genreMapper.genreDTOToGenre(genresIterator.next());
+//            genres.add(genre);
+//        }
+//        user.setTopics(topics);
+//        user.setGenres(genres);
+        System.out.println("---------------------------------------------------------------------------------------------------------------------------------------\n"+ user.toString());
 
-        userService.create(users);
+        userService.create(user);
     }
-//
-//    @KafkaListener(topics = "singlePlayers", groupId = "recommendation-single-player-consumer", containerFactory = "kafkaListenerSinglePlayerContainerFactory")
-//    public void receiveSinglePlayer(@Payload SinglePlayer payload) {
+
+//    @KafkaListener(topics = "singlePlayer", groupId = "recommendation-single-player-consumer", containerFactory = "kafkaListenerSinglePlayerContainerFactory")
+//    public void receiveSinglePlayer(@Payload SinglePlayerDTO payload) {
 //        System.out.println("-------------------------------------------------------------------------------------------------------------------------------------");
-//        System.out.println("SinglePlayers Received To Recommendation : ");
+//        System.out.println("SinglePlayer Received To Recommendation : ");
 //        System.out.println(payload);
 //        System.out.println("-------------------------------------------------------------------------------------------------------------------------------------");
+//        this.singlePlayer=this.singlePlayerMapper.singlePlayerDTOToSinglePlayer(payload);
+//        singlePlayer.setGameId(payload.getGame().getId());
+//        singlePlayer.setUserId(payload.getUser().getId());
 //
-//        singlePlayers.setGameId(payload.getGame().getId());
-//        singlePlayers.setUserId(payload.getUser().getId());
+//        System.out.println(" gameId  "+singlePlayer.getGameId()  +"  userId   "+singlePlayer.getUserId());
 //
-//        System.out.println(" gameId  "+singlePlayers.getGameId()  +"  userId   "+singlePlayers.getUserId());
-//
-//        playedRelationshipService.createRelationship(singlePlayers);
+//        playedRelationshipService.createRelationship(singlePlayer);
 //    }
 
 }

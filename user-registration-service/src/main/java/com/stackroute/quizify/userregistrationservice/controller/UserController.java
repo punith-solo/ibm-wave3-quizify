@@ -41,7 +41,7 @@ public class UserController {
         }
     }
 
-    @ApiOperation(value = "Accepts users into the repository")
+    @ApiOperation(value = "Accepts user into the repository")
 
     @GetMapping("/user")
     public ResponseEntity<?> getAllUser() {

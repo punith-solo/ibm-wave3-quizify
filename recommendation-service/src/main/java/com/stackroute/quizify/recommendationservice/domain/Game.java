@@ -10,7 +10,7 @@ import java.util.List;
 
 @NodeEntity
 @Data
-public class Games {
+public class Game {
     @Id //@GeneratedValue
     private long id;
     @Property

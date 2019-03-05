@@ -15,9 +15,14 @@ img {
 .bgi{
   margin-top:80px;
   padding-left: 0px;
+  padding-bottom: 0px;
   background-image: url('https://accounts.rosharonmontessori.edu.gh/wp-content/uploads/2017/02/71.jpg');
   background-image: cover;
- background-repeat: repeat;
+  background-repeat: repeat;
+  
+  margin-left: -10px;
+  margin-right: -10px;
+ 
   
  
 
@@ -29,6 +34,7 @@ img {
 .container{
   display:flex;
   
+  
 }
 .product--blue{
   box-shadow: 1px 5px 15px #CCC;
@@ -37,7 +43,7 @@ img {
   border-radius: 3px;
   padding: 2em;
   margin: 1em;
-  overflow: auto;
+  overflow: hidden;
   position: relative;
   flex: auto;
 }

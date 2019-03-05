@@ -3,7 +3,7 @@ package com.stackroute.quizify.recommendationservice.serviceImpl;
 
 import com.stackroute.quizify.recommendationservice.domain.Genre;
 import com.stackroute.quizify.recommendationservice.domain.LikesGenre;
-import com.stackroute.quizify.recommendationservice.domain.Users;
+import com.stackroute.quizify.recommendationservice.domain.User;
 import com.stackroute.quizify.recommendationservice.repository.LikesGenreRelationshipRepository;
 import com.stackroute.quizify.recommendationservice.service.LikesGenreService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,7 +29,7 @@ public class LikesGenreServiceImpl implements LikesGenreService {
     }
 
     @Override
-    public String createRelationship(Users user) {
+    public String createRelationship(User user) {
         long userId = user.getId();
         List<Genre> genres = user.getGenres();
         ListIterator<Genre> genresIterator = genres.listIterator();

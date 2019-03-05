@@ -1,6 +1,6 @@
 package com.stackroute.quizify.recommendationservice.service;
 
-import com.stackroute.quizify.recommendationservice.domain.Games;
+import com.stackroute.quizify.recommendationservice.domain.Game;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -8,15 +8,15 @@ import java.util.List;
 @Service
 public interface GamesService {
 
-    public List<Games> getAll();
+    public List<Game> getAll();
 
-    public Games getone(long gameId);
+    public Game getone(long gameId);
 
-    public Games create(Games games);
+    public Game create(Game game);
 
-    public Games delete(long gamed);
+    public Game delete(long gamed);
 
-    public Games update(Games games);
+    public Game update(Game game);
 
-    List<Games> getMostPlayed();
+    List<Game> getMostPlayed();
 }

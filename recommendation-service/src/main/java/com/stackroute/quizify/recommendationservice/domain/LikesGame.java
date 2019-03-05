@@ -11,7 +11,7 @@ public class LikesGame {
     private long id;
 
     @StartNode
-    private Users user;
+    private User user;
     @EndNode
-    private Games game;
+    private Game game;
 }

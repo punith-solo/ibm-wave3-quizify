@@ -1,9 +1,9 @@
 
 package com.stackroute.quizify.kafka.configuration;
 
-import com.stackroute.quizify.kafka.domain.Game;
-import com.stackroute.quizify.kafka.domain.SinglePlayer;
-import com.stackroute.quizify.kafka.domain.User;
+import com.stackroute.quizify.dto.model.GameDTO;
+import com.stackroute.quizify.dto.model.SinglePlayerDTO;
+import com.stackroute.quizify.dto.model.UserDTO;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.common.serialization.StringDeserializer;
 import org.springframework.beans.factory.annotation.Value;
@@ -47,7 +47,7 @@ public class KafkaConsumerConfig {
     }
 
     @Bean
-    public ConsumerFactory<String, Game> gameConsumerFactory()
+    public ConsumerFactory<String, GameDTO> gameConsumerFactory()
     {
         System.out.println("-----------------------------------------------------------");
         this.consumersId = "recommendation-game-consumer";
@@ -56,7 +56,7 @@ public class KafkaConsumerConfig {
         configs.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
         configs.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, JsonDeserializer.class);
         configs.put(ConsumerConfig.GROUP_ID_CONFIG, this.consumersId);
-        configs.put(JsonDeserializer.VALUE_DEFAULT_TYPE, Game.class);
+        configs.put(JsonDeserializer.VALUE_DEFAULT_TYPE, GameDTO.class);
         configs.put(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG, "latest");
         configs.put(ConsumerConfig.ENABLE_AUTO_COMMIT_CONFIG, "true");
 
@@ -64,27 +64,27 @@ public class KafkaConsumerConfig {
     }
 
     @Bean
-    public ConcurrentKafkaListenerContainerFactory<String, Game> kafkaListenerGameContainerFactory ()
+    public ConcurrentKafkaListenerContainerFactory<String, GameDTO> kafkaListenerGameContainerFactory ()
     {
         System.out.println("-----------------------------------------------------------------------");
-        ConcurrentKafkaListenerContainerFactory<String, Game> factory = new ConcurrentKafkaListenerContainerFactory<>();
+        ConcurrentKafkaListenerContainerFactory<String, GameDTO> factory = new ConcurrentKafkaListenerContainerFactory<>();
         factory.setConsumerFactory(gameConsumerFactory());
 
         return factory;
     }
 
     @Bean
-    public ConsumerFactory<String, User> userConsumerFactory()
+    public ConsumerFactory<String, UserDTO> userConsumerFactory()
     {
         System.out.println("---------------------------------------------------");
-        this.consumersId = "recommendation-users-consumer";
+        this.consumersId = "recommendation-user-consumer";
         System.out.println("-----------------"+this.consumersId);
         Map<String, Object> configs = new HashMap<>();
         configs.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, this.bootstrapServer);
         configs.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
         configs.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, JsonDeserializer.class);
         configs.put(ConsumerConfig.GROUP_ID_CONFIG, this.consumersId);
-        configs.put(JsonDeserializer.VALUE_DEFAULT_TYPE, User.class);
+        configs.put(JsonDeserializer.VALUE_DEFAULT_TYPE, UserDTO.class);
         configs.put(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG, "latest");
         configs.put(ConsumerConfig.ENABLE_AUTO_COMMIT_CONFIG, "true");
 
@@ -92,17 +92,17 @@ public class KafkaConsumerConfig {
     }
 
     @Bean
-    public ConcurrentKafkaListenerContainerFactory<String, User> kafkaListenerUserContainerFactory ()
+    public ConcurrentKafkaListenerContainerFactory<String, UserDTO> kafkaListenerUserContainerFactory ()
     {
         System.out.println("---------------------------------------------------------------------");
-        ConcurrentKafkaListenerContainerFactory<String, User> factory = new ConcurrentKafkaListenerContainerFactory<>();
+        ConcurrentKafkaListenerContainerFactory<String, UserDTO> factory = new ConcurrentKafkaListenerContainerFactory<>();
         factory.setConsumerFactory(userConsumerFactory());
 
         return factory;
     }
 
 //    @Bean
-//    public ConsumerFactory<String, SinglePlayers> singlePlayerConsumerFactory()
+//    public ConsumerFactory<String, SinglePlayerDTO> singlePlayerConsumerFactory()
 //    {
 //        this.consumersId = "recommendation-single-player-consumer";
 //        Map<String, Object> configs = new HashMap<>();
@@ -110,7 +110,7 @@ public class KafkaConsumerConfig {
 //        configs.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
 //        configs.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, JsonDeserializer.class);
 //        configs.put(ConsumerConfig.GROUP_ID_CONFIG, this.consumersId);
-//        configs.put(JsonDeserializer.VALUE_DEFAULT_TYPE, SinglePlayers.class);
+//        configs.put(JsonDeserializer.VALUE_DEFAULT_TYPE, SinglePlayerDTO.class);
 //        configs.put(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG, "latest");
 //        configs.put(ConsumerConfig.ENABLE_AUTO_COMMIT_CONFIG, "true");
 //
@@ -118,9 +118,9 @@ public class KafkaConsumerConfig {
 //    }
 //
 //    @Bean
-//    public ConcurrentKafkaListenerContainerFactory<String, SinglePlayers> kafkaListenerSinglePlayerContainerFactory ()
+//    public ConcurrentKafkaListenerContainerFactory<String, SinglePlayerDTO> kafkaListenerSinglePlayerContainerFactory ()
 //    {
-//        ConcurrentKafkaListenerContainerFactory<String, SinglePlayers> factory = new ConcurrentKafkaListenerContainerFactory<>();
+//        ConcurrentKafkaListenerContainerFactory<String, SinglePlayerDTO> factory = new ConcurrentKafkaListenerContainerFactory<>();
 //        factory.setConsumerFactory(singlePlayerConsumerFactory());
 //
 //        return factory;
