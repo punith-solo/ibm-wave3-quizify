@@ -9,7 +9,7 @@ import { CommonModule } from '@angular/common';
 import { ProfileComponent } from './components/profile/profile.component';
 import { CardsComponent } from './components/cards/cards.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import { MatCardModule, MatCardHeader, MatFormField, MatFormFieldModule, MatInputModule, MatButtonModule } from '@angular/material';
+import { MatCardModule, MatCardHeader, MatFormField, MatFormFieldModule, MatInputModule, MatButtonModule, MatDialogModule, MatIconModule, MatLabel, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { LoginComponent } from './components/login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
@@ -25,6 +25,7 @@ import { AdminpageComponent } from './components/adminpage/adminpage.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { GameEngineComponent } from './components/game-engine/game-engine.component';
 import { AuthGuard } from './components/auth/auth.guard';
+import { DialogComponent } from './components/dialog/dialog.component';
 // import {NgMultiSelectDropDownModule} from 'ng-multiselect-dropdown';
 @NgModule({
   declarations: [ CardsComponent,
@@ -40,9 +41,24 @@ import { AuthGuard } from './components/auth/auth.guard';
     GamedetailsComponent,
     AdminpageComponent,
     FooterComponent,
-    GameEngineComponent
+    GameEngineComponent,
+    DialogComponent
      ],
-     providers: [ CardService, CookieService, GamedetailsService, AuthGuard],
+     providers: [ CardService, CookieService, GamedetailsService, AuthGuard,
+	{ provide: MatDialogModule, useValue: {} },
+      { provide: MatIconModule, useValue: [] },
+      {
+         provide: MatLabel, useValue: {}
+      },
+      { provide: MatDialogRef, useValue: {} },
+      {
+        provide: MAT_DIALOG_DATA, useValue: {}
+      }
+       ],
+      entryComponents: [
+        DialogComponent,
+      ],
+
 
   imports: [
     CommonModule,
@@ -69,7 +85,8 @@ import { AuthGuard } from './components/auth/auth.guard';
     QuestionGeneratorComponent,
     GamedetailsComponent,
     AdminpageComponent,
-    HeaderComponent
+    HeaderComponent,
+    DialogComponent
    ],
 
 })
