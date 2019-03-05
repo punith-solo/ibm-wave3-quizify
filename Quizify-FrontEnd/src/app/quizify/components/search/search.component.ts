@@ -42,8 +42,8 @@ export class SearchComponent implements OnInit {
     }
   // search(value) {
   //   this.searchService.searchByTopicStartsWith(value).subscribe((res: any) => {
-  //     this.games = res.body[0].game;
-  //     console.log(this.games);
+  //     this.game = res.body[0].game;
+  //     console.log(this.game);
   //   });
   openDialog(q) {
     const dialogRef = this.dialog.open(DialogComponent,  {

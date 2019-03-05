@@ -1,7 +1,7 @@
 package com.stackroute.quizify.recommendationservice.controller;
 
 import com.stackroute.quizify.recommendationservice.domain.Played;
-import com.stackroute.quizify.recommendationservice.domain.SinglePlayers;
+import com.stackroute.quizify.recommendationservice.domain.SinglePlayer;
 import com.stackroute.quizify.recommendationservice.service.PlayedRelationshipService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -28,7 +28,7 @@ public class PlayedController {
 
 
     @PostMapping("/")
-    public Played Create(@RequestBody SinglePlayers singlePlayers){
-        return playedRelationshipService.createRelationship(singlePlayers);
+    public Played Create(@RequestBody SinglePlayer singlePlayer){
+        return playedRelationshipService.createRelationship(singlePlayer);
     }
 }

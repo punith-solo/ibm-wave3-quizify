@@ -10,9 +10,9 @@ import java.util.List;
 
 @Repository
 public interface GameTypeOfGenreRepository extends Neo4jRepository<GameTypeOfGenre, Long> {
-    @Query("MATCH p=(Games)-[r:game_type_of]->(Genre) RETURN p")
+    @Query("MATCH p=(Game)-[r:game_type_of]->(Genre) RETURN p")
     public List<GameTypeOfGenre> getAllRelationships();
 
-    @Query("MATCH (p:Games),(t:Genre) WHERE p.id={gameId} and t.id={genreId} CREATE (p)-[q:game_type_of]->(t) RETURN p,q,t")
+    @Query("MATCH (p:Game),(t:Genre) WHERE p.id={gameId} and t.id={genreId} CREATE (p)-[q:game_type_of]->(t) RETURN p,q,t")
     GameTypeOfGenre createRelationship(long gameId, long genreId);
 }

@@ -23,7 +23,7 @@ public class Consumer {
         this.userMapper = userMapper;
     }
 
-    @KafkaListener(topics = "users", groupId = "users-self-consumers", containerFactory = "kafkaListenerContainerFactory")
+    @KafkaListener(topics = "user", groupId = "user-self-consumers", containerFactory = "kafkaListenerContainerFactory")
     public void receive(@Payload UserDTO payload) {
         this.user = this.userMapper.userDTOToUser(payload);
         logger.info("------------------------------------------------------------------------------------------------");

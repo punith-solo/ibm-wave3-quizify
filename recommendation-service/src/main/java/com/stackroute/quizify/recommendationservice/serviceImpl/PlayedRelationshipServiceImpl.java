@@ -1,9 +1,7 @@
 package com.stackroute.quizify.recommendationservice.serviceImpl;
 
-import com.stackroute.quizify.recommendationservice.domain.Games;
 import com.stackroute.quizify.recommendationservice.domain.Played;
-import com.stackroute.quizify.recommendationservice.domain.SinglePlayers;
-import com.stackroute.quizify.recommendationservice.domain.Users;
+import com.stackroute.quizify.recommendationservice.domain.SinglePlayer;
 import com.stackroute.quizify.recommendationservice.repository.PlayedRelationshipRepository;
 import com.stackroute.quizify.recommendationservice.service.PlayedRelationshipService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,10 +26,10 @@ public class PlayedRelationshipServiceImpl implements PlayedRelationshipService 
     }
 
     @Override
-    public Played createRelationship(SinglePlayers singlePlayers) {
-        long userId= singlePlayers.getUserId();
+    public Played createRelationship(SinglePlayer singlePlayer) {
+        long userId= singlePlayer.getUserId();
         System.out.println(" user ------------------------- /n " + userId);
-        long gameId= singlePlayers.getGameId();
+        long gameId= singlePlayer.getGameId();
         System.out.println("game-------------------------------/n"+gameId);
         return playedRelationshipRepository.createRelationship(userId,gameId);
     }

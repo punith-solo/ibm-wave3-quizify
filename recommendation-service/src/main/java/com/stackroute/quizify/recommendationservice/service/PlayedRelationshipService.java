@@ -1,7 +1,7 @@
 package com.stackroute.quizify.recommendationservice.service;
 
 import com.stackroute.quizify.recommendationservice.domain.Played;
-import com.stackroute.quizify.recommendationservice.domain.SinglePlayers;
+import com.stackroute.quizify.recommendationservice.domain.SinglePlayer;
 
 import java.util.List;
 
@@ -10,6 +10,6 @@ public interface PlayedRelationshipService {
 
     List<Played> getAllRelationships();
 
-    Played createRelationship(SinglePlayers singlePlayers);
+    Played createRelationship(SinglePlayer singlePlayer);
 
 }

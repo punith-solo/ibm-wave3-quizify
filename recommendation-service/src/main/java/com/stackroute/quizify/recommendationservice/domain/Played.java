@@ -14,7 +14,7 @@ public class Played {
         private long id;
 
         @StartNode
-        private Users users;
+        private User user;
         @EndNode
-        private Games games;
+        private Game game;
 }

@@ -61,7 +61,7 @@
 //        System.out.println(user.getUsername()+user.getRole()+user.getPassword());
 //
 //        when(userService.saveUser(any())).thenReturn(user);
-//        mockMvc.perform(MockMvcRequestBuilders.post("/api/users")
+//        mockMvc.perform(MockMvcRequestBuilders.post("/api/user")
 //                .contentType(MediaType.APPLICATION_JSON).content(asJsonString(user)))
 //                .andExpect(MockMvcResultMatchers.status().isOk())
 //                .andDo(MockMvcResultHandlers.print());

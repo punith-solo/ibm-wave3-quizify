@@ -44,8 +44,8 @@ public class UniversalServiceImpl implements UniversalService {
     }
 
     @Override
-    public Game deleteGame(long topicId, long genreId, long gameId) throws NoGameFoundException, TopicDoesNotExistsException, GenreDoesNotExistsException {
-        this.topicService.deleteGameById(topicId, gameId);
-        return this.genreService.deleteGameById(genreId, gameId);
+    public Game deleteGame(String topicName, String genreName, long gameId) throws NoGameFoundException, TopicDoesNotExistsException, GenreDoesNotExistsException {
+        this.topicService.deleteGameById(topicName, gameId);
+        return this.genreService.deleteGameById(genreName, gameId);
     }
 }

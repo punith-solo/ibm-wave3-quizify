@@ -60,10 +60,10 @@ public class TopicServiceImpl implements TopicService{
     }
 
     @Override
-    public Game deleteGameById(long topicId, long gameId) throws TopicDoesNotExistsException, NoGameFoundException {
-        if (this.topicRepository.existsById(topicId))
+    public Game deleteGameById(String topicName, long gameId) throws TopicDoesNotExistsException, NoGameFoundException {
+        if (this.topicRepository.existsByName(topicName))
         {
-            Topics topics = this.topicRepository.findById(topicId).get();
+            Topics topics = this.topicRepository.findByName(topicName);
             List<Game> games = topics.getGames();
             if (games.isEmpty())
                 throw new NoGameFoundException("No Game Found!");
@@ -74,6 +74,7 @@ public class TopicServiceImpl implements TopicService{
                     Game deletedGame = game;
                     games.remove(deletedGame);
                     topics.setGames(games);
+                    this.topicRepository.save(topics);
                     return deletedGame;
                 }
             }

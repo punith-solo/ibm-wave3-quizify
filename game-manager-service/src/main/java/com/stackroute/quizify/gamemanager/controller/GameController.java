@@ -39,7 +39,7 @@ public class GameController {
     }
 
     @ApiOperation(value = "Add Games")
-    @PostMapping("/games/game")
+    @PostMapping("/game/game")
     public ResponseEntity<?> saveGame(@RequestBody Game game){
         try {
             return new ResponseEntity<GameDTO>(this.gameService.saveGame(game), HttpStatus.OK);
@@ -49,7 +49,7 @@ public class GameController {
     }
     @ApiOperation(value = "Delete Game")
     @DeleteMapping("/games/game/{id}")
-    public ResponseEntity<?> deleteGame(@RequestBody long id)
+    public ResponseEntity<?> deleteGame(@PathVariable long id)
     {
         try {
             return new ResponseEntity<Game>(this.gameService.deleteGame(id), HttpStatus.OK);
@@ -59,7 +59,7 @@ public class GameController {
 
     }
     @ApiOperation(value = "Updating Game")
-    @PutMapping("/games/game")
+    @PutMapping("/game/game")
     public ResponseEntity<?> updateGame(@RequestBody Game updatedGame){
         try {
             return new ResponseEntity<GameDTO>(this.gameService.updateGame(updatedGame), HttpStatus.OK);
@@ -69,7 +69,7 @@ public class GameController {
     }
 
     @ApiOperation(value = "Get Game By Id")
-    @GetMapping("/games/{id}")
+    @GetMapping("/game/{id}")
     public ResponseEntity<?> getAllGames(@PathVariable long id){
         try {
             return new ResponseEntity<Game>(this.gameService.findGameById(id), HttpStatus.OK);
@@ -79,7 +79,7 @@ public class GameController {
     }
 
     @ApiOperation(value = "Get All Games")
-    @GetMapping("/games")
+    @GetMapping("/game")
     public ResponseEntity<?> getAllGames(){
         try {
             return new ResponseEntity<List<Game>>(this.gameService.getAllGames(), HttpStatus.OK);
@@ -89,7 +89,7 @@ public class GameController {
     }
 
     @ApiOperation(value = "Get All Games by Topic")
-    @GetMapping("/games/topic/{topicName}")
+    @GetMapping("/game/topic/{topicName}")
     public ResponseEntity<?> getAllGamesByTopic(@PathVariable String topicName){
         try {
             return new ResponseEntity<List<Game>>(this.gameService.getAllGamesByTopic(topicName), HttpStatus.OK);
@@ -99,7 +99,7 @@ public class GameController {
     }
 
     @ApiOperation(value = "Get All Games by Genre")
-    @GetMapping("/games/genre/{genreName}")
+    @GetMapping("/game/genre/{genreName}")
     public ResponseEntity<?> getAllGamesByGenre(@PathVariable String genreName){
         try {
             return new ResponseEntity<List<Game>>(this.gameService.getAllGamesByGenre(genreName), HttpStatus.OK);
@@ -109,7 +109,7 @@ public class GameController {
     }
 
     @ApiOperation(value = "Get All Games by Tag")
-    @GetMapping("/games/tag/{tagName}")
+    @GetMapping("/game/tag/{tagName}")
     public ResponseEntity<?> getAllGamesByTag(@PathVariable String tagName){
         try {
             return new ResponseEntity<List<Game>>(this.gameService.getAllGamesByTag(tagName), HttpStatus.OK);
@@ -122,7 +122,7 @@ public class GameController {
 
 
     @ApiOperation(value = "Generate Live Game")
-    @GetMapping(value = "/games/game/{id}")
+    @GetMapping(value = "/game/game/{id}")
     public ResponseEntity<?> generateLiveGameByTopic(@PathVariable long id){
         try {
             Game liveGame = this.gameService.findGameById(id);

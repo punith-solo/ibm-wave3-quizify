@@ -1,7 +1,7 @@
 package com.stackroute.quizify.recommendationservice.controller;
 
+import com.stackroute.quizify.recommendationservice.domain.Game;
 import com.stackroute.quizify.recommendationservice.domain.GameIsATopic;
-import com.stackroute.quizify.recommendationservice.domain.Games;
 import com.stackroute.quizify.recommendationservice.service.GameIsATopicService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -26,7 +26,7 @@ public class GameIsATopicController {
     }
 
     @PostMapping("/")
-    public GameIsATopic create(@RequestBody Games games){
-        return gameIsATopicService.createRelationship(games);
+    public GameIsATopic create(@RequestBody Game game){
+        return gameIsATopicService.createRelationship(game);
     }
 }

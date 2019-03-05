@@ -177,11 +177,11 @@
 //        this.game.setTimestamp(10);
 //        this.game.setRules("you cannot cheat during quiz");
 //
-//        List<Game> games = new ArrayList<>();
-//        games.add(this.game);
+//        List<Game> game = new ArrayList<>();
+//        game.add(this.game);
 //
 //
-//        when(this.gameRepository.getAllGames((String)any(), (String)any())).thenReturn(games);
+//        when(this.gameRepository.getAllGames((String)any(), (String)any())).thenReturn(game);
 //
 //        List<Game> gameList= this.gameServiceimpl.getAllGames(this.game.getGenre(), this.topic.getName());
 //

@@ -32,7 +32,7 @@ services:
     container_name: neo4j
     network_mode: host
     volumes:
-      - './data/neo4j:/data/db'
+      - './data/neo4j:/var/lib/neo4j/data'
     environment:
       - NEO4J_AUTH=neo4j/quizify
 
@@ -212,9 +212,8 @@ services:
     restart: always
     network_mode: host
     depends_on:
-      - zookeeper
       - kafka
-      - neo4j
+      - zookeeper
       - eurekaserver
       - configserver
       - apigateway
