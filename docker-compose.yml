@@ -32,7 +32,7 @@ services:
     container_name: neo4j
     network_mode: host
     volumes:
-      - './data/neo4j:/data/db'
+      - './data/neo4j:/var/lib/neo4j/data'
     environment:
       - NEO4J_AUTH=neo4j/quizify
 
@@ -206,6 +206,7 @@ services:
     expose:
       - 8104
 
+<<<<<<< HEAD
 #  single-player-engine:
 #    image: single-player-engine
 #    build: single-player-engine/
@@ -220,6 +221,23 @@ services:
 #      - 8108:8108
 #    expose:
 #      - 8108
+=======
+  single-player-engine:
+    image: single-player-engine
+    build: single-player-engine/
+    restart: always
+    network_mode: host
+    depends_on:
+      - kafka
+      - zookeeper
+      - eurekaserver
+      - configserver
+      - apigateway
+    ports:
+      - 8108:8108
+    expose:
+      - 8108
+>>>>>>> 81147080dbe5f89534bc2d38cb40fff1743d50a5
 
   quizify-front-end:
     image: quizify-front-end
@@ -232,3 +250,9 @@ services:
     expose:
       - 4200
     restart: always
+
+  sonarqube:
+    image: sonarqube
+    ports:
+      - 9000:9000
+    network_mode: host
