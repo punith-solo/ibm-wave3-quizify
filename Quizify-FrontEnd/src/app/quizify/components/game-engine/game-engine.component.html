@@ -1,4 +1,4 @@
-<div>  
+<!-- <div>  
   <mat-nav-list>
       <mat-list-item *ngFor="let question of questions; index as i">
           <h4 matLine>MadhuPriya.... Q.{{i+1}}.{{question.statement}}</h4>
@@ -15,3 +15,12 @@
     SUBMIT
 </button>
 </div>
+
+<div layout="row" layout-align="end center">
+  <md-button class="md-accent md-raised" ng-click="quizzCtrl.goPreviousStep($index)" ng-if="$index !== 0">
+      <span>{{'QUIZZ_PREVIOUS_BUTTON' | translate}}</span>	
+  </md-button>
+  <md-button class="md-accent md-raised" ng-click="quizzCtrl.goNextStep($index)" ng-if="$index !== quizzCtrl.quizzModel.questions.length">
+      <span>{{'QUIZZ_NEXT_BUTTON' | translate}}</span>	
+  </md-button>								
+</div>  -->

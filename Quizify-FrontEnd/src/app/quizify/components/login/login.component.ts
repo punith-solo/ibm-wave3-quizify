@@ -6,6 +6,8 @@ import { first } from 'rxjs/operators' ;
 import { HttpErrorResponse } from '@angular/common/http';
 import { FormBuilder, Validators } from '@angular/forms';
 import { User } from '../../tsclasses/user';
+import { MatDialog } from '@angular/material';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -14,25 +16,27 @@ import { User } from '../../tsclasses/user';
 export class LoginComponent  {
   @Input()
   private user1: User; // variable of class User
-  private username: string;
+  private name: string;
   private password: string;
   isLoginError: boolean ;
   isLoggedIn = false ;
   user = this.fb.group({ // for reactive groups, we are creating form builder groups which is where we create
     // one group and add multiple properties
-  username: ['', Validators.required],
+  name: ['', Validators.required],
   password: ['', Validators.required]
 });
 
-constructor(private fb: FormBuilder, private loginService: AuthenticationService, private router: Router) { } // using router
+constructor(private fb: FormBuilder, private loginService: AuthenticationService
+  , private router: Router) { } // using router
 // to reroute valid logged in user to some other page
 helper = new JwtHelperService();
 helper1 = new JwtHelperService();
+
 login() {
   this.user1 = new User();
-  this.user1.username = this.username;
+  this.user1.name = this.name;
   this.user1.password = this.password;
-  console.log('i am a user:' + ' ' + this.user1.username); // what u entered in the textbox
+  console.log('i am a user:' + ' ' + this.user1.name); // what u entered in the textbox
   console.log('my password is' + '' + this.user1.password);
   // console.log(this.user);
   this.loginService.login(this.user.value)
@@ -48,26 +52,20 @@ login() {
     if ((this.helper.decodeToken(res.token).sub === 'player' )) {
       this.helper1 = this.helper.decodeToken(res.token).jti ;
       console.log(' user value in token :' + this.helper1);
-      console.log(' user value from textbox :' + this.user1.username);
-       if ( this.helper.decodeToken(res.token).jti === this.user1.username) {
+      console.log(' user value from textbox :' + this.user1.name);
+       if ( this.helper.decodeToken(res.token).jti === this.user1.name) {
         localStorage.setItem('token' , res.token);
         console.log('token value is' + '' + res.token);
         this.router.navigate([`/cards`]); // it will route to single player engine
         this.isLoggedIn = true;
        }
       }
-       // else {
-// console.log('invalid username');
-// window.alert('invalid credential');
 } ,
 error => {
   console.log('wrong credentials');
   window.alert('wrong credentials');
-  // alert('Invalid credentials');
-  // this.alertService.error(error);
-  // this.loading = false;
-  // this.errormessage = false;
 });
+
 }
 }
 

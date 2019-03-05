@@ -7,6 +7,13 @@ h1{
  mat-form-field{
  color: white;
  }
+ mat-form-field {
+  .mat-hint, input, ::placeholder, .mat-form-field-label {
+     color: white;
+  }
+}
+
+
 .id
 {
 //   margin-top: 10%;
@@ -52,9 +59,9 @@ mat-label{
 font-size: 20px;
 }
 
-.container{
-//  background-image: url('../../../../assets/images/login3.jpg');
- height: 635px;
+.container {
+ background-image: url('../../../../assets/images/login3.jpg');
+ height: 640px;
 //  width: 1400px;
 //  height: 690px;
 // background-color: yellow;

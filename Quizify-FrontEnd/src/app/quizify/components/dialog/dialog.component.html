@@ -1,11 +1,11 @@
-
+<section class=container>
 <h2 mat-dialog-title>Description of {{ data.q.name }}</h2>
 <mat-dialog-content class="mat-typography">
     <p><img class="id" src="{{data.q.imageUrl}}"></p>
       <ol>
           <li>The level of this game is {{ data.q.level }}</li>
           <li>Total number of questions is {{ data.q.numOfQuestion }}</li>
-          <li>Category is {{ data.q.category.name }}</li>
+          <!-- <li>Category is {{ data.q.category.name }}</li> -->
           <li>{{ data.q.rules[2] }}</li>
           <li>{{ data.q.rules[3] }}</li>
       </ol>
@@ -14,3 +14,4 @@
   <button mat-button mat-dialog-close>Cancel</button>
   <button mat-button  mat-dialog-close (click)="fetchGameId(data.q.id)">Play</button>
 </mat-dialog-actions>
+</section>
