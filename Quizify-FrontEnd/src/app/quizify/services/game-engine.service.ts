@@ -17,7 +17,7 @@ export class GameEngineService {
   private errorBody: string;
 
   constructor(private http: HttpClient) {
-    this.microServiceUrl = 'http://13.232.243.68:8108/single-player-service/api/v1/';
+    this.microServiceUrl = 'http://13.232.243.68:8108/single-player-engine/api/v1/';
    }
 
    fetchGame(gameId: number) {
