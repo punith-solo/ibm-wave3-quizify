@@ -29,12 +29,12 @@ public class GamePlayerController {
     }
 
     @ApiOperation(value = "Get User Game")
-    @GetMapping(value = "/game/{gameId}")
+    @GetMapping(value = "/game/{id}")
     public ResponseEntity<?> getGame( @PathVariable String gameId)
     {
 
             SinglePlayer singlePlayer = new SinglePlayer();
-            String url = "http://13.232.243.68:8102/api/v1/games/game/" +
+            String url = "http://13.232.243.68:8102/api/v1/games/" +
                    singlePlayer.getGame().getId();
 
             Game game = restTemplate.getForObject(url, Game.class);

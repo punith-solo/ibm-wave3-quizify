@@ -49,7 +49,7 @@ public class GameController {
     }
     @ApiOperation(value = "Delete Game")
     @DeleteMapping("/games/game/{id}")
-    public ResponseEntity<?> deleteGame(@RequestBody long id)
+    public ResponseEntity<?> deleteGame(@PathVariable long id)
     {
         try {
             return new ResponseEntity<Game>(this.gameService.deleteGame(id), HttpStatus.OK);
