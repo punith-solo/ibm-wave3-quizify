@@ -213,8 +213,6 @@ services:
     network_mode: host
     depends_on:
       - zookeeper
-      - kafka
-      - neo4j
       - eurekaserver
       - configserver
       - apigateway
