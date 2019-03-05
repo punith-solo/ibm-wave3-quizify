@@ -16,7 +16,7 @@
 //        return this.recievedPayload;
 //    }
 //
-//    @KafkaListener(topics = "games", groupId = "games-consumers", containerFactory = "kafkaListenerContainerFactory")
+//    @KafkaListener(topics = "game", groupId = "game-consumers", containerFactory = "kafkaListenerContainerFactory")
 //    public void receive(@Payload Game payload) {
 //        System.out.println("-----------------------------------------------------------------------------------------");
 //        System.out.println("Game Received : ");

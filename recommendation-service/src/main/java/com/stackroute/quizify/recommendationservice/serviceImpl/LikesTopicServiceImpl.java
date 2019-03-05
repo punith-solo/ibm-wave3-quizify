@@ -2,7 +2,7 @@ package com.stackroute.quizify.recommendationservice.serviceImpl;
 
 import com.stackroute.quizify.recommendationservice.domain.LikesTopic;
 import com.stackroute.quizify.recommendationservice.domain.Topic;
-import com.stackroute.quizify.recommendationservice.domain.Users;
+import com.stackroute.quizify.recommendationservice.domain.User;
 import com.stackroute.quizify.recommendationservice.repository.LikesTopicRelationshipRepository;
 import com.stackroute.quizify.recommendationservice.service.LikesTopicService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,7 +28,7 @@ public class LikesTopicServiceImpl implements LikesTopicService {
 
 
     @Override
-    public List<LikesTopic> createRelationship(Users user) {
+    public List<LikesTopic> createRelationship(User user) {
         long userId=user.getId();
         List<Topic> topicList=user.getTopics();
         ListIterator<Topic> topicsIterator = topicList.listIterator();

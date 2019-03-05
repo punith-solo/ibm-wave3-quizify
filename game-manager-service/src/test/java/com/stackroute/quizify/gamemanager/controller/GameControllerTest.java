@@ -48,7 +48,7 @@
 //    private Topic topic;
 //    private Question question;
 //    private List<Question> questions;
-//    private List<Game> games;
+//    private List<Game> game;
 //
 //
 //    @Before
@@ -129,8 +129,8 @@
 //        this.game.setTimestamp(10);
 //        this.game.setRules("you cannot cheat during quiz");
 //
-//        List<Game> games = new ArrayList<>();
-//        games.add(game);
+//        List<Game> game = new ArrayList<>();
+//        game.add(game);
 //
 //
 //    }
@@ -147,7 +147,7 @@
 //    @Test
 //    public void saveGameSuccessTest() throws Exception {
 //        when(this.gameServiceimpl.saveGame((Game)any())).thenReturn(this.game);
-//        mockMvc.perform(MockMvcRequestBuilders.post("/api/v1/games/game")
+//        mockMvc.perform(MockMvcRequestBuilders.post("/api/v1/game/game")
 //                .contentType(MediaType.APPLICATION_JSON).content(asJsonString(this.game)))
 //                .andExpect(MockMvcResultMatchers.status().isCreated())
 //                .andDo(MockMvcResultHandlers.print());
@@ -155,7 +155,7 @@
 //    @Test
 //    public void saveGameFailureTest() throws Exception {
 //        when(this.gameServiceimpl.saveGame((Game)any())).thenThrow(GameAlreadyExists.class);
-//        mockMvc.perform(MockMvcRequestBuilders.post("/api/v1/games/game")
+//        mockMvc.perform(MockMvcRequestBuilders.post("/api/v1/game/game")
 //                .contentType(MediaType.APPLICATION_JSON).content(asJsonString(this.game)))
 //                .andExpect(MockMvcResultMatchers.status().isConflict())
 //                .andDo(MockMvcResultHandlers.print());
@@ -166,7 +166,7 @@
 //    @Test
 //    public void updateGameSuccessTest() throws Exception {
 //        when(this.gameServiceimpl.updateGame((Game) any())).thenReturn(this.game);
-//        mockMvc.perform(MockMvcRequestBuilders.put("/api/v1/games/game")
+//        mockMvc.perform(MockMvcRequestBuilders.put("/api/v1/game/game")
 //                .contentType(MediaType.APPLICATION_JSON).content(asJsonString(this.game)))
 //                .andExpect(MockMvcResultMatchers.status().isCreated())
 //                .andDo(MockMvcResultHandlers.print());
@@ -176,7 +176,7 @@
 //    @Test
 //    public void updateGameFailureTest() throws Exception {
 //        when(this.gameServiceimpl.updateGame((Game) any())).thenThrow(GameNotFound.class);
-//        mockMvc.perform(MockMvcRequestBuilders.put("/api/v1/games/game")
+//        mockMvc.perform(MockMvcRequestBuilders.put("/api/v1/game/game")
 //                .contentType(MediaType.APPLICATION_JSON).content(asJsonString(this.game)))
 //                .andExpect(MockMvcResultMatchers.status().isConflict())
 //                .andDo(MockMvcResultHandlers.print());
@@ -184,7 +184,7 @@
 //    @Test
 //    public void deleteGameSuccessTest() throws Exception {
 //        when(this.gameServiceimpl.deleteGame((Game) any())).thenReturn(this.game);
-//        mockMvc.perform(MockMvcRequestBuilders.delete("/api/v1/games/game")
+//        mockMvc.perform(MockMvcRequestBuilders.delete("/api/v1/game/game")
 //                .contentType(MediaType.APPLICATION_JSON).content(asJsonString(this.game)))
 //                .andExpect(MockMvcResultMatchers.status().isOk())
 //                .andDo(MockMvcResultHandlers.print());
@@ -193,7 +193,7 @@
 //    @Test
 //    public void deleteGameFailureTest() throws Exception {
 //        when(this.gameServiceimpl.deleteGame((Game) any())).thenThrow(GameNotFound.class);
-//        mockMvc.perform(MockMvcRequestBuilders.delete("/api/v1/games/game")
+//        mockMvc.perform(MockMvcRequestBuilders.delete("/api/v1/game/game")
 //                .contentType(MediaType.APPLICATION_JSON).content(asJsonString(this.game)))
 //                .andExpect(MockMvcResultMatchers.status().isConflict())
 //                .andDo(MockMvcResultHandlers.print());
@@ -201,8 +201,8 @@
 //
 //    @Test
 //    public void getAllGamesSuccessTest() throws Exception {
-//        when(this.gameServiceimpl.getAllGames((String) any(), (String) any())).thenReturn(this.games);
-//        mockMvc.perform(MockMvcRequestBuilders.get("/api/v1/games/{genre}/{topic}", this.game.getGenre(), this.game.getTopic().getName())
+//        when(this.gameServiceimpl.getAllGames((String) any(), (String) any())).thenReturn(this.game);
+//        mockMvc.perform(MockMvcRequestBuilders.get("/api/v1/game/{genre}/{topic}", this.game.getGenre(), this.game.getTopic().getName())
 //                .contentType(MediaType.APPLICATION_JSON).content(asJsonString(this.game)))
 //                .andExpect(MockMvcResultMatchers.status().isOk())
 //                .andDo(MockMvcResultHandlers.print());
@@ -212,7 +212,7 @@
 //    public void getAllGamesFailureTest() throws Exception {
 //
 //        when(this.gameServiceimpl.getAllGames((String) any(), (String) any())).thenThrow(GameNotFound.class);
-//        mockMvc.perform(MockMvcRequestBuilders.get("/api/v1/games/{genre}/{topic}", this.game.getGenre(), this.game.getTopic().getName())
+//        mockMvc.perform(MockMvcRequestBuilders.get("/api/v1/game/{genre}/{topic}", this.game.getGenre(), this.game.getTopic().getName())
 //                .contentType(MediaType.APPLICATION_JSON).content(asJsonString(this.game)))
 //                .andExpect(MockMvcResultMatchers.status().isNotFound())
 //                .andDo(MockMvcResultHandlers.print());

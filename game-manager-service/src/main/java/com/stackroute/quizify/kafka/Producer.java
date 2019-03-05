@@ -26,7 +26,7 @@ public class Producer {
     {
         this.env = env;
 //        this.kafkaTopic = env.getProperty("kafka.topic");
-        this.kafkaTopic = "games";
+        this.kafkaTopic = "game";
         this.kafkaTemplate = kafkaTemplate;
         this.gameMapper = gameMapper;
     }

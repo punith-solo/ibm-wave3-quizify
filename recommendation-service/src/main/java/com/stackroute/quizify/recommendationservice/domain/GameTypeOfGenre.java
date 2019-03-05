@@ -11,7 +11,7 @@ public class GameTypeOfGenre {
     private long id;
 
     @StartNode
-    private Games game;
+    private Game game;
     @EndNode
     private Genre genre;
 }

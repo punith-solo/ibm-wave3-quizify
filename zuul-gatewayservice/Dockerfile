@@ -1,4 +1,4 @@
-FROM openjdk:11
+FROM openjdk:11.0-jdk
 
 ADD ./target/zuul-gatewayservice-0.0.1-SNAPSHOT.jar /event/src/zuul-gatewayservice-0.0.1-SNAPSHOT.jar
 EXPOSE 8092

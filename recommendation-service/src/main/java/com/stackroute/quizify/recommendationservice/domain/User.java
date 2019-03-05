@@ -12,7 +12,7 @@ import java.util.List;
 
 @NodeEntity
 @Data
-public class Users {
+public class User {
     @Id @GeneratedValue
     private long id;
     @Property
@@ -24,5 +24,5 @@ public class Users {
 }
 
 
-//    CREATE (Peter:Users{userName: 'Peter N', gender: 'male'}) CREATE (Sam:Users {userName: 'Sam Sheldon', gender: 'male'}) CREATE (Ryan:Users {userName: 'Ryan A', gender: 'male'})
+//    CREATE (Peter:User{userName: 'Peter N', gender: 'male'}) CREATE (Sam:User {userName: 'Sam Sheldon', gender: 'male'}) CREATE (Ryan:User {userName: 'Ryan A', gender: 'male'})
 

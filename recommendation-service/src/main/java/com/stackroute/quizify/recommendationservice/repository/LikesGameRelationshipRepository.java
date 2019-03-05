@@ -10,12 +10,12 @@ import java.util.List;
 
 @Repository
 public interface LikesGameRelationshipRepository extends Neo4jRepository<LikesGame, Long> {
-    @Query("MATCH p=(Users)-[r:LikesGame]->(Games) RETURN p")
+    @Query("MATCH p=(User)-[r:LikesGame]->(Game) RETURN p")
     public List<LikesGame> getAllRelationships();
 
-    @Query("MATCH (p:Users),(t:Games) WHERE p.id={userId} and t.id={gameId} CREATE (p)-[q:LikesGame]->(t) RETURN p,q,t")
+    @Query("MATCH (p:User),(t:Game) WHERE p.id={userId} and t.id={gameId} CREATE (p)-[q:LikesGame]->(t) RETURN p,q,t")
     LikesGame createRelationship(@Param("userId") long userId, @Param("gameId") long gameId);
 
-    @Query("MATCH (p:Users)-[r:LikesGame]->(t:Games) WHERE p.id={userId} and t.id={gameId} DELETE r RETURN 'relationship deleted' ")
+    @Query("MATCH (p:User)-[r:LikesGame]->(t:Game) WHERE p.id={userId} and t.id={gameId} DELETE r RETURN 'relationship deleted' ")
     LikesGame deleteRelationship(@Param("userId") long userId, @Param("gameId") long gameId);
 }

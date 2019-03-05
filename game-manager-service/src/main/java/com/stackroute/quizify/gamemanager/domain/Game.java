@@ -9,7 +9,7 @@ import java.util.List;
 
 
 
-@Document(collection="games")
+@Document(collection="game")
 @Data
 public class Game {
     @Id

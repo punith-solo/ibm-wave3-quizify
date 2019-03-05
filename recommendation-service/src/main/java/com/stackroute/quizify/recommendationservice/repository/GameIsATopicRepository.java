@@ -10,10 +10,10 @@ import java.util.List;
 
 @Repository
 public interface GameIsATopicRepository extends Neo4jRepository<GameIsATopic,Long> {
-    @Query("MATCH p=(Games)-[r:game_is_a]->(Topic) RETURN p")
+    @Query("MATCH p=(Game)-[r:game_is_a]->(Topic) RETURN p")
     public List<GameIsATopic> getAllRelationships();
 
-    @Query("MATCH (p:Games),(t:Topic) WHERE p.id={gameId} and t.id={topicId} CREATE (p)-[q:game_is_a]->(t) RETURN p,q,t")
+    @Query("MATCH (p:Game),(t:Topic) WHERE p.id={gameId} and t.id={topicId} CREATE (p)-[q:game_is_a]->(t) RETURN p,q,t")
     GameIsATopic createRelationship(long gameId, long topicId);
 }
 

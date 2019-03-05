@@ -30,20 +30,20 @@ export class SearchComponent implements OnInit {
 
   search(value) {
     if (value === '') {
-      this.games = null;
+      this.game = null;
     } else {
     this.searchService.searchByTopicStartsWith(value).subscribe((res: any) => {
-      this.games = res.body;
+      this.game = res.body;
       console.log(res);
-      console.log(this.games);
+      console.log(this.game);
     });
   }
 
     }
   // search(value) {
   //   this.searchService.searchByTopicStartsWith(value).subscribe((res: any) => {
-  //     this.games = res.body[0].game;
-  //     console.log(this.games);
+  //     this.game = res.body[0].game;
+  //     console.log(this.game);
   //   });
   openDialog(q) {
     const dialogRef = this.dialog.open(DialogComponent,  {
