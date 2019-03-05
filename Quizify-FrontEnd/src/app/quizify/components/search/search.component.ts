@@ -2,6 +2,8 @@ import { Router } from '@angular/router';
 import { Component, OnInit, Input } from '@angular/core';
 import { Gamesearch } from '../../tsclasses/gamesearch';
 import { SearchService } from '../../services/search.service';
+import { GameEngineService } from '../../services/game-engine.service';
+
 
 @Component({
   selector: 'app-search',
@@ -11,11 +13,15 @@ import { SearchService } from '../../services/search.service';
 export class SearchComponent implements OnInit {
   Gamesearch: any;
   private games: Gamesearch[];
-  constructor(private router: Router, private searchService: SearchService) { }
+  constructor(private gameengineservice: GameEngineService, private router: Router, private searchService: SearchService ) { }
 
   ngOnInit() {
 
   }
+  fetchGameId(gameId: number) {
+    this.gameengineservice.fetchGame(gameId);
+   }
+
 
   search(value) {
     if (value === '') {
@@ -27,7 +33,8 @@ export class SearchComponent implements OnInit {
       console.log(this.games);
     });
   }
-  }
+
+    }
   // search(value) {
   //   this.searchService.searchByTopicStartsWith(value).subscribe((res: any) => {
   //     this.games = res.body[0].game;

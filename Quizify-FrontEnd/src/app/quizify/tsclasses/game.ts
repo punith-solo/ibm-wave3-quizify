@@ -2,6 +2,7 @@ import { Category } from './category';
 import { Question } from './question';
 import { Admin } from './admin';
 import { Topic } from './topic';
+import { Genre } from './genre';
 
 export class Game {
      id: number;
@@ -12,6 +13,9 @@ export class Game {
      numOfQuestion: number;
      questions: Array<Question>;
      admin: Admin;
-     genre: string;
+     genre: Genre;
      level: string;
+     liked: number;
+     timeDuration: number;
 }
+

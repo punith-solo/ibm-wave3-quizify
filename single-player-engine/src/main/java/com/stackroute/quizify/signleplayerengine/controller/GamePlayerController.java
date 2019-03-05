@@ -29,7 +29,7 @@ public class GamePlayerController {
     }
 
     @ApiOperation(value = "Get User Game")
-    @GetMapping(value = "/{gameId}")
+    @GetMapping(value = "/game/{gameId}")
     public ResponseEntity<?> getGame( @PathVariable String gameId)
     {
 

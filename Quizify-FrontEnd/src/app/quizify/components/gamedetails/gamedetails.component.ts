@@ -13,24 +13,18 @@ import { MatSnackBar } from '@angular/material';
 
 export class GamedetailsComponent implements OnInit {
 
-  // private singleplayer: SinglePlayer;
-  // private game: Game;
-  // private statusCode: number;
-
   method: any;
-  constructor(private gamedetailsService: GamedetailsService) { }
+  constructor(private gameengineservice: GameEngineService) { }
 
   quiz: any;
 
   ngOnInit() {
-   this.gamedetailsService.getDetails().subscribe(resposeQuiz => this.quiz = resposeQuiz);
+ }
+ fetchGameId(gameId: number) {
+  this.gameengineservice.fetchGame(gameId);
  }
 
-//  fetchGameId(gameId: string) {
-//   this.game.name = gameId;
-//   this.singleplayer.game = this.game;
-//   this.savePlayer(this.singleplayer);
-// }
+
 
 
 }

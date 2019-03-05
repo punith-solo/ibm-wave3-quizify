@@ -1,6 +1,5 @@
-
 export class Genre {
-
-    genreName: string;
+    id: number;
+    name: string;
     imageUrl: string;
 }

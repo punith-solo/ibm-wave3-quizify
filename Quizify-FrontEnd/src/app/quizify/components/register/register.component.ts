@@ -5,7 +5,7 @@ import { RegisterService } from '../../services/register.service';
 import { HttpClient } from '@angular/common/http';
 import { FormGroup, FormBuilder, Validators, FormControl, FormGroupDirective, NgForm } from '@angular/forms';
 import { Register } from '../../tsclasses/register';
-import { Genre } from '../../tsclasses/Genre';
+import { Genre } from '../../tsclasses/genre';
 import {ErrorStateMatcher} from '@angular/material/core';
 // import {PasswordMaterialUi} from "password-material-ui";
 
