@@ -1,7 +1,7 @@
 package com.stackroute.quizify.userauthentication.service;
 
-import com.stackroute.quizify.userauthentication.domain.LoginUser;
-import com.stackroute.quizify.userauthentication.exceptions.UserNameNotFoundException;
+import com.stackroute.quizify.userauthentication.domain.User;
+import com.stackroute.quizify.userauthentication.exceptions.UserAlreadyExists;
 import com.stackroute.quizify.userauthentication.repository.UserRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,26 +20,24 @@ public class UserServiceImpl implements UserService {
 
 
     @Override
-    public LoginUser findByUserIdAndPassword(String username, String password) {
-        return userRepo.findByUsernameAndPassword(username, password);
+    public User findByUserIdAndPassword(String username, String password) {
+        return userRepo.findByNameAndPassword(username, password);
     }
 
 
     @Override
-    public LoginUser saveUser(LoginUser user)throws UserNameNotFoundException
-    {
-        if(userRepo.existsById(user.getUsername())){
-            throw new UserNameNotFoundException("LoginUser already exists!!");
-
+    public User saveUser(User user) throws UserAlreadyExists {
+        if(userRepo.existsByName(user.getName())){
+            throw new UserAlreadyExists("User Name already exists!!");
         }
-        LoginUser userSaved = userRepo.save(user);
+        User userSaved = userRepo.save(user);
         return userSaved;
 
     }
 
 
     @Override
-    public List<LoginUser> getAllUsers() {
+    public List<User> getAllUsers() {
         return userRepo.findAll();
     }
 

@@ -1,23 +1,17 @@
-<app-header></app-header>
 <div class="container">
     <div *ngFor="let q of quiz">
   
-   <mat-card class="example-card">
-     <!-- <img mat-card-image src="../assets/images/33.jpg" alt="Photo " />
-     <div class="overlay">
-       <div class="text"> -->
-           <b class="mid"><u>{{ q.gameName }}</u></b>
-         <ul >
-  
-           <!-- <li>{{ q.gamesPlayed }}</li> -->
-           <li>Game Level is  {{ q.level }}</li>
-           <li>Rules: {{ q.description }}</li>
-           <li>{{ q.likes }}</li>
-           <li>Total no.of. questions: {{ q.noOfQuestion }}</li>
-         </ul>
-         <button class="btn">Start Quiz</button>
-       <!-- </div>
-     </div> -->
-   </mat-card>
+      <mat-card class="example-card">
+        <b class="mid"><u>{{ q.rules }}</u></b>
+      <!-- <ul>
+        <li>Game Level is  {{ q.level }}</li>
+        <li>Rules: {{ q.description }}</li>
+        <li>Game Id:  {{ q.gameId }}</li>
+        <li>Total no.of. questions: {{ q.noOfQuestion }}</li>
+      </ul> -->
+      <button class="btn"
+      (click)="fetchGameId(q.gameId)"
+      >Start Quiz</button> 
+      </mat-card>
   </div>
-  </div>
+</div>

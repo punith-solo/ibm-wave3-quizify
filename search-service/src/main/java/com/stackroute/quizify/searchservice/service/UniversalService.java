@@ -10,5 +10,5 @@ import java.util.List;
 public interface UniversalService {
     List<Game> searchGame(String searchKey) throws NoGameFoundException, GenreDoesNotExistsException, TopicDoesNotExistsException;
 
-    Game deleteGame(long topicId, long genreId, long gameId) throws NoGameFoundException, TopicDoesNotExistsException, GenreDoesNotExistsException;
+    Game deleteGame(String topicName, String genreName, long gameId) throws NoGameFoundException, TopicDoesNotExistsException, GenreDoesNotExistsException;
 }

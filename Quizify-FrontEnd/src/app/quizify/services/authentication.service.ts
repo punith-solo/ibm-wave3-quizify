@@ -18,7 +18,6 @@ export class AuthenticationService {
   login(user: any): Observable<any> {
       return this.http.post<any>(this.loginUrl, user);
   }
-
   logout() {
     console.log('i have entered in the logout function');
     localStorage.removeItem('token');
@@ -50,6 +49,38 @@ export class AuthenticationService {
   deleteCookie(cname: string) {
       document.cookie = `${cname}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
 }
-
+  // 'No-Auth': 'True' '&grant_type=password
+  // userAuthentication(userId, password) {
+  //   console.log(userId + '' + password);
+  //   const data = 'userId= ' + userId + '&password=' + password ;
+  //   const reqHeader = new HttpHeaders({ 'Content-Type': 'application/json' });
+  //   return this.http.post('http://13.232.243.68:8095/api/user' , data, { headers: reqHeader });
 }
+  // loginUser(userId: string, password: string ) {
+  //   console.log('be confident jasss');
+  //   this.http.post(this.url , {userId: userId, password: password})
+  //   .subscribe((resp: any) => {
+  //   /// this.router.navigate(['profile']);
+  //     localStorage.setItem('auth_token', resp.token);
+  //     console.log('auth_token');
+  //     });
+  // }
+
+
+    // userId: string, password: string
+    // return this.http.post<any>('http://13.232.243.68:8095/api/user', {userId: userId, password: password, role: 'user'})
+    //    // this is just the HTTP call,
+    //    // we still need to handle the reception of the token
+    //    // .shareReplay();
+    //    .pipe(map(user => {
+    //        // login successful if there's a jwt token in the response
+    //        if (user && user.token) {
+    //            // store user details and jwt token in local storage to keep user logged in between page refreshes
+    //            localStorage.setItem( 'currentUserId', userId);
+    //            localStorage.setItem('currentUser', JSON.stringify(user));
+    //            localStorage.setItem('role', 'user');
+    //        }
+    //        return user;
+    //    }));
+
 

@@ -18,6 +18,9 @@ import { FormsModule } from '@angular/forms';
 // import { FlexLayoutModule } from '@angular/flex-layout';
 import {MatStepperModule} from '@angular/material/stepper';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
+
+
 
 
 
@@ -36,7 +39,7 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
        MatRadioModule,
        MatChipsModule,
        MatSelectModule,
-       RouterModule, MatStepperModule, MatProgressSpinnerModule,
+       RouterModule, MatStepperModule, MatProgressSpinnerModule, MatButtonToggleModule,
       // FlexLayoutModule,
        MatButtonModule,
        MatCheckboxModule,
@@ -53,8 +56,9 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
        MatInputModule,
        MatSelectModule,
        FormsModule,
-       MatRadioModule
-      ] ,
+       MatRadioModule,
+       MatButtonModule
+    ] ,
       schemas: [CUSTOM_ELEMENTS_SCHEMA] ,
       exports: [
         MatCardModule,
@@ -68,7 +72,7 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
           MatInputModule,
           MatChipsModule,
           MatSelectModule,
-          RouterModule, MatStepperModule, MatProgressSpinnerModule,
+          RouterModule, MatStepperModule, MatProgressSpinnerModule, MatButtonToggleModule,
          // FlexLayoutModule,
           MatButtonModule,
           MatCheckboxModule,

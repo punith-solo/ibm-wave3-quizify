@@ -2,7 +2,7 @@
   "quiz":[
 {
   "gameId":"101",
-  "gameName": "Entertainment",
+  "name": "Entertainment",
   "gamesPlayed": "QUIZ",
   " level": "Easy",
   "imageUrl": "https://previews.123rf.com/images/blankstock/blankstock1501/blankstock150101150/35194262-quiz-speech-bubble-sign-icon-questions-and-answers-game-symbol-gray-flat-button-with-shadow-modern-u.jpg",
@@ -13,7 +13,7 @@
 },
 {
   "gameId":"201",
-  "gameName": "Comedy",
+  "name": "Comedy",
   "gamesPlayed": "QUIZ",
   " level": "Hard",
   "imageUrl": "https://img.freepik.com/free-vector/checkered-background-with-notebook-game-items_23-2147593456.jpg?size=338&ext=jpg",
@@ -24,7 +24,7 @@
 },
 {
   "gameId":"301",
-  "gameName": "Romantic",
+  "name": "Romantic",
   "gamesPlayed": "QUIZ",
   " level": "Medium",
   "imageUrl": "https://files.slack.com/files-pri/TEKVBAYJ1-FGK7QDFRV/quizbackground.jpg",
@@ -35,7 +35,7 @@
 },
 {
   "gameId":"401",
-  "gameName": "Entertainment",
+  "name": "Entertainment",
   "gamesPlayed": "QUIZ",
   " level": "Easy",
   "imageUrl": "https://st3.depositphotos.com/1496387/17432/v/1600/depositphotos_174320100-stock-illustration-quiz-show-game-concept-players.jpg",
@@ -46,7 +46,7 @@
 },
 {
   "gameId":"501",
-  "gameName": "Entertainment",
+  "name": "Entertainment",
   "gamesPlayed": "QUIZ",
   " level": "Easy",
   "imageUrl": "https://st3.depositphotos.com/1496387/17432/v/1600/depositphotos_174320100-stock-illustration-quiz-show-game-concept-players.jpg",
@@ -58,7 +58,7 @@
 ,
 {
   "gameId":"501",
-  "gameName": "Entertainment",
+  "name": "Entertainment",
   "gamesPlayed": "QUIZ",
   " level": "Easy",
   "imageUrl": "https://st3.depositphotos.com/1496387/17432/v/1600/depositphotos_174320100-stock-illustration-quiz-show-game-concept-players.jpg",
@@ -69,7 +69,7 @@
 },
 {
   "gameId":"601",
-  "gameName": "Entertainment",
+  "name": "Entertainment",
   "gamesPlayed": "QUIZ",
   " level": "Easy",
   "imageUrl": "https://st3.depositphotos.com/1496387/17432/v/1600/depositphotos_174320100-stock-illustration-quiz-show-game-concept-players.jpg",

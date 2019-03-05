@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { GamedetailsService } from '../../services/gamedetails.service';
+import { SinglePlayer } from '../../tsclasses/single-player';
+import { Game } from '../../tsclasses/game';
+import { GameEngineService } from '../../services/game-engine.service';
+import { MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'app-gamedetails',
@@ -10,12 +14,17 @@ import { GamedetailsService } from '../../services/gamedetails.service';
 export class GamedetailsComponent implements OnInit {
 
   method: any;
-  constructor(private gamedetailsService: GamedetailsService) { }
+  constructor(private gameengineservice: GameEngineService) { }
 
   quiz: any;
 
   ngOnInit() {
-   this.gamedetailsService.getDetails().subscribe(resposeQuiz => this.quiz = resposeQuiz);
  }
+ fetchGameId(gameId: number) {
+  this.gameengineservice.fetchGame(gameId);
+ }
+
+
+
 
 }

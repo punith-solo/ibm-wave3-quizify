@@ -18,5 +18,5 @@ public interface TopicService {
 //    List<Topic> getAllTopicByName(String topicName) throws TopicDoesNotExistsException;
     List<Topics> getAllTopicByStartsWith(String topicName) throws TopicDoesNotExistsException;
 
-    Game deleteGameById(long topicId, long gameId) throws TopicDoesNotExistsException, NoGameFoundException;
+    Game deleteGameById(String name, long gameId) throws TopicDoesNotExistsException, NoGameFoundException;
 }
