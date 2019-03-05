@@ -234,3 +234,9 @@ services:
     expose:
       - 4200
     restart: always
+
+  sonarqube:
+    image: sonarqube
+    ports:
+      - 9000:9000
+    network_mode: host
