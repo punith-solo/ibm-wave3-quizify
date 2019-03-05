@@ -1,9 +1,16 @@
 #reg{
+  padding-left: 1px;
+  padding-right: 1px;
   margin-top: 80px;
-  height: 1130px;
-  background-image:
-  url("http://szzljy.com/data/27/gray-color-wallpaper/gray-color-wallpaper-5.jpg");
-
+  margin-left: 0px;
+  margin-right: 0px;
+  height: 670px;
+  overflow: hidden;
+  background-image:   url("https://accounts.rosharonmontessori.edu.gh/wp-content/uploads/2017/02/71.jpg");
+  // linear-gradient(to bottom, rgba(255,255,0,0.5), rgba(0,0,255,0.5)),
+//   linear-gradient(to bottom, rgba(255,255,0,0.5), rgba(0,0,255,0.5)),
+//   background-image: url("");
+// }
 }
 .example-card {
   flex-wrap: wrap;
@@ -14,7 +21,6 @@
  .container h1 {
    text-align: center;
  }
- 
  .step3 {
    margin-left: auto;
    margin-right: auto;
@@ -23,19 +29,21 @@
  }
  h4 {
    color: black;
+   font-family: sans-serif;
  }
  mat-card
  {
-     margin-left: 530px;
+   margin-top: 10px;
+     margin-left: 510px;
      width: 400px;
      height: 250px;
-     background-color: lightgray;  
+     background-color:gainsboro;  
       
      
  }
  
  .submit {
-   margin-left: 40.5%;
+   margin-left: 30%;
    width: 20%;
  }
  p {
@@ -43,12 +51,13 @@
    text-align: center;
  }
  h3 {
-   text-align: center;
+   text-align: left;
+   margin-left: 35px;
    font-family: sans-serif;
  }
  
  h2 {
- margin-left: 6.5%;
+ margin-left: 43.5%;
  font-family: sans-serif;
  }
  .username {
@@ -60,12 +69,12 @@
    margin-left: 43%;
    width: 15%;
    background-color: lightgray;  
-
  }
  
  .password {
    margin-left: 40.5%;
    width: 20%;
+   
  }
  
  .confirmpassword {
@@ -81,69 +90,47 @@
    width: 20%;
  }
  .button {
-   margin-left: 50%;
+   margin-left: 34%;
    width: 40%;
    height: 100px;
  }
  
  .nextbtn {
    margin-left: 80%;
-   width: 15%;
+   width: 10%;
  }
- .nextbtn1 {
-   margin-left: 43%;
-   width: 15%;
- }
+container2 {
+  background-color: grey;
+}
+//  .nextbtn1 {
+//    margin-left: 80%;
+//    width: 15%;
+//  }
  .prebtn {
-   margin-right: 80%;
+   margin-right: 90%;
    margin-bottom: 100px;
-   width: 15%;
+  //  width: 12%;
  }
  .prebtn1 {
-   margin-left: 43%;
+   margin-left: 42.7%;
    width: 15%;
-   background-color: lightgray;  
-
+  //  background-color: lightgray;  
  }
  .btn {
    margin-left: 80%;
    width: 15%;
  }
- .inside {
-   padding: 10px;
-   width: 250px;
-   height: 150px;
-   line-height: 50px;
-   font-weight:bolder;
-   font-size: 2em;
-   text-align: center;
-   margin-left:160px;
-   
- }
  .inside1 {
   padding: 10px;
-  width: 250px;
-  height: 150px;
+  width: 200px;
+  height: 100px;
   line-height: 50px;
   font-weight:bolder;
   font-size: 2em;
   text-align: center;
-  margin-left:100px;
+  margin-left:60px;
   
 }
-// .inside2{
-//   top:40px;
-//   padding: 30px;
-//   width: 250px;
-//   height: 90px;
-//   line-height: 40px;
-//   font-weight:bolder;
-//   font-size: 3em;
-//   text-align: center;
-//   // margin-left:50px;
-//   // margin-right: 50px;
-  
-// }
  li {
   text-decoration: none;
   display: inline;
@@ -157,8 +144,21 @@
  }
  
  
-//  .container2 {
-//    display: flex;
-//    margin-left: 590px;
-//  }
- 
+ .container h3 {
+   display: flex;
+   margin-left: 50px;
+   font-family: sans-serif;
+ }
+ .inside {
+  padding: 10px;
+  width: 200px;
+  height: 90px;
+  line-height: 50px;
+  font-weight:bolder;
+  font-size: 2em;
+  text-align: center;
+  padding-top: 10px;
+  margin-left:60px;
+  margin-right: 0px;
+  
+}

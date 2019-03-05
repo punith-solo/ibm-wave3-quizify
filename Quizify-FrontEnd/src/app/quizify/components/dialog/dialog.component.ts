@@ -3,6 +3,7 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { SearchService } from '../../services/search.service';
 import { Router } from '@angular/router';
 import { GameserviceService } from '../../services/gameservice.service';
+import { CardService } from '../../services/card.service';
 
 @Component({
   selector: 'app-dialog',
@@ -12,7 +13,8 @@ import { GameserviceService } from '../../services/gameservice.service';
 export class DialogComponent implements OnInit {
 
   constructor(public dialogRef: MatDialogRef<DialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any, private searchService: SearchService, public route: Router) { }
+    @Inject(MAT_DIALOG_DATA) public data: any, private cardService: CardService ,
+     private searchService: SearchService, public route: Router) { }
 
   ngOnInit() {
 

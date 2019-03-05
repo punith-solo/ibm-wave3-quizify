@@ -45,7 +45,7 @@ import { DialogComponent } from './components/dialog/dialog.component';
     DialogComponent
      ],
      providers: [ CardService, CookieService, GamedetailsService, AuthGuard,
-	{ provide: MatDialogModule, useValue: {} },
+      { provide: MatDialogModule, useValue: {} },
       { provide: MatIconModule, useValue: [] },
       {
          provide: MatLabel, useValue: {}

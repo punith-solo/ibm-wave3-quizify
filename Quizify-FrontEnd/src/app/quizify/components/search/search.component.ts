@@ -18,7 +18,8 @@ export class SearchComponent implements OnInit {
   private games: Gamesearch[];
   q: any;
   dialogResult: any;
-  constructor(private router: Router, private searchService: SearchService, public dialog: MatDialog, private gameengineservice: GameEngineService) { }
+  constructor(private router: Router, private searchService: SearchService,
+    public dialog: MatDialog, private gameengineservice: GameEngineService) { }
 
   ngOnInit() {
 
