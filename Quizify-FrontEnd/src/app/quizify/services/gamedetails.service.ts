@@ -10,7 +10,7 @@ export class GamedetailsService {
   constructor(private http: HttpClient) {   }
 
   getDetails() {
-      this.url = 'http://localhost:3001/game';
+      this.url = 'http://13.232.243.68:8104/rest/neo4j/games/mostplayed';
       return this.http.get(this.url);
   }
 }

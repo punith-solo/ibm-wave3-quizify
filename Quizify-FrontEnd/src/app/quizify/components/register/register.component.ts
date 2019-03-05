@@ -1,15 +1,28 @@
 import { Topic } from './../../tsclasses/topic';
+// import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { RegisterService } from '../../services/register.service';
 import { HttpClient } from '@angular/common/http';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, FormControl, FormGroupDirective, NgForm } from '@angular/forms';
 import { Register } from '../../tsclasses/register';
 import { Genre } from '../../tsclasses/genre';
+import {ErrorStateMatcher} from '@angular/material/core';
+// import {PasswordMaterialUi} from "password-material-ui";
+
+export class MyErrorStateMatcher implements ErrorStateMatcher {
+  isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
+    const isSubmitted = form && form.submitted;
+    return !!(control && control.invalid && (control.dirty || control.touched || isSubmitted));
+  }
+ }
+
+
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss']
 })
+
 export class RegisterComponent implements OnInit {
 
   formGroup2: FormGroup;
@@ -20,13 +33,15 @@ export class RegisterComponent implements OnInit {
   formGroup4: FormGroup;
   userForm: any;
   value1: String;
-  disabled = false;
-  ShowFilter = false;
-  limitSelection = false;
+  hide = true;
+  // disabled = false;
+  // ShowFilter = false;
+  // limitSelection = false;
   topic: any = [];
   genre: any = [];
   selectedItems: any = [];
-  dropdownSettings: any = {};
+ // dropdownSettings: any = {};
+
 
   @Input()
   register: Register;
@@ -37,12 +52,18 @@ export class RegisterComponent implements OnInit {
   private topics: Topic[];
   private genres: Genre[];
   private gender: string;
+  matcher = new MyErrorStateMatcher();
 
   private topicList: Topic[];
   private genreList: any[];
 
   @ViewChild('myStep') myStep;
   myForm: FormGroup;
+
+  emailFormControl = new FormControl('', [
+    Validators.required,
+    Validators.email,
+  ]);
 
   // tslint:disable-next-line:max-line-length
   constructor(private _formBuilder: FormBuilder, private regserv: RegisterService,  private http: HttpClient) {
@@ -55,7 +76,7 @@ export class RegisterComponent implements OnInit {
   this.register.genres = this.genres;
   this.register.gender = this.gender;
   this.register.emailId = this.emailId;
-  this.register.confirmPassword = this.confirmPassword;
+ // this.register.confirmPassword = this.confirmPassword;
    console.log(this.register);
   this.value1 = event.target.value;
   this.regserv.addUser(this.register).subscribe((data: any) => {
@@ -79,6 +100,7 @@ export class RegisterComponent implements OnInit {
 
     this.regserv.getTopic().subscribe((res: any) => {
       this.topicList = res;
+      console.log(res);
     });
 
     this.regserv.getGenre().subscribe((res: any) => {

@@ -1,5 +1,6 @@
 import { CardService } from './../../services/card.service';
 import { Component, OnInit } from '@angular/core' ;
+import { GameEngineService } from '../../services/game-engine.service';
 
 @Component({
   selector: 'app-cards',
@@ -9,7 +10,7 @@ import { Component, OnInit } from '@angular/core' ;
 export class CardsComponent implements OnInit {
 
 
-  constructor(private cardService: CardService) { }
+  constructor(private cardService: CardService , private gameengineservice: GameEngineService) { }
   method: any;
   quiz: any;
 
@@ -18,5 +19,7 @@ export class CardsComponent implements OnInit {
     this.cardService.getquiz().subscribe(resposeQuiz => this.quiz = resposeQuiz);
     }
   }
-
+  fetchGameId(gameId: number) {
+    this.gameengineservice.fetchGame(gameId);
+   }
 }

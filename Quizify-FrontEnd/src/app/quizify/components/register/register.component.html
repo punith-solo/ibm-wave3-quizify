@@ -1,221 +1,234 @@
-<div class="reg" margin-top="200px;">
-<h1 color="red">Register</h1>
-<mat-horizontal-stepper linear>
-  <mat-step #myStep [stepControl]="formGroup1" optional editable="true">
-    <form [formGroup]="formGroup1">
-      <mat-form-field appearance="outline" class="username">
-        <mat-label for="userName">userName</mat-label>
-        <input
-          matInput
-          placeholder="userName"
+<app-header></app-header>
+<mat-horizontal-stepper linear id="reg">
+    <mat-step #myStep [stepControl]="formGroup1" editable="true">
+      <ng-template matStepLabel>
+        Fill the details
+      </ng-template>
+      <form [formGroup]="formGroup1">
+        <h3>Registration Form</h3>
+        <mat-form-field appearance="outline" class="username">
+          <mat-label for="name">Name</mat-label>
+          <input
+            matInput
+            placeholder="username"
+            formControlName="firstCtrl"
+            autocomplete="off"
+            [(ngModel)]="name"
+            name="userName"
+            required
+          />
+        </mat-form-field>
+        <br />
+        <mat-form-field appearance= "outline" class = "password">
+            <mat-label for="password">Password</mat-label>
+            <input matInput placeholder="Enter your password" [type]="hide ? 'password' : 'text'" 
+              pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" [(ngModel)]="password" 
+              [ngModelOptions]="{standalone: true}" required>
+            <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            <mat-hint>Starts with captial,num & length8!</mat-hint>
+  
+          </mat-form-field>
+        <br />
+        
+        <mat-form-field class="emailid" appearance="outline"required>
+            <mat-label>Email</mat-label>
+                 <input matInput placeholder="Email" [formControl]="emailFormControl"
+                      [errorStateMatcher]="matcher" [(ngModel)]="emailId" name="emaiId" required>
+               <mat-hint>Errors appear instantly!</mat-hint>
+                <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+                 Please enter a valid email address
+               </mat-error>
+                <mat-error *ngIf="emailFormControl.hasError('required')">
+                 Email is <strong>required</strong>
+               </mat-error>
+          </mat-form-field>
+     
+        <br /> <br>
+        <mat-radio-group
+          appearance="outline"
+          class="gender"
           formControlName="firstCtrl"
-          autocomplete="off"
-          [(ngModel)]="userName"
-          name="userName"
+          [(ngModel)]="gender"
+          name="gender"
           required
-        />
-      </mat-form-field>
-      <br />
-      <mat-form-field appearance="outline" class="password">
-        <mat-label for="psw">Password</mat-label>
-        <input
-          type="password"
-          matInput
-          placeholder="password"
-          name="psw"
-          formControlName="firstCtrl"
-          autocomplete="off"
-          [(ngModel)]="password"
-          name="password"
-          required
-        />
-        <mat-hint></mat-hint>
-      </mat-form-field>
-      <br />
-
-      <mat-form-field appearance="outline" class="confirmpassword">
-        <mat-label for="psw">confirmPassword</mat-label>
-        <input
-          type="password"
-          matInput
-          placeholder="Confirm password"
-          name="psw"
-          formControlName="firstCtrl"
-          autocomplete="off"
-          [(ngModel)]="confirmPassword"
-          required
-        />
-        <mat-hint></mat-hint>
-      </mat-form-field>
-      <br />
-      <mat-form-field appearance="outline" class="emailid">
-        <mat-label for="emailid">emailId</mat-label>
-        <input
-          matInput
-          placeholder="emailId"
-          autocomplete="off"
-          [(ngModel)]="emailId"
-          name="emailId"
-          formControlName="firstCtrl"
-          required
-        />
-      </mat-form-field>
-      <br />
-      <mat-radio-group
-        appearance="outline"
-        class="gender"
-        name="gender"
-        required
-      >
-        <mat-label>Gender</mat-label>
-        <mat-radio-button value="1">Male </mat-radio-button>
-        <mat-radio-button value="2">Female</mat-radio-button>
-      </mat-radio-group>
-      <br />
-      <br />
-      <br />
-
-      <button mat-button class="nextbtn" matStepperNext>Next</button>
-    </form>
-  </mat-step>
-
-  <mat-step #myStep [stepControl]="formGroup2" optional editable="true">
-    <form [formGroup]="formGroup2">
-      <section class="container">
-        <mat-card class="example-card">
-          <mat-card-header>
-            <div mat-card-avatar class="example-header-image"></div>
-          </mat-card-header>
-          <img
-            mat-card-image
-            src="https://ak1.picdn.net/shutterstock/videos/13811981/thumb/9.jpg"
-            alt="Photo"
-          />
+        >
+          <mat-label>Gender</mat-label>
+          <mat-radio-button value="Male">Male </mat-radio-button>
+          <mat-radio-button value="female">Female</mat-radio-button>
+        </mat-radio-group>
+        <br />
+        <br />
+        <br />
+  
+        <button mat-button class="nextbtn" matStepperNext>Next</button>
+      </form>
+    </mat-step>
+  
+    <mat-step #myStep [stepControl]="formGroup2" optional editable="true">
+      <form [formGroup]="formGroup2">
+        <ng-template matStepLabel>
+          Select Options
+        </ng-template>
+        <section class="container">
+          <h2>Select Topic</h2>
+  
+          <mat-button-toggle class="inside1" value="TvShows">
+            <img
+              src="assets/images/tv1.jpeg"
+              alt="Tvshows"  height="135px" width="230px" 
+          /></mat-button-toggle>
+  
+          <mat-button-toggle class="inside1" value="Movies">
+            <img
+              src="../../../../assets/images/movie1.jpeg"
+              alt="Movies"
+        height="135px" width="230px" /></mat-button-toggle>
+        </section>
+        <br />
+  
+        <section class="container2">
+          <h2>Select Genres</h2>
+  
+          <mat-button-toggle class="inside" value="Horror">
+            <img
+              src="https://m.media-amazon.com/images/G/01/IMDb/genres/Horror._CB1513316168_SX233_CR0,0,233,131_AL_.jpg"
+              alt="Horror"
+          /></mat-button-toggle>
+         
+          <mat-button-toggle class="inside" value="Action">
+            <img
+              src="https://m.media-amazon.com/images/G/01/IMDb/genres/Action._CB1513316166_SX233_CR0,0,233,131_AL_.jpg"
+              alt="Action"
+          /></mat-button-toggle>
+  
+          <mat-button-toggle class="inside" value="Fantasy">
+            <img
+              src="https://m.media-amazon.com/images/G/01/IMDb/genres/Fantasy._CB1513316168_SX233_CR0,0,233,131_AL_.jpg"
+              alt="Fantasy"
+          /></mat-button-toggle> <br>  <br>
+          <mat-button-toggle class="inside" value="Scifi">
+            <img
+              src="https://m.media-amazon.com/images/G/01/IMDb/genres/Sci-Fi._CB1513316168_SX233_CR0,0,233,131_AL_.jpg"
+              alt="Sci-FI"
+          /></mat-button-toggle>
+          
+          <mat-button-toggle class="inside" value="TvShows">
+              <img
+                src="https://m.media-amazon.com/images/G/01/IMDb/genres/Comedy._CB1513316167_SX233_CR0,0,233,131_AL_.jpg"
+                alt="Tvshows"
+            /></mat-button-toggle>
+  
+          <mat-button-toggle class="inside" value="Romantic">
+            <img
+              src="https://m.media-amazon.com/images/G/01/IMDb/genres/Romance._CB1513316168_SX233_CR0,0,233,131_AL_.jpg"
+              alt="Romantic"
+          /></mat-button-toggle> <br> <br>
+  
+          <!-- <mat-button-toggle class="inside" value="Rom-com">
+            <img
+              src="https://m.media-amazon.com/images/G/01/IMDb/genres/Comedy-Romance._CB1513316167_SX233_CR0,0,233,131_AL_.jpg"
+              alt="Rom-com"
+          /></mat-button-toggle> -->
+  
+          <mat-button-toggle class="inside" value="Drama">
+            <img
+              src="https://m.media-amazon.com/images/G/01/IMDb/genres/Drama._CB1513316168_SX233_CR0,0,233,131_AL_.jpg"
+              alt="Drama"
+          /></mat-button-toggle>
+  
+          <mat-button-toggle class="inside" value="Thriller">
+            <img
+              src="https://m.media-amazon.com/images/G/01/IMDb/genres/Thriller._CB1513316169_SX233_CR0,0,233,131_AL_.jpg"
+              alt="Thriller"
+          /></mat-button-toggle>
+  
+          <mat-button-toggle class="inside" value="Animation">
+            <img
+              src="https://m.media-amazon.com/images/G/01/IMDb/genres/Animation._CB1513316167_SX233_CR0,0,233,131_AL_.jpg"
+              alt="Adventure"
+          /></mat-button-toggle>
+  
+          <br />
+        </section>
+  
+        <br />
+        <div>
+          <button mat-button class="prebtn" matStepperPrevious>Back</button>
+          <button mat-button class="nxtbtn" matStepperNext>Next</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step #myStep [stepControl]="formGroup3" optional >
+      <form [formGroup]="formGroup3">
+        <ng-template matStepLabel>
+          Check Details
+        </ng-template>
+        <mat-card>
+          <h4>
+          <h3>Details of User:</h3>
+          <section
+            class="laststep"
+            fxLayout
+            fxLayout="column"
+            fxLayoutAlign="center center"
+            fxLayoutGap="10px"
+          >
+            <label class="step3">Username : {{ name }}</label> <br />
+            <br />
+  
+            <label class="step3">Gender : {{ gender }}</label> <br />
+            <br />
+  
+            <label class="step3">emailId : {{ emailId }}</label> <br />
+            <br />
+  
+            <!-- <label class="step3"> Selected topics : {{ selectedTopics }}</label>
+  
+            <ul class="step3">
+              <div class="genreinline">Selected Genres :</div>
+              <li *ngFor="let b of gen">{{ b }}</li>
+            </ul> -->
+          </section>
+        </h4>
         </mat-card>
-        <mat-card class="example-card1">
-          <mat-card-header>
-            <div mat-card-avatar class="example-header-image"></div>
-          </mat-card-header>
-          <img
-            mat-card-image
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXc1AyI6o9J0H8PKOe2bNzOk_TbNuXEcO9XpK6QsLcOwp0lY35"
-            alt="Photo"
-          />
-        </mat-card>
-      </section>
-
-      <section class="container1">
-        <mat-card class="example-card">
-          <mat-card-header>
-            <div mat-card-avatar class="example-header-image"></div>
-          </mat-card-header>
-          <img
-            mat-card-image
-            src="https://tubeoh.com/wp-content/uploads/2018/10/2018-film-action-hd-film-action-barat-terbaik-2018-sub-indo-320x180.jpg"
-            alt="Photo"
-          />
-        </mat-card>
-        <mat-card class="example-card1">
-          <mat-card-header>
-            <div mat-card-avatar class="example-header-image"></div>
-          </mat-card-header>
-          <img
-            mat-card-image
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRWTUcFxHy46_A64Uyi_8VklSo-JXeyl7J7hNuHTG5yQcSmV0ZP"
-            alt="Photo"
-          />
-        </mat-card>
-        <mat-card class="example-card1">
-          <mat-card-header>
-            <div mat-card-avatar class="example-header-image"></div>
-          </mat-card-header>
-          <img mat-card-image src="" alt="Photo" />
-        </mat-card>
-        <mat-card class="example-card1">
-          <mat-card-header>
-            <div mat-card-avatar class="example-header-image"></div>
-          </mat-card-header>
-          <img
-            mat-card-image
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKHJB12KhCu7D51-Jf4mXGQty4_LncW2BwX1JCeW_Uh6KrbXEX"
-            alt="Photo of a Shiba Inu"
-          />
-        </mat-card>
-      </section>
-      <br />
-
-      <section class="container2">
-        <mat-card class="example-card1">
-          <mat-card-header>
-            <div mat-card-avatar class="example-header-image"></div>
-          </mat-card-header>
-          <img
-            mat-card-image
-            src="https://vignette.wikia.nocookie.net/logopedia/images/f/f9/Comedy_Central_HD.png/revision/latest?cb=20110408015054"
-            alt="Photo"
-          />
-        </mat-card>
-        <mat-card class="example-card1">
-          <mat-card-header>
-            <div mat-card-avatar class="example-header-image"></div>
-          </mat-card-header>
-          <img
-            mat-card-image
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTk1rIREyTDvG-Rde6HuYa2Oea8q1Nd4pC0MCZzp2BxheittWrF"
-          />
-        </mat-card>
-        <mat-card class="example-card1">
-          <mat-card-header>
-            <div mat-card-avatar class="example-header-image"></div>
-          </mat-card-header>
-          <img
-            mat-card-image
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRWTUcFxHy46_A64Uyi_8VklSo-JXeyl7J7hNuHTG5yQcSmV0ZP"
-            alt="Photo"
-          />
-        </mat-card>
-        <mat-card class="example-card1">
-          <mat-card-header>
-            <div mat-card-avatar class="example-header-image"></div>
-          </mat-card-header>
-          <img
-            mat-card-image
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSo156JjkV6NcPB244IyQzG7dBw8Zg0g3yIESLZVwyvZzCYCMxG"
-            alt="Photo"
-          />
-        </mat-card>
-      </section>
-      <br />
-      <button mat-button class="prebtn" matStepperPrevious>Back</button>
-
-      <button
-        mat-raised-button
-        class="btn"
-        (click)="submit($event)"
-        matStepperNext
-      >
-        Submit
-      </button>
-    </form>
-  </mat-step>
-  <mat-step #myStep [stepControl]="formGroup3" optional editable="false">
-    <form [formGroup]="formGroup3">
-      <p>
-        <b> Thank you for registering</b> <br /><br />
-
-        <b> You have successfully signed up as a user!</b>
-      </p>
-      <br />
-      <br />
-      <button
-        mat-raised-button
-        class="mat-raised-button"
-        [routerLink]="['/login']"
-      >
-        Login
-      </button>
-    </form>
-  </mat-step>
-</mat-horizontal-stepper>
-
-</div>
+        <br />
+        <br />
+     
+        <button mat-button class="prebtn1" matStepperPrevious>Back</button> <br />
+        <br />
+  
+        <button
+          mat-raised-button
+          class="submit"
+          (click)="submit($event)"
+          matStepperNext
+        >
+          Submit
+        </button>
+        <br />
+        <br />
+      </form>
+    </mat-step>
+    <mat-step #myStep [stepControl]="formGroup4" editable="false">
+      <form [formGroup]="formGroup4">
+        <ng-template matStepLabel>
+          Done
+        </ng-template>
+        <p>
+          <b> Thank you for registering</b> <br /><br />
+  
+          <b> You have successfully signed up as a user!</b>
+        </p>
+  
+        <br />
+        <br />
+        <button
+          mat-raised-button
+          class="mat-raised-button"
+          [routerLink]="['/login']"
+        >
+          Login
+        </button>
+      </form>
+    </mat-step>
+  </mat-horizontal-stepper>
