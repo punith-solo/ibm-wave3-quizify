@@ -1,12 +1,13 @@
 <app-header></app-header>
+
 <div class="container" >
   <!-- <div class="pics"> -->
     
   <form [formGroup]="user" (ngSubmit)="login()">
    <mat-form-field appearance="outline" class="id">
     <mat-label>Username</mat-label>
-    <input matInput placeholder="Enter your username" type="text" class="username"
-     formControlName="username" required [(ngModel)]="username" />
+    <input matInput placeholder="Enter your username" type="text" class="name"
+     formControlName="name" required [(ngModel)]="name" />
     <mat-hint></mat-hint>
    </mat-form-field>
    <mat-form-field appearance="outline" class="password" >

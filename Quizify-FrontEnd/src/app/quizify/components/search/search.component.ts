@@ -15,10 +15,11 @@ import { DialogComponent } from '../dialog/dialog.component';
 export class SearchComponent implements OnInit {
 
   Gamesearch: any;
-  private games: Gamesearch[];
+  private game: Gamesearch[];
   q: any;
   dialogResult: any;
-  constructor(private router: Router, private searchService: SearchService, public dialog: MatDialog, private gameengineservice: GameEngineService) { }
+  constructor(private router: Router, private searchService: SearchService,
+     public dialog: MatDialog, private gameengineservice: GameEngineService) { }
 
   ngOnInit() {
 
