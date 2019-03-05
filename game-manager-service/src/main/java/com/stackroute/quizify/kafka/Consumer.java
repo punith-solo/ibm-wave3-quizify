@@ -29,14 +29,14 @@ public class Consumer {
     {
         this.env = env;
         this.kafkaTopic = env.getProperty("kafka.topic");
-        this.kafkaTopic = "games";
+        this.kafkaTopic = "game";
         this.consumerId = env.getProperty("kafka.group-id");
         this.bootstrapServer = env.getProperty("kafka.bootstrap-server");
         this.gameMapper = gameMapper;
 
     }
 
-    @KafkaListener(topics = "games", groupId = "games-self-consumers", containerFactory = "kafkaListenerContainerFactory")
+    @KafkaListener(topics = "game", groupId = "game-self-consumers", containerFactory = "kafkaListenerContainerFactory")
     public void receive(@Payload GameDTO payload) {
         logger.info("-----------------------------------------------------------------------------------------");
         logger.info("Game Received by Game-Manager-Service: ");

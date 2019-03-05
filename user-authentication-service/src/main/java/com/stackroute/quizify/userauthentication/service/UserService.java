@@ -7,9 +7,9 @@ import java.util.List;
 
 public interface UserService
 {
-    public LoginUser saveUser(LoginUser user) throws UserNameNotFoundException; //users ADDED
+    public LoginUser saveUser(LoginUser user) throws UserNameNotFoundException; //user ADDED
 
-    public List<LoginUser> getAllUsers();  ///RETRIEVE users
+    public List<LoginUser> getAllUsers();  ///RETRIEVE user
 
     public LoginUser findByUserIdAndPassword(String username,String password);
 }

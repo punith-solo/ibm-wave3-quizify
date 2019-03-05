@@ -36,14 +36,14 @@ export class GameserviceService {
 
   addGame(game: Game) {
     console.log(game);
-    const url2 = 'http://13.232.243.68:8092/game-manager-service/api/v1/games/game';
+    const url2 = 'http://13.232.243.68:8092/game-manager-service/api/v1/game/game';
     return this.http
     .post(url2, game, { observe: 'response' });
   }
 
   updateAddedGame(game: Game) {
     return this.http
-    .put(this.url + 'games/game', game, { observe: 'response' });
+    .put(this.url + 'game/game', game, { observe: 'response' });
   }
 
   deleteGame(game: Game) {

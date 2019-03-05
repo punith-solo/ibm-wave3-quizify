@@ -11,7 +11,7 @@ public class GameIsATopic {
     private long id;
 
     @StartNode
-    private Games games;
+    private Game game;
     @EndNode
     private Topic topic;
 }

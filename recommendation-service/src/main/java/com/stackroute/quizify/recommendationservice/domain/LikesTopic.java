@@ -11,7 +11,7 @@ public class LikesTopic {
     private long id;
 
     @StartNode
-    private Users user;
+    private User user;
     @EndNode
     private Topic topic;
 }

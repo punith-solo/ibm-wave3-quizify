@@ -1,7 +1,7 @@
 package com.stackroute.quizify.recommendationservice.serviceImpl;
 
+import com.stackroute.quizify.recommendationservice.domain.Game;
 import com.stackroute.quizify.recommendationservice.domain.GameIsATopic;
-import com.stackroute.quizify.recommendationservice.domain.Games;
 import com.stackroute.quizify.recommendationservice.domain.Topic;
 import com.stackroute.quizify.recommendationservice.repository.GameIsATopicRepository;
 import com.stackroute.quizify.recommendationservice.service.GameIsATopicService;
@@ -26,7 +26,7 @@ public class GameIsATopicServiceImpl implements GameIsATopicService {
     }
 
     @Override
-    public GameIsATopic createRelationship(Games game) {
+    public GameIsATopic createRelationship(Game game) {
         long gameId=game.getId();
         Topic topic=game.getTopic();
         long topicId=topic.getId();

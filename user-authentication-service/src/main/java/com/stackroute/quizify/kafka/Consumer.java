@@ -21,7 +21,7 @@ public class Consumer {
     }
 
 
-    @KafkaListener(topics = "users", groupId = "login-users-consumers", containerFactory = "kafkaListenerContainerFactory")
+    @KafkaListener(topics = "user", groupId = "login-user-consumers", containerFactory = "kafkaListenerContainerFactory")
     public void receive(@Payload User payload) {
         System.out.println("-----------------------------------------------------------------------------------------");
         System.out.println("User data Received : ");

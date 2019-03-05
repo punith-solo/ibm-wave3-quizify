@@ -130,7 +130,7 @@ ResponseEntity responseEntity;
     }
 
     @ApiOperation(value = "It saves all the user details")
-    @PostMapping("users")
+    @PostMapping("user")
     public ResponseEntity<?> saveEvent(@RequestBody LoginUser user)  throws UserNameNotFoundException {
 
         try {

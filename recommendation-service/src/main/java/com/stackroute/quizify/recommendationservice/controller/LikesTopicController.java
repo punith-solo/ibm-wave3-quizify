@@ -2,7 +2,7 @@ package com.stackroute.quizify.recommendationservice.controller;
 
 
 import com.stackroute.quizify.recommendationservice.domain.LikesTopic;
-import com.stackroute.quizify.recommendationservice.domain.Users;
+import com.stackroute.quizify.recommendationservice.domain.User;
 import com.stackroute.quizify.recommendationservice.service.LikesTopicService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -27,8 +27,8 @@ public class LikesTopicController {
     }
 
     @PostMapping("/")
-    public List<LikesTopic> create(@RequestBody Users users){
-        return likesTopicService.createRelationship(users);
+    public List<LikesTopic> create(@RequestBody User user){
+        return likesTopicService.createRelationship(user);
     }
 }
 

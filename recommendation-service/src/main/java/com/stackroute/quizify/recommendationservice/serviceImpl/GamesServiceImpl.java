@@ -1,7 +1,6 @@
 package com.stackroute.quizify.recommendationservice.serviceImpl;
 
-import com.stackroute.quizify.recommendationservice.domain.GameIsATopic;
-import com.stackroute.quizify.recommendationservice.domain.Games;
+import com.stackroute.quizify.recommendationservice.domain.Game;
 import com.stackroute.quizify.recommendationservice.repository.GamesRepository;
 import com.stackroute.quizify.recommendationservice.service.GameIsATopicService;
 import com.stackroute.quizify.recommendationservice.service.GameTypeOfGenreService;
@@ -27,46 +26,46 @@ public class GamesServiceImpl implements GamesService {
     }
 
     @Override
-    public List<Games> getAll() {
+    public List<Game> getAll() {
         return gamesRepository.getAllNodes();
     }
 
     @Override
-    public Games getone(long gamesId) {
+    public Game getone(long gamesId) {
         return gamesRepository.getNode(gamesId);
     }
 
     @Override
-    public Games create(Games games) {
-        long id=games.getId();
-        String name=games.getName();
-        String level=games.getLevel();
-        String imageUrl=games.getImageUrl();
-        int numOfQuestion=games.getNumOfQuestion();
-        int timeDuration=games.getTimeDuration();
-        int liked=games.getLiked();
-        List<String> rules=games.getRules();
-        int playcount=games.getPlayCount();
-        Games games1=gamesRepository.createNode(id,name,playcount,level,imageUrl,numOfQuestion,timeDuration,liked,rules);
-        gameIsATopicService.createRelationship(games);
-        gameTypeOfGenreService.createRelationship(games);
-        return games1;
+    public Game create(Game game) {
+        long id= game.getId();
+        String name= game.getName();
+        String level= game.getLevel();
+        String imageUrl= game.getImageUrl();
+        int numOfQuestion= game.getNumOfQuestion();
+        int timeDuration= game.getTimeDuration();
+        int liked= game.getLiked();
+        List<String> rules= game.getRules();
+        int playcount= game.getPlayCount();
+        Game game1 =gamesRepository.createNode(id,name,playcount,level,imageUrl,numOfQuestion,timeDuration,liked,rules);
+        gameIsATopicService.createRelationship(game);
+        gameTypeOfGenreService.createRelationship(game);
+        return game1;
     }
 
     @Override
-    public Games delete(long gamesId) {
+    public Game delete(long gamesId) {
         return gamesRepository.deleteNode(gamesId);
     }
 
     @Override
-    public Games update(Games games) {
-        long id=games.getId();
-        String name=games.getName();
+    public Game update(Game game) {
+        long id= game.getId();
+        String name= game.getName();
         return gamesRepository.updateNode(id,name);
     }
 
     @Override
-    public List<Games> getMostPlayed() {
+    public List<Game> getMostPlayed() {
         return gamesRepository.getMostPlayed();
     }
 }

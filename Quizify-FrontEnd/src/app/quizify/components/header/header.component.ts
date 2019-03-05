@@ -11,7 +11,7 @@ import { AuthenticationService } from '../../services/authentication.service';
 export class HeaderComponent implements OnInit {
   flag: boolean;
   userLogged: boolean;
-  private games: Gamesearch[];
+  private game: Gamesearch[];
    constructor(private searchService: SearchService ,  private authenticationService: AuthenticationService) { }
 ngOnInit() {
 

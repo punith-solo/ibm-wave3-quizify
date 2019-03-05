@@ -32,7 +32,7 @@ public class KafkaConsumerConfig {
         configs.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, "127.0.0.1:9092");
         configs.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
         configs.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, JsonDeserializer.class);
-        configs.put(ConsumerConfig.GROUP_ID_CONFIG, "login-users-consumers");
+        configs.put(ConsumerConfig.GROUP_ID_CONFIG, "login-user-consumers");
         configs.put(JsonDeserializer.VALUE_DEFAULT_TYPE, User.class);
         configs.put(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG, "latest");
         configs.put(ConsumerConfig.ENABLE_AUTO_COMMIT_CONFIG, "true");
