@@ -19,5 +19,5 @@ public interface GenreService {
 //    List<Genre> getAllGenreByName(String topicName) throws GenreDoesNotExistsException;
     List<Genres> getAllGenreByStartsWith(String genreName)throws GenreDoesNotExistsException;
 
-    Game deleteGameById(long genreId, long gameId) throws GenreDoesNotExistsException, NoGameFoundException;
+    Game deleteGameById(String name, long gameId) throws GenreDoesNotExistsException, NoGameFoundException;
 }
