@@ -9,7 +9,8 @@ import { CommonModule } from '@angular/common';
 import { ProfileComponent } from './components/profile/profile.component';
 import { CardsComponent } from './components/cards/cards.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import { MatCardModule, MatCardHeader, MatFormField, MatFormFieldModule, MatInputModule, MatButtonModule, MatDialogModule, MatIconModule, MatLabel, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { MatCardModule, MatCardHeader, MatFormField, MatFormFieldModule,
+   MatInputModule, MatButtonModule, MatDialogModule, MatIconModule, MatLabel, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { LoginComponent } from './components/login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
@@ -26,6 +27,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { GameEngineComponent } from './components/game-engine/game-engine.component';
 import { AuthGuard } from './components/auth/auth.guard';
 import { DialogComponent } from './components/dialog/dialog.component';
+import { GameEngineService } from './services/game-engine.service';
 // import {NgMultiSelectDropDownModule} from 'ng-multiselect-dropdown';
 @NgModule({
   declarations: [ CardsComponent,
@@ -44,8 +46,8 @@ import { DialogComponent } from './components/dialog/dialog.component';
     GameEngineComponent,
     DialogComponent
      ],
-     providers: [ CardService, CookieService, GamedetailsService, AuthGuard,
-	{ provide: MatDialogModule, useValue: {} },
+     providers: [ CardService, CookieService, GamedetailsService, AuthGuard, GameEngineService,
+      { provide: MatDialogModule, useValue: {} },
       { provide: MatIconModule, useValue: [] },
       {
          provide: MatLabel, useValue: {}
@@ -86,7 +88,8 @@ import { DialogComponent } from './components/dialog/dialog.component';
     GamedetailsComponent,
     AdminpageComponent,
     HeaderComponent,
-    DialogComponent
+    DialogComponent,
+    GameEngineComponent
    ],
 
 })

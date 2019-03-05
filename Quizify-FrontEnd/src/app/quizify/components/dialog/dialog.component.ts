@@ -11,11 +11,17 @@ import { GameserviceService } from '../../services/gameservice.service';
 })
 export class DialogComponent implements OnInit {
 
-  constructor(public dialogRef: MatDialogRef<DialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any, private searchService: SearchService, public route: Router) { }
+  constructor(private router: Router, public dialogRef: MatDialogRef<DialogComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: any, private searchService: SearchService) { }
 
   ngOnInit() {
 
   }
+  fetchGameId(gameId: number) {
+    console.log('it is game Id', gameId);
+    this.router.navigate(['playgame', {id : gameId}]);
+    // this.gameengineservice.fetchGame(gameId);
+   }
+
 
 }
