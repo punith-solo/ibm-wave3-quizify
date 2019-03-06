@@ -33,13 +33,12 @@ public class UserServiceImpl implements UserService {
         }
         else
         {
+            producer.send(userDTO);
             if(this.userRepository.findTopByOrderByIdDesc().isEmpty())
                 userDTO.setId(1);
             else
                 userDTO.setId(this.userRepository.findTopByOrderByIdDesc().get().getId()+1);
-            this.userRepository.save(this.userMapper.userDTOToUser(userDTO));
-            producer.send(userDTO);
-            return this.userMapper.userDTOToUser(userDTO);
+            return this.userRepository.save(this.userMapper.userDTOToUser(userDTO));
         }
     }
 
