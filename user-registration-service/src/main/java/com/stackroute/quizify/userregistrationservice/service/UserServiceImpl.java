@@ -44,6 +44,11 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public User getUser(long id) throws UserNotFoundException {
+        return userRepository.getById(id);
+    }
+
+    @Override
     public List<User> getAllUsers() {
 
         return userRepository.findAll();
