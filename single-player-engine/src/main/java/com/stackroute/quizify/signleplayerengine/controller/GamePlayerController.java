@@ -36,8 +36,6 @@ public class GamePlayerController {
     {
 
             SinglePlayer singlePlayer = new SinglePlayer();
-//            String url = "http://13.232.243.68:8102/api/v1/games/" +id;
-//                   singlePlayer.getGame().setId(gameId);
 
         String url = "http://13.232.243.68:8102/api/v1/game/" +id;
 
