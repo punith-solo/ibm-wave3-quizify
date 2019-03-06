@@ -110,7 +110,6 @@ services:
     restart: always
     network_mode: host
     depends_on:
-      - zookeeper
       - kafka
       - mongo
       - eurekaserver
@@ -127,7 +126,6 @@ services:
     restart: always
     network_mode: host
     depends_on:
-      - zookeeper
       - kafka
       - mongo
       - eurekaserver
@@ -144,7 +142,6 @@ services:
     restart: always
     network_mode: host
     depends_on:
-      - zookeeper
       - kafka
       - mongo
       - eurekaserver
@@ -161,7 +158,6 @@ services:
     restart: always
     network_mode: host
     depends_on:
-      - zookeeper
       - kafka
       - mongo
       - eurekaserver
@@ -178,7 +174,6 @@ services:
     restart: always
     network_mode: host
     depends_on:
-      - zookeeper
       - kafka
       - mysql
       - eurekaserver
@@ -195,7 +190,6 @@ services:
     restart: always
     network_mode: host
     depends_on:
-      - zookeeper
       - kafka
       - neo4j
       - eurekaserver
@@ -207,20 +201,20 @@ services:
       - 8104
 
 
-#  single-player-engine:
-#    image: single-player-engine
-#    build: single-player-engine/
-#    restart: always
-#    network_mode: host
-#    depends_on:
-#      - zookeeper
-#      - eurekaserver
-#      - configserver
-#      - apigateway
-#    ports:
-#      - 8108:8108
-#    expose:
-#      - 8108
+  single-player-engine:
+    image: single-player-engine
+    build: single-player-engine/
+    restart: always
+    network_mode: host
+    depends_on:
+      - kafka
+      - eurekaserver
+      - configserver
+      - apigateway
+    ports:
+      - 8108:8108
+    expose:
+      - 8108
 
 
   quizify-front-end:
