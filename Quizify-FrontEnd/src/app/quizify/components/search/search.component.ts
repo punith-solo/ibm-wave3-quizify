@@ -16,7 +16,6 @@ export class SearchComponent implements OnInit {
 
   Gamesearch: any;
   private games: Gamesearch[];
-  q: any;
   dialogResult: any;
   constructor(private router: Router, private searchService: SearchService, public dialog: MatDialog) { }
 

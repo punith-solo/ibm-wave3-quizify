@@ -89,7 +89,8 @@ import { GameEngineService } from './services/game-engine.service';
     AdminpageComponent,
     HeaderComponent,
     DialogComponent,
-    GameEngineComponent
+    GameEngineComponent,
+    FooterComponent
    ],
 
 })

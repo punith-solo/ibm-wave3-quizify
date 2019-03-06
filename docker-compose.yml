@@ -240,3 +240,8 @@ services:
     ports:
       - 9000:9000
     network_mode: host
+    volumes:
+      - './sonar-data:/opt/sonarqube/conf'
+      #    entrypoint: ./run.sh
+    environment:
+      - sonar.embeddedDatabase.port=8115
