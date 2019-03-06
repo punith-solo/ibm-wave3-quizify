@@ -22,7 +22,7 @@ export class GameEngineComponent implements OnInit {
       console.log(this.gameId);
           this.gameengineservice.fetchGame(this.gameId).subscribe((res: any) => {
             this.game = res;
-            console.log(res);
+            console.log(this.game.numOfQuestion);
             // console.log(this.game);
             });
       });
