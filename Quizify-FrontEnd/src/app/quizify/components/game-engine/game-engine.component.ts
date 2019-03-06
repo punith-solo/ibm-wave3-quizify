@@ -22,19 +22,10 @@ export class GameEngineComponent implements OnInit {
       console.log(this.gameId);
           this.gameengineservice.fetchGame(this.gameId).subscribe((res: any) => {
             this.game = res;
+            console.log(res);
+            // console.log(this.game);
             });
       });
   }
-    // this.router.paramMap.subscribe( (params: ParamMap) =>{
-    //   this.selected = +(params.get('id'));
-      // console.log(this.selected);
-  //   });
-
-  // }
-  //     this.gameengineservice.fetchGame(this.game.id).subscribe((res: any) => {
-  //     this.game = res;
-  //     console.log(res);
-  //   });
-  // }
 
 }
