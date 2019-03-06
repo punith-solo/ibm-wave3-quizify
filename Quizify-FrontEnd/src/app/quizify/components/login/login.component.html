@@ -1,8 +1,7 @@
-
-
-<div class="container" >
+<app-header></app-header>
+<div class="container">
   <!-- <div class="pics"> -->
-    
+  
   <form [formGroup]="user" (ngSubmit)="login()">
    <mat-form-field appearance="outline" class="id">
     <mat-label>Username</mat-label>
@@ -18,11 +17,10 @@
    </mat-form-field>
    <!-- <div mat-card-action > -->
    <button mat-raised-button class = "btn" color="" type="submit" [disabled]="!user.valid" (click) = "login()">Login</button>
-   <p>Not An Existing  User?</p>
+   <p>Not An Existing  User .. ?</p>
    <button mat-raised-button class="btn1" [routerLink]="[ '/register' ]" color="">Register</button>
   <!-- </div> -->
   </form>
   <!-- </div> -->
   </div>
-
 

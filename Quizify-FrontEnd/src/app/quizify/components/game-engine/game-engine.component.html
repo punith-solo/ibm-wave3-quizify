@@ -1,4 +1,6 @@
-<!-- <div>  
+
+    <app-header></app-header>
+    <div>  
   <mat-nav-list>
       <mat-list-item *ngFor="let question of questions; index as i">
           <h4 matLine>MadhuPriya.... Q.{{i+1}}.{{question.statement}}</h4>
@@ -23,4 +25,6 @@
   <md-button class="md-accent md-raised" ng-click="quizzCtrl.goNextStep($index)" ng-if="$index !== quizzCtrl.quizzModel.questions.length">
       <span>{{'QUIZZ_NEXT_BUTTON' | translate}}</span>	
   </md-button>								
-</div>  -->
+</div> 
+
+

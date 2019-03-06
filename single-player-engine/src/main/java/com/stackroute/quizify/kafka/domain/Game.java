@@ -26,4 +26,7 @@ public class Game {
     private int liked;
     private int playCount;
     private List<String> rules;
+
+
+
 }

@@ -1,4 +1,4 @@
-
+<app-header></app-header>
 <mat-horizontal-stepper linear id="reg">
   <mat-step #myStep [stepControl]="formGroup1" editable="true">
     <ng-template matStepLabel>
@@ -13,11 +13,11 @@
           placeholder="username"
           [(ngModel)]="name"
           pattern="[a-z]{1,15}"
-          [ngModelOptions]="{ standalone: true }"
+          formControlName = "firstCtrl"
           required
         />
         <mat-hint>Username should be in lowercase letters</mat-hint>
-     
+
       </mat-form-field>
       <br />
       <mat-form-field appearance="outline" class="password">
@@ -64,17 +64,17 @@
       <br />
       <br />
       <mat-radio-group
-      appearance="outline"
-      class="gender"
-      [(ngModel)]="gender"
-      [ngModelOptions]="{ standalone: true }"
-      required
-    >
-      <mat-label>Gender</mat-label>
-      <mat-radio-button value="Male">Male </mat-radio-button>
-      <mat-radio-button value="female">Female</mat-radio-button>
-    </mat-radio-group>
+        appearance="outline"
+        class="gender"
+        [(ngModel)]="gender"
+        [ngModelOptions]="{ standalone: true }"
 
+        required
+      >
+        <mat-label>Gender</mat-label>
+        <mat-radio-button value="Male">Male </mat-radio-button>
+        <mat-radio-button value="female">Female</mat-radio-button>
+      </mat-radio-group>
       <br />
       <br />
       <br />

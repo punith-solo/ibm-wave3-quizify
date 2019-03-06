@@ -1,7 +1,6 @@
 package com.stackroute.quizify.kafka.configuration;
 
 import com.stackroute.quizify.dto.model.UserDTO;
-import com.stackroute.quizify.userauthentication.domain.User;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.common.serialization.StringDeserializer;
 import org.springframework.beans.factory.annotation.Value;

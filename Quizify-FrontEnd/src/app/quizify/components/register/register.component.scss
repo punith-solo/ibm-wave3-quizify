@@ -1,13 +1,23 @@
 #reg{
   // padding-left: 1px;
   // padding-right: 1px;
-  margin-top: 80px;
-  margin-left: -10px;
-  margin-right: -10px;
-  height: 670px;
-  overflow-y: hidden;
+  // margin-top: 80px;
+  // margin-left: -10px;
+  // margin-right: -10px;
+  // height: 670px;
+  // overflow-y: hidden;
   background-image:url("https://accounts.rosharonmontessori.edu.gh/wp-content/uploads/2017/02/71.jpg");
-  background-image: no-repeat;
+//  background-image: no-repeat;
+  height: 640px;
+overflow: hidden;
+ background-position: center;
+background-repeat: no-repeat;
+background-size: cover;
+
+ position: relative;
+margin-top: 80px;
+margin-left: -10px;
+ margin-right: -7px;
   
 }
 .example-card {
