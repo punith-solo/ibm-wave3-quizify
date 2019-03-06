@@ -1,8 +1,8 @@
-package com.stackroute.quizify.signleplayerengine.controller;
+package com.stackroute.quizify.singleplayerengine.controller;
 
 import com.stackroute.quizify.kafka.domain.Game;
 import com.stackroute.quizify.kafka.domain.SinglePlayer;
-import com.stackroute.quizify.signleplayerengine.service.PlayerService;
+import com.stackroute.quizify.singleplayerengine.service.PlayerService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;

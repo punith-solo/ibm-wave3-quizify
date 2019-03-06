@@ -1,4 +1,4 @@
-package com.stackroute.quizify.signleplayerengine.service;
+package com.stackroute.quizify.singleplayerengine.service;
 
 import com.stackroute.quizify.kafka.Producer;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,4 +1,4 @@
-package com.stackroute.quizify.signleplayerengine.config;
+package com.stackroute.quizify.singleplayerengine.config;
 
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
