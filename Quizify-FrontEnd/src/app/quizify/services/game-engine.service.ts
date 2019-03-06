@@ -24,5 +24,6 @@ export class GameEngineService {
      console.log(this.microServiceUrl + 'game/' + gameId);
     return this.http
      .get(this.microServiceUrl + 'game/' + gameId, { observe: 'response' });
+     
     }
 }
