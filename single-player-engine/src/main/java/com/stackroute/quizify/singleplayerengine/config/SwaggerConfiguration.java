@@ -33,7 +33,7 @@ public class SwaggerConfiguration implements WebMvcConfigurer
 
         return new Docket(DocumentationType.SWAGGER_2)
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("com.stackroute.quizify.singleplayerengine.controller"))
+                .apis(RequestHandlerSelectors.basePackage("com.stackroute.quizify.signleplayerengine.controller"))
                 .paths(PathSelectors.any())
                 .build();
     }
