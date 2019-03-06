@@ -1,6 +1,22 @@
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
+  color: whitesmoke!important;
+  // opacity: 1!important;
+}
+::ng-deep .mat-input-element {
+  caret-color: whitesmoke!important;
+}
+::ng-deep .mat-form-field-invalid .mat-input-element, .mat-warn .mat-input-element {
+  caret-color: whitesmoke!important;
+}
+::ng-deep .mat-form-field.mat-focused .mat-form-field-label {
+  color: whitesmoke!important;
+}
+::ng-deep .mat-form-field.mat-form-field-invalid .mat-form-field-label {
+  color: whitesmoke!important;
+}
 h1{
   margin-top:100px;
- // text-align:center;
+ 
  padding-left: 1000px;
 
 }
@@ -16,44 +32,38 @@ h1{
 
 .id
 {
-//   margin-top: 10%;
+
  margin-left: 1050px;
  padding-top: 80px;
  clear: both;
 }
 .password{
-  // margin-left: 85%;
+  
   margin-left: 1050px;
-//  padding-top: 95px;
+
 }
 .btn {
-  margin-left: 1080px;
-  width: 5%;
+  margin-left: 66%;
+  width: 10%;
+  font-size: 20px;
 }
 p{
   color: whitesmoke;
  font-size: 20px;
  padding-left: 65%;
  position: relative;
- // margin-top: 2%;
- //padding-bottom: 40%;
- //margin-top: 10px;
- // padding-bottom: 45%;
- // top: 30px;
+ 
 }
 .btn1{
 
-// margin-top: 100px;
-// margin-top: 10px;
+
 position: relative;
  width: 10%;
  font-size: 20px;
- //padding-left: 65%;
- margin-left: 65%;
+ 
+ margin-left: 66%;
  margin-top: 3%;
- //margin-top: -500px;
-//  top: 50px;
-// left: 100px;
+ 
 }
 mat-label{
 font-size: 20px;
@@ -61,28 +71,16 @@ font-size: 20px;
 
 .container {
  background-image: url('../../../../assets/images/login3.jpg');
+// opacity: 0.7;
  height: 640px;
-//  width: 1400px;
-//  height: 690px;
-// background-color: yellow;
+overflow: hidden;
  background-position: center;
 background-repeat: no-repeat;
 background-size: cover;
-// background-blend-mode: lighten;
+
  position: relative;
 margin-top: 80px;
 margin-left: -100px;
  margin-right: -7px;
-//  left: 0px;
-//  top: 0px;
 
-//  right: 0px;
 }
-// .pics
-// {
-//  margin-left: 500px;
-//  width: 600px;
-//  height: 600px;
-//  background-color: blueviolet;
-//  // margin-top: 100px;
-// }

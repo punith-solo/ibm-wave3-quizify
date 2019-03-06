@@ -11,12 +11,13 @@
         <input
           matInput
           placeholder="username"
-          formControlName="firstCtrl"
-          autocomplete="off"
           [(ngModel)]="name"
-          name="userName"
+          pattern="[a-z]{1,15}"
+          formControlName = "firstCtrl"
           required
         />
+        <mat-hint>Username should be in lowercase letters</mat-hint>
+
       </mat-form-field>
       <br />
       <mat-form-field appearance="outline" class="password">
@@ -33,7 +34,7 @@
         <mat-icon matSuffix (click)="hide = !hide">{{
           hide ? "visibility_off" : "visibility"
         }}</mat-icon>
-        <mat-hint>Starts with captial,num & length8!</mat-hint>
+        <mat-hint>Starts with captial,one num & length8!</mat-hint>
       </mat-form-field>
       <br />
       <mat-form-field class="emailid" appearance="outline" required>
@@ -65,9 +66,9 @@
       <mat-radio-group
         appearance="outline"
         class="gender"
-        formControlName="firstCtrl"
         [(ngModel)]="gender"
-        name="gender"
+        [ngModelOptions]="{ standalone: true }"
+
         required
       >
         <mat-label>Gender</mat-label>
@@ -230,4 +231,3 @@
     </form>
   </mat-step>
 </mat-horizontal-stepper>
-<app-footer></app-footer>
