@@ -5,6 +5,7 @@ import com.stackroute.quizify.kafka.domain.SinglePlayer;
 import com.stackroute.quizify.singleplayerengine.service.PlayerService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,6 +16,7 @@ import org.springframework.web.client.RestTemplate;
 @RestController
 @RequestMapping("/api/v1")
 @Api(description="Single Player Service")
+@Slf4j
 public class GamePlayerController {
 
     private PlayerService playerService;
@@ -34,11 +36,14 @@ public class GamePlayerController {
     {
 
             SinglePlayer singlePlayer = new SinglePlayer();
-            String url = "http://13.232.243.68:8102/api/v1/game/" +id;
-//                   singlePlayer.getGame().setId(gameId);
+
+        String url = "http://13.232.243.68:8102/api/v1/game/" +id;
+
 
             Game game = restTemplate.getForObject(url, Game.class);
+
             singlePlayer.setGame(game);
+
             return new ResponseEntity<SinglePlayer>(singlePlayer,HttpStatus.OK);
     }
 
