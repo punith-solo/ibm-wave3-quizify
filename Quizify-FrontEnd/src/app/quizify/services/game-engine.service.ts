@@ -22,7 +22,7 @@ export class GameEngineService {
 
    fetchGame(gameId: number) {
     console.log(gameId);
-      console.log( this.http
-     .get(this.microServiceUrl + 'game/' + gameId, { observe: 'response' }));
+    return this.http
+     .get(this.microServiceUrl + 'game/' + gameId, { observe: 'response' });
     }
 }

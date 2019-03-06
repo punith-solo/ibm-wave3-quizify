@@ -14,12 +14,14 @@ import { QuestionGeneratorComponent } from './quizify/components/question-genera
 import { GamedetailsComponent } from './quizify/components/gamedetails/gamedetails.component';
 import { AdminpageComponent } from './quizify/components/adminpage/adminpage.component';
 import { AuthGuard } from './quizify/components/auth/auth.guard';
+import { GameEngineComponent } from './quizify/components/game-engine/game-engine.component';
 
 
 const routes: Routes = [
   { path: 'profile' , component: ProfileComponent },
  {path: 'login', component: LoginComponent},
  { path: 'profileuser', component: ProfileuserComponent },
+ { path: 'playgame' , component: GameEngineComponent},
 
   { path: 'gamehistory', component: GamehistoryComponent },
 

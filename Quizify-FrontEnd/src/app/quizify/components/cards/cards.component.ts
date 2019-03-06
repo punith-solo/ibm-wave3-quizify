@@ -1,6 +1,7 @@
 import { CardService } from './../../services/card.service';
 import { Component, OnInit } from '@angular/core' ;
 import { GameEngineService } from '../../services/game-engine.service';
+import { RootContext } from '@angular/core/src/render3/interfaces/view';
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material';
 import { DialogComponent } from '../dialog/dialog.component';
@@ -26,7 +27,8 @@ export class CardsComponent implements OnInit {
     }
   }
   fetchGameId(gameId: number) {
-    this.gameengineservice.fetchGame(gameId);
+    console.log(gameId);
+    this.router.navigate(['playgame', {id : gameId}]);
    }
 
    openDialog(q) {
