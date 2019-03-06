@@ -206,6 +206,7 @@ services:
     expose:
       - 8104
 
+
   single-player-engine:
     image: single-player-engine
     build: single-player-engine/
@@ -221,6 +222,7 @@ services:
     expose:
       - 8108
 
+
   quizify-front-end:
     image: quizify-front-end
     build: Quizify-FrontEnd/
@@ -232,3 +234,14 @@ services:
     expose:
       - 4200
     restart: always
+
+  sonarqube:
+    image: sonarqube
+    ports:
+      - 9000:9000
+    network_mode: host
+    volumes:
+      - './sonar-data:/opt/sonarqube/conf'
+      #    entrypoint: ./run.sh
+    environment:
+      - sonar.embeddedDatabase.port=8115

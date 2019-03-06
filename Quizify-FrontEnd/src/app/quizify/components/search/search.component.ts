@@ -16,26 +16,26 @@ export class SearchComponent implements OnInit {
 
   Gamesearch: any;
   private games: Gamesearch[];
-  q: any;
   dialogResult: any;
-  constructor(private router: Router, private searchService: SearchService, public dialog: MatDialog, private gameengineservice: GameEngineService) { }
+  constructor(private router: Router, private searchService: SearchService, public dialog: MatDialog) { }
 
   ngOnInit() {
 
   }
+
   fetchGameId(gameId: number) {
-    this.gameengineservice.fetchGame(gameId);
+    this.router.navigate(['playgame', {id : gameId}]);
    }
 
 
   search(value) {
     if (value === '') {
-      this.game = null;
+      this.games = null;
     } else {
-    this.searchService.searchByTopicStartsWith(value).subscribe((res: any) => {
-      this.game = res.body;
+    this.searchService.searchByTopicOrGenreOrQuizStartsWith(value).subscribe((res: any) => {
+      this.games = res.body;
       console.log(res);
-      console.log(this.game);
+      console.log(this.games);
     });
   }
 

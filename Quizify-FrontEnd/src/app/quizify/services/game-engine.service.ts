@@ -17,12 +17,12 @@ export class GameEngineService {
   private errorBody: string;
 
   constructor(private http: HttpClient) {
-    this.microServiceUrl = 'http://13.232.243.68:8108/single-player-service/api/v1/';
+    this.microServiceUrl = 'http://13.232.243.68:8108/api/v1/';
    }
 
    fetchGame(gameId: number) {
-    console.log(gameId);
-      console.log( this.http
-     .get(this.microServiceUrl + 'game/' + gameId, { observe: 'response' }));
+     console.log(this.microServiceUrl + 'game/' + gameId);
+    return this.http
+     .get(this.microServiceUrl + 'game/' + gameId, { observe: 'response' });
     }
 }
