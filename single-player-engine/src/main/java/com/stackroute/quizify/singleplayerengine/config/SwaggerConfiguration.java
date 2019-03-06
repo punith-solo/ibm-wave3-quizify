@@ -1,8 +1,6 @@
-package com.stackroute.quizify.signleplayerengine.config;
+package com.stackroute.quizify.singleplayerengine.config;
 
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
@@ -25,7 +23,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
  *
  * The Interface "WebMvcConfigurer" Defines callback methods to customize the Java-based configuration for Spring MVC.
  */
-
+@SpringBootApplication
 @Configuration
 @EnableSwagger2
 public class SwaggerConfiguration implements WebMvcConfigurer
@@ -41,3 +39,4 @@ public class SwaggerConfiguration implements WebMvcConfigurer
     }
 
 }
+
