@@ -86,7 +86,8 @@ import { DialogComponent } from './components/dialog/dialog.component';
     GamedetailsComponent,
     AdminpageComponent,
     HeaderComponent,
-    DialogComponent
+    DialogComponent,
+    FooterComponent
    ],
 
 })
