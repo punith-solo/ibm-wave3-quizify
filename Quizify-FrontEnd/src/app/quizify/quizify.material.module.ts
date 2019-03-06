@@ -41,7 +41,6 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle';
        MatSelectModule,
        RouterModule, MatStepperModule, MatProgressSpinnerModule, MatButtonToggleModule,
       // FlexLayoutModule,
-       MatButtonModule,
        MatCheckboxModule,
        MatIconModule,
        MatToolbarModule,
@@ -56,8 +55,7 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle';
        MatInputModule,
        MatSelectModule,
        FormsModule,
-       MatRadioModule,
-       MatButtonModule
+       MatRadioModule
     ] ,
       schemas: [CUSTOM_ELEMENTS_SCHEMA] ,
       exports: [
@@ -74,7 +72,6 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle';
           MatSelectModule,
           RouterModule, MatStepperModule, MatProgressSpinnerModule, MatButtonToggleModule,
          // FlexLayoutModule,
-          MatButtonModule,
           MatCheckboxModule,
           MatIconModule,
           MatToolbarModule,
