@@ -15,6 +15,7 @@ import { GamedetailsComponent } from './quizify/components/gamedetails/gamedetai
 import { AdminpageComponent } from './quizify/components/adminpage/adminpage.component';
 import { AuthGuard } from './quizify/components/auth/auth.guard';
 import { GameEngineComponent } from './quizify/components/game-engine/game-engine.component';
+import { RuleComponent } from './quizify/components/rule/rule.component';
 
 
 const routes: Routes = [
@@ -33,8 +34,8 @@ const routes: Routes = [
   {path: 'search', component: SearchComponent},
   { path: 'question', component: QuestionGeneratorComponent },
   { path: 'adminpage', component: AdminpageComponent, canActivate: [AuthGuard] },
-    { path: '**', component: CardsComponent
-  }
+  { path: 'rule', component: RuleComponent},
+    { path: '**', component: CardsComponent}
 
 ];
 
