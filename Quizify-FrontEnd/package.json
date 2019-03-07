@@ -29,6 +29,7 @@
     "forms": "^1.3.0",
     "hammerjs": "^2.0.8",
     "jsonwebtoken": "^8.4.0",
+    "jwt-decode": "^2.2.0",
     "material": "^0.3.2",
     "ng-multiselect-dropdown": "^0.2.3",
     "ngx-cookie-service": "^2.1.0",
