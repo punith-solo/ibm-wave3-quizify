@@ -73,14 +73,7 @@ public class GamePlayerController {
     public ResponseEntity<?> getGame( @PathVariable long id)
 
     {
-
-
-
-
-
-
-
-        String url = "http://localhost:8102/api/v1/game/game/" +id;
+        String url = "http://13.232.243.68:8102/api/v1/game/game/" +id;
 
             Game game = restTemplate.getForObject(url, Game.class);
 
@@ -120,13 +113,7 @@ public class GamePlayerController {
 
     {
 
-
-
-
-
-
-
-        String url = "http://localhost:8102/api/v1/game/game/" +id;
+        String url = "http://13.232.243.68:8102/api/v1/game/game/" +id;
 
             Game game = restTemplate.getForObject(url, Game.class);
 
@@ -146,18 +133,18 @@ public class GamePlayerController {
 
 
 
-	@ApiOperation(value = "send User Game")
-
-	@PostMapping(value = "/user/{playerId}/game/{id}/score/{score}")
-
-	public ResponseEntity<?> postGame(@Pathvariable String playerId , @PathVariable long id , @PathVariable int score)
-
-	{
-
-		
-
-				
-
-	}
+//	@ApiOperation(value = "send User Game")
+//
+//	@PostMapping(value = "/user/{playerId}/game/{id}/score/{score}")
+//
+//	public ResponseEntity<?> postGame(@PathVariable String playerId , @PathVariable long id , @PathVariable int score)
+//
+//	{
+//
+//
+//
+//
+//
+//	}
 
 }
