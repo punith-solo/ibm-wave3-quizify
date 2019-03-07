@@ -54,7 +54,7 @@ export class GameEngineComponent implements OnInit {
           this.game = res.game;
         } );
       } catch (error) {
-        this.jti = 'madhu';
+        this.jti = 777;
         this.gameengineservice.fetchGame(this.gameId , this.jti).subscribe((res: any) => {
           this.singlePlayer.playerId = res.jti;
           this.game = res.game;
