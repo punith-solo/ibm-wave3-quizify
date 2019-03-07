@@ -41,6 +41,17 @@ public class UserController {
         }
     }
 
+    @ApiOperation(value = "returns user from the repository")
+
+    @GetMapping("/user/{id}")
+    public ResponseEntity<?> getUser(@PathVariable("id") long id) {
+        try {
+            return new ResponseEntity<User>(this.userService.getUser(id), HttpStatus.OK);
+        } catch (UserNotFoundException e) {
+            return new ResponseEntity<String>( e.getMessage(), HttpStatus.CREATED);
+        }
+    }
+
     @ApiOperation(value = "Accepts user into the repository")
 
     @GetMapping("/user")
