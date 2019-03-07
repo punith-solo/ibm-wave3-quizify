@@ -42,18 +42,20 @@ login() {
   this.loginService.login(this.user.value)
   .subscribe(res => {
   console.log('Res: ', res);
-  console.log(this.helper.decodeToken(res.token).jti, ' :this is the value of the username');
+  console.log(this.helper.decodeToken(res.token).jti, ' :this is the value of the id');
   console.log(this.helper.decodeToken(res.token).sub, ' :this is the value of the role');
-     if ((this.helper.decodeToken(res.token).sub === 'admin' )) {
+  console.log(this.helper.decodeToken(res.token).aud, ' :this is the value of the username');
+
+    if ((this.helper.decodeToken(res.token).sub === 'admin' )) {
       localStorage.setItem('token' , res.token);
       this.router.navigate([`/adminpage`]);
       this.isLoggedIn = true;
     }
     if ((this.helper.decodeToken(res.token).sub === 'player' )) {
-      this.helper1 = this.helper.decodeToken(res.token).jti ;
-      console.log(' user value in token :' + this.helper1);
-      console.log(' user value from textbox :' + this.user1.name);
-       if ( this.helper.decodeToken(res.token).jti === this.user1.name) {
+      this.helper1 = this.helper.decodeToken(res.token).aud ;
+      console.log(' username value in token :' + this.helper1);
+      console.log(' username value from textbox :' + this.user1.name);
+       if ( this.helper.decodeToken(res.token).aud === this.user1.name) {
         localStorage.setItem('token' , res.token);
         console.log('token value is' + '' + res.token);
         this.router.navigate([`/cards`]); // it will route to single player engine

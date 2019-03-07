@@ -87,7 +87,7 @@ ResponseEntity responseEntity;
 
                 String jwtToken = "";
 
-                jwtToken = Jwts.builder().setId(user.getName()).setSubject(user.getRole()).setIssuedAt(new Date())
+                jwtToken = Jwts.builder().setId(""+user.getId()).setSubject(user.getRole()).setAudience(user.getName()).setIssuedAt(new Date())
 
                         .signWith(SignatureAlgorithm.HS256, "secretkey").compact();
 
