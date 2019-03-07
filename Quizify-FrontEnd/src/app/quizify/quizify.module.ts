@@ -28,6 +28,8 @@ import { GameEngineComponent } from './components/game-engine/game-engine.compon
 import { AuthGuard } from './components/auth/auth.guard';
 import { DialogComponent } from './components/dialog/dialog.component';
 import { GameEngineService } from './services/game-engine.service';
+
+import { RuleComponent } from './components/rule/rule.component';
 // import {NgMultiSelectDropDownModule} from 'ng-multiselect-dropdown';
 @NgModule({
   declarations: [ CardsComponent,
@@ -44,7 +46,8 @@ import { GameEngineService } from './services/game-engine.service';
     AdminpageComponent,
     FooterComponent,
     GameEngineComponent,
-    DialogComponent
+    DialogComponent,
+    RuleComponent
      ],
      providers: [ CardService, CookieService, GamedetailsService, AuthGuard, GameEngineService,
       { provide: MatDialogModule, useValue: {} },
@@ -90,8 +93,7 @@ import { GameEngineService } from './services/game-engine.service';
     HeaderComponent,
     DialogComponent,
     GameEngineComponent,
-    FooterComponent
-   ],
+    FooterComponent   ],
 
 })
 export class QuizifyModule { }
