@@ -1,10 +1,10 @@
+import { ProfileUserComponent } from './quizify/components/profileuser/profileuser.component';
 import { HeaderComponent } from './quizify/components/header/header.component';
 
 import { LoginComponent } from './quizify/components/login/login.component';
 import { ProfileComponent } from './quizify/components/profile/profile.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { ProfileuserComponent } from './quizify/components/profileuser/profileuser.component';
 import { GamehistoryComponent } from './quizify/components/gamehistory/gamehistory.component';
 import { GameComponent } from './quizify/components/game/game.component';
 import { RegisterComponent } from './quizify/components/register/register.component';
@@ -20,7 +20,7 @@ import { GameEngineComponent } from './quizify/components/game-engine/game-engin
 const routes: Routes = [
   { path: 'profile' , component: ProfileComponent },
  {path: 'login', component: LoginComponent},
- { path: 'profileuser', component: ProfileuserComponent },
+ { path: 'profileuser', component: ProfileUserComponent },
  { path: 'playgame' , component: GameEngineComponent},
 
   { path: 'gamehistory', component: GamehistoryComponent },
