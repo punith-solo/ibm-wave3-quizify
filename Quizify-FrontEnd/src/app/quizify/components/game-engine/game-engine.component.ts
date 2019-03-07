@@ -32,61 +32,32 @@ export class GameEngineComponent implements OnInit {
 
   jti: string;
 
-  private singlePlayer: SinglePlayer; 
+  private singlePlayer: SinglePlayer;
 
   private game: Game;
 
 
 
   constructor( private route: ActivatedRoute , private gameengineservice: GameEngineService) { }
-
-
-
   ngOnInit() {
-
-
-
     this.route.params.subscribe((data: any) => {
-
       this.gameId = data.id;
-
       console.log(this.gameId);
-
-
-
-
-
       try {
-
         const tokenObtained = localStorage.getItem('token');
-
         this.loginToken = jwt_decode(tokenObtained);
-
         console.log('decoded token', jwt_decode(tokenObtained));
-
         this.jti = this.loginToken.jti;
-
         console.log('decoded token id', this.loginToken.jti);
-
-        this.gameengineservice.fetchGame(this.gameId , this.jti).subscribe((data: any) => {
-
-          this.singlePlayer.playerId = data.jti;
-
-          this.game = data.game;
-
-
-
+        this.gameengineservice.fetchGame(this.gameId , this.jti).subscribe((res: any) => {
+          this.singlePlayer.playerId = res.jti;
+          this.game = res.game;
         } );
-
       } catch (error) {
-
         this.jti = 'madhu';
-
-        this.gameengineservice.fetchGame(this.gameId , this.jti).subscribe((data: any) => {
-
-          this.singlePlayer.playerId = data.jti;
-
-          this.game = data.game;
+        this.gameengineservice.fetchGame(this.gameId , this.jti).subscribe((res: any) => {
+          this.singlePlayer.playerId = res.jti;
+          this.game = res.game;
 
         });
 
