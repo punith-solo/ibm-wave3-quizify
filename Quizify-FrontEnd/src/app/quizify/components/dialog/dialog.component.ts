@@ -2,7 +2,6 @@ import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { SearchService } from '../../services/search.service';
 import { Router } from '@angular/router';
-import { GameserviceService } from '../../services/gameservice.service';
 import { CardService } from '../../services/card.service';
 
 @Component({
