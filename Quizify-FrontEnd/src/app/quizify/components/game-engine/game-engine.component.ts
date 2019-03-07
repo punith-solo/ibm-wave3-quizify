@@ -38,7 +38,9 @@ export class GameEngineComponent implements OnInit {
 
 
 
-  constructor( private route: ActivatedRoute , private gameengineservice: GameEngineService) { }
+  constructor( private route: ActivatedRoute , private gameengineservice: GameEngineService) {
+    this.singlePlayer = new SinglePlayer();
+   }
   ngOnInit() {
     this.route.params.subscribe((data: any) => {
       this.gameId = data.id;
