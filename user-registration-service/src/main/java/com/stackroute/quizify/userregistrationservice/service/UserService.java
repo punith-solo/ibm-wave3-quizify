@@ -10,6 +10,7 @@ import java.util.List;
 public interface UserService {
 
      User saveUser(UserDTO userDTO) throws UserAlreadyExistException;
+     User getUser(long id) throws UserNotFoundException;
      List<User> getAllUsers()throws UserNotFoundException;
      User updateUser(UserDTO userDTO) throws UserNotFoundException;
      User deleteUser(long id) throws UserNotFoundException;

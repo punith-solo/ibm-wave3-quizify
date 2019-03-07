@@ -10,6 +10,8 @@ import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
+import static springfox.documentation.builders.PathSelectors.regex;
+
 /*
  * Spring @Configuration annotation is part of the spring core framework.
  * Spring Configuration annotation indicates that the class has @Bean definition methods.
@@ -34,7 +36,7 @@ public class SwaggerConfiguration implements WebMvcConfigurer
         return new Docket(DocumentationType.SWAGGER_2)
                 .select()
                 .apis(RequestHandlerSelectors.basePackage("com.stackroute.quizify.singleplayerengine.controller"))
-                .paths(PathSelectors.any())
+                .paths(regex("/api/v1.*"))
                 .build();
     }
 

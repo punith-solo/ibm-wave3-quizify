@@ -1,7 +1,5 @@
 package com.stackroute.quizify.userauthentication.component;
 
-import com.stackroute.quizify.dto.model.UserDTO;
-import com.stackroute.quizify.kafka.Producer;
 import com.stackroute.quizify.userauthentication.domain.User;
 import com.stackroute.quizify.userauthentication.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,11 +15,9 @@ import org.springframework.stereotype.Component;
 public class FeedDataApplicationListener implements ApplicationListener<ContextRefreshedEvent> {
     private UserRepository userRepository;
 
-    private Producer producer;
     @Autowired
-    public FeedDataApplicationListener(UserRepository userRepository, Producer producer){
+    public FeedDataApplicationListener(UserRepository userRepository){
         this.userRepository=userRepository;
-        this.producer = producer;
     }
 
     @Override
