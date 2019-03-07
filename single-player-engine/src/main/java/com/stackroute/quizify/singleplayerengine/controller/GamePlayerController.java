@@ -23,10 +23,12 @@ public class GamePlayerController {
     private ResponseEntity<?> responseEntity;
 
     RestTemplate restTemplate=new RestTemplate();
+	SinglePlayer singlePlayer;
 
     @Autowired
     public GamePlayerController(PlayerService playerService)
     {
+	        singlePlayer = new SinglePlayer();
         this.playerService = playerService;
     }
 
@@ -35,9 +37,9 @@ public class GamePlayerController {
     public ResponseEntity<?> getGame( @PathVariable long id)
     {
 
-            SinglePlayer singlePlayer = new SinglePlayer();
 
-        String url = "http://13.232.243.68:8102/api/v1/game/game/" +id;
+
+        String url = "http://localhost:8102/api/v1/game/game/" +id;
             Game game = restTemplate.getForObject(url, Game.class);
 
             singlePlayer.setGame(game);
@@ -45,8 +47,30 @@ public class GamePlayerController {
             return new ResponseEntity<SinglePlayer>(singlePlayer,HttpStatus.OK);
     }
 
+   @ApiOperation(value = "get user data")
+   @GetMapping(value="/user/{playerId}")
+   public ResponseEntity<?> getUser( @PathVariable String playerId)
+   {
+       singlePlayer.setPlayerId(playerId);
+       return new ResponseEntity<SinglePlayer>(singlePlayer,HttpStatus.OK);
+   }
+
+ @ApiOperation(value = "Get User Game")
+    @GetMapping(value = "/user/{playerId}/game/{id}")
+    public ResponseEntity<?> getGame(@PathVariable String playerId , @PathVariable long id)
+    {
 
 
+
+        String url = "http://localhost:8102/api/v1/game/game/" +id;
+            Game game = restTemplate.getForObject(url, Game.class);
+
+            singlePlayer.setGame(game);
+
+		singlePlayer.setPlayerId(playerId);
+
+            return new ResponseEntity<SinglePlayer>(singlePlayer,HttpStatus.OK);
+    }
 }
 
 //package com.stackroute.quizify.singleplayerengine.controller;

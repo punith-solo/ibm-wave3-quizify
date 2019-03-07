@@ -20,10 +20,10 @@ export class GameEngineService {
     this.microServiceUrl = 'http://localhost:8108/api/v1/';
    }
 
-   fetchGame(gameId: number) {
+   fetchGame(gameId: number, userName: string) {
      console.log(this.microServiceUrl + 'game/' + gameId);
     return this.http
-     .get(this.microServiceUrl + 'game/' + gameId, { observe: 'response' });
-     
+     .get(this.microServiceUrl + 'user/' + userName + '/'  +'game/' + gameId, { observe: 'response' });
     }
+   
 }

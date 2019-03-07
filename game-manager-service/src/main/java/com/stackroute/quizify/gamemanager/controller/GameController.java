@@ -131,7 +131,7 @@ public class GameController {
             Tag tag = liveGame.getTag();
             String level = liveGame.getLevel();
             int numberOfQuestions = liveGame.getNumOfQuestion();
-            String url = "http://13.232.243.68:8092/question-manager-service/api/v1/questions/";
+            String url = "http://localhost:8092/question-manager-service/api/v1/questions/";
 
             if (tag !=null)
             {

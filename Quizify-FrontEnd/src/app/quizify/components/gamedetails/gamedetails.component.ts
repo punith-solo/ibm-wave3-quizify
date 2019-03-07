@@ -4,6 +4,7 @@ import { SinglePlayer } from '../../tsclasses/single-player';
 import { Game } from '../../tsclasses/game';
 import { GameEngineService } from '../../services/game-engine.service';
 import { MatSnackBar } from '@angular/material';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-gamedetails',
@@ -14,16 +15,15 @@ import { MatSnackBar } from '@angular/material';
 export class GamedetailsComponent implements OnInit {
 
   method: any;
-  constructor(private gameengineservice: GameEngineService) { }
+  constructor(private router: Router, private gameengineservice: GameEngineService) { }
 
   quiz: any;
 
   ngOnInit() {
  }
  fetchGameId(gameId: number) {
-  this.gameengineservice.fetchGame(gameId);
+  this.router.navigate(['playgame', {id : gameId}]);
  }
-
 
 
 
