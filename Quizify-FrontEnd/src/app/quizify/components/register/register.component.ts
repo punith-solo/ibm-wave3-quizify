@@ -7,6 +7,8 @@ import { FormGroup, FormBuilder, Validators, FormControl, FormGroupDirective, Ng
 import { Register } from '../../tsclasses/register';
 import { Genre } from '../../tsclasses/genre';
 import {ErrorStateMatcher} from '@angular/material/core';
+import { Profile } from 'selenium-webdriver/firefox';
+// import { profile } from 'console';
 // import {PasswordMaterialUi} from "password-material-ui";
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
@@ -64,6 +66,7 @@ export class RegisterComponent implements OnInit {
     Validators.required,
     Validators.email,
   ]);
+  url: string;
 
   // tslint:disable-next-line:max-line-length
   constructor(private _formBuilder: FormBuilder, private regserv: RegisterService,  private http: HttpClient) {
@@ -109,5 +112,12 @@ export class RegisterComponent implements OnInit {
       // console.log(this.genreList);
     });
   }
+
+// profile(userId: String)
+// {
+//  this.url = 'http://localhost:8999/api/v1/user/' + userId;
+//  return this.http.get(this.url);
+//  }
+
 
 }
