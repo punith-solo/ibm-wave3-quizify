@@ -27,7 +27,7 @@ export class RegisterComponent implements OnInit {
 
   formGroup2: FormGroup;
   // tslint:disable-next-line:no-inferrable-types
-  isOptional: boolean = false;
+  // isOptional: boolean = false;
   formGroup1: FormGroup;
   formGroup3: FormGroup;
   formGroup4: FormGroup;
@@ -37,25 +37,24 @@ export class RegisterComponent implements OnInit {
   // disabled = false;
   // ShowFilter = false;
   // limitSelection = false;
-  topic: any = [];
-  genre: any = [];
+
   selectedItems: any = [];
  // dropdownSettings: any = {};
-
 
   @Input()
   register: Register;
   private name: string;
   private password: string;
-  private confirmPassword: string;
   private emailId: string;
-  private topics: Topic[];
-  private genres: Genre[];
+  private topiclist:  Array<Topic> = [];
+  private genrelist:  Array<Genre> = [];
   private gender: string;
   matcher = new MyErrorStateMatcher();
 
-  private topicList: Topic[];
-  private genreList: any[];
+  private topicsList: Array<Topic> = [];
+  private genresList: Array<Genre> = [];
+  private selectedTopic:  Array<Topic> = [];
+  private selectedGenre: Array<Genre> = [];
 
   @ViewChild('myStep') myStep;
   myForm: FormGroup;
@@ -65,6 +64,7 @@ export class RegisterComponent implements OnInit {
     Validators.email,
   ]);
 
+
   // tslint:disable-next-line:max-line-length
   constructor(private _formBuilder: FormBuilder, private regserv: RegisterService,  private http: HttpClient) {
  }
@@ -72,8 +72,8 @@ export class RegisterComponent implements OnInit {
   this.register = new Register();
   this.register.name = this.name;
   this.register.password = this.password;
-  this.register.topics = this.topics;
-  this.register.genres = this.genres;
+  this.register.topics = this.topiclist;
+  this.register.genres = this.genrelist;
   this.register.gender = this.gender;
   this.register.emailId = this.emailId;
  // this.register.confirmPassword = this.confirmPassword;
@@ -99,15 +99,33 @@ export class RegisterComponent implements OnInit {
     });
 
     this.regserv.getTopic().subscribe((res: any) => {
-      this.topicList = res;
+      this.topicsList = res;
       console.log(res);
     });
 
     this.regserv.getGenre().subscribe((res: any) => {
-      // this.genreList = res;
+      this.genresList = res;
       console.log(res);
       // console.log(this.genreList);
     });
+  }
+
+  addTopic(value) {
+    this.topiclist.push(value);
+    console.log(value);
+  }
+
+
+  addGenre(value) {
+    this.genrelist.push(value);
+    console.log(value);
+  }
+
+  display() {
+    console.log(this.topiclist);
+    console.log(this.genrelist);
+    this.selectedGenre = this.genrelist;
+    this.selectedTopic = this.topiclist;
   }
 
 }
