@@ -30,7 +30,7 @@ export class GameEngineComponent implements OnInit {
 
   loginToken: LoginToken;
 
-  jti: string;
+  jti: number;
 
   private singlePlayer: SinglePlayer;
 

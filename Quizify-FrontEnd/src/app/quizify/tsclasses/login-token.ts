@@ -1,4 +1,5 @@
 export class LoginToken {
-    jti: string;
+    jti: number;
+    aud: string;
     sub: string;
 }

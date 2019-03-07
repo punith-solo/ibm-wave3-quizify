@@ -93,7 +93,7 @@ public class GamePlayerController {
 
    @GetMapping(value="/user/{playerId}")
 
-   public ResponseEntity<?> getUser( @PathVariable String playerId)
+   public ResponseEntity<?> getUser( @PathVariable long playerId)
 
    {
 
@@ -109,7 +109,7 @@ public class GamePlayerController {
 
     @GetMapping(value = "/user/{playerId}/game/{id}")
 
-    public ResponseEntity<?> getGame(@PathVariable String playerId , @PathVariable long id)
+    public ResponseEntity<?> getGame(@PathVariable long playerId , @PathVariable long id)
 
     {
 

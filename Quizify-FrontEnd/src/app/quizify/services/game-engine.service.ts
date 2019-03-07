@@ -28,7 +28,7 @@ export class GameEngineService {
 
    }
 
-   fetchGame(gameId: number, userName: string) {
+   fetchGame(gameId: number, userName: number) {
 
      console.log(this.microServiceUrl + 'game/' + gameId);
 
