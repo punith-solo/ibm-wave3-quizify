@@ -11,18 +11,12 @@ import { Profile } from '../../tsclasses/profile';
 export class ProfileUserComponent implements OnInit {
 
   register: any = [];
- 
   @Input()
- 
-  reg: any;
- 
-  loginToken:Profile;
- 
-  jti: any;
- 
-  constructor(private services: RegisterService) { }
- 
-  ngOnInit() {
+ reg: any;
+loginToken: Profile;
+ jti: any;
+constructor(private services: RegisterService) { }
+ngOnInit() {
  
    try {
  
