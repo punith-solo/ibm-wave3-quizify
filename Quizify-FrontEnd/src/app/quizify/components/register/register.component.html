@@ -47,7 +47,7 @@
           name="emaiId"
           required
         />
-        <mat-hint><b>Enter abc@gmail.com!</b></mat-hint>
+        <mat-hint><b>Ex: abc@gmail.com!</b></mat-hint>
         <mat-error
           *ngIf="
             emailFormControl.hasError('email') &&
@@ -73,7 +73,6 @@
         <mat-radio-button value="Male">Male </mat-radio-button>
         <mat-radio-button value="female">Female</mat-radio-button>
       </mat-radio-group>
-
       <br />
       <br />
       <br />
@@ -88,7 +87,6 @@
       </ng-template>
       <section class="container" [(ngModel)]="selectedTopic">
         <h3>Select Topic</h3>
-
         <mat-button-toggle
           *ngFor="let topic of topicsList"
           value="{{ topic.name }}"
@@ -106,7 +104,6 @@
       </section>
       <section class="container2" [(ngModel)]="selectedGenre">
         <h3>Select Genres</h3>
-
         <mat-button-toggle
           *ngFor="let genre of genresList"
           value="{{ genre.name }}"
