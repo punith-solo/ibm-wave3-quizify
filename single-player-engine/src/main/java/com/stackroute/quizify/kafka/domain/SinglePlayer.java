@@ -5,7 +5,7 @@ import org.springframework.data.annotation.Id;
 
 @Data
 public class SinglePlayer {
-    private String playerId;
+    private long playerId;
     private Game game;
     private int gameScore;
     private int playerScore;

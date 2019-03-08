@@ -1,6 +1,6 @@
 import { CardService } from './services/card.service';
 import { GamehistoryComponent } from './components/gamehistory/gamehistory.component';
-import { ProfileuserComponent } from './components/profileuser/profileuser.component';
+import { ProfileUserComponent } from './components/profileuser/profileuser.component';
 import { MatRadioModule } from '@angular/material/radio';
 import { RegisterComponent } from './components/register/register.component';
 import { QuizifyMaterialModule } from './quizify.material.module';
@@ -37,7 +37,7 @@ import { RuleComponent } from './components/rule/rule.component';
     RegisterComponent,
     LoginComponent,
     SearchComponent,
-    ProfileuserComponent,
+    ProfileUserComponent,
     GamehistoryComponent,
     GameComponent,
     QuestionGeneratorComponent,
@@ -84,7 +84,7 @@ import { RuleComponent } from './components/rule/rule.component';
     RegisterComponent,
     LoginComponent,
     SearchComponent,
-    ProfileuserComponent,
+    ProfileUserComponent,
     GamehistoryComponent,
     GameComponent,
     QuestionGeneratorComponent,

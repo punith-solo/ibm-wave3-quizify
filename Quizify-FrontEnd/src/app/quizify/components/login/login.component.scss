@@ -1,3 +1,5 @@
+
+
 ::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
   color: black !important;
   // opacity: 1!important;
@@ -33,16 +35,21 @@ mat-form-field {
 }
 mat-card {
   //float: right;
-  margin-top: 50px;
+ 
+  margin-top: 100px;
   margin-left: 1000px;
   padding-right: 70px;
   width: 280px;
-  height: 215px;
+  height: 225px;
   background-color: gainsboro;
+ //box-shadow: 10px 10px 50px #aaaaaa;
+  border-radius: 40px;
+  
 }
 h2{
   margin-left:45%;
   margin-bottom:10px;
+  font-style: italic;
  // text-align: center;
 }
 
@@ -63,23 +70,29 @@ h2{
   margin-left:45%;
   width: 35%;
   font-size: 20px;
+  border-radius: 20px;
+  border: 2px solid black;
 }
 p {
+  font-style: italic;
   color: white;
   top: -165px;
   margin-left: 26%;
   font-size: 20px;
   //  padding-left: 65%;
   position: relative;
+
 }
 .btn1 {
   top: -190px;
   position: relative;
   width: 10%;
   font-size: 20px;
-
-  margin-left: 26%;
+  border-radius: 20px;
+  margin-left: 27%;
   margin-top: 3%;
+  
+  
 }
 mat-label {
   left: 500px;
@@ -88,7 +101,7 @@ mat-label {
 
 .container {
   background-image: url("../../../../assets/images/login3.jpg");
-  // opacity: 0.7;
+ // opacity: 0.2;
   height: 640px;
   overflow: hidden;
   background-position: center;
@@ -99,4 +112,5 @@ mat-label {
   margin-top: 80px;
   margin-left: -100px;
   margin-right: -7px;
+  
 }

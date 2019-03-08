@@ -25,6 +25,7 @@ export class HeaderComponent implements OnInit {
   }
 
     logout() {
+      console.log('i have entered in the logout method ');
       this.authenticationService.logout();
       this.flag = false;
       this.userLogged = true;

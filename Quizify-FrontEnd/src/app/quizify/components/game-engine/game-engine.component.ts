@@ -30,7 +30,7 @@ export class GameEngineComponent implements OnInit {
 
   loginToken: LoginToken;
 
-  jti: string;
+  jti: number;
 
   private singlePlayer: SinglePlayer;
 
@@ -38,7 +38,9 @@ export class GameEngineComponent implements OnInit {
 
 
 
-  constructor( private route: ActivatedRoute , private gameengineservice: GameEngineService) { }
+  constructor( private route: ActivatedRoute , private gameengineservice: GameEngineService) {
+    this.singlePlayer = new SinglePlayer();
+   }
   ngOnInit() {
     this.route.params.subscribe((data: any) => {
       this.gameId = data.id;
@@ -54,7 +56,7 @@ export class GameEngineComponent implements OnInit {
           this.game = res.game;
         } );
       } catch (error) {
-        this.jti = 'madhu';
+        this.jti = 777;
         this.gameengineservice.fetchGame(this.gameId , this.jti).subscribe((res: any) => {
           this.singlePlayer.playerId = res.jti;
           this.game = res.game;

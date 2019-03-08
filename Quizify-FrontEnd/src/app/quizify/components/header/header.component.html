@@ -17,7 +17,7 @@
             </mat-card-actions>
          </div>
          <div class="wrap" *ngIf=flag >
-                <button  mat-button [matMenuTriggerFor]="menu" class="menubar"><img class="icon" src="../../../../assets/images/gender.png"></button>
+                <button  mat-button [matMenuTriggerFor]="menu" class="menubar"><img class="icon" src="../../../../assets/images/gender.png" alt="icon-pic"></button>
                 <mat-menu #menu="matMenu">
                <button mat-menu-item  [routerLink]="[ '/profileuser']">profile</button>
                <button mat-menu-item (click)='logout()'>logout</button>

@@ -2,7 +2,7 @@ import { Game } from './game';
 import { User } from './user';
 
 export class SinglePlayer {
-    playerId: string;
+    playerId: number;
     game: Game;
     gameScore: number;
     playerScore: number;

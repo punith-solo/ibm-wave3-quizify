@@ -24,11 +24,11 @@ export class GameEngineService {
 
   constructor(private http: HttpClient) {
 
-    this.microServiceUrl = 'http://localhost:8108/api/v1/';
+    this.microServiceUrl = 'http://13.232.243.68:8108/api/v1/';
 
    }
 
-   fetchGame(gameId: number, userName: string) {
+   fetchGame(gameId: number, userName: number) {
 
      console.log(this.microServiceUrl + 'game/' + gameId);
 
