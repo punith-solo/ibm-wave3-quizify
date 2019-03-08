@@ -6,9 +6,9 @@ import { Register } from '../tsclasses/register';
 })
 export class RegisterService {
 
-   // profile(jti: any): any {
-   //    throw new Error("Method not implemented.");
-   //  }
+   profile(jti: any): any {
+      throw new Error("Method not implemented.");
+    }
 
    url: string;
       topicUrl: string;
