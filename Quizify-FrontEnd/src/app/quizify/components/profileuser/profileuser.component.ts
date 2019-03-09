@@ -2,6 +2,7 @@
 import { OnInit, Input, Component } from "@angular/core";
 import { RegisterService } from "../../services/register.service";
 import { Profile } from "../../tsclasses/profile";
+import * as jwt_decode from 'jwt-decode';
 
 @Component({
   selector: "app-profileuser",
@@ -19,9 +20,9 @@ export class ProfileUserComponent implements OnInit {
     try {
       const tokenObtained = localStorage.getItem("token");
 
-      // this.loginToken = jwt_decode(tokenObtained);
+      this.loginToken = jwt_decode(tokenObtained);
 
-      // console.log('decoded token', jwt_decode(tokenObtained));
+      console.log('decoded token', jwt_decode(tokenObtained));
 
       this.jti = this.loginToken.jti;
 

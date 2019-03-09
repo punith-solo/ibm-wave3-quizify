@@ -6,10 +6,6 @@ import { Register } from '../tsclasses/register';
 })
 export class RegisterService {
 
-   profile(jti: any): any {
-      throw new Error("Method not implemented.");
-    }
-
    url: string;
       topicUrl: string;
       genreUrl: string;
@@ -31,4 +27,8 @@ export class RegisterService {
       this.genreUrl = 'http://localhost:3000/genre';
       return this.http.get(this.genreUrl);
    }
+   profile(userId:String) {
+      this.url = 'http://localhost:8999/api/v1/user/' + userId;
+      return this.http.get(this.url);
+      }
 }
