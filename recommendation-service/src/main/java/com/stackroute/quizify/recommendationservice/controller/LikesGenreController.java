@@ -3,6 +3,7 @@ package com.stackroute.quizify.recommendationservice.controller;
 import com.stackroute.quizify.recommendationservice.domain.LikesGenre;
 import com.stackroute.quizify.recommendationservice.domain.User;
 import com.stackroute.quizify.recommendationservice.service.LikesGenreService;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -19,12 +20,13 @@ public class LikesGenreController {
         this.likesGenreService = likesGenreService;
     }
 
+    @ApiOperation("Get all relationships of user likes genre")
     @GetMapping("/")
     public List<LikesGenre> getAll(){
         return likesGenreService.getAllRelationships();
     }
 
-
+    @ApiOperation("Create a relationship of user likes genre")
     @PostMapping("/")
     public String create(@RequestBody User user){
         return likesGenreService.createRelationship(user);

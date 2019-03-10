@@ -132,19 +132,19 @@ public class GamePlayerController {
     }
 
 
-
-	@ApiOperation(value = "send User Game")
-
-	@PostMapping(value = "/user/{playerId}/game/{id}/score/{score}")
-
-	public ResponseEntity<?> postGame(@PathVariable String playerId , @PathVariable long id , @PathVariable int score)
-
-	{
-        
-
-
-
-
-	}
+//
+//	@ApiOperation(value = "send User Game")
+//
+//	@PostMapping(value = "/user/{playerId}/game/{id}/score/{score}")
+//
+//	public ResponseEntity<?> postGame(@PathVariable String playerId , @PathVariable long id , @PathVariable int score)
+//
+//	{
+//
+//
+//
+//
+//
+//	}
 
 }
