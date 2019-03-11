@@ -1,6 +1,7 @@
 //package com.stackroute.quizify.questionmanager.controller;
 //
 //import com.fasterxml.jackson.databind.ObjectMapper;
+//import com.stackroute.quizify.questionmanager.domain.Question;
 //import com.stackroute.quizify.questionmanager.exception.NoQuestionFoundException;
 //import com.stackroute.quizify.questionmanager.exception.QuestionAlreadyExistsException;
 //import com.stackroute.quizify.questionmanager.exception.QuestionDoesNotExistException;
@@ -140,7 +141,7 @@
 //
 //    @Test
 //    public void saveQuestionFailureTest() throws Exception {
-//        when(this.questionService.addNewQuestion((Question)any())).thenThrow(QuestionAlreadyExistsException.class);
+//        when(this.questionService.addNewQuestion((Question) any())).thenThrow(QuestionAlreadyExistsException.class);
 //        mockMvc.perform(MockMvcRequestBuilders.post("/api/v1/questions/question")
 //                .contentType(MediaType.APPLICATION_JSON).content(asJsonString(this.question)))
 //                .andExpect(MockMvcResultMatchers.status().isConflict())
@@ -151,7 +152,7 @@
 //    public void updateQuestionSuccessTest() throws Exception {
 //        when(this.questionService.updateQuestion((Question)any())).thenReturn(this.question);
 //        mockMvc.perform(MockMvcRequestBuilders.put("/api/v1/questions/question")
-//                .contentType(MediaType.APPLICATION_JSON).content(asJsonString(this.question)))
+//                .contentType(MediaType.APPLICATION_JSON).content(asJsonString(this.questions)))
 //                .andExpect(MockMvcResultMatchers.status().isOk())
 //                .andDo(MockMvcResultHandlers.print());
 //    }
@@ -167,7 +168,7 @@
 //
 //    @Test
 //    public void removeQuestionSuccessTest() throws Exception {
-//        when(this.questionService.removeQuestion((Question)any())).thenReturn(this.question);
+//        when(this.questionService.removeQuestion((Question))).thenReturn(this.question);
 //        mockMvc.perform(MockMvcRequestBuilders.delete("/api/v1/questions/question")
 //                .contentType(MediaType.APPLICATION_JSON).content(asJsonString(this.question)))
 //                .andExpect(MockMvcResultMatchers.status().isOk())
