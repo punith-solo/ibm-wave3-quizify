@@ -37,12 +37,6 @@ public interface QuestionRepository extends MongoRepository<Question, Long> {
 
     boolean existsById(long id);
 
-    @Query("{ 'tag.name': '?0', 'level': '?1' }")
-    List<Question> getQuestionsByTagByLevel(String tagName, String level);
-
-    @Query("{ 'tag.name': '?0' }")
-    List<Question> getQuestionsByTag(String tagName);
-
     @Query("{ 'topic.name': '?0' , 'level': '?1' }")
     List<Question> getQuestionsByTopicByLevel(String topicName, String level);
 
@@ -57,6 +51,5 @@ public interface QuestionRepository extends MongoRepository<Question, Long> {
 
     @Query("{ 'topic.name': '?0', 'genre.name': '?1' , 'level': '?2' }")
     List<Question> getQuestionsByTopicByGenreByLevel(String topicName ,String genreName, String level);
-
 
 }
