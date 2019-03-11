@@ -2,6 +2,7 @@ package com.stackroute.quizify.recommendationservice.controller;
 
 import com.stackroute.quizify.recommendationservice.domain.Genre;
 import com.stackroute.quizify.recommendationservice.service.GenreService;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,6 +24,7 @@ public class GenreController {
         this.genreService = genreService;
     }
 
+    @ApiOperation("Get all genres")
         @GetMapping("/")
     public List<Genre> getAll(){
         return genreService.getAll();
