@@ -1,5 +1,6 @@
 package com.stackroute.quizify.recommendationservice.domain;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.neo4j.ogm.annotation.GeneratedValue;
@@ -11,6 +12,7 @@ import org.neo4j.ogm.annotation.Property;
 @NodeEntity
 @Data
 @NoArgsConstructor
+@AllArgsConstructor
 public class Topic {
     @Id
     @GeneratedValue
