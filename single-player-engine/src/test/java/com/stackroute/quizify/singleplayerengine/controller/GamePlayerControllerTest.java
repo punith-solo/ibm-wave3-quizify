@@ -26,6 +26,7 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
+import org.springframework.web.client.RestTemplate;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -45,6 +46,10 @@ public class GamePlayerControllerTest {
 
     @MockBean
     private PlayerServiceImpl playerServiceImpl;
+
+    @MockBean
+    private RestTemplate restTemplate;
+
 
     @InjectMocks
     private GamePlayerController gamePlayerController;
@@ -134,7 +139,7 @@ public class GamePlayerControllerTest {
         questions.add(question);
 
         this.game = new Game();
-        this.game.setId(121);
+        this.game.setId(121L);
         this.game.setName("game1");
         this.game.setTopic(this.topic);
         this.game.setCategory(this.category);
@@ -175,13 +180,8 @@ public class GamePlayerControllerTest {
 
     @Test
     public void getGame() throws Exception {
-        System.out.println("this.singlePlayer.getGame()");
-
-        when(this.gamePlayerController.getGame((long) anyLong(), (long) anyLong()));
-        System.out.println("this.singlePlayer.getGame()");
-        System.out.println(this.singlePlayer.getGame());
-
-        mockMvc.perform(MockMvcRequestBuilders.get("/api/v1/player/{playerId}/game/{id}", this.singlePlayer.getPlayerId(), this.singlePlayer.getGame().getId())
+        when(restTemplate.getForObject(anyString(), any())).thenReturn(this.game);
+        mockMvc.perform(MockMvcRequestBuilders.get("/api/v1/user/{playerId}/game/{id}", this.singlePlayer.getPlayerId(), this.singlePlayer.getGame().getId())
                 .contentType(MediaType.APPLICATION_JSON).content(asJsonString(this.singlePlayer)))
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andDo(MockMvcResultHandlers.print());
