@@ -9,7 +9,7 @@ export class CardService {
       constructor(private http: HttpClient) {
     }
    getquiz() {
-    this.url = 'http://13.232.243.68:8104/rest/neo4j/game/';
+    this.url = 'http://localhost:3000/quiz';
     return this.http.get(this.url);
    }
 

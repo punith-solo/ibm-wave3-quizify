@@ -1,17 +1,19 @@
 header h1 {
-
+  // margin-left: 50px;
+  font-style: italic;
   margin-top: 9px;
-  text-align: center;
+ text-align: center;
   color: white;
   font-family: "Comic Sans MS", cursive, sans-serif;
 
  }
  header p
  {
-  
-  margin-top: -28px;
-  text-align: center;
+  margin-right: 60px;
+  margin-top: -15px;
 
+  text-align: center;
+  font-style: italic;
   color: white;
 
   font-family: "Comic Sans MS", cursive, sans-serif;
@@ -38,9 +40,9 @@ header h1 {
 
     float: left;
 
-    width: 80px;
+    width: 70px;
 
-    height: 80px;
+    height: 70px;
 
     // background:rgb(6, 58, 55);
 
