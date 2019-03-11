@@ -1,8 +1,12 @@
-//package com.stackroute.userregistrationservice.Controller;
+//package com.stackroute.quizify.userregistrationservice.Controller;
 //import com.fasterxml.jackson.databind.ObjectMapper;
-//import UserController;
-//import User;
-//import UserService;
+//
+//import com.stackroute.quizify.userregistrationservice.controller.UserController;
+//import com.stackroute.quizify.userregistrationservice.domain.Genre;
+//import com.stackroute.quizify.userregistrationservice.domain.Topic;
+//import com.stackroute.quizify.userregistrationservice.domain.User;
+//import com.stackroute.quizify.userregistrationservice.repository.UserRepository;
+//import com.stackroute.quizify.userregistrationservice.service.UserService;
 //import org.junit.Before;
 //import org.junit.Test;
 //import org.junit.runner.RunWith;
@@ -24,7 +28,9 @@
 //import java.util.List;
 //
 //
+//import static junit.framework.TestCase.assertTrue;
 //import static org.mockito.ArgumentMatchers.any;
+//import static org.mockito.ArgumentMatchers.anyLong;
 //import static org.mockito.Matchers.anyInt;
 //import static org.mockito.Mockito.when;
 //
@@ -35,6 +41,7 @@
 //    @Autowired
 //    private MockMvc mockMvc;
 //    private User user;
+//    private UserRepository userRepository;
 //
 //    @MockBean
 //    private UserService userService;
@@ -45,49 +52,42 @@
 //    private List<User> list = null;
 //
 //    @Before
-////    public void setUp()
-////    {
-////        MockitoAnnotations.initMocks(this);
-////        mockMvc = MockMvcBuilders.standaloneSetup(userController).build();
-////        user = new User();
-////        user.setUserId(2);
-////        user.setUserName("Taylor Swift");
-////        user.setPassword("favourite song");
-////        user.setConfirmPassword("favourite song");
-////        user.setEmailId("akhila@gmail.com");
-////        user.setInterests(Arrays.asList("movies","tvshows"));
-////        user.setGender("F");
-////
-//////        list = new ArrayList<>();
-////        list.add(user);
-////    }
-//
 //    public void setUp() {
 //        MockitoAnnotations.initMocks(this);
 //        user = new User();
-//        this.user.setUserId(11);
-//        this.user.setUserName("Akhila");
-//        this.user.setPassword("Good song");
-//        this.user.setConfirmPassword("Good song");
+//        this.user.setId(11);
+//        this.user.setName("Akhila");
 //        this.user.setEmailId("akhila@gmail.com");
 //        this.user.setGender("F");
+//        List<Topic> topics = new ArrayList<>();
+//        Topic topic1=new Topic(1,"Movies","imageurl");
+//        topics.add(topic1);
+//        Topic topic2=new Topic(2,"TvShows","imageurl");
+//        topics.add(topic2);
+//        this.user.setTopics(topics);
 //
-//        List<String> interests = new ArrayList<>();
-//        interests.add("Movies");
-//        interests.add("Tv Shows");
-//        this.user.setInterests(interests);
+//        List<Genre> genres = new ArrayList<>();
+//        Genre genre1=new Genre(1,"comedy","imageurl");
+//        genres.add(genre1);
+//        Genre genre2=new Genre(2,"action","imageurl");
+//        genres.add(genre2);
+//        this.user.setGenres(genres);
 //
 //    }
 //    @Test
-//    public void saveUser() throws Exception
-//    {
+//    public void saveUser() throws Exception {
+////        when(userService.saveUser(any())).thenReturn(user);
+////        mockMvc.perform(MockMvcRequestBuilders.post("/api/v1/user")
+////                .contentType(MediaType.APPLICATION_JSON).content(asJsonString(user)))
+////                .andExpect(MockMvcResultMatchers.status().isCreated())
+////                .andDo(MockMvcResultHandlers.print());
+////        =this.userMapper.userDTOToUser(userDTO);
 //        when(userService.saveUser(any())).thenReturn(user);
 //        mockMvc.perform(MockMvcRequestBuilders.post("/api/v1/user")
 //                .contentType(MediaType.APPLICATION_JSON).content(asJsonString(user)))
 //                .andExpect(MockMvcResultMatchers.status().isCreated())
 //                .andDo(MockMvcResultHandlers.print());
 //    }
-//
 //
 //    @Test
 //    public void updateUser() throws Exception
@@ -109,16 +109,26 @@
 //                .andExpect(MockMvcResultMatchers.status().isOk())
 //                .andDo(MockMvcResultHandlers.print());
 //    }
-//
 ////    @Test
-////    public void deleteUser() throws Exception
-////    {
-////        when(userService.deleteUser((long) anyInt())).thenReturn(true);
-////        mockMvc.perform(MockMvcRequestBuilders.delete("api/v1/user")
-////                .contentType(MediaType.APPLICATION_JSON).content(asJsonString(user)))
-////                .andExpect(MockMvcResultMatchers.status().isOk())
-////                .andDo(MockMvcResultHandlers.print());
+////        public void deleteUser() {
+////        User savedUser = this.userRepository.save(this.user);
+////
+////        this.userRepository.delete(savedUser);
+////        assertTrue(this.userRepository.findById(savedUser.getId()).isEmpty());
 ////    }
+//
+//    @Test
+//    public void deleteUser() throws Exception
+//    {
+//        when(userService.deleteUser(anyLong())).thenReturn(user);
+//        long id=user.getId();
+//        System.out.println(id);
+//        System.out.println(userService.saveUser(user));
+//        mockMvc.perform(MockMvcRequestBuilders.delete("api/v1/user/11")
+//                .contentType(MediaType.APPLICATION_JSON).content(asJsonString(user)))
+//                .andExpect(MockMvcResultMatchers.status().isNotFound())
+//                .andDo(MockMvcResultHandlers.print());
+//    }
 //
 //    private static String asJsonString(final Object obj)
 //    {

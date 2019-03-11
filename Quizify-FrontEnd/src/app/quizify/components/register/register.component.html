@@ -16,7 +16,7 @@
           formControlName="firstCtrl"
           required
         />
-        <mat-hint><b>Username should be in lowercase letters</b></mat-hint>
+        <mat-hint><b>Should be in lowercase</b></mat-hint>
       </mat-form-field>
       <br />
       <mat-form-field appearance="outline" class="password">
@@ -33,7 +33,7 @@
         <mat-icon matSuffix (click)="hide = !hide">{{
           hide ? "visibility_off" : "visibility"
         }}</mat-icon>
-        <mat-hint><b>Starts with captial,one num & length8!</b></mat-hint>
+        <mat-hint><b>Starts with capital & integer </b></mat-hint>
       </mat-form-field>
       <br />
       <mat-form-field class="emailid" appearance="outline" required>
@@ -119,7 +119,7 @@
         /></mat-button-toggle>
       </section>
       <br />
-      <div>
+      <div class = "b">
         <button mat-button class="prebtn" matStepperPrevious>
           <b>Back</b>
         </button>

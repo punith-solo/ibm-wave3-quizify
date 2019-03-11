@@ -1,8 +1,10 @@
-//package com.stackroute.userregistrationservice.Repository;
+//package com.stackroute.quizify.userregistrationservice.Repository;
 //
 //
-//import User;
-//import UserRepository;
+//import com.stackroute.quizify.userregistrationservice.domain.Genre;
+//import com.stackroute.quizify.userregistrationservice.domain.Topic;
+//import com.stackroute.quizify.userregistrationservice.domain.User;
+//import com.stackroute.quizify.userregistrationservice.repository.UserRepository;
 //import org.junit.Assert;
 //import org.junit.Before;
 //import org.junit.Test;
@@ -26,43 +28,51 @@
 //    @Before
 //    public void setUp() {
 //        user = new User();
-//        this.user.setUserId(11);
-//        this.user.setUserName("Akhila");
-//        this.user.setPassword("Good song");
-//        this.user.setConfirmPassword("Good song");
+//        this.user.setId(11);
+//        this.user.setName("Akhila");
 //        this.user.setEmailId("akhila@gmail.com");
 //        this.user.setGender("F");
+//        List<Topic> topics = new ArrayList<>();
+//        Topic topic1=new Topic(1,"Movies","imageurl");
+//        topics.add(topic1);
+//        Topic topic2=new Topic(2,"TvShows","imageurl");
+//        topics.add(topic2);
+//        this.user.setTopics(topics);
 //
-//        List<String> interests = new ArrayList<>();
-//        interests.add("Movies");
-//        interests.add("Tv Shows");
-//        this.user.setInterests(interests);
+//        List<Genre> genres = new ArrayList<>();
+//        Genre genre1=new Genre(1,"comedy","imageurl");
+//        genres.add(genre1);
+//        Genre genre2=new Genre(2,"action","imageurl");
+//        genres.add(genre2);
+//        this.user.setGenres(genres);
+//
 //
 //    }
 //    @Test
 //    public void saveUserTest()
 //    {
 //        userRepository.save(user);
-//        User fetchUser = userRepository.findById(user.getUserId()).get();
-//        Assert.assertEquals(3,fetchUser.getUserId());
+//        User fetchUser = userRepository.findById(user.getId()).get(user);
+//        Assert.assertEquals(3,fetchUser.getId());
 //    }
 //
 //    @Test
 //    public void getUserTest()
 //    {
-//        User user = new User(4,"Shreya Goshal","Good","Good", "akhila@gmail.com", Arrays.asList("movies", "tvshows"), "F" );
-//        User user1 = new User(5,"DSP","Good", "Good", "akhil@gmail.com", Arrays.asList("movies", "Tvshows"),"M");
+//        User user = new User(4,"Shreya","sherya@gmail.com","F", Arrays.asList("Movies"), Arrays.asList("action", "historical") );
+//        User user1 = new User(5,"sam","sam@gmail.com","F", Arrays.asList("TvShows"), Arrays.asList("comedy", "historical") );
+//
 //        userRepository.save(user);
 //        userRepository.save(user1);
 //        List<User> list = userRepository.findAll();
-//        Assert.assertEquals(4,list.get(3).getUserId());
+//        Assert.assertEquals(4,list.get(3).getId());
 //    }
 //
 //    @Test
 //    public void testSaveUserFailure(){
-//        User testUser = new User(2, "kajal", "agarwal", "agarwal", "kajal@gmail.com", Arrays.asList('movies', 'tvshows'),"F");
+//        User testUser = new User(2, "kajal", "kajal@gmail.com", Arrays.asList("movies"), Arrays.asList("Thriller", "drama"), "F");
 //        userRepository.save(user);
-//        User fetchUser = userRepository.findById(user.getUserId()).get();
+//        User fetchUser = userRepository.findById(user.getId()).get();
 //        Assert.assertNotSame(testUser,user);
 //    }
 //
