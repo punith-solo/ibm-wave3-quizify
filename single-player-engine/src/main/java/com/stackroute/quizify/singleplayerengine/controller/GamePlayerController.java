@@ -44,21 +44,18 @@ public class GamePlayerController {
 
     private ResponseEntity<?> responseEntity;
 
+    RestTemplate restTemplate;
 
-
-    RestTemplate restTemplate=new RestTemplate();
-
-	SinglePlayer singlePlayer;
+    SinglePlayer singlePlayer;
 
 
 
     @Autowired
-
     public GamePlayerController(PlayerService playerService)
 
     {
-
-	        singlePlayer = new SinglePlayer();
+        restTemplate=new RestTemplate();
+        singlePlayer = new SinglePlayer();
 
         this.playerService = playerService;
 
@@ -75,33 +72,33 @@ public class GamePlayerController {
     {
         String url = "http://13.232.243.68:8102/api/v1/game/game/" +id;
 
-            Game game = restTemplate.getForObject(url, Game.class);
+        Game game = restTemplate.getForObject(url, Game.class);
 
 
 
-            singlePlayer.setGame(game);
+        singlePlayer.setGame(game);
 
 
 
-            return new ResponseEntity<SinglePlayer>(singlePlayer,HttpStatus.OK);
+        return new ResponseEntity<SinglePlayer>(singlePlayer,HttpStatus.OK);
 
     }
 
 
 
-   @ApiOperation(value = "get user data")
+    @ApiOperation(value = "get user data")
 
-   @GetMapping(value="/user/{playerId}")
+    @GetMapping(value="/user/{playerId}")
 
-   public ResponseEntity<?> getUser( @PathVariable long playerId)
+    public ResponseEntity<?> getUser( @PathVariable long playerId)
 
-   {
+    {
 
-       singlePlayer.setPlayerId(playerId);
+        singlePlayer.setPlayerId(playerId);
 
-       return new ResponseEntity<SinglePlayer>(singlePlayer,HttpStatus.OK);
+        return new ResponseEntity<SinglePlayer>(singlePlayer,HttpStatus.OK);
 
-   }
+    }
 
 
 
@@ -115,36 +112,35 @@ public class GamePlayerController {
 
         String url = "http://13.232.243.68:8102/api/v1/game/game/" +id;
 
-            Game game = restTemplate.getForObject(url, Game.class);
+        Game game = restTemplate.getForObject(url, Game.class);
+
+//        Game game = this.getGameByRest(id);
 
 
 
-            singlePlayer.setGame(game);
+        singlePlayer.setGame(game);
 
 
 
-		singlePlayer.setPlayerId(playerId);
+        singlePlayer.setPlayerId(playerId);
 
 
 
-            return new ResponseEntity<SinglePlayer>(singlePlayer,HttpStatus.OK);
+        return new ResponseEntity<SinglePlayer>(singlePlayer,HttpStatus.OK);
 
     }
 
 
-//
-//	@ApiOperation(value = "send User Game")
-//
-//	@PostMapping(value = "/user/{playerId}/game/{id}/score/{score}")
-//
-//	public ResponseEntity<?> postGame(@PathVariable String playerId , @PathVariable long id , @PathVariable int score)
-//
-//	{
-//
-//
-//
-//
-//
-//	}
+
+    @ApiOperation(value = "send User Game")
+
+    @PostMapping(value = "/singleplayer")
+
+    public ResponseEntity<?> postGame(@RequestBody SinglePlayer singlePlayer)
+
+    {
+        return new ResponseEntity<SinglePlayer>(this.playerService.sendSinglePlayer(singlePlayer), HttpStatus.OK);
+
+    }
 
 }
