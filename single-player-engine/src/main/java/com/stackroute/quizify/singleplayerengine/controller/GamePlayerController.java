@@ -44,20 +44,17 @@ public class GamePlayerController {
 
     private ResponseEntity<?> responseEntity;
 
-
-
-    RestTemplate restTemplate=new RestTemplate();
+    RestTemplate restTemplate;
 
     SinglePlayer singlePlayer;
 
 
 
     @Autowired
-
     public GamePlayerController(PlayerService playerService)
 
     {
-
+        restTemplate=new RestTemplate();
         singlePlayer = new SinglePlayer();
 
         this.playerService = playerService;
@@ -116,6 +113,8 @@ public class GamePlayerController {
         String url = "http://13.232.243.68:8102/api/v1/game/game/" +id;
 
         Game game = restTemplate.getForObject(url, Game.class);
+
+//        Game game = this.getGameByRest(id);
 
 
 
