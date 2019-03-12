@@ -21,8 +21,6 @@ public class Game {
     private Topic topic;
 //    @Property
     private Genre genre;
-//    @Property
-    private Tag tag;
     private String level;
     private String imageUrl;
     private int numOfQuestion;
@@ -31,6 +29,7 @@ public class Game {
     @Property
     private int playCount;
     private List<String> rules;
-
-
+    private int pointPerQuestion;
+    private int totalPoints;
+    private int playerScore;
 }

@@ -46,7 +46,10 @@ public class GamesServiceImpl implements GamesService {
         int liked= game.getLiked();
         List<String> rules= game.getRules();
         int playcount= game.getPlayCount();
-        Game game1 =gamesRepository.createNode(id,name,playcount,level,imageUrl,numOfQuestion,timeDuration,liked,rules);
+        int pointPerQuestion=game.getPointPerQuestion();
+        int totalPoints=game.getTotalPoints();
+        int playerScore=game.getPlayerScore();
+        Game game1 =gamesRepository.createNode(id,name,playcount,level,imageUrl,numOfQuestion,timeDuration,liked,rules,pointPerQuestion,totalPoints,playerScore);
         gameIsATopicService.createRelationship(game);
         gameTypeOfGenreService.createRelationship(game);
         return game1;

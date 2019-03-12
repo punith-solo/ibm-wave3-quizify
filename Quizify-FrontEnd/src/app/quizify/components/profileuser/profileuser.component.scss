@@ -1,83 +1,145 @@
-// // .mat-dailog-content{
-// //     display: relative;
-// // }
-
-// .container{
-//     position: relative;
-//     background-color: lightblue;
-
-// }
-
-// // .a{
-// //     text-align: center;
-// // }
-
-.laststep{
-
-    background-image:url("https://www.freepptbackgrounds.net/wp-content/uploads/2013/01/Light-Blue-Effect-PPT-Backgrounds.jpg");
-  
-    width: 1500px;
-  
-    height: 800px;
-    margin-right: -1px;
-    
-     position: absolute;
-  
-  }
 
   img{
-    height: 150px;
-    width: 150px;
-    margin-left: 95px;
+  
+    height: 120px;
+  margin-left: 150px;
+    width: 120px;  
+    left:730px;
+    top:80px;
+    border-radius: 50%;
+    background: black;
+  
+  
   }
-  
-  h3{
-  
+
+
+
+
+
+.step1{
+
+  text-align: center;
+  font-weight: bold;
+
+
+        width: 100%;
+
+    }
+
+ 
+
+ .laststep {
+
+ 
+
+ text-align: center;
+
+ 
+
+  }
+
+  h3 {
+
     text-align: center;
 
-  
+    font-family: 'Crimson Text', serif;
+
+    letter-spacing: 1px;
+
+ }
+
+ 
+
+ .prebtn1 {
+
+    margin-left: 43%;
+
+    width: 15%;
+
   }
 
+  .a{
 
-  
-  
-  .col{
-  
-    // position: relative;
-  
-     left: 110px;
-  
-     padding-bottom: 200px;
-  
-  
-  
+      text-align: center;
+
   }
-  
-  .col1{
-  
-    width: 350px;
-  
-    position: absolute;
-  
+
+ .btn {
+
+   margin-left: 110px;
+
+ }
+ @media (max-width: 1024px)
+ {
+   mat-card{
+    margin-left: 280px;
+    margin-top: 120px;
+    color: black;
+    width: 450px;
     height: 400px;
-  
     text-align: left;
-    margin-left: 100px;
-  
-  }
-  
-  .img{
-  
-    height: 200px;
-  
-    width: 220px;  
-  
-  
-  }
+    box-shadow: 10px 10px 10px black;
+    border-radius: 50px 50px 50px 50px;
+   }
+ }
+
+ .col1{
 
 
- .btn2{
-      
-      float: right;
-    
-  }
+  margin-left: 470px;
+
+  margin-top: 120px;
+
+  color: black;
+
+  // opacity: 0.7;
+
+  width: 450px;
+
+  height: 400px;
+
+  text-align: left;
+
+  box-shadow: 10px 10px 10px rgb(22, 19, 49);
+
+  /*border-top-left-radius: 25px;*/
+
+  border-radius: 50px 50px 50px 50px;
+
+//  background:grey; 
+
+  // background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmPqec5r74pQ3HBlObVFGzCmvNxGYPq_ehiCGXnDj8VbAX3NxJSg");
+    background-image:url("data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBw0NDQ0NDQ0NDQ0HBw0HBwcNDQ8NDQcNIBEWFhURExMYHCggGBolHRUfITEhJSkrLi4uFx8zODMsNygtLisBCgoKDg0NFQ0NFysdFR0rKysrKzctKy0tKysrKysrKysrKy0tLS0rKysrKysrKysrKysrKysrKysrKysrKysrK//AABEIAKYBLwMBIgACEQEDEQH/xAAYAAEBAQEBAAAAAAAAAAAAAAAAAwIBB//EABcQAQEBAQAAAAAAAAAAAAAAAAASEWH/xAAZAQEAAwEBAAAAAAAAAAAAAAAAAQIDBAX/xAAWEQEBAQAAAAAAAAAAAAAAAAAAERL/2gAMAwEAAhEDEQA/APWtNYop1x5Wm9cZoohpvTWKKIab01iikw03prFFENN6axRSIabNYoohprXdYoohpvRiiiGm9NYoohptxmiiGm3GaKIabGKKIabcZoohpp1iiiGmnWKKIaadYoohpoZoohpp1iiiGkrLRp2l4x0rZaNFENLUUlrlENLWWjRpDS1lpaaQ0rZaOmkNLUUjppDS1lo6aQ0tZaOmkNLWUjppDS1lo67pDStFI6aQ0tZaOmkNLUWjppDS1lI6aQ0tRaOmkNLWWjppDS1Fo6aQ0tZaOu6Q0lRSFFNY59r0UjRRDa1FI05RDa9FI0UQ2tRSNFENrUUjRRDa1FI0UQ2tRSNFENrUUjRRDa1FI0UQ2tRSNFENrUUjZZDa1FI0UQ2tRSNFENrUUjRRDa1FI2WQ2tRSNlkNrUUjZRDa1FI0UQ2nRTGmtIw03RTGmkNN0UxppDTdFMaaQ03RTGmkNN0UxppDTdFMaaQ03RSeu6Q03RTGmkNN0UnrukNN0UxppDTdGsaaGm9KY00hpuimNNDTdFMaaQ03RTGmkNN0UxppDTdFMaaGm6KY00hpjTWRMY13eO7xgIVvTWQhWtNZArWmsuBW9NZArWmsgVrTWQK1prIFa01kCtaayBWtNZArWmsgVrTWQK1prIFa01kCtaayBWtNZArWmsgVwdwxKHB3DAcHcMCODuGA4O4YDg7hgODuGA4O4YDg7hgODuGA4O4YDg7hgODuGA4O4YDg7hgODuGA4O4YDg7hgODuGA1hjeO4q0ynhjeO4GU8MbwwMs4Y1hgZZxzFMcwMs45jeGBlnDGsdwMsYY1hgZZwxrDAyxjuNYYGWcMawwMs4Y1hgZZwxrDAyzhjWGBlnDGsMDLOOY3hgZZwxrDAyzhjWGBlnDGsMDKmEqS7Ctb5SklSCCmU8JUggplOTFIIKZTkxSCSmU5JUkgplPCVJIKZTklWXJKZTklSCCmU5JVkgplKTFJJKZSx2VYIKZSwlWCCmUcdlSCCmU8MUggplLHcUggplPHJVh2CmUsMUgkplOXMVggplaSVJJZV0ZTklSSSmU5JUkkplOSVJJKZTklSSSmU5JUkkplOCVJdkplOCW5JKZYkhuSSmWIIbkkplOSVJJKZTklSSSmU5JUkkplOSVJJKZTklSSSmU5JUkkplOSVJJKZYlyVJJKZTklSSSmVpJVklSt4lJKsklIlJKsklIlJKsklIlJKsklIlJKsklIlJKsklIlJKsklIlJKsklIlJisklIlJKsklIlJKsuSUickqySUiUkqy5JSJySrJJSJSSrJJSJSSrJJSJSSrJJSJSSrJJSNYY6KLmOYAGGOgOYY6A5g6A5juADmGABhjoBjmABhgAYYAGDoDhgAYY6A4YAGGABhgAYY6A5hjoD/2Q==");
+    // background-repeat: no-repeat;
+
+ }
+
+ section{
+
+    // background-image:url("https://www.scalsys.com/wallpapers/dark-wallpaper-4k/dark-wallpaper-4k_522970.png");
+    // background-image:url("http://www.kinyu-z.net/data/wallpapers/264/1777346.jpg");
+    // background-image: url("../../../../assets/images/login3.jpg");
+    background-image: url("src/assets/images/black.jpeg");
+
+
+     height: 100%;
+
+     width: 100%;
+
+     opacity: 0.9;
+
+     /* padding-left: 100px; */
+  box-shadow: 10px 10px 10px rgb(5, 40, 63);
+
+
+     background-repeat: no-repeat;
+
+     position: fixed;
+
+     top:60px;
+
+     background-size:100%;
+
+     
+
+ }

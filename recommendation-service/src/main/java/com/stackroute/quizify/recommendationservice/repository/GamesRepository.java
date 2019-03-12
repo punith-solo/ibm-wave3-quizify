@@ -17,8 +17,8 @@ public interface GamesRepository extends Neo4jRepository<Game,Long> {
     @Query("MATCH (g:Game) WHERE g.id={gameId} RETURN g")
     public Game getNode(@Param("gameId") long gameId);
 
-    @Query("CREATE (g:Game) SET g.id={gameId},g.name={gameName},g.playCount={playCount},g.level={level},g.imageUrl={imageUrl},g.numOfQuestion={numOfQuestion},g.timeDuration={timeDuration},g.liked={liked},g.rules={rules} RETURN g")
-    Game createNode(long gameId, String gameName, int playCount, String level, String imageUrl, int numOfQuestion, int timeDuration, int liked, List<String> rules);
+    @Query("CREATE (g:Game) SET g.id={gameId},g.name={gameName},g.playCount={playCount},g.level={level},g.imageUrl={imageUrl},g.numOfQuestion={numOfQuestion},g.timeDuration={timeDuration},g.liked={liked},g.rules={rules},g.pointPerQuestion={pointPerQuestion},g.totalPoints={totalPoints},g.playerScore={playerScore} RETURN g")
+    Game createNode(long gameId, String gameName, int playCount, String level, String imageUrl, int numOfQuestion, int timeDuration, int liked, List<String> rules,int pointPerQuestion,int totalPoints,int playerScore);
 
     @Query("MATCH (g:Game) WHERE g.id={gameId} DETACH DELETE g RETURN 'node deleted' ")
     Game deleteNode(@Param("gameId") long gameId);

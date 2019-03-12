@@ -2,6 +2,7 @@ package com.stackroute.quizify.kafka;
 
 import com.stackroute.quizify.dto.mapper.*;
 import com.stackroute.quizify.dto.model.GameDTO;
+import com.stackroute.quizify.dto.model.SinglePlayerDTO;
 import com.stackroute.quizify.dto.model.UserDTO;
 import com.stackroute.quizify.recommendationservice.domain.*;
 import com.stackroute.quizify.recommendationservice.service.*;
@@ -109,8 +110,8 @@ public class Consumer {
 //        System.out.println(payload);
 //        System.out.println("-------------------------------------------------------------------------------------------------------------------------------------");
 //        this.singlePlayer=this.singlePlayerMapper.singlePlayerDTOToSinglePlayer(payload);
-//        singlePlayer.setGameId(payload.getGame().getId());
-//        singlePlayer.setUserId(payload.getUser().getId());
+//        singlePlayer.setGameId(payload.getGame());
+//        singlePlayer.setUserId(payload.getPlayerId());
 //
 //        System.out.println(" gameId  "+singlePlayer.getGameId()  +"  userId   "+singlePlayer.getUserId());
 //

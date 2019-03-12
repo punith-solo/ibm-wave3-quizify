@@ -12,7 +12,6 @@ public class QuestionDTO {
     private CategoryDTO category;
     private TopicDTO topic;
     private GenreDTO genre;
-    private TagDTO tag;
     private String level;
     private String type;
     private String statement;
@@ -20,3 +19,6 @@ public class QuestionDTO {
     private String correctAnswer;
     private String playerAnswer;
 }
+
+
+

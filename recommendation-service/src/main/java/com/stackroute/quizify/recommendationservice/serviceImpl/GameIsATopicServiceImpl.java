@@ -5,11 +5,13 @@ import com.stackroute.quizify.recommendationservice.domain.GameIsATopic;
 import com.stackroute.quizify.recommendationservice.domain.Topic;
 import com.stackroute.quizify.recommendationservice.repository.GameIsATopicRepository;
 import com.stackroute.quizify.recommendationservice.service.GameIsATopicService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Slf4j
 @Service
 public class GameIsATopicServiceImpl implements GameIsATopicService {
 
@@ -30,7 +32,7 @@ public class GameIsATopicServiceImpl implements GameIsATopicService {
         long gameId=game.getId();
         Topic topic=game.getTopic();
         long topicId=topic.getId();
-        System.out.println("======================================================  gameid: "+gameId+"  topicId: "+topicId+"======================================================");
+        log.info("======================================================  gameid: "+gameId+"  topicId: "+topicId+"======================================================");
         return gameIsATopicRepository.createRelationship(gameId,topicId);
     }
 }

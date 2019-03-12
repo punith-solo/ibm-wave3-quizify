@@ -6,12 +6,14 @@ import com.stackroute.quizify.recommendationservice.domain.LikesGenre;
 import com.stackroute.quizify.recommendationservice.domain.User;
 import com.stackroute.quizify.recommendationservice.repository.LikesGenreRelationshipRepository;
 import com.stackroute.quizify.recommendationservice.service.LikesGenreService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.ListIterator;
 
+@Slf4j
 @Service
 public class LikesGenreServiceImpl implements LikesGenreService {
 
@@ -35,9 +37,9 @@ public class LikesGenreServiceImpl implements LikesGenreService {
         ListIterator<Genre> genresIterator = genres.listIterator();
         while(genresIterator.hasNext()){
             Genre genre=genresIterator.next();
-            System.out.println(genre.toString());
+            log.info(genre.toString());
             long genreId=genre.getId();
-            System.out.println("userId: "+userId+"genreId: "+genreId);
+            log.info("userId: "+userId+"genreId: "+genreId);
             likesGenreRelationshipRepository.createRelationship(userId,genreId);
         }
         return " "; //change as required

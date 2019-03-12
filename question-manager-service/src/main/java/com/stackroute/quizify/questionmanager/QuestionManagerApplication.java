@@ -13,7 +13,7 @@ import org.springframework.context.annotation.ComponentScan;
  * @Configuration, @EnableAutoConfiguration and @ComponentScan annotations.
  *
  */
-@EnableDiscoveryClient
+//@EnableDiscoveryClient
 @SpringBootApplication
 @ComponentScan(basePackages = "com.stackroute.quizify")
 public class QuestionManagerApplication {
