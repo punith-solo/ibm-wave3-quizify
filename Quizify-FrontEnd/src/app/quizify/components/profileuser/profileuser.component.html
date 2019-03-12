@@ -1,6 +1,7 @@
 
 <app-header></app-header>
-<section
+<!-- 
+    <section
 
       class="laststep"
 
@@ -15,10 +16,7 @@
     >
 
     <div class = "col">
-
-   
-
-  </div>
+    </div>
 
 
 
@@ -27,20 +25,24 @@
     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS5TUuXmx_ZWDtD3i0Dzeow2nQn1GrAjPYbqWUlAI8trL7440G2">
   <br/>
   <br/>
-    <label class="step1">Name : {{ reg.name }}</label> <br />
+    <label class="step1">Name :-{{ reg.name }}</label> <br />
 
     <br />
 
 
 
-    <label class="step1">Email Id : {{ reg.emailId }}</label> <br />
+    <label class="step1">EmailId :-{{ reg.emailId }}</label> <br />
 
    <br>
     
 
-    <label class="step1">Gender : {{ reg.gender }}</label> <br />
+    <label class="step1">Gender :-{{ reg.gender }}</label> <br />
 
     <br />
+    <label class="step1">{{ reg.topics }}</label> <br /><br>
+    <label class="step1">{{ reg.genres }}</label> <br />
+
+
 
 
 
@@ -48,22 +50,52 @@
 
     <div class="btn1">
 
-    <button mat-raised-button (click)="Profile()">Edit</button>
+    <button mat-raised-button (click)="onEdit()">Edit</button>
     </div>
 
-    <div class="btn2">
-    <button mat-raised-button (click)="Profile()">Submit</button>
-    </div>
-
-
+  
     </mat-card>
+  </section> -->
 
 
 
-    <!-- <button mat-button fxFlex = "10" class="step3" (click)="saveDetails()">Submit</button> -->
+  <section
+
+class="laststep">
+
+<mat-card class="col1">
+
+<h3>Personal Information</h3>
+<br>
+<br>
+ 
+    <img height=220px width= 120px src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQin6eiGYjlKFrKhpf2wvAQJQ37HpqpRDQmcBPFX31q_RFZEW__gw">
+<br>
+<br>
+
+<label class="step1">Name : {{ reg.name }}</label> <br />
+
+<br />
+
+<label class="step1">Email-Id : {{ reg.emailId }}</label> <br />
+
+<br />
 
 
 
-    <!-- <p>{{Msg}}</p> -->
 
-  </section>
+
+
+<label class="step1">Gender : {{ reg.gender }}</label> <br />
+
+<br />
+
+
+<label class="step1">Topics :-{{ reg.topics }}</label> <br /><br>
+<label class="step1">Genre -:{{ reg.genres }}</label> <br />
+
+
+
+<!-- <button mat-raised-button class ="btn"(click)="edit($event)" type="submit">Edit</button> -->
+
+</mat-card>

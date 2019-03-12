@@ -2,33 +2,40 @@
   
   background-image: linear-gradient(to bottom, rgb(236, 236, 203), rgba(196, 196, 218, 0.651)),
   url("https://blog.hubspot.com/hs-fs/hub/53/file-2408128213-png/00-Blog_Thinkstock_Images/tagline-quiz.png");
-  height: 640px;
-  overflow: hidden;
+  height: 680px;
+  overflow-x: hidden;
+
+  overflow-y: hidden;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
   margin-top: 60px;
   // margin-top: 45px;
-  margin-left: -10px;
-  margin-right: -7px;
+  // margin-left: -2px;
+  // margin-right: -2px;
   margin-bottom: 2px;
   padding-bottom: 34px;
+
 }
 .example-card {
   flex-wrap: wrap;
 }
 .container {
-  padding-left: 430px;
+  padding-left: 250px;
 }
 .container h1 {
   text-align: center;
 }
+.container2 {
+  margin-left: 30px;
+}
+
 mat-card {
   margin-top: 10px;
   margin-left: 510px;
   width: 500px;
-  height: 300px;
+  height: 320px;
   background-color: gainsboro;
 }
 .laststep {
@@ -90,13 +97,23 @@ h2 {
 }
 .inside1 {
   padding: 10px;
-  width: 200px;
-  height: 100px;
+  width: 220px;
+  height: 120px;
   line-height: 50px;
   font-weight: bolder;
   font-size: 2em;
   text-align: center;
   margin-left: 60px;
+}
+.inside {
+  padding: 10px;
+  width: 220px;
+  height: 120px;
+  line-height: 50px;
+  font-weight: bolder;
+  font-size: 2em;
+  text-align: center;
+   margin-left: 60px;
 }
 li {
   text-decoration: none;
@@ -112,21 +129,16 @@ li {
 .container h3 {
   text-align: center;
   display: flex;
-  margin-left: 250px;
+  margin-left: 200px;
   font-family: sans-serif;
 }
-.inside {
-  padding: 10px;
-  width: 200px;
-  height: 90px;
-  line-height: 50px;
-  font-weight: bolder;
-  font-size: 2em;
+.container2 h3 {
   text-align: center;
-  padding-top: 10px;
-  margin-left: 60px;
-  margin-right: 0px;
+  display: flex;
+  margin-left: 590px;
+  font-family: sans-serif;
 }
+
 @media (max-width:1032px)
 {
   .container {
@@ -141,8 +153,8 @@ li {
 }
 .inside {
   padding: 10px;
-  width: 200px;
-  height: 90px;
+  width: 210px;
+  height: 110px;
   line-height: 50px;
   font-weight: bolder;
   font-size: 2em;
@@ -211,6 +223,245 @@ h2 {
   margin-left: auto;
   flex: none;
 }
+.laststep {
+  margin-left: 80px;
+}
+}
+
+@media (max-width: 320px) {
+.mat-card {
+    margin-top: 10px;
+    margin-left: px;
+    width: 250px;
+    height: 350px;
+    background-color: gainsboro;
+}
+
+// .laststep {
+//   margin-left: auto;
+// }
+.laststep {
+    margin-left: auto;
+}
+
+.b {
+  margin-top:50px;
+}
+.username {
+    margin-left: 15%;
+    width: auto;
+}
+.password {
+    margin-left: 14%;
+    width: auto;
+}
+
+.emailid {
+    margin-left: 15%;
+    width: auto;
+}
+
+
+.gender {
+    margin-left: 15%;
+}
+.wrap {
+  float: right;
+  position: relative;
+  top: 20px;
+  margin-right: auto;
+  margin-left: auto;
+  /* right: 10px; */
+  color: 0;
+  color: black;
+}
+
+}
+
+@media (max-width:1032px)
+{
+  .container {
+    padding-left: 150px;
+}
+.mat-card {
+  margin-top: 10px;
+  margin-left: 230px;
+  width: 500px;
+  height: 300px;
+  background-color: gainsboro;
+}
+.inside {
+  padding: 10px;
+  width: 200px;
+  height: 90px;
+  line-height: 50px;
+  font-weight: bolder;
+  font-size: 2em;
+  text-align: center;
+  padding-top: 10px;
+  margin-bottom: 2px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+}
+
+
+
+@media (max-width: 768px) {
+.mat-card {
+    margin-top: 10px;
+    margin-left: 100px;
+    width: 500px;
+    height: 300px;
+    background-color: gainsboro;
+}
+.inside {
+  padding: 10px;
+  width: 220px;
+  height: 120px;
+  line-height: 50px;
+  font-weight: bolder;
+  font-size: 2em;
+  text-align: center;
+  margin-left: -40px;
+  margin-right: 10px;
+}
+.container2{
+  margin-left: -23px;
+  padding-left: auto;
+  margin-top: -17px;
+}
+.prebtn {
+    margin-right: 600px;
+    margin-bottom: 100px;
+}
+
+.container2 h3 {
+    text-align: center;
+    display: flex;
+    margin-left: 250px;
+}
+
+.inside {
+    padding: 10px;
+    width: 170px;
+    height: 120px;
+    line-height: 50px;
+    font-weight: bolder;
+    font-size: 2em;
+    text-align: center;
+    margin-left: -40px;
+    margin-top: 0px;
+}
+
+// .inside {
+//     padding: 10px;
+//     width: 170px;
+//     height: 120px;
+//     line-height: 50px;
+//     font-weight: bolder;
+//     font-size: 2em;
+//     text-align: center;
+//     margin-left: -39px;
+// }
+
+.container{
+    padding-left: 100px;
+}
+}
+@media (max-width: 425px) {
+  .mat-card {
+    margin-top: 10px;
+    margin-left: auto;
+    width: 350px;
+    height: 300px;
+    background-color: gainsboro;
+}
+
+
+.inside1 {
+  padding: -20px;
+  width: 135px;
+  height: 120px;
+  line-height: 50px;
+  font-weight: bolder;
+  font-size: 2em;
+  text-align: center;
+  margin-left: auto;
+}
+
+.inside {
+    padding: 10px;
+    width: 170px;
+    height: 120px;
+    line-height: 50px;
+    font-weight: bolder;
+    font-size: 2em;
+    text-align: center;
+    margin-left: -40px;
+}
+.prebtn {
+    margin-right: 250px;
+    margin-bottom: 100px;
+}
+.container h3 {
+  text-align: center;
+  display: flex;
+  margin-left: 60px;
+  font-family: sans-serif;
+}
+
+
+.container2 h3 {
+    text-align: center;
+    display: flex;
+    margin-left: 120px;
+}
+.username {
+  margin-left: 25%;
+  width: auto;
+}
+.password {
+    margin-left: 25%;
+    width: auto;
+}
+.gender {
+  margin-left: 25%;
+}
+h2 {
+  margin-left: 26%;
+  font-family: sans-serif;
+}
+
+.emailid {
+    margin-left: 25%;
+    width: auto;
+}
+.laststep {
+  margin-left: 100px;
+}
+}
+@media (max-width:1024px ) {
+
+ .container2 h3 {
+  text-align: center;
+  display: flex;
+  margin-left: 320px;
+  font-family: sans-serif;
+}}
+@media (max-width:375px ) {
+  .mat-card {
+    margin-top: 10px;
+    margin-left: px;
+    width: 300px;
+    height: 300px;
+    background-color: gainsboro;
+}
+.mat-horizontal-stepper-header .mat-step-icon {
+  margin-right: auto;
+  margin-left: auto;
+  flex: none;
+}
 .laststep[_ngcontent-c2] {
   margin-left: 80px;
 }
@@ -256,5 +507,35 @@ h2 {
 }
 .laststep {
     margin-left: 60px;
+}
+}
+@media (max-width:1440px ) {
+
+.inside {
+  padding: 10px;
+  width: 220px;
+  height: 120px;
+  line-height: 50px;
+  font-weight: bolder;
+  font-size: 2em;
+  text-align: center;
+  margin-left: 20px;
+}
+}
+@media (max-width:1024px ) {
+
+.prebtn {
+  margin-right: 800px;
+  margin-bottom: 100px;
+}
+.inside {
+    padding: 10px;
+    width: 220px;
+    height: 120px;
+    line-height: 50px;
+    font-weight: bolder;
+    font-size: 2em;
+    text-align: center;
+    margin-left: -40px;
 }
 }
