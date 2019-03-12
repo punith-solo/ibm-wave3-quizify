@@ -67,5 +67,26 @@ public class GamesServiceImpl implements GamesService {
     @Override
     public List<Game> getMostPlayed() {
         return gamesRepository.getMostPlayed();
+
+    }
+
+    @Override
+    public List<Game> getAllRelatedGamesOfAGenre(long genreId) {
+        return gamesRepository.getAllRelatedGamesOfAGenre(genreId);
+    }
+
+    @Override
+    public List<Game> getAllRelatedGamesOfATopic(long topicId) {
+        return gamesRepository.getAllRelatedGamesOfATopic(topicId);
+    }
+
+    @Override
+    public List<Game> getAllGamesPlayedByAUser(long userId) {
+        return gamesRepository.getAllGamesPlayedByAUser(userId);
+    }
+
+    @Override
+    public List<Game> getAllGamesLikedByAUser(long userId) {
+        return gamesRepository.getAllGamesLikedByAUser(userId);
     }
 }

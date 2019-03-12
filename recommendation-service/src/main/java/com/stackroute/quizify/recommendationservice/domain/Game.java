@@ -31,4 +31,6 @@ public class Game {
     @Property
     private int playCount;
     private List<String> rules;
+
+
 }

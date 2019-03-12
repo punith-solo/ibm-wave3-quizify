@@ -23,4 +23,9 @@ public class GenreServiceImpl implements GenreService {
     public List<Genre> getAll() {
         return genreRepository.getAllNodes();
     }
+
+    @Override
+    public List<Genre> getGenresByCategory(long categoryId) {
+        return genreRepository.getGenresBycategory(categoryId);
+    }
 }

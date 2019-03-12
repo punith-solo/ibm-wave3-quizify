@@ -32,6 +32,30 @@ public class GamesController {
         return gamessService.getMostPlayed();
     }
 
+    @ApiOperation("Get games of a Genre")
+    @GetMapping("/{genreId}")
+    public List<Game> getAllRelatedGamesOfAGenre(@PathVariable("genreId") long genreId) {
+        return gamessService.getAllRelatedGamesOfAGenre(genreId);
+    }
+
+    @ApiOperation("Get games of a Topic")
+    @GetMapping("/{topicId}")
+    public List<Game> getAllRelatedGamesOfATopic(@PathVariable("topicId") long topicId) {
+        return gamessService.getAllRelatedGamesOfATopic(topicId);
+    }
+
+    @ApiOperation("Get games played by a user")
+    @GetMapping("/{userId}")
+    public List<Game> getAllGamesPlayedByAUser(@PathVariable("userId") long userId) {
+        return gamessService.getAllGamesPlayedByAUser(userId);
+    }
+
+    @ApiOperation("Get games liked by a user")
+    @GetMapping("/{userId}")
+    public List<Game> getAllGamesLikedByAUser(@PathVariable("userId") long userId) {
+        return gamessService.getAllGamesLikedByAUser(userId);
+    }
+
     @ApiOperation("Get a game by id")
     @GetMapping("/id")
     public Game getOne(@RequestParam("GamesId") long GamesId){
