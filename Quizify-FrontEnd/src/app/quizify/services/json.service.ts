@@ -23,4 +23,8 @@ export class JsonService {
     return this.http.get('http://localhost:3000/genre');
   }
 
+  getSinglePlayerFromJsonServer()
+  {
+    return this.http.get('http://localhost:3000/game');
+  }
 }

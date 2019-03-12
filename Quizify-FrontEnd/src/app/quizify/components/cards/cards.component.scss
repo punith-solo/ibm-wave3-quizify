@@ -1,122 +1,144 @@
 
-.back {
-   background-image: url("../../../../assets/images/card.png");
-  // background-image: url('https://wallpapercave.com/wp/wp2482660.png');
-   height: 100%;
-   margin-top: -150px;
-   background-position: center;
-   background-repeat: repeat;
-   background-size: cover;
-   padding-top: 100px;
-   position: relative;
-   margin-top: -270px;
- //  margin-left: -2px;
-   margin-right: -16px;
- }
+.card{
+  background-color: white;
+  width: 100%;
+  height: 1000px;
+  margin-top: 0px;
+}
+
+#cardcarousel{
+  margin-left: 20%;
+  width:800px;
+  background-color:white;
+  height:800px;
+}
+.carousel-inner > .item > img
+  {
+    width: 30%;
+    height: 200px;
+    margin: auto;
+  }
+  
+
+
+// .back {
+//    height: 100%;
+//    margin-top: -150px;
+//    background-position: center;
+//    background-repeat: repeat;
+//    background-size: cover;
+//    padding-top: 100px;
+//    position: relative;
+//    margin-top: -270px;
+//  //  margin-left: -2px;
+//    margin-right: -16px;
+//  }
+
  
  
-   mat-card-action button {
-   border: 1px solid rgba(255, 255, 255, 0.5);
-   color: black;
-   border-radius: 9px;
-   padding: 1em 3em;// img {
+ 
+//    mat-card-action button {
+//    border: 1px solid rgba(255, 255, 255, 0.5);
+//    color: black;
+//    border-radius: 9px;
+//    padding: 1em 3em;// img {
      
-   margin: 1em 0 0 0;
-   background: none;
-   cursor: pointer;
+//    margin: 1em 0 0 0;
+//    background: none;
+//    cursor: pointer;
    
- }
+//  }
  
-  mat-card-action button:before {
-   font-family: FontAwesome;
-   content: "\f07A";
-   color: #fff;
+//   mat-card-action button:before {
+//    font-family: FontAwesome;
+//    content: "\f07A";
+//    color: #fff;
    
-   position: absolute;
-   bottom: 10px;
-   font-size: 1.5em;
-   margin: 0 -1.5em;
- }
- mat-card-action button:hover:before {
+//    position: absolute;
+//    bottom: 10px;
+//    font-size: 1.5em;
+//    margin: 0 -1.5em;
+//  }
+//  mat-card-action button:hover:before {
    
-   color: #2b2d42;
- }
+//    color: #2b2d42;
+//  }
  
  
  
  
-  .cards {
+//   .cards {
    
-    padding-top: 10px;
-   display: flex;
-   flex-wrap: wrap;
-   align-items: stretch;
-   padding-left: 200px;
-   padding-right: 200px;
-   padding-bottom: 50px;
+//     padding-top: 10px;
+//    display: flex;
+//    flex-wrap: wrap;
+//    align-items: stretch;
+//    padding-left: 200px;
+//    padding-right: 200px;
+//    padding-bottom: 50px;
    
- }
+//  }
  
-  .card {
+//   .card {
  
-   border-radius: 20px;
-   border: 2px solid black;
-   // border-color: black; 
-   flex: 0 0 200px;
-   margin: 10px;
+//    border-radius: 20px;
+//    border: 2px solid black;
+//    // border-color: black; 
+//    flex: 0 0 200px;
+//    margin: 10px;
    
    
- } 
- .card img {
+//  } 
+//  .card img {
  
-    border-radius: 20px;
+//     border-radius: 20px;
    
  
-   height: 180px;
-   width: 500px;
-   max-width: 100%;
- }
- .card .text {
-   text-decoration-color: white;
-   text-align: center;
- }
- .card .text > button {
-   background: gray;
-   border: 0;
-   color: white;
-   padding: 10px;
-   width: 100%;
-   }
+//    height: 180px;
+//    width: 500px;
+//    max-width: 100%;
+//  }
+//  .card .text {
+//    text-decoration-color: white;
+//    text-align: center;
+//  }
+//  .card .text > button {
+//    background: gray;
+//    border: 0;
+//    color: white;
+//    padding: 10px;
+//    width: 100%;
+//    }
  
-   * {
+//    * {
      
-     box-sizing: border-box;
-   }
+//      box-sizing: border-box;
+//    }
    
   
   
-  .mat-raised-button:not([class*=mat-elevation-z]) {
-   border-radius: 20px;
-   box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);
-   bottom: 2px;
+//   .mat-raised-button:not([class*=mat-elevation-z]) {
+//    border-radius: 20px;
+//    box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);
+//    bottom: 2px;
   
- }
+//  }
  
  
- .carousel-inner img
- {
-   padding-top: 100px;
- // padding-left: 100px;
- //   padding-right: 100px;
-   height: 400px;
-   width: 1600px;
- }
- .carousel-inner .items img
- {
-   height: 300px;
-   width: 900px;
- }
- h3{
-   font-style: italic;
-   font-size: 20px;
- }
+//  .carousel-inner img
+//  {
+//    padding-top: 100px;
+//  // padding-left: 100px;
+//  //   padding-right: 100px;
+//    height: 400px;
+//    width: 1600px;
+//  }
+//  .carousel-inner .items img
+//  {
+//    height: 300px;
+//    width: 900px;
+//  }
+//  h3{
+//    font-style: italic;
+//    font-size: 20px;
+//  }

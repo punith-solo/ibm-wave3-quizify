@@ -15,7 +15,7 @@ import {MatRadioModule} from '@angular/material/radio';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-
+// import { FlexLayoutModule } from '@angular/flex-layout';
 import {MatStepperModule} from '@angular/material/stepper';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
@@ -25,11 +25,11 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
 
 
 
+
 @NgModule({
     declarations: [],
     imports: [
     MatCardModule,
-    MatProgressBarModule,
       MatButtonModule,
       MatIconModule,
       MatToolbarModule,
@@ -56,7 +56,8 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
        MatInputModule,
        MatSelectModule,
        FormsModule,
-       MatRadioModule
+       MatRadioModule,
+       MatProgressBarModule
     ] ,
       schemas: [CUSTOM_ELEMENTS_SCHEMA] ,
       exports: [
@@ -65,7 +66,6 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
         MatIconModule,
         MatToolbarModule,
         MatMenuModule, MatFormFieldModule,
-        MatProgressBarModule,
 
       MatInputModule, MatTooltipModule, MatSnackBarModule, MatDialogModule, MatSidenavModule, MatListModule,
           MatGridListModule,
@@ -88,7 +88,8 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
           MatInputModule,
           MatSelectModule,
           FormsModule,
-          MatRadioModule
+          MatRadioModule,
+          MatProgressBarModule
 
          ]
 

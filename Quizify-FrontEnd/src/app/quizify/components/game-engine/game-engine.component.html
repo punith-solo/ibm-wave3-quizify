@@ -1,30 +1,141 @@
-<!-- 
-    <app-header></app-header>
-    <div>  
-  <mat-nav-list>
-      <mat-list-item *ngFor="let question of questions; index as i">
-          <h4 matLine>MadhuPriya.... Q.{{i+1}}.{{question.statement}}</h4>
-          <mat-list-item *ngFor="let option of question.options; index as j">
-              <mat-radio-group>
-                  <mat-radio-button value=[{j+1}]>{{option}}</mat-radio-button>
-              </mat-radio-group>
-          </mat-list-item>
-      </mat-list-item>
- </mat-nav-list>
- <button
-    mat-raised-button
->
-    SUBMIT
-</button>
-</div>
+<section id="game-window" class="p-15">
+  <article class="mt-20">
+    <section class="row text-center">
+      <article class="col-2">
+        <mat-chip-list class="p-10">
+          <mat-chip color="primary" class="time-left" selected>Total Questions : {{
+            game.numOfQuestion
+          }}</mat-chip>
+        </mat-chip-list>
+      </article>
+      <article class="col-8">
+        <section>
+          <h1></h1>
+        </section>
+        <section class="time-bar">
+          <mat-progress-bar mode="determinate" [value]="timeBar">
+          </mat-progress-bar>
+        </section>
+      </article>
+      <article class="col-2">
+        <mat-chip-list class="p-10">
+          <mat-chip class="time-left" selected>
+            {{ math.floor(timeLeft / 60) }} min : {{ timeLeft % 60 }} sec Left
+          </mat-chip>
+        </mat-chip-list>
+      </article>
+    </section>
+    <section class="row text-center" [ngClass]="{ 'd-none': gameFinished }">
+      <article class="col-12">
+        <mat-chip-list class="p-5">
+          <mat-chip color="primary" class="current-q" selected>{{
+            currentQuestionNumber
+          }}</mat-chip>
+        </mat-chip-list>
+      </article>
+    </section>
+  </article>
+  <article>
+    <mat-horizontal-stepper #stepper>
+      <mat-step *ngFor="let question of questions; let i = index">
+        <ng-template matStepLabel>Question {{ i }}</ng-template>
+        <mat-chip-list class="row mb-40 mt-20">
+          <section col="col-12">
+            <article class="py-10">
+              <mat-chip class="question-chip" selectable="false" DisableRipple>
+                <section class="w-100">
+                  {{ question.statement }}
+                </section>
+              </mat-chip>
+            </article>
+          </section>
+        </mat-chip-list>
+        <mat-chip-list class="row" multiple="true" #optionChipList>
+          <section
+            class="col-6"
+            *ngFor="let option of question.options; let j = index"
+          >
+            <article class="p-15">
+              <mat-chip
+                class="m-15 option-chip p-15 text-center"
+                #chip
+                (click)="selectdAnswer(i, j, optionChipList, $event, emoji)"
+              >
+                <span class="m-auto">{{ j + 1 }}. {{ option }}</span>
+              </mat-chip>
+            </article>
+          </section>
+        </mat-chip-list>
+        <section>
+          <button
+            mat-raised-button
+            color="primary"
+            class="nav-btn"
+            (click)="backStepper(stepper)"
+            [ngClass]="{ 'd-none': firstQuestion }"
+          >
+            Back
+          </button>
+          <button
+            mat-raised-button
+            color="primary"
+            class="nav-btn"
+            (click)="nextStepper(stepper)"
+            [ngClass]="{ 'd-none': lastQuestion }"
+          >
+            Next
+          </button>
+        </section>
+        <section class="emojis">
+          <img src="../../../../assets/images/emojiThinking" alt="Emoji" class="emoji" #emoji>
+        </section>
+      </mat-step>
+      <mat-step>
+        <ng-template matStepLabel>Time Up</ng-template>
+        <section class="game-result">
+          <h2>
+            Total Questions : {{ game.numOfQuestion }}
+          </h2>
+          <h2>
+            Player Attempted : {{ playerAttempted }}
+          </h2>
+          <h2>
+            Right Answers : {{ playerAttemptedRight }}
+          </h2>
+          <h2>
+            Wrong Answers : {{ playerAttemptedWrong }}
+          </h2>
+          <h2>
+            Game Score : {{ gameScore }}
+          </h2>
+          <h2>
+            Player's Score : {{ playerScore }}
+          </h2>
+        </section>
+        <section>
+          <button
+            mat-raised-button
+            color="primary"
+            class="nav-btn"
+            matTooltip="Like It"
+          >
+          <i class="material-icons">
+            favorite_border
+            </i>
+          </button>
+          <button
+            mat-raised-button
+            color="primary"
+            class="nav-btn"
+            matTooltip="Play Again"
+          >
+          <i class="material-icons">
+            replay
+            </i>
+          </button>
+        </section>
+      </mat-step>
+    </mat-horizontal-stepper>
+  </article>
+</section>
 
-<div layout="row" layout-align="end center">
-  <md-button class="md-accent md-raised" ng-click="quizzCtrl.goPreviousStep($index)" ng-if="$index !== 0">
-      <span>{{'QUIZZ_PREVIOUS_BUTTON' | translate}}</span>	
-  </md-button>
-  <md-button class="md-accent md-raised" ng-click="quizzCtrl.goNextStep($index)" ng-if="$index !== quizzCtrl.quizzModel.questions.length">
-      <span>{{'QUIZZ_NEXT_BUTTON' | translate}}</span>	
-  </md-button>								
-</div> 
-
- -->
