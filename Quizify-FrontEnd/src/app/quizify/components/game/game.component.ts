@@ -249,7 +249,7 @@ export class GameComponent implements OnInit {
       }
       this.game.level = this.selectedLevel;
       this.game.numOfQuestion = Number(this.questionNumber);
-      this.game.playcount = 0;
+      this.game.playCount = 0;
       this.game.liked=0;
       this.game.timeDuration = this.timeDuration;
       console.log(this.game);

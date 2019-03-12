@@ -14,7 +14,6 @@ public class GameDTO {
     private CategoryDTO category;
     private TopicDTO topic;
     private GenreDTO genre;
-    private TagDTO tag;
     private String level;
     private String imageUrl;
     private int numOfQuestion;

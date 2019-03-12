@@ -6,6 +6,7 @@ import com.stackroute.quizify.gamemanager.domain.Game;
 import com.stackroute.quizify.gamemanager.domain.Genre;
 import com.stackroute.quizify.gamemanager.domain.Topic;
 import com.stackroute.quizify.gamemanager.service.GameService;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
@@ -22,8 +23,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;
-import java.util.List;
 
+@Slf4j
 @Component
 public class FeedDataApplicationListener implements ApplicationListener<ContextRefreshedEvent>
 {
@@ -44,6 +45,10 @@ public class FeedDataApplicationListener implements ApplicationListener<ContextR
     private Game game;
 
     private Environment environment;
+
+    private File file;
+    private XSSFWorkbook myWorkBook;
+    private XSSFSheet mySheet;
 
     @Autowired
     public FeedDataApplicationListener(Environment environment, GameService gameService) {
@@ -123,47 +128,38 @@ public class FeedDataApplicationListener implements ApplicationListener<ContextR
         this.historical.setName("Historical");
         this.historical.setImageUrl("https://www.listchallenges.com/f/lists/87b065de-25d3-4020-800e-ba0434ecb908.jpg");
 
-    };
-
-//    @Value("com/stackroute/quizify/questionmanager/data/MoviesBasicAll.xlsx")
-//    private Resource resource;
+    }
 
     @Override
     public void onApplicationEvent(ContextRefreshedEvent event)
     {
-        File file = new File("./assets/GameMovies.xlsx");
-//        System.out.println("-----------------------------------------------------------------------"+file.exists());
+        this.file = new File("./assets/GameMovies.xlsx");
 
 
         try
         {
             // Finds the XLSX file
-//           Resource resource = new ClassPathResource("data/MoviesBasicAll.xlsx");
 
             // Finds the workbook instance for XLSX file
 
-            XSSFWorkbook myWorkBook = new XSSFWorkbook(new FileInputStream(file));
+            this.myWorkBook = new XSSFWorkbook(new FileInputStream(file));
             // Return first sheet from the XLSX workbook
-            XSSFSheet mySheet = myWorkBook.getSheetAt(0);
+            this.mySheet = myWorkBook.getSheetAt(0);
             // Get iterator to all the rows in current sheet
             Iterator<Row> rowIterator = mySheet.iterator();
             // Traversing over each row of XLSX file
             rowIterator.next();//Skipping 1st line
-            int j=0;
             while (rowIterator.hasNext()) {
                 Row row = rowIterator.next();
-//                System.out.println(row);
 
                 // For each row, iterate through each columns
                 Iterator<Cell> cellIterator = row.cellIterator();
                 Cell cell;
                 this.game = new Game();
                 game.setId(0);
-                List<String> rules = new ArrayList<>();
                 for (int i=1; cellIterator.hasNext(); i++)
                 {
                     cell = cellIterator.next();
-                    String cellType = "" + cell.getCellType();
                     switch (i)
                     {
                         case 1:
@@ -230,32 +226,35 @@ public class FeedDataApplicationListener implements ApplicationListener<ContextR
                             }
                             break;
                         case 5:
-                            switch (cell.getStringCellValue())
-                            {
-                                default:
-                                    this.game.setTag(null);
-                            }
+                            this.game.setLevel(cell.getStringCellValue());
+                            if(this.game.getLevel().equals("easy"))
+                                this.game.setPointPerQuestion(1);
+                            else if(this.game.getLevel().equals("medium"))
+                                this.game.setPointPerQuestion(3);
+                            else if(this.game.getLevel().equals("hard"))
+                                this.game.setPointPerQuestion(5);
                             break;
                         case 6:
-                            this.game.setLevel(cell.getStringCellValue());
-                            break;
-                        case 7:
                             this.game.setImageUrl(cell.getStringCellValue());
                             break;
-                        case 8:
+                        case 7:
                             this.game.setNumOfQuestion((int)cell.getNumericCellValue());
+                            this.game.setTotalPoints(this.game.getPointPerQuestion() * this.game.getNumOfQuestion());
                             break;
-                        case 9:
+                        case 8:
                             this.game.setRules(Arrays.asList(cell.getStringCellValue().split("\\+")));
                             break;
-                        case 10:
+                        case 9:
                             this.game.setTimeDuration((int)cell.getNumericCellValue());
+                            break;
+                        default:
                             break;
                     }
 
                 }
                 if (this.game.getName() == null)
                     break;
+                this.game.setQuestions(new ArrayList<>());
                 this.gameService.saveGame(this.game);
             }
         }
@@ -263,9 +262,18 @@ public class FeedDataApplicationListener implements ApplicationListener<ContextR
         {
             e.printStackTrace();
         }
-
-//        File file = new File("./assets/MoviesBasicAll.csv");
-
-
+        finally
+        {
+            this.mySheet = null;
+            try
+            {
+                this.myWorkBook.close();
+            }
+            catch (IOException e)
+            {
+                e.printStackTrace();
+            }
+            this.file = null;
+        }
     }
 }
