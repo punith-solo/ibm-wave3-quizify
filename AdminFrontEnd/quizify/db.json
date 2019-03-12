@@ -4,8 +4,13 @@
 	  "id":"1",
 	  "name": "Entertainment",
 	  "imageUrl": "https://mitaanexpress.com/wp-content/uploads/2017/12/336fdcf7d540e4b430a890b63da159c9-1503648561-768x432.png"
-	}
-    ],
+	},
+   {
+     "id":2,
+     "name": "Social",
+     "imageUrl":"https://img-aws.ehowcdn.com/877x500p/s3-us-west-1.amazonaws.com/contentlab.studiod/getty/4f7ae5ca52194d829740d3aeb1f071b8",
+   }
+  ],
   "topic":[
 	{
 		  "id":"1",
@@ -16,8 +21,23 @@
 		  "id":"2",
 		  "name": "TV Shows",
 		  "imageUrl": "https://tallypress.com/wp-content/uploads/2016/12/9-Popular-TV-shows-with-a-Malaysian-Flavour-1.jpg"
-		}
-    ],
+		},
+    {
+      "id":3,
+      "name": "Capitals",
+      "imageUrl":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjGj-G3G6xQKCPuAdSqckuhdlk4gmmCmBeN7aNKzyb-ALaXlQl",
+    },
+    {
+      "id":4,
+      "name": "US-Presidents",
+      "imageUrl":"https://origin2images-rainbowresource.netdna-ssl.com/products/031091.jpg",
+    },
+    {
+      "id":5,
+      "name": "Language",
+      "imageUrl": "https://www.theeducator.com/news/wp-content/uploads/2016/04/language-header-1280x640.jpg ",
+    }
+  ],
 "genre":[
 	{
 		  "id":"1",
@@ -68,7 +88,27 @@
 		  "id":"10",
 		  "name": "Historical",
 		  "imageUrl": "https://www.listchallenges.com/f/lists/87b065de-25d3-4020-800e-ba0434ecb908.jpg"
-		}
+		},
+  {
+    "id":11,
+    "name": "Asia",
+    "imageUrl":"https://img.freepik.com/free-vector/map-asia-continent-with-different-colors_23-2147791358.jpg?size=338&ext=jpg"
+  },
+  {
+    "id":12,
+    "name": "Europe",
+    "imageUrl":"https://www.statravel.co.za/static/za_division_web_live/assets/Europe-map-470x400.jpg"
+  },
+  {
+    "id":13,
+    "name": "Africa",
+    "imageUrl":"http://antyradar.info/wp-content/uploads/political-map-of-africa-africa-political-map-maps-of-africa.gif"
+  },
+  {
+    "id":14,
+    "name": "Australia",
+    "imageUrl":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRw886GQ998nMFyK72ny4Gh1i3mJzLnHVuKHvt-Yo142BAO_FW3Tg",
+  }
 
     ]
 }
