@@ -18,6 +18,7 @@ import { QuestionService } from './quizify/services/question.service';
 import { GameserviceService } from './quizify/services/gameservice.service';
 import { RouterModule } from '@angular/router';
 import { HeaderComponent } from './quizify/components/header/header.component';
+import { JsonService } from './quizify/services/json.service';
 
 
 @NgModule({
@@ -36,7 +37,7 @@ import { HeaderComponent } from './quizify/components/header/header.component';
     QuizifyMaterialModule
       ],
   providers: [QuestionService,
-  GameserviceService] ,
+  GameserviceService, JsonService] ,
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
 
   bootstrap: [AppComponent]

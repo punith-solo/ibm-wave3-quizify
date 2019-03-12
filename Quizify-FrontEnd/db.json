@@ -78,14 +78,200 @@
   "likes":"",
   "numOfQuestion":""
 }
+],
 
-
-
-
-
-
-
+"game" :[
+{
+  "playerId": 123,
+  "game": {
+    "id": 27,
+    "name": "Movie Noobies",
+    "category": {
+      "id": 1,
+      "name": "Entertainment",
+      "imageUrl": "https://mitaanexpress.com/wp-content/uploads/2017/12/336fdcf7d540e4b430a890b63da159c9-1503648561-768x432.png"
+    },
+    "topic": {
+      "id": 1,
+      "name": "Movies",
+      "imageUrl": "https://image.freepik.com/free-vector/cinema-logo_23-2147503279.jpg?1"
+    },
+    "genre": {
+      "id": 8,
+      "name": "Drama",
+      "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMqK5BdSyRyCS8B5zTZ0AC3DYc0P4x2dRKMKLLbDUTGeOQPwDJ0g"
+    },
+    "tag": null,
+    "level": "easy",
+    "imageUrl": "https://lh3.googleusercontent.com/-M-l-fj3erPw/UxPopIR3qVI/AAAAAAAAABM/mw7ROBKAezY/w530-h531-n-rw/NOOBIELOGO.jpg",
+    "numOfQuestion": 5,
+    "questions": [
+      {
+        "id": 97,
+        "category": {
+          "id": 1,
+          "name": "Entertainment",
+          "imageUrl": "https://mitaanexpress.com/wp-content/uploads/2017/12/336fdcf7d540e4b430a890b63da159c9-1503648561-768x432.png"
+        },
+        "topic": {
+          "id": 1,
+          "name": "Movies",
+          "imageUrl": "https://image.freepik.com/free-vector/cinema-logo_23-2147503279.jpg?1"
+        },
+        "genre": {
+          "id": 8,
+          "name": "Drama",
+          "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMqK5BdSyRyCS8B5zTZ0AC3DYc0P4x2dRKMKLLbDUTGeOQPwDJ0g"
+        },
+        "tag": null,
+        "level": "easy",
+        "type": "mcq",
+        "statement": "Which is the first talkie film in India?",
+        "options": [
+          "Pundalik",
+          "Alam Ara",
+          "Sant Tukaram",
+          "Raja Harishchandra"
+        ],
+        "correctAnswer": "Alam Ara ",
+        "playerAnswer": null
+      },
+      {
+        "id": 397,
+        "category": {
+          "id": 1,
+          "name": "Entertainment",
+          "imageUrl": "https://mitaanexpress.com/wp-content/uploads/2017/12/336fdcf7d540e4b430a890b63da159c9-1503648561-768x432.png"
+        },
+        "topic": {
+          "id": 1,
+          "name": "Movies",
+          "imageUrl": "https://image.freepik.com/free-vector/cinema-logo_23-2147503279.jpg?1"
+        },
+        "genre": {
+          "id": 8,
+          "name": "Drama",
+          "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMqK5BdSyRyCS8B5zTZ0AC3DYc0P4x2dRKMKLLbDUTGeOQPwDJ0g"
+        },
+        "tag": null,
+        "level": "easy",
+        "type": "mcq",
+        "statement": "Aishwarya Rai was crowned Miss World in which year?",
+        "options": [
+          "1993",
+          "1994",
+          "1995",
+          "1996"
+        ],
+        "correctAnswer": "1994",
+        "playerAnswer": null
+      },
+      {
+        "id": 199,
+        "category": {
+          "id": 1,
+          "name": "Entertainment",
+          "imageUrl": "https://mitaanexpress.com/wp-content/uploads/2017/12/336fdcf7d540e4b430a890b63da159c9-1503648561-768x432.png"
+        },
+        "topic": {
+          "id": 1,
+          "name": "Movies",
+          "imageUrl": "https://image.freepik.com/free-vector/cinema-logo_23-2147503279.jpg?1"
+        },
+        "genre": {
+          "id": 8,
+          "name": "Drama",
+          "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMqK5BdSyRyCS8B5zTZ0AC3DYc0P4x2dRKMKLLbDUTGeOQPwDJ0g"
+        },
+        "tag": null,
+        "level": "easy",
+        "type": "mcq",
+        "statement": "Aishwarya Rai was crowned Miss World in which year?",
+        "options": [
+          "1993",
+          "1994",
+          "1995",
+          "1996"
+        ],
+        "correctAnswer": "1994",
+        "playerAnswer": null
+      },
+      {
+        "id": 469,
+        "category": {
+          "id": 1,
+          "name": "Entertainment",
+          "imageUrl": "https://mitaanexpress.com/wp-content/uploads/2017/12/336fdcf7d540e4b430a890b63da159c9-1503648561-768x432.png"
+        },
+        "topic": {
+          "id": 1,
+          "name": "Movies",
+          "imageUrl": "https://image.freepik.com/free-vector/cinema-logo_23-2147503279.jpg?1"
+        },
+        "genre": {
+          "id": 8,
+          "name": "Drama",
+          "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMqK5BdSyRyCS8B5zTZ0AC3DYc0P4x2dRKMKLLbDUTGeOQPwDJ0g"
+        },
+        "tag": null,
+        "level": "easy",
+        "type": "mcq",
+        "statement": "Dilliagi, a movie released in 1999, had a popular song Haan Haan Yeh Pyaar Hai as part of its soundtrack. This tune is blatantly copied from the English number Cant Take My Eyes Off You. Who sang the English song?",
+        "options": [
+          "Frank Sinatra ",
+          "Bob Dylan ",
+          "Paul Simon ",
+          "Frankie Valli"
+        ],
+        "correctAnswer": "Frankie Valli",
+        "playerAnswer": null
+      },
+      {
+        "id": 73,
+        "category": {
+          "id": 1,
+          "name": "Entertainment",
+          "imageUrl": "https://mitaanexpress.com/wp-content/uploads/2017/12/336fdcf7d540e4b430a890b63da159c9-1503648561-768x432.png"
+        },
+        "topic": {
+          "id": 1,
+          "name": "Movies",
+          "imageUrl": "https://image.freepik.com/free-vector/cinema-logo_23-2147503279.jpg?1"
+        },
+        "genre": {
+          "id": 8,
+          "name": "Drama",
+          "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMqK5BdSyRyCS8B5zTZ0AC3DYc0P4x2dRKMKLLbDUTGeOQPwDJ0g"
+        },
+        "tag": null,
+        "level": "easy",
+        "type": "mcq",
+        "statement": "Dilliagi, a movie released in 1999, had a popular song Haan Haan Yeh Pyaar Hai as part of its soundtrack. This tune is blatantly copied from the English number Cant Take My Eyes Off You. Who sang the English song?",
+        "options": [
+          "Frank Sinatra ",
+          "Bob Dylan ",
+          "Paul Simon ",
+          "Frankie Valli"
+        ],
+        "correctAnswer": "Frankie Valli",
+        "playerAnswer": null
+      }
+    ],
+    "timeDuration": 90,
+    "liked": 0,
+    "playCount": 0,
+    "rules": [
+      "This Quiz has 5 questions.",
+      "The questions are of difficulty level “Easy”.",
+      "Total time given for this quiz is 5 minutes.",
+      "Once a Option is selected, it can’t be changed."
+    ]
+  },
+  "gameScore": 0,
+  "playerScore": 0
+}
 ]
+ 
   
 
   

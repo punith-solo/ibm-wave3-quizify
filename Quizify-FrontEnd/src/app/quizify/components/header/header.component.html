@@ -1,50 +1,22 @@
 <header>
+    <div class="logo" >
+        <a href="/" >
+            <h2 id="logo"> QUIZIFY </h2>
+        </a>
+        <h4 id="slogan">are you up to the challenge.....?</h4>
+    </div>
 
-        <div class="logo">
-    
-         <a href="/" >
-    
-             <img src="https://t2.ftcdn.net/jpg/02/20/37/11/400_F_220371153_cVMNR8R8T1VicM5He4zSfusGH0WSe6V6.jpg" height="70px" width="120">
-    
-         </a>
-
-        </div>
- 
-        <div class="wrap"  *ngIf=userLogged>
-            <mat-card-actions>
-               <button mat-raised-button color="" [routerLink]="[ '/login']">Login</button>
-              
-            </mat-card-actions>
-         </div>
-         <div class="wrap" *ngIf=flag >
-                <button  mat-button [matMenuTriggerFor]="menu" class="menubar"><img class="icon" src="../../../../assets/images/gender.png" alt="icon-pic"></button>
-                <mat-menu #menu="matMenu">
-               <button mat-menu-item  [routerLink]="[ '/profileuser']">profile</button>
-               <button mat-menu-item (click)='logout()'>logout</button>
-                  
-                </mat-menu>
-           
-         </div>
-         <h1>QUIZIFIY</h1>
-         <p >Are you up to the challenge ??</p>
-         
-    
-        
-    
-         
-<!--     
-         <mat-form-field appearance="inline" >
-    
-             <div class="box">
-    
-                 <input matInput placeholder="Search for quizes" (input)="search($event.target.value)">
-    
-                 <mat-icon  matSuffix>search</mat-icon>
-    
-             </div>
-    
-         </mat-form-field> -->
-    
-    
-     </header>
+    <div class="wrap"  *ngIf=userLogged>
+        <mat-card-actions>
+            <button mat-raised-button color="" [routerLink]="[ '/login']">Login</button>        
+        </mat-card-actions>
+    </div>
+    <div class="wrap" *ngIf=flag >
+        <button  mat-button [matMenuTriggerFor]="menu" class="menubar"><img class="icon" src="../../../../assets/images/gender.png" alt="icon-pic"></button>
+        <mat-menu #menu="matMenu">
+            <button mat-menu-item  [routerLink]="[ '/profileuser']">profile</button>
+            <button mat-menu-item (click)='logout()'>logout</button>          
+        </mat-menu>   
+    </div>
+</header>
     
