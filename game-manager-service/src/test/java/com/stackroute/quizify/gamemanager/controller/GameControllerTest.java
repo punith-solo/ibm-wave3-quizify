@@ -1,10 +1,16 @@
 //package com.example.stackroute.gamemanager.controller;
 //
-//import com.example.stackroute.gamemanager.domain.*;
-//import GameAlreadyExists;
-//import GameNotFound;
-//import com.example.stackroute.gamemanager.service.GameServiceimpl;
+//
+//
+//
+//
 //import com.fasterxml.jackson.databind.ObjectMapper;
+//import com.stackroute.quizify.gamemanager.controller.GameController;
+//import com.stackroute.quizify.gamemanager.domain.Category;
+//import com.stackroute.quizify.gamemanager.domain.Game;
+//import com.stackroute.quizify.gamemanager.domain.Question;
+//import com.stackroute.quizify.gamemanager.domain.Topic;
+//import com.stackroute.quizify.gamemanager.service.GameServiceImpl;
 //import org.junit.After;
 //import org.junit.Before;
 //import org.junit.Test;
@@ -12,6 +18,7 @@
 //import org.mockito.InjectMocks;
 //import org.mockito.MockitoAnnotations;
 //import org.springframework.beans.factory.annotation.Autowired;
+//import org.springframework.boot.autoconfigure.kafka.KafkaProperties;
 //import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 //import org.springframework.boot.test.mock.mockito.MockBean;
 //import org.springframework.http.MediaType;
@@ -37,18 +44,18 @@
 //    private MockMvc mockMvc;
 //
 //    @MockBean
-//    private GameServiceimpl gameServiceimpl;
+//    private GameServiceImpl gameServiceimpl;
 //
 //    @InjectMocks
 //    private GameController gameController;
 //
-//    private  Game game;
-//    private Admin admin;
+//    private Game game;
+//    private KafkaProperties.Admin admin;
 //    private Category category;
 //    private Topic topic;
 //    private Question question;
 //    private List<Question> questions;
-//    private List<Game> game;
+//    private List<Game> games;
 //
 //
 //    @Before
@@ -57,11 +64,11 @@
 //        mockMvc = MockMvcBuilders.standaloneSetup(this.gameController).build();
 //
 //        /**
-//         * Dummy Data For Admin Class
-//         */
-//        this.admin = new Admin();
-//        this.admin.setId("101");
-//        this.admin.setName("Kaustav");
+////         * Dummy Data For Admin Class
+////         */
+////        this.admin = new KafkaProperties.Admin();
+////        this.admin.setId("101");
+////        this.admin.setName("Kaustav");
 //
 //        /**
 //         * Dummy Data For Category Class
@@ -69,29 +76,29 @@
 //        this.category = new Category();
 //        this.category.setName("Entertainment");
 //        this.category.setImageUrl("https://www.gudstory.com/wp-content/uploads/2018/10/Entertainment-1.jpg");
-//        this.category.setTimeStamp((int)System.currentTimeMillis());
-//        this.category.setAdmin(this.admin);
+////        this.category.setTimeStamp((int)System.currentTimeMillis());
+////        this.category.setAdmin(this.admin);
 //        /**
 //         * Dummy Data For Topic Class
 //         */
 //        this.topic = new Topic();
 //        this.topic.setName("Movies");
 //        this.topic.setImageUrl("https://boygeniusreport.files.wordpress.com/2016/03/movies-tiles.jpg?quality=98&strip=all");
-//        this.topic.setTimeStamp((int)System.currentTimeMillis());
-//        this.topic.setAdmin(this.admin);
+////        this.topic.setTimeStamp((int)System.currentTimeMillis());
+////        this.topic.setAdmin(this.admin);
 //        /**
 //         * Dummy Data For Topic Class
 //         */
 //        this.topic = new Topic();
 //        this.topic.setName("TV-Shows");
 //        this.topic.setImageUrl("http://i-vrox.com/wp-content/uploads/2018/06/series-2.jpg");
-//        this.topic.setTimeStamp((int)System.currentTimeMillis());
-//        this.topic.setAdmin(this.admin);
+////        this.topic.setTimeStamp((int)System.currentTimeMillis());
+////        this.topic.setAdmin(this.admin);
 //        /**
 //         * Dummy Data For Question Class
 //         */
 //        this.question = new Question();
-//        this.question.setId("1234567890");
+//        this.question.setId(1234567890);
 //        this.question.setCategory(this.category);
 //        this.question.setTopic(this.topic);
 //        this.question.setLevel("easy");
@@ -103,9 +110,9 @@
 //        options.add("9");
 //        options.add("8");
 //        this.question.setOptions(options);
-//        this.question.setAnswer("11");
-//        this.question.setTimeStamp((int)System.currentTimeMillis());
-//        this.question.setAdmin(this.admin);
+//        this.question.setCorrectAnswer("11");
+////        this.question.setTimeStamp((int)System.currentTimeMillis());
+////        this.question.setAdmin(this.admin);
 //        /**
 //         * Array List of Question
 //         */
@@ -113,14 +120,14 @@
 //       questions.add(question);
 //
 //        this.game = new Game();
-//        this.game.setId("g1");
+//        this.game.setId(121);
 //        this.game.setName("game1");
 //        this.game.setTopic(this.topic);
 //        this.game.setCategory(this.category);
-//        this.game.setAdmin(this.admin);
+////        this.game.setAdmin(this.admin);
 //        this.game.setLevel("medium");
 //        this.game.setQuestions(questions);
-//        this.game.setGenre("movies");
+//        this.game.setGenre(Movies);
 //        this.game.setLiked(10);
 //        this.game.setPlayCount(5);
 //        this.game.setNumOfQuestion(10);

@@ -1,5 +1,6 @@
 package com.stackroute.quizify.userregistrationservice.controller;
 
+import com.stackroute.quizify.dto.mapper.UserMapper;
 import com.stackroute.quizify.dto.model.UserDTO;
 import com.stackroute.quizify.userregistrationservice.domain.User;
 import com.stackroute.quizify.userregistrationservice.exceptions.UserAlreadyExistException;
@@ -22,6 +23,7 @@ import java.util.List;
 @Api(description = "shows the user information")
 public class UserController {
     private UserService userService;
+    private UserMapper userMapper;
 
     @Autowired
     public UserController(UserService userService) {
@@ -34,7 +36,7 @@ public class UserController {
     public ResponseEntity<?> saveUser(@RequestBody UserDTO userDTO) throws UserAlreadyExistException {
 
         try{
-            return new ResponseEntity<User>(this.userService.saveUser(userDTO), HttpStatus.OK);
+            return new ResponseEntity<User>(this.userService.saveUser(userDTO), HttpStatus.CREATED);
         }
         catch (UserAlreadyExistException e){
             return new ResponseEntity<>(e.getMessage(),HttpStatus.CONFLICT);
@@ -68,6 +70,7 @@ public class UserController {
     public ResponseEntity<?> UpdateUser(@RequestBody UserDTO userDTO) throws UserNotFoundException, UserAlreadyExistException {
         ResponseEntity responseEntity;
 
+        User user=this.userMapper.userDTOToUser(userDTO);
 
         responseEntity=new ResponseEntity<User>( this.userService.updateUser(userDTO), HttpStatus.CREATED);
 
@@ -79,7 +82,7 @@ public class UserController {
     public ResponseEntity<?> getDeleteUser(@PathVariable Long id) throws UserNotFoundException{
         ResponseEntity responseEntity;
 
-        responseEntity = new ResponseEntity<User>(userService.deleteUser(id), HttpStatus.CREATED);
+        responseEntity = new ResponseEntity<User>(userService.deleteUser(id), HttpStatus.NOT_FOUND);
 
          return responseEntity;
 

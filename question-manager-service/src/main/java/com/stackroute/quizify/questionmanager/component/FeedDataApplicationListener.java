@@ -38,8 +38,11 @@ public class FeedDataApplicationListener implements ApplicationListener<ContextR
     private Genre documentary;
     private Genre talkshow;
 
-    private Tag tag;
     private Question question;
+
+    private File file;
+    private XSSFWorkbook myWorkBook;
+    private XSSFSheet mySheet;
 
     @Autowired
     public FeedDataApplicationListener(QuestionService questionService) {
@@ -119,24 +122,23 @@ public class FeedDataApplicationListener implements ApplicationListener<ContextR
         this.historical.setName("Historical");
         this.historical.setImageUrl("https://www.listchallenges.com/f/lists/87b065de-25d3-4020-800e-ba0434ecb908.jpg");
 
-    };
+    }
 
     @Override
     public void onApplicationEvent(ContextRefreshedEvent event)
     {
-        File file = new File("./assets/MoviesBasicAll.xlsx");
+        file = new File("./assets/MoviesBasicAll.xlsx");
 
         try
         {
             // Finds the workbook instance for XLSX file
-            XSSFWorkbook myWorkBook = new XSSFWorkbook(new FileInputStream(file));
+            myWorkBook = new XSSFWorkbook(new FileInputStream(file));
             // Return first sheet from the XLSX workbook
-            XSSFSheet mySheet = myWorkBook.getSheetAt(0);
+            mySheet = myWorkBook.getSheetAt(0);
             // Get iterator to all the rows in current sheet
             Iterator<Row> rowIterator = mySheet.iterator();
             // Traversing over each row of XLSX file
             rowIterator.next();//Skipping 1st line
-            int j=0;
             while (rowIterator.hasNext()) {
 
                 Row row = rowIterator.next();
@@ -214,38 +216,47 @@ public class FeedDataApplicationListener implements ApplicationListener<ContextR
                             }
                             break;
                         case 4:
-                            switch (cell.getStringCellValue())
-                            {
-                                default:
-                                    this.question.setTag(null);
-                            }
-                            break;
-                        case 5:
                             this.question.setLevel(cell.getStringCellValue());
                             break;
-                        case 6:
+                        case 5:
                             this.question.setType(cell.getStringCellValue());
                             break;
-                        case 7:
+                        case 6:
                             this.question.setStatement(cell.getStringCellValue());
                             break;
-                        case 8:
+                        case 7:
                             options = new ArrayList<>();
-                        case 9:
-                        case 10:
-                        case 11:
                             if (cellType.equals("NUMERIC"))
-                                options.add(""+cell.getNumericCellValue());
+                                options.add(""+(int)cell.getNumericCellValue());
                             else
                                 options.add(cell.getStringCellValue());
-                            if (i==11)
-                                this.question.setOptions(options);
                             break;
-                        case 12:
+                        case 8:
                             if (cellType.equals("NUMERIC"))
-                                this.question.setCorrectAnswer(""+cell.getNumericCellValue());
+                                options.add(""+(int)cell.getNumericCellValue());
+                            else
+                                options.add(cell.getStringCellValue());
+                            break;
+                        case 9:
+                            if (cellType.equals("NUMERIC"))
+                                options.add(""+(int)cell.getNumericCellValue());
+                            else
+                                options.add(cell.getStringCellValue());
+                            break;
+                        case 10:
+                            if (cellType.equals("NUMERIC"))
+                                options.add(""+(int)cell.getNumericCellValue());
+                            else
+                                options.add(cell.getStringCellValue());
+                            this.question.setOptions(options);
+                            break;
+                        case 11:
+                            if (cellType.equals("NUMERIC"))
+                                this.question.setCorrectAnswer(""+(int)cell.getNumericCellValue());
                             else
                                 this.question.setCorrectAnswer(cell.getStringCellValue());
+                            break;
+                        default:
                             break;
                     }
 
@@ -258,6 +269,18 @@ public class FeedDataApplicationListener implements ApplicationListener<ContextR
         {
             e.printStackTrace();
         }
-
+        finally
+        {
+            this.mySheet = null;
+            try
+            {
+                this.myWorkBook.close();
+            }
+            catch (IOException e)
+            {
+                e.printStackTrace();
+            }
+            this.file = null;
+        }
     }
 }

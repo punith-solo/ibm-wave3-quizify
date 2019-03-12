@@ -127,3 +127,134 @@ li {
   margin-left: 60px;
   margin-right: 0px;
 }
+@media (max-width:1032px)
+{
+  .container {
+    padding-left: 150px;
+}
+.mat-card {
+  margin-top: 10px;
+  margin-left: 230px;
+  width: 500px;
+  height: 300px;
+  background-color: gainsboro;
+}
+.inside {
+  padding: 10px;
+  width: 200px;
+  height: 90px;
+  line-height: 50px;
+  font-weight: bolder;
+  font-size: 2em;
+  text-align: center;
+  padding-top: 10px;
+  margin-bottom: 2px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+}
+
+
+
+@media (max-width: 768px) {
+.mat-card {
+    margin-top: 10px;
+    margin-left: 100px;
+    width: 500px;
+    height: 300px;
+    background-color: gainsboro;
+}
+}
+@media (max-width: 425px) {
+  .mat-card {
+    margin-top: 10px;
+    margin-left: auto;
+    width: 350px;
+    height: 300px;
+    background-color: gainsboro;
+}
+.username {
+  margin-left: 25%;
+  width: auto;
+}
+.password {
+    margin-left: 25%;
+    width: auto;
+}
+.gender {
+  margin-left: 25%;
+}
+h2 {
+  margin-left: 26%;
+  font-family: sans-serif;
+}
+
+.emailid {
+    margin-left: 25%;
+    width: auto;
+}
+.laststep {
+  margin-left: 100px;
+}
+}
+
+@media (max-width:375px ) {
+  .mat-card {
+    margin-top: 10px;
+    margin-left: px;
+    width: 300px;
+    height: 300px;
+    background-color: gainsboro;
+}
+.mat-horizontal-stepper-header .mat-step-icon {
+  margin-right: auto;
+  margin-left: auto;
+  flex: none;
+}
+.laststep[_ngcontent-c2] {
+  margin-left: 80px;
+}
+}
+@media (max-width:320px ) {
+  .mat-card {
+    margin-top: 10px;
+    margin-left: px;
+    width: 250px;
+    height: 300px;
+    background-color: gainsboro;
+}
+.b {
+  margin-top:50px;
+}
+.username {
+    margin-left: 15%;
+    width: auto;
+}
+.password {
+    margin-left: 14%;
+    width: auto;
+}
+
+.emailid {
+    margin-left: 15%;
+    width: auto;
+}
+
+
+.gender {
+    margin-left: 15%;
+}
+.wrap {
+  float: right;
+  position: relative;
+  top: 20px;
+  margin-right: auto;
+  margin-left: auto;
+  /* right: 10px; */
+  color: 0;
+  color: black;
+}
+.laststep {
+    margin-left: 60px;
+}
+}
