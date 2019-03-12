@@ -9,7 +9,7 @@ import java.util.List;
 
 
 
-@Document(collection="game")
+@Document(collection="games")
 @Data
 public class Game {
     @Id
@@ -18,7 +18,6 @@ public class Game {
     private Category category;
     private Topic topic;
     private Genre genre;
-    private Tag tag;
     private String level;
     private String imageUrl;
     private int numOfQuestion;
@@ -27,4 +26,7 @@ public class Game {
     private int liked;
     private int playCount;
     private List<String> rules;
+    private int pointPerQuestion;
+    private int totalPoints;
+    private int playerScore;
 }

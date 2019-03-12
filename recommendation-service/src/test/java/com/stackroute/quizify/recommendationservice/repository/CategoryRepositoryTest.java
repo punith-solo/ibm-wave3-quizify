@@ -39,7 +39,7 @@
 //    public void getAllNodes(){
 //        Category category1=new Category(1,"Jayashree","imageURL1");
 //        Category category2=new Category(2,"Santhoshi","imageURL2");
-//        categoryRepository.save(category1);
+//        System.out.println(categoryRepository.save(category1));
 //        categoryRepository.save(category2);
 //        List<Category> categoryList=categoryRepository.getAllNodes();
 //        Assert.assertEquals("Jayashree",categoryList.get(0).getName());

@@ -1,6 +1,5 @@
 package com.stackroute.quizify.questionmanager.controller;
 
-import com.stackroute.quizify.dto.model.QuestionDTO;
 import com.stackroute.quizify.questionmanager.exception.EnoughQuestionsNotFound;
 import com.stackroute.quizify.questionmanager.exception.NoQuestionFoundException;
 import com.stackroute.quizify.questionmanager.exception.QuestionAlreadyExistsException;
@@ -31,137 +30,66 @@ public class QuestionController {
 
     @ApiOperation(value = "Add Question")
     @PostMapping("/questions/question")
-    public ResponseEntity<?> saveQuestion(@RequestBody Question question) {
-        try {
-            return new ResponseEntity<QuestionDTO>(this.questionService.addNewQuestion(question), HttpStatus.OK);
-        } catch (QuestionAlreadyExistsException e) {
-            return new ResponseEntity<String>(e.getMessage(), HttpStatus.CONFLICT);
-        }
+    public ResponseEntity<?> saveQuestion(@RequestBody Question question) throws QuestionAlreadyExistsException {
+        return new ResponseEntity<Question>(this.questionService.addNewQuestion(question), HttpStatus.OK);
     }
 
     @ApiOperation(value = "Update Question")
     @PutMapping("/questions/question")
-    public ResponseEntity<?> updateQuestion(@RequestBody Question question) {
-        try {
-            return new ResponseEntity<Question>(this.questionService.updateQuestion(question), HttpStatus.OK);
-        } catch (QuestionDoesNotExistException e) {
-            return new ResponseEntity<String>(e.getMessage(), HttpStatus.NOT_FOUND);
-        }
+    public ResponseEntity<?> updateQuestion(@RequestBody Question question) throws QuestionDoesNotExistException {
+        return new ResponseEntity<Question>(this.questionService.updateQuestion(question), HttpStatus.OK);
     }
 
     @ApiOperation(value = "Remove Question")
     @DeleteMapping("/questions/question/{id}")
-    public ResponseEntity<?> removeQuestion(@RequestBody long id) {
-        try {
-            return new ResponseEntity<Question>(this.questionService.removeQuestion(id), HttpStatus.OK);
-        } catch (QuestionDoesNotExistException e) {
-            return new ResponseEntity<String>(e.getMessage(), HttpStatus.NOT_FOUND);
-        }
-    }
-
-    @ApiOperation(value = "Get Questions By Tag By Level")
-    @GetMapping("/questions/tag/{tagName}/{level}/{numberOfQuestions}")
-    public ResponseEntity<?> getQuestionsByTagByLevel(@PathVariable String tagName, @PathVariable String level, @PathVariable int numberOfQuestions) {
-        try {
-            return new ResponseEntity<List<Question>>(this.questionService.getQuestionsByTagByLevel(tagName, level, numberOfQuestions), HttpStatus.OK);
-        } catch (NoQuestionFoundException | EnoughQuestionsNotFound e) {
-            return new ResponseEntity<String>(e.getMessage(), HttpStatus.NOT_FOUND);
-        }
-    }
-
-
-    @ApiOperation(value = "Get Questions By Tag")
-    @GetMapping("/questions/tag/{tagName}/{numberOfQuestions}")
-    public ResponseEntity<?> getQuestionsByTag(@PathVariable String tagName, @PathVariable int numberOfQuestions) {
-        try {
-            return new ResponseEntity<List<Question>>(this.questionService.getQuestionsByTag(tagName, numberOfQuestions), HttpStatus.OK);
-        } catch (NoQuestionFoundException | EnoughQuestionsNotFound e) {
-            return new ResponseEntity<String>(e.getMessage(), HttpStatus.NOT_FOUND);
-        }
-    }
-
-    @ApiOperation(value = "Get All Questions By Tag")
-    @GetMapping("/questions/tag/{tagName}")
-    public ResponseEntity<?> getAllQuestionsByTag(@PathVariable String tagName) {
-        try {
-            return new ResponseEntity<List<Question>>(this.questionService.getAllQuestionsByTag(tagName), HttpStatus.OK);
-        } catch (NoQuestionFoundException e) {
-            return new ResponseEntity<String>(e.getMessage(), HttpStatus.NOT_FOUND);
-        }
+    public ResponseEntity<?> removeQuestion(@PathVariable long id) throws QuestionDoesNotExistException {
+        return new ResponseEntity<Question>(this.questionService.removeQuestion(id), HttpStatus.OK);
     }
 
     @ApiOperation(value = "Get Questions By Topic By Level")
     @GetMapping("/questions/topic/{topicName}/{level}/{numberOfQuestions}")
-    public ResponseEntity<?> getQuestionsByTopicByLevel(@PathVariable String topicName, @PathVariable String level, @PathVariable int numberOfQuestions) {
-        try {
-            return new ResponseEntity<List<Question>>(this.questionService.getQuestionsByTopicByLevel(topicName, level, numberOfQuestions), HttpStatus.OK);
-        } catch (NoQuestionFoundException | EnoughQuestionsNotFound e) {
-            return new ResponseEntity<String>(e.getMessage(), HttpStatus.NOT_FOUND);
-        }
+    public ResponseEntity<?> getQuestionsByTopicByLevel(@PathVariable String topicName, @PathVariable String level, @PathVariable int numberOfQuestions) throws EnoughQuestionsNotFound, NoQuestionFoundException {
+        return new ResponseEntity<List<Question>>(this.questionService.getQuestionsByTopicByLevel(topicName, level, numberOfQuestions), HttpStatus.OK);
     }
 
 
     @ApiOperation(value = "Get Questions By Topic")
     @GetMapping("/questions/topic/{topicName}/{numberOfQuestions}")
-    public ResponseEntity<?> getQuestionsByTopic(@PathVariable String topicName, @PathVariable int numberOfQuestions) {
-        try {
-            return new ResponseEntity<List<Question>>(this.questionService.getQuestionsByTopic(topicName, numberOfQuestions), HttpStatus.OK);
-        } catch (NoQuestionFoundException | EnoughQuestionsNotFound e) {
-            return new ResponseEntity<String>(e.getMessage(), HttpStatus.NOT_FOUND);
-        }
+    public ResponseEntity<?> getQuestionsByTopic(@PathVariable String topicName, @PathVariable int numberOfQuestions) throws EnoughQuestionsNotFound, NoQuestionFoundException {
+        return new ResponseEntity<List<Question>>(this.questionService.getQuestionsByTopic(topicName, numberOfQuestions), HttpStatus.OK);
     }
 
     @ApiOperation(value = "Get All Questions By Topic")
     @GetMapping("/questions/topic/{topicName}")
-    public ResponseEntity<?> getAllQuestionsByTopic(@PathVariable String topicName) {
-        try {
-            return new ResponseEntity<List<Question>>(this.questionService.getAllQuestionsByTopic(topicName), HttpStatus.OK);
-        } catch (NoQuestionFoundException e) {
-            return new ResponseEntity<String>(e.getMessage(), HttpStatus.NOT_FOUND);
-        }
+    public ResponseEntity<?> getAllQuestionsByTopic(@PathVariable String topicName) throws NoQuestionFoundException {
+        return new ResponseEntity<List<Question>>(this.questionService.getAllQuestionsByTopic(topicName), HttpStatus.OK);
     }
 
 
     @ApiOperation(value = "Get Questions By Genre By Level")
     @GetMapping("/questions/genre/{genreName}/{level}/{numberOfQuestions}")
-    public ResponseEntity<?> getQuestionsByGenreByLevel(@PathVariable String genreName, @PathVariable String level, @PathVariable int numberOfQuestions) {
-        try {
-            return new ResponseEntity<List<Question>>(this.questionService.getQuestionsByGenreByLevel(genreName, level, numberOfQuestions), HttpStatus.OK);
-        } catch (NoQuestionFoundException | EnoughQuestionsNotFound e) {
-            return new ResponseEntity<String>(e.getMessage(), HttpStatus.NOT_FOUND);
-        }
+    public ResponseEntity<?> getQuestionsByGenreByLevel(@PathVariable String genreName, @PathVariable String level, @PathVariable int numberOfQuestions) throws EnoughQuestionsNotFound, NoQuestionFoundException {
+        return new ResponseEntity<List<Question>>(this.questionService.getQuestionsByGenreByLevel(genreName, level, numberOfQuestions), HttpStatus.OK);
     }
 
 
     @ApiOperation(value = "Get Questions By Genre")
     @GetMapping("/questions/genre/{genreName}/{numberOfQuestions}")
-    public ResponseEntity<?> getQuestionsByGenre(@PathVariable String genreName, @PathVariable int numberOfQuestions) {
-        try {
-            return new ResponseEntity<List<Question>>(this.questionService.getQuestionsByGenre(genreName, numberOfQuestions), HttpStatus.OK);
-        } catch (NoQuestionFoundException | EnoughQuestionsNotFound e) {
-            return new ResponseEntity<String>(e.getMessage(), HttpStatus.NOT_FOUND);
-        }
+    public ResponseEntity<?> getQuestionsByGenre(@PathVariable String genreName, @PathVariable int numberOfQuestions) throws EnoughQuestionsNotFound, NoQuestionFoundException {
+        return new ResponseEntity<List<Question>>(this.questionService.getQuestionsByGenre(genreName, numberOfQuestions), HttpStatus.OK);
     }
 
     @ApiOperation(value = "Get All Questions By Genre")
     @GetMapping("/questions/genre/{genreName}")
-    public ResponseEntity<?> getAllQuestionsByGenre(@PathVariable String genreName) {
-        try {
-            return new ResponseEntity<List<Question>>(this.questionService.getAllQuestionsByGenre(genreName), HttpStatus.OK);
-        } catch (NoQuestionFoundException e) {
-            return new ResponseEntity<String>(e.getMessage(), HttpStatus.NOT_FOUND);
-        }
+    public ResponseEntity<?> getAllQuestionsByGenre(@PathVariable String genreName) throws NoQuestionFoundException {
+        return new ResponseEntity<List<Question>>(this.questionService.getAllQuestionsByGenre(genreName), HttpStatus.OK);
     }
 
 
     @ApiOperation(value = "Get Questions By Topic By Genre By Level")
     @GetMapping("/questions/topic/genre/{topicName}/{genreName}/{level}/{numberOfQuestions}")
-    public ResponseEntity<?> getQuestionsByTopicByGenreByLevel(@PathVariable String topicName, @PathVariable String genreName, @PathVariable String level, @PathVariable int numberOfQuestions) {
-        try {
-            return new ResponseEntity<List<Question>>(this.questionService.getQuestionsByTopicByGenreByLevel(topicName, genreName, level, numberOfQuestions), HttpStatus.OK);
-        } catch (NoQuestionFoundException | EnoughQuestionsNotFound e) {
-            return new ResponseEntity<String>(e.getMessage(), HttpStatus.NOT_FOUND);
-        }
+    public ResponseEntity<?> getQuestionsByTopicByGenreByLevel(@PathVariable String topicName, @PathVariable String genreName, @PathVariable String level, @PathVariable int numberOfQuestions) throws EnoughQuestionsNotFound, NoQuestionFoundException {
+        return new ResponseEntity<List<Question>>(this.questionService.getQuestionsByTopicByGenreByLevel(topicName, genreName, level, numberOfQuestions), HttpStatus.OK);
     }
 
 

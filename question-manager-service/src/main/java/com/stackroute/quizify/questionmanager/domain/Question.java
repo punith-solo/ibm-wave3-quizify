@@ -49,7 +49,6 @@ public class Question {
     private Category category;
     private Topic topic;
     private Genre genre;
-    private Tag tag;
     private String level;
     private String type;
     private String statement;

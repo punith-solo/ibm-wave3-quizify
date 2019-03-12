@@ -1,6 +1,5 @@
 package com.stackroute.quizify.questionmanager.service;
 
-import com.stackroute.quizify.dto.model.QuestionDTO;
 import com.stackroute.quizify.questionmanager.exception.EnoughQuestionsNotFound;
 import com.stackroute.quizify.questionmanager.exception.NoQuestionFoundException;
 import com.stackroute.quizify.questionmanager.exception.QuestionAlreadyExistsException;
@@ -33,13 +32,9 @@ import java.util.List;
  */
 
 public interface QuestionService {
-    QuestionDTO addNewQuestion(Question question) throws QuestionAlreadyExistsException;
+    Question addNewQuestion(Question question) throws QuestionAlreadyExistsException;
     Question updateQuestion(Question question) throws QuestionDoesNotExistException;
     Question removeQuestion(long questionId) throws QuestionDoesNotExistException;
-
-    List<Question> getQuestionsByTagByLevel(String tagName, String level, int numberOfQuestions) throws NoQuestionFoundException, EnoughQuestionsNotFound;
-    List<Question> getQuestionsByTag(String tagName, int numberOfQuestions) throws NoQuestionFoundException, EnoughQuestionsNotFound;
-    List<Question> getAllQuestionsByTag(String tagName)throws NoQuestionFoundException;
 
     List<Question> getQuestionsByTopicByLevel(String topicName, String level, int numberOfQuestions) throws NoQuestionFoundException, EnoughQuestionsNotFound;
     List<Question> getQuestionsByTopic(String topicName, int numberOfQuestions) throws NoQuestionFoundException, EnoughQuestionsNotFound;

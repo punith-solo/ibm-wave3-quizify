@@ -1,90 +1,145 @@
 
-img {
-  width: 242px;
-   height:250px;
-  
-   padding-right: -5px;
-   padding-top: 30px;
-   padding-left: 5px;
-   
-
- }
-
-
-
-.container{
-  display:flex;
-}
-.product--blue{
-  box-shadow: 1px 5px 15px #CCC;
-  width: 24.7em;
-  height: 300px;
-  border-radius: 3px;
-  padding: 2em;
-  margin: 1em;
-  overflow: auto;
-  position: relative;
-  flex: auto;
-}
-mat-card-header{
-  font-family: FontAwesome;
-  margin :auto;
-  object-fit: cover; /*this makes de image in src fit to the size of specified below*/
-  width: 67%; /* Here you can use wherever you want to specify the width and also the height of the <img>*/
-  height: 100%;
-}
-mat-card-title{
-  position: absolute;
-  font-size: 5px;
-  padding-left: 40px;;
-  top: 5px;
-}
-
-mat-card-actions{
-  position:absolute;
-  top: 315px;
-  bottom: 10px;
-  padding-left: 37px;
-  
-}
-.row{
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-  padding-bottom: 50px;
-  padding-left: 14.5px;
-}
-mat-card-action button {
-  border: 1px solid rgba(255, 255, 255, 0.5);
-  color: black;
-  border-radius: 3px;
-  padding: 1em 3em;
-  margin: 1em 0 0 0;
-  background: none;
-  cursor: pointer;
- 
-  
-}
-
-mat-card-action button:before {
-  font-family: FontAwesome;
-  content: '\f07A';
-  color:black;
-  position: absolute;
-  font-size: 1.5em;
-  margin: 0 -1.5em;
-  
-}
-mat-card-action button:hover:before {
-  color: #2B2D42;
-}
-
 .ser
 {
   z-index: 1;
   padding-top: 100px;
   padding-left: 500px;
-  padding-bottom: 10px;
-  width: 500px;
+  padding-bottom: 20px;
+  width: 1000px;
+  
+  width: 100%;
+  max-width: 1000px;
+  box-sizing: border-box;
+  
 }
+
+
+.cards {
+  background-image: url("https://slack-imgs.com/?c=1&url=https%3A%2F%2Fd2v9y0dukr6mq2.cloudfront.net%2Fvideo%2Fthumbnail%2FitCjTBE%2Fgrey-light-smooth-moving-waves-background-video-animation-hd-1920x1080_vjkea4zve__F0000.png");
+   //background-image: url('https://wallpaper21.com/wp-content/uploads/2017/08/Cinematic-Hd-World-Of-Warcraft-Lich-King-Arthas-Games-x-wallpaper-wpt7803047.jpg');
+ // background-image: url('https://www.pixelstalk.net/wp-content/uploads/2016/03/Dark-blue-wallpaper-HD-download.jpg');
+   height: 100%;
+   //overflow: hidden;
+   background-position: center;
+   background-repeat: repeat;
+   background-size: cover;
+ 
+   position: relative;
+   
+  //   margin-top: -177px;
+  //  margin-left: -10px;
+  //  margin-right: -10px;
+ }
+ 
+ 
+   mat-card-action button {
+   border: 1px solid rgba(255, 255, 255, 0.5);
+   color: black;
+   border-radius: 9px;
+   padding: 1em 3em;// img {
+     //   width: 242px;
+     //   height: 250px;
+     
+     //   padding-right: -5px;
+     //   padding-top: 30px;
+     //   padding-left: 5px;
+     // }Entertainment
+     // img {
+     //   width: 242px;
+     //   height: 250px;
+     
+     //   padding-right: -5px;
+     //   padding-top: 30px;
+     //   padding-left: 5px;
+     // }
+     
+   margin: 1em 0 0 0;
+   background: none;
+   cursor: pointer;
+   
+ }
+ 
+  mat-card-action button:before {
+   font-family: FontAwesome;
+   content: "\f07A";
+   color: #fff;
+   
+   position: absolute;
+   bottom: 10px;
+   font-size: 1.5em;
+   margin: 0 -1.5em;
+ }
+ mat-card-action button:hover:before {
+   
+   color: #2b2d42;
+ }
+ 
+ 
+ // .cards mat-card-actions .act
+ // {
+ //   bottom: 2px;
+ //     border-radius: 20px;
+ // }
+ 
+  .cards {
+    padding-left: 95px;
+    
+   display: flex;
+   flex-wrap: wrap;
+   align-items: stretch;
+  //  padding-left: 200px;
+   padding-right: 200px;
+   padding-bottom: 50px;
+   
+ }
+ 
+  .card {
+ 
+   border-radius: 20px;
+   border: 2px solid black;
+   // border-color: black; 
+   flex: 0 0 200px;
+   justify-content: space-between;
+   margin: 10px;
+   // padding-top: 5px;
+     // padding-left: 5px;
+   // box-shadow: 3px 3px 3px 0px  black;
+   
+ } 
+ .card img {
+ //  padding-top:5px;
+ //  padding-left: 5px;
+ //  padding-right: 4px;
+    border-radius: 20px;
+   // background-color: black;
+ 
+   height: 180px;
+   justify-content: space-between;
+   width: 500px;
+   max-width: 100%;
+ }
+ .card .text {
+   text-decoration-color: white;
+   text-align: center;
+ }
+ .card .text > button {
+   background: gray;
+   border: 0;
+   color: white;
+   padding: 10px;
+   width: 100%;
+   }
+ 
+   * {
+     
+     box-sizing: border-box;
+   }
+   
+  
+  
+  .mat-raised-button:not([class*=mat-elevation-z]) {
+   border-radius: 20px;
+   box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);
+   bottom: 2px;
+   //border-radius: 20px;
+ }

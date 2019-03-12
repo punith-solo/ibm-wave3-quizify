@@ -1,14 +1,11 @@
 package com.stackroute.quizify.gamemanager.service;
 
-import com.stackroute.quizify.dto.model.GameDTO;
 import com.stackroute.quizify.gamemanager.exception.GameAlreadyExistsException;
 import com.stackroute.quizify.gamemanager.exception.GameNotFoundException;
-import com.stackroute.quizify.gamemanager.exception.NoGameFoundException;
 import com.stackroute.quizify.gamemanager.domain.Game;
-import com.stackroute.quizify.kafka.Producer;
+import com.stackroute.quizify.gamemanager.exception.NoGamesFoundException;
 import com.stackroute.quizify.gamemanager.repository.GameRepository;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import com.stackroute.quizify.kafka.Producer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,8 +14,6 @@ import java.util.List;
 
 @Service
 public class GameServiceImpl implements GameService {
-
-    private static Logger log = LoggerFactory.getLogger(GameServiceImpl.class);
 
     private GameRepository gameRepository;
     private Producer producer;
@@ -32,9 +27,9 @@ public class GameServiceImpl implements GameService {
      }
 
      @Override
-     public GameDTO saveGame(Game game) throws GameAlreadyExistsException {
+     public Game saveGame(Game game) throws GameAlreadyExistsException {
          if(this.gameRepository.existsById(game.getId()))
-             throw new GameAlreadyExistsException("Game already exists");
+             throw new GameAlreadyExistsException();
          else {
              if(this.gameRepository.findTopByOrderByIdDesc().isEmpty())
                  game.setId(1);
@@ -42,71 +37,60 @@ public class GameServiceImpl implements GameService {
                  game.setId(this.gameRepository.findTopByOrderByIdDesc().get().getId()+1);
              return producer.send(this.gameRepository.save(game));
          }
-
-
      }
 
     @Override
     public Game deleteGame(long gameId) throws GameNotFoundException {
         if(this.gameRepository.existsById(gameId)) {
-            Game game = this.gameRepository.findById(gameId).get();
+            Game game = this.gameRepository.findById(gameId);
             this.gameRepository.delete(game);
             return game;
         }
         else
-            throw  new GameNotFoundException("Game Not exist");
+            throw  new GameNotFoundException();
     }
 
     @Override
-    public GameDTO updateGame(Game updatedGame) throws GameNotFoundException {
+    public Game updateGame(Game updatedGame) throws GameNotFoundException {
 
     if(this.gameRepository.existsById(updatedGame.getId()))
         return producer.send(this.gameRepository.save(updatedGame));
     else
-        throw new GameNotFoundException("Game not found");
+        throw new GameNotFoundException();
 
     }
 
     @Override
     public Game findGameById(long id) throws GameNotFoundException {
         if (this.gameRepository.existsById(id))
-            return this.gameRepository.findById(id).get();
+            return this.gameRepository.findById(id);
         else
-            throw new GameNotFoundException("Game Not Found!");
+            throw new GameNotFoundException();
     }
 
     @Override
-    public List<Game> getAllGames() throws NoGameFoundException {
+    public List<Game> getAllGames() throws NoGamesFoundException {
         List<Game> games = this.gameRepository.findAll();
         if (games.isEmpty())
-            throw new NoGameFoundException("No Game Found!");
+            throw new NoGamesFoundException();
         else
             return games;
     }
 
     @Override
-    public List<Game> getAllGamesByTopic(String topicName) throws NoGameFoundException {
+    public List<Game> getAllGamesByTopic(String topicName) throws NoGamesFoundException {
         List<Game> games = this.gameRepository.findGamesByTopic(topicName);
         if (games.isEmpty())
-            throw new NoGameFoundException("No Game Found!");
+            throw new NoGamesFoundException();
         else
             return games;
     }
 
     @Override
-    public List<Game> getAllGamesByGenre(String genreName) throws NoGameFoundException {
+    public List<Game> getAllGamesByGenre(String genreName) throws NoGamesFoundException {
         List<Game> games = this.gameRepository.findGamesByGenre(genreName);
         if (games.isEmpty())
-            throw new NoGameFoundException("No Game Found!");
-        else
-            return games;
-    }
-
-    @Override
-    public List<Game> getAllGamesByTag(String tagName) throws NoGameFoundException {
-        List<Game> games = this.gameRepository.findGamesByTag(tagName);
-        if (games.isEmpty())
-            throw new NoGameFoundException("No Game Found!");
+            throw new NoGamesFoundException();
         else
             return games;
     }
