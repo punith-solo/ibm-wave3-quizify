@@ -19,4 +19,12 @@ public interface GamesService {
     public Game update(Game game);
 
     List<Game> getMostPlayed();
+
+    List<Game> getAllRelatedGamesOfAGenre(long genreId);
+
+    List<Game> getAllRelatedGamesOfATopic(long topicId);
+
+    List<Game> getAllGamesPlayedByAUser(long userId);
+
+    List<Game> getAllGamesLikedByAUser(long userId);
 }
