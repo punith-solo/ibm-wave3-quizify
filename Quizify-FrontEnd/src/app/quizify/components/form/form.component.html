@@ -1,0 +1,35 @@
+<div class="edit">
+  <section class="whole">
+    <section>
+  <mat-toolbar >
+      <span>Edit</span>
+    </mat-toolbar>
+  <mat-card-content>
+      <form class="my-form">
+         <mat-form-field class="full-width" appearance = "outline">
+                <mat-label>Name</mat-label>
+                <input  matInput  placeholder="Name" [(ngModel)]="name" name="name" required>
+             </mat-form-field>             <mat-form-field class="full-width" appearance = "outline">
+              <mat-label>UserId</mat-label>
+              <input  matInput  placeholder="UserId" [(ngModel)]="UserId" name="UserId" required>
+           </mat-form-field>           <mat-form-field class="full-width" appearance = "outline">
+            <mat-label>MobileNo</mat-label>
+            <input  matInput  placeholder="MobileNo" [(ngModel)]="mobileNo" name="mobileNo" required>
+         </mat-form-field>         <mat-form-field class="full-width" appearance = "outline">
+          <mat-label>Address</mat-label>
+          <input  matInput  placeholder="Address" [(ngModel)]="address" name="address" required>
+       </mat-form-field>            
+           
+               <mat-form-field class="full-width" appearance = "outline">
+            <mat-label>Gender</mat-label>
+            <input  matInput  placeholder="Gender" [(ngModel)]="Gender" name="Gender" required>
+          </mat-form-field>
+      </form>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button (click)="submit($event)" color="primary">Submit</button>
+     <button mat-raised-button (click)="cancel()" class="btn btn-link" color="primary"> Cancel</button>
+    </mat-card-actions>
+  </section>
+  </section>
+  </div>

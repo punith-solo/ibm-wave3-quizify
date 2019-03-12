@@ -9,6 +9,8 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MatCardModule } from '@angular/material';
+import { MatDialogModule } from '@angular/material/dialog';
+
 import {MatSelectModule} from '@angular/material/select';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
@@ -18,11 +20,13 @@ import { QuestionService } from './quizify/services/question.service';
 import { GameserviceService } from './quizify/services/gameservice.service';
 import { RouterModule } from '@angular/router';
 import { HeaderComponent } from './quizify/components/header/header.component';
+import { FormComponent } from './quizify/components/form/form.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
+    FormComponent,
     // HeaderComponent
   ],
   imports: [
@@ -33,7 +37,8 @@ import { HeaderComponent } from './quizify/components/header/header.component';
     MatSelectModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    QuizifyMaterialModule
+    QuizifyMaterialModule,
+    MatDialogModule
       ],
   providers: [QuestionService,
   GameserviceService] ,

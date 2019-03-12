@@ -1,8 +1,12 @@
+import { RegisterComponent } from './../register/register.component';
+import { MatDialog } from '@angular/material';
 // import { Profile } from 'selenium-webdriver/firefox';
 import { OnInit, Input, Component } from "@angular/core";
 import { RegisterService } from "../../services/register.service";
 import { Profile } from "../../tsclasses/profile";
+import {MatDialogConfig} from '@angular/material';
 import * as jwt_decode from 'jwt-decode';
+import { FormComponent } from '../form/form.component';
 
 @Component({
   selector: "app-profileuser",
@@ -15,7 +19,8 @@ export class ProfileUserComponent implements OnInit {
   reg: any;
   loginToken: Profile;
   jti: any;
-  constructor(private services: RegisterService) {}
+  constructor(private services: RegisterService,
+    private dialog: MatDialog) {}
   ngOnInit() {
     try {
       const tokenObtained = localStorage.getItem("token");
@@ -38,5 +43,10 @@ export class ProfileUserComponent implements OnInit {
     } catch (error) {
       console.log(error);
     }
+  }
+  onEdit()
+  {
+    this.dialog.open(FormComponent);
+
   }
 }
