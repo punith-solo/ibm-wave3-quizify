@@ -1,16 +1,17 @@
-/*
 package com.stackroute.quizify.recommendationservice.repository;
 
+import com.netflix.discovery.converters.Auto;
 import com.stackroute.quizify.recommendationservice.domain.Genre;
 import com.stackroute.quizify.recommendationservice.domain.Topic;
 import com.stackroute.quizify.recommendationservice.domain.User;
+import lombok.AllArgsConstructor;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.springframework.boot.test.autoconfigure.data.neo4j.DataNeo4jTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.ArrayList;
@@ -19,11 +20,12 @@ import java.util.List;
 import static org.junit.Assert.*;
 
 @RunWith(SpringRunner.class)
-@DataJpaTest
+@DataNeo4jTest
 public class UserRepositoryTest {
 
     @Autowired
     private UserRepository userRepository;
+    @Autowired
     private User user;
 
     @Before
@@ -54,7 +56,7 @@ public class UserRepositoryTest {
 
     @Test
     public void testSaveUser(){
-        userRepository.save(user);
+        System.out.println(userRepository.save(user));
         User fetchUser = userRepository.getNode(user.getId());
         Assert.assertEquals(1,fetchUser.getId());
 
@@ -68,4 +70,4 @@ public class UserRepositoryTest {
 //        Assert.assertNotSame(testUser,user);
 //    }
 
-}*/
+}

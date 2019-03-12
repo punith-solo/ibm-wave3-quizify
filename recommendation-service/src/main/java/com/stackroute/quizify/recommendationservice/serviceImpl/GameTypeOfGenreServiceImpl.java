@@ -5,11 +5,13 @@ import com.stackroute.quizify.recommendationservice.domain.GameTypeOfGenre;
 import com.stackroute.quizify.recommendationservice.domain.Genre;
 import com.stackroute.quizify.recommendationservice.repository.GameTypeOfGenreRepository;
 import com.stackroute.quizify.recommendationservice.service.GameTypeOfGenreService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Slf4j
 @Service
 public class GameTypeOfGenreServiceImpl implements GameTypeOfGenreService {
 
@@ -30,7 +32,7 @@ public class GameTypeOfGenreServiceImpl implements GameTypeOfGenreService {
         long gameId=game.getId();
         Genre genre=game.getGenre();
         long genreId=genre.getId();
-        System.out.println("======================================================  gameid: "+gameId+"  genreId: "+genreId+"======================================================");
+        log.info("======================================================  gameid: "+gameId+"  genreId: "+genreId+"======================================================");
         return gameTypeOfGenreRepository.createRelationship(gameId,genreId);
     }
 }

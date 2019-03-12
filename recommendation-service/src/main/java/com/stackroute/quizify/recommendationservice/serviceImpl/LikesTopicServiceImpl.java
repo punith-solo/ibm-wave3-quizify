@@ -5,12 +5,14 @@ import com.stackroute.quizify.recommendationservice.domain.Topic;
 import com.stackroute.quizify.recommendationservice.domain.User;
 import com.stackroute.quizify.recommendationservice.repository.LikesTopicRelationshipRepository;
 import com.stackroute.quizify.recommendationservice.service.LikesTopicService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.ListIterator;
 
+@Slf4j
 @Service
 public class LikesTopicServiceImpl implements LikesTopicService {
 
@@ -32,12 +34,12 @@ public class LikesTopicServiceImpl implements LikesTopicService {
         long userId=user.getId();
         List<Topic> topicList=user.getTopics();
         ListIterator<Topic> topicsIterator = topicList.listIterator();
-        System.out.println(topicsIterator.hasNext());
+        log.info("  "+topicsIterator.hasNext());
         while(topicsIterator.hasNext()){
             Topic topic=topicsIterator.next();
-            System.out.println(topic.toString());
+            log.info(topic.toString());
             long topicId=topic.getId();
-            System.out.println("userId: "+userId+"topicId: "+topicId);
+            log.info("userId: "+userId+"topicId: "+topicId);
             likesTopicRelationshipRepository.createRelationship(userId,topicId);
         }
         return null;

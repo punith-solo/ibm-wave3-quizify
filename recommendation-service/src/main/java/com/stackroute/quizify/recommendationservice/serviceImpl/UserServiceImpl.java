@@ -1,15 +1,18 @@
 package com.stackroute.quizify.recommendationservice.serviceImpl;
 
+import com.stackroute.quizify.recommendationservice.domain.Game;
 import com.stackroute.quizify.recommendationservice.domain.User;
 import com.stackroute.quizify.recommendationservice.repository.UserRepository;
 import com.stackroute.quizify.recommendationservice.service.LikesGenreService;
 import com.stackroute.quizify.recommendationservice.service.LikesTopicService;
 import com.stackroute.quizify.recommendationservice.service.UserService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Slf4j
 @Service
 public class UserServiceImpl implements UserService {
 
@@ -41,12 +44,13 @@ public class UserServiceImpl implements UserService {
         long id= user.getId();
         String name= user.getName();
         String gender= user.getGender();
-        System.out.println("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
-        System.out.println("user node to be created -> id: "+id+"name"+name+"gender"+gender);
-        User user1 =userRepository.createNode(id,name,gender);
-        System.out.println("============================================================control to liketopic service===================================================================================");
+        List<Game> playedGames=user.getPlayedGames();
+        log.info("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
+        log.info("user node to be created -> id: "+id+"name"+name+"gender"+gender);
+        User user1 =userRepository.createNode(id,name,gender,playedGames);
+        log.info("============================================================control to liketopic service===================================================================================");
         likesTopicService.createRelationship(user);
-        System.out.println("============================================================control to likegenre service===================================================================================");
+        log.info("============================================================control to likegenre service===================================================================================");
         likesGenreService.createRelationship(user);
         return user1;
     }
