@@ -18,12 +18,10 @@ import java.util.Map;
 @Configuration
 public class KafkaProducerConfig {
     private String bootstrapServer;
-    private Environment env;
 
     @Autowired
     public KafkaProducerConfig(Environment env)
     {
-        this.env = env;
         this.bootstrapServer = env.getProperty("kafka.bootstrap-server");
     }
 

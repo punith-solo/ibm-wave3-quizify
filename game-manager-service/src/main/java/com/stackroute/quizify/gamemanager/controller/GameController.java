@@ -9,6 +9,7 @@ import com.stackroute.quizify.gamemanager.domain.Genre;
 import com.stackroute.quizify.gamemanager.domain.Topic;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.http.HttpStatus;
@@ -19,6 +20,7 @@ import org.springframework.web.client.RestTemplate;
 import java.util.ArrayList;
 import java.util.List;
 
+@Slf4j
 @CrossOrigin
 @RestController
 @RequestMapping("api/v1")
@@ -98,6 +100,7 @@ public class GameController {
         {
             url += "topic/genre/"+topic.getName()+"/"+genre.getName()+"/"+level+"/"+numberOfQuestions;
         }
+        log.info("URL : "+url);
 
         liveGame.setQuestions(restTemplate.getForObject(url, ArrayList.class));
 

@@ -1,9 +1,8 @@
 package com.stackroute.quizify.userregistrationservice.controller;
 
-import com.stackroute.quizify.dto.mapper.UserMapper;
-import com.stackroute.quizify.dto.model.UserDTO;
 import com.stackroute.quizify.userregistrationservice.domain.User;
 import com.stackroute.quizify.userregistrationservice.exceptions.UserAlreadyExistException;
+import com.stackroute.quizify.userregistrationservice.exceptions.UserNameExistException;
 import com.stackroute.quizify.userregistrationservice.exceptions.UserNotFoundException;
 
 
@@ -23,7 +22,6 @@ import java.util.List;
 @Api(description = "shows the user information")
 public class UserController {
     private UserService userService;
-    private UserMapper userMapper;
 
     @Autowired
     public UserController(UserService userService) {
@@ -33,58 +31,35 @@ public class UserController {
 
     @ApiOperation(value = "Accepts user into the repository")
     @PostMapping("/user")
-    public ResponseEntity<?> saveUser(@RequestBody UserDTO userDTO) throws UserAlreadyExistException {
+    public ResponseEntity<?> saveUser(@RequestBody User user) throws UserAlreadyExistException, UserNameExistException {
 
-        try{
-            return new ResponseEntity<User>(this.userService.saveUser(userDTO), HttpStatus.CREATED);
-        }
-        catch (UserAlreadyExistException e){
-            return new ResponseEntity<>(e.getMessage(),HttpStatus.CONFLICT);
-        }
+        return new ResponseEntity<User>(this.userService.saveUser(user), HttpStatus.CREATED);
     }
 
     @ApiOperation(value = "returns user from the repository")
-
     @GetMapping("/user/{id}")
-    public ResponseEntity<?> getUser(@PathVariable("id") long id) {
-        try {
-            return new ResponseEntity<User>(this.userService.getUser(id), HttpStatus.OK);
-        } catch (UserNotFoundException e) {
-            return new ResponseEntity<String>( e.getMessage(), HttpStatus.CREATED);
-        }
+    public ResponseEntity<?> getUser(@PathVariable("id") long id) throws UserNotFoundException {
+        return new ResponseEntity<User>(this.userService.getUser(id), HttpStatus.OK);
     }
 
     @ApiOperation(value = "Accepts user into the repository")
-
-    @GetMapping("/user")
-    public ResponseEntity<?> getAllUser() {
-        try {
-            return new ResponseEntity<List<User>>(this.userService.getAllUsers(), HttpStatus.OK);
-        } catch (UserNotFoundException e) {
-           return new ResponseEntity<String>( e.getMessage(), HttpStatus.CREATED);
-        }
+    @GetMapping("/users")
+    public ResponseEntity<?> getAllUser() throws UserNotFoundException {
+        return new ResponseEntity<List<User>>(this.userService.getAllUsers(), HttpStatus.OK);
     }
 
     @ApiOperation(value = "Updates user into the repository")
     @PutMapping("/user")
-    public ResponseEntity<?> UpdateUser(@RequestBody UserDTO userDTO) throws UserNotFoundException, UserAlreadyExistException {
-        ResponseEntity responseEntity;
+    public ResponseEntity<?> UpdateUser(@RequestBody User user) throws UserNotFoundException, UserNameExistException {
 
-        User user=this.userMapper.userDTOToUser(userDTO);
-
-        responseEntity=new ResponseEntity<User>( this.userService.updateUser(userDTO), HttpStatus.CREATED);
-
-        return responseEntity;
+        return new ResponseEntity<User>( this.userService.updateUser(user), HttpStatus.CREATED);
 
     }
     @ApiOperation(value = "Removes the user into the repository")
     @DeleteMapping("/user/{id}")
     public ResponseEntity<?> getDeleteUser(@PathVariable Long id) throws UserNotFoundException{
-        ResponseEntity responseEntity;
 
-        responseEntity = new ResponseEntity<User>(userService.deleteUser(id), HttpStatus.NOT_FOUND);
-
-         return responseEntity;
+         return new ResponseEntity<User>(userService.deleteUser(id), HttpStatus.NOT_FOUND);
 
     }
 }

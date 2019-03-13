@@ -17,3 +17,4 @@ public class UserDTO {
     private String gender;
     private List<GameDTO> playedGames;
 }
+

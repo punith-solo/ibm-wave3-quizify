@@ -101,30 +101,30 @@ public class KafkaConsumerConfig {
         return factory;
     }
 
-//    @Bean
-//    public ConsumerFactory<String, SinglePlayerDTO> singlePlayerConsumerFactory()
-//    {
-//        this.consumersId = "recommendation-single-player-consumer";
-//        Map<String, Object> configs = new HashMap<>();
-//        configs.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, this.bootstrapServer);
-//        configs.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
-//        configs.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, JsonDeserializer.class);
-//        configs.put(ConsumerConfig.GROUP_ID_CONFIG, this.consumersId);
-//        configs.put(JsonDeserializer.VALUE_DEFAULT_TYPE, SinglePlayerDTO.class);
-//        configs.put(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG, "latest");
-//        configs.put(ConsumerConfig.ENABLE_AUTO_COMMIT_CONFIG, "true");
-//
-//        return new DefaultKafkaConsumerFactory<>(configs);
-//    }
-//
-//    @Bean
-//    public ConcurrentKafkaListenerContainerFactory<String, SinglePlayerDTO> kafkaListenerSinglePlayerContainerFactory ()
-//    {
-//        ConcurrentKafkaListenerContainerFactory<String, SinglePlayerDTO> factory = new ConcurrentKafkaListenerContainerFactory<>();
-//        factory.setConsumerFactory(singlePlayerConsumerFactory());
-//
-//        return factory;
-//    }
+    @Bean
+    public ConsumerFactory<String, SinglePlayerDTO> singlePlayerConsumerFactory()
+    {
+        this.consumersId = "recommendation-single-player-consumer";
+        Map<String, Object> configs = new HashMap<>();
+        configs.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, this.bootstrapServer);
+        configs.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
+        configs.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, JsonDeserializer.class);
+        configs.put(ConsumerConfig.GROUP_ID_CONFIG, this.consumersId);
+        configs.put(JsonDeserializer.VALUE_DEFAULT_TYPE, SinglePlayerDTO.class);
+        configs.put(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG, "latest");
+        configs.put(ConsumerConfig.ENABLE_AUTO_COMMIT_CONFIG, "true");
+
+        return new DefaultKafkaConsumerFactory<>(configs);
+    }
+
+    @Bean
+    public ConcurrentKafkaListenerContainerFactory<String, SinglePlayerDTO> kafkaListenerSinglePlayerContainerFactory ()
+    {
+        ConcurrentKafkaListenerContainerFactory<String, SinglePlayerDTO> factory = new ConcurrentKafkaListenerContainerFactory<>();
+        factory.setConsumerFactory(singlePlayerConsumerFactory());
+
+        return factory;
+    }
 
 }
 

@@ -2,6 +2,7 @@ package com.stackroute.quizify.recommendationservice.controller;
 
 import com.stackroute.quizify.recommendationservice.domain.Game;
 import com.stackroute.quizify.recommendationservice.service.GamesService;
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -11,6 +12,7 @@ import java.util.List;
 @CrossOrigin
 @RestController
 @RequestMapping("/rest/neo4j/game")
+@Api(description = "Operations on Game Nodes")
 public class GamesController {
 
     private GamesService gamessService;
@@ -33,25 +35,25 @@ public class GamesController {
     }
 
     @ApiOperation("Get games of a Genre")
-    @GetMapping("/{genreId}")
+    @GetMapping("/genre/{genreId}")
     public List<Game> getAllRelatedGamesOfAGenre(@PathVariable("genreId") long genreId) {
         return gamessService.getAllRelatedGamesOfAGenre(genreId);
     }
 
     @ApiOperation("Get games of a Topic")
-    @GetMapping("/{topicId}")
+    @GetMapping("/topic/{topicId}")
     public List<Game> getAllRelatedGamesOfATopic(@PathVariable("topicId") long topicId) {
         return gamessService.getAllRelatedGamesOfATopic(topicId);
     }
 
     @ApiOperation("Get games played by a user")
-    @GetMapping("/{userId}")
+    @GetMapping("/games/{userId}")
     public List<Game> getAllGamesPlayedByAUser(@PathVariable("userId") long userId) {
         return gamessService.getAllGamesPlayedByAUser(userId);
     }
 
     @ApiOperation("Get games liked by a user")
-    @GetMapping("/{userId}")
+    @GetMapping("/likes/{userId}")
     public List<Game> getAllGamesLikedByAUser(@PathVariable("userId") long userId) {
         return gamessService.getAllGamesLikedByAUser(userId);
     }

@@ -54,7 +54,7 @@ public class QuestionControllerTest {
     @Before
     public void setUp() throws Exception {
         MockitoAnnotations.initMocks(this);
-        mockMvc = MockMvcBuilders.standaloneSetup(this.questionController).setControllerAdvice(new GlobalException()).build();
+        mockMvc = MockMvcBuilders.standaloneSetup(this.questionController).setControllerAdvice(new GloballyExceptionHandler()).build();
 
 
         /**

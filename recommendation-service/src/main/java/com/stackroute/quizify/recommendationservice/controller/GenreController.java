@@ -2,6 +2,7 @@ package com.stackroute.quizify.recommendationservice.controller;
 
 import com.stackroute.quizify.recommendationservice.domain.Genre;
 import com.stackroute.quizify.recommendationservice.service.GenreService;
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -12,6 +13,7 @@ import java.util.List;
 @CrossOrigin
 @RestController
 @RequestMapping("/rest/neo4j/genre")
+@Api(description = "Operations on Genre Nodes")
 public class GenreController {
 
     GenreService genreService;

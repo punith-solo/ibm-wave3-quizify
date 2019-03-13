@@ -2,9 +2,9 @@ package com.stackroute.quizify.singleplayerengine.controller;
 
 
 
-import com.stackroute.quizify.kafka.domain.Game;
+import com.stackroute.quizify.singleplayerengine.domain.Game;
 
-import com.stackroute.quizify.kafka.domain.SinglePlayer;
+import com.stackroute.quizify.singleplayerengine.domain.SinglePlayer;
 
 import com.stackroute.quizify.singleplayerengine.service.PlayerService;
 
@@ -63,54 +63,53 @@ public class GamePlayerController {
 
 
 
+//    @ApiOperation(value = "Get User Game")
+//
+//    @GetMapping(value = "/game/{id}")
+//
+//    public ResponseEntity<?> getGame( @PathVariable long id)
+//
+//    {
+//        String url = "http://13.232.243.68:8102/api/v1/game/game/" +id;
+//
+//        Game game = restTemplate.getForObject(url, Game.class);
+//
+//
+//
+//        singlePlayer.setGame(game);
+//
+//
+//
+//        return new ResponseEntity<SinglePlayer>(singlePlayer,HttpStatus.OK);
+//
+//    }
+//
+//
+//
+//    @ApiOperation(value = "get user data")
+//
+//    @GetMapping(value="/user/{playerId}")
+//
+//    public ResponseEntity<?> getUser( @PathVariable long playerId)
+//
+//    {
+//
+//        singlePlayer.setPlayerId(playerId);
+//
+//        return new ResponseEntity<SinglePlayer>(singlePlayer,HttpStatus.OK);
+//
+//    }
+
+
+
     @ApiOperation(value = "Get User Game")
 
-    @GetMapping(value = "/game/{id}")
+    @GetMapping(value = "/singlePlayer/{playerName}/game/{id}")
 
-    public ResponseEntity<?> getGame( @PathVariable long id)
-
-    {
-        String url = "http://13.232.243.68:8102/api/v1/game/game/" +id;
-
-        Game game = restTemplate.getForObject(url, Game.class);
-
-
-
-        singlePlayer.setGame(game);
-
-
-
-        return new ResponseEntity<SinglePlayer>(singlePlayer,HttpStatus.OK);
-
-    }
-
-
-
-    @ApiOperation(value = "get user data")
-
-    @GetMapping(value="/user/{playerId}")
-
-    public ResponseEntity<?> getUser( @PathVariable long playerId)
-
+    public ResponseEntity<?> getGame(@PathVariable String playerName , @PathVariable long id)
     {
 
-        singlePlayer.setPlayerId(playerId);
-
-        return new ResponseEntity<SinglePlayer>(singlePlayer,HttpStatus.OK);
-
-    }
-
-
-
-    @ApiOperation(value = "Get User Game")
-
-    @GetMapping(value = "/user/{playerId}/game/{id}")
-
-    public ResponseEntity<?> getGame(@PathVariable long playerId , @PathVariable long id)
-
-    {
-
-        String url = "http://13.232.243.68:8102/api/v1/game/game/" +id;
+        String url = "http://0.0.0.0:8102/api/v1/games/game/" +id;
 
         Game game = restTemplate.getForObject(url, Game.class);
 
@@ -122,7 +121,7 @@ public class GamePlayerController {
 
 
 
-        singlePlayer.setPlayerId(playerId);
+        singlePlayer.setPlayerName(playerName);
 
 
 
@@ -134,10 +133,9 @@ public class GamePlayerController {
 
     @ApiOperation(value = "send User Game")
 
-    @PostMapping(value = "/singleplayer")
+    @PostMapping(value = "/singlePlayer")
 
     public ResponseEntity<?> postGame(@RequestBody SinglePlayer singlePlayer)
-
     {
         return new ResponseEntity<SinglePlayer>(this.playerService.sendSinglePlayer(singlePlayer), HttpStatus.OK);
 

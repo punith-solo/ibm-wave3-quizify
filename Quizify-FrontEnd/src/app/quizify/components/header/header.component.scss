@@ -75,24 +75,19 @@
   width: 100%;
   background-color: black !important;
   position: fixed;
-  height: 10%;
  }
 
 #logo{
   color: black;
-  font-size: 2vw;
-  margin-left: 2%;
-  margin-top: 0.25%;
-  width: 5%;
-  height: 4%;
+  margin: auto;
+  float: left;
   color: #ccaa2b;
   margin-left: 0.5%;
 }
 
-
 #name{
   color: #ccaa2b;
-  font-size: 2vw;
+  // font-size: 2vw;
   font-weight: bold;
   width: 50%;
   text-align: center;
@@ -102,9 +97,10 @@
   transform: translate(-50%, -50%);
   mix-blend-mode: screen; 
 }
+
 #slogan {
   color:whitesmoke;
-  font-size: 1.2vw;
+  // font-size: 1.2vw;
   font-style: oblique;
   font-family: cursive;
   width: 50%;
@@ -115,14 +111,16 @@
   transform: translate(-50%, -50%);
   mix-blend-mode: screen; 
 }
+
 .wrap
- {
+{
   float: right;
   padding-right: 2.5%;
-  margin-top: -60px ;
+  margin-top: 15px ;
 }
 
-.button{
+.button
+{
   background-color: black;
   color: #ccaa2b;
   border: 2px solid #ccaa2b;

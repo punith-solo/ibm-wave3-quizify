@@ -2,6 +2,7 @@ package com.stackroute.quizify.recommendationservice.controller;
 
 import com.stackroute.quizify.recommendationservice.domain.LikesGame;
 import com.stackroute.quizify.recommendationservice.service.LikesGameService;
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -11,6 +12,7 @@ import java.util.List;
 @CrossOrigin
 @RestController
 @RequestMapping("/rest/neo4j/likesgame")
+@Api(description = "Operations on User likes game Relationships")
 public class LikesGameController {
 
     LikesGameService likesGameService;
