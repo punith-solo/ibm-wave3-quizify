@@ -1,21 +1,24 @@
-<header>
+<header id="header">
     <div class="logo" >
         <a href="/" >
-            <h2 id="logo"> QUIZIFY </h2>
+            <!-- <img id="logo" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNiywSX_sHkPAZAs5MNyJEgm0sSVO9m6CbAK4sqL87QcoZxprR"> -->
+            <img id="logo" src="../../../../assets/images/logoFinal.jpeg">
+                       <!-- <h2 id="logo"> QUIZIFY </h2> -->
         </a>
-        <h4 id="slogan">are you up to the challenge.....?</h4>
+        <h4 id="name">QUIZIFY</h4>
+        <p id="slogan">Are you up to the challenge...?</p>
     </div>
 
     <div class="wrap"  *ngIf=userLogged>
-        <mat-card-actions>
-            <button mat-raised-button color="" [routerLink]="[ '/login']">Login</button>        
+        <mat-card-actions >
+            <button class="button" mat-raised-button color="" [routerLink]="[ '/login']">Login</button>        
         </mat-card-actions>
     </div>
     <div class="wrap" *ngIf=flag >
         <button  mat-button [matMenuTriggerFor]="menu" class="menubar"><img class="icon" src="../../../../assets/images/gender.png" alt="icon-pic"></button>
         <mat-menu #menu="matMenu">
-            <button mat-menu-item  [routerLink]="[ '/profileuser']">profile</button>
-            <button mat-menu-item (click)='logout()'>logout</button>          
+            <button class="button" mat-menu-item  [routerLink]="[ '/profileuser']">profile</button>
+            <button class="button" mat-menu-item (click)='logout()'>logout</button>          
         </mat-menu>   
     </div>
 </header>
