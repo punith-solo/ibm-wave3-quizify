@@ -229,10 +229,25 @@ h2 {
     height: 300px;
     background-color: gainsboro;
 }
+.prebtn[_ngcontent-c1][_ngcontent-c1][_ngcontent-c1] {
+    margin-right: 178px;
+    margin-bottom: 100px;
+}
 .mat-horizontal-stepper-header .mat-step-icon {
   margin-right: auto;
   margin-left: auto;
   flex: none;
+}
+.inside[_ngcontent-c1][_ngcontent-c1][_ngcontent-c1] {
+    padding: 10px;
+    width: auto;
+    height: auto;
+    line-height: 50px;
+    font-weight: bolder;
+    font-size: 2em;
+    text-align: center;
+    margin-left: -59px;
+    margin-bottom: -45px;
 }
 .laststep {
   margin-left: 80px;
@@ -286,7 +301,31 @@ h2 {
   color: 0;
   color: black;
 }
-
+.inside1[_ngcontent-c1][_ngcontent-c1][_ngcontent-c1] {
+    padding: 10px;
+    width: auto;
+    height: auto;
+    line-height: 50px;
+    font-weight: bolder;
+    font-size: 2em;
+    text-align: left;
+    margin-left: -148px;
+}
+.inside[_ngcontent-c1][_ngcontent-c1][_ngcontent-c1][_ngcontent-c1] {
+    padding: 10px;
+    width: auto;
+    height: auto;
+    line-height: 50px;
+    font-weight: bolder;
+    font-size: 2em;
+    text-align: center;
+    margin-left: -87px;
+    margin-bottom: -45px;
+}
+.prebtn[_ngcontent-c1][_ngcontent-c1][_ngcontent-c1][_ngcontent-c1] {
+    margin-right: 120px;
+    margin-bottom: 100px;
+}
 }
 
 @media (max-width:1032px)
@@ -326,33 +365,7 @@ h2 {
     height: 300px;
     background-color: gainsboro;
 }
-.inside[_ngcontent-c2] {
-  padding: 0px;
-  width: auto;
-  height: auto;
-  line-height: 50px;
-  font-weight: bolder;
-  font-size: 2em;
-  text-align: center;
-  /* margin-left: 6px; */
-}
-.container2{
-  margin-left: -23px;
-  padding-left: auto;
-  margin-top: -17px;
-}
-.prebtn[_ngcontent-c2] {
-  margin-right: 569px;
-  margin-bottom: 100px;
-}
-
-.container2 h3 {
-    text-align: center;
-    display: flex;
-    margin-left: 250px;
-}
-
-.inside {
+.inside[_ngcontent-c1] {
     padding: 10px;
     width: auto;
     height: auto;
@@ -360,8 +373,31 @@ h2 {
     font-weight: bolder;
     font-size: 2em;
     text-align: center;
-    margin-left: -40px;
-    margin-top: 0px;
+    margin-left: -49px;
+}
+.container2{
+  margin-left: -23px;
+  padding-left: auto;
+  margin-top: -17px;
+}
+.prebtn[_ngcontent-c1] {
+    margin-right: 566px;
+    margin-bottom: 100px;
+}
+.container[_ngcontent-c1] h3[_ngcontent-c1] {
+  display: flex;
+  margin-left: 212px;
+  font-family: sans-serif;
+}
+.inside1[_ngcontent-c1] {
+  padding: 10px;
+  width: auto;
+  height: auto;
+  line-height: 50px;
+  font-weight: bolder;
+  font-size: 2em;
+  text-align: left;
+  margin-left: 0px;
 }
 
 // .inside {
@@ -387,18 +423,20 @@ h2 {
     height: 300px;
     background-color: gainsboro;
 }
-
-.inside1 {
-    padding: 0px;
-    padding: -20px;
+.container[_ngcontent-c1][_ngcontent-c1] h3[_ngcontent-c1][_ngcontent-c1] {
+  display: flex;
+  margin-left: -118px;
+  font-family: sans-serif;
+}
+.inside1[_ngcontent-c1][_ngcontent-c1] {
+    padding: 10px;
     width: auto;
     height: auto;
     line-height: 50px;
     font-weight: bolder;
-    font-size: 8em;
-    text-align: center;
-    margin-left: -76px;
-    padding-left: 1px;
+    font-size: 2em;
+    text-align: left;
+    margin-left: -120px;
 }
 
 // .inside1 {
@@ -413,18 +451,19 @@ h2 {
 //     margin-left: auto;
 // }
 
-.inside {
-    padding: 10px;
-    width: auto;
-    height: auto;
-    line-height: 50px;
-    font-weight: bolder;
-    font-size: 2em;
-    text-align: center;
-    margin-left: -40px;
+.inside[_ngcontent-c1][_ngcontent-c1] {
+  padding: 10px;
+  width: auto;
+  height: auto;
+  line-height: 50px;
+  font-weight: bolder;
+  font-size: 2em;
+  text-align: center;
+  margin-left: -34px;
+  margin-bottom: -45px;
 }
-.prebtn {
-    margin-right: 250px;
+.prebtn[_ngcontent-c1][_ngcontent-c1] {
+    margin-right: 222px;
     margin-bottom: 100px;
 }
 .container h3 {
@@ -435,11 +474,10 @@ h2 {
   font-family: sans-serif;
 }
 
-
-.container2 h3 {
+.container2[_ngcontent-c1] h3[_ngcontent-c1] {
     text-align: center;
     display: flex;
-    margin-left: auto; 
+    margin-left: -5px;
     font-family: sans-serif;
 }
 
