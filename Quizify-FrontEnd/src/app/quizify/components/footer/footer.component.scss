@@ -10,16 +10,13 @@
  font-style: italic;
  font-size: 20px;
  }
- #footercss
-{
+.footer{
+
  position: relative;
- top: 94%;
- background-color:black;
+ margin-bottom: 0;
+ background-color:black !important;
  width: 100%;
- height: 10%;
- position: fixed;
- z-index: 1;
- opacity: 1;
+ height:60px;
  }
 
  .icons{
