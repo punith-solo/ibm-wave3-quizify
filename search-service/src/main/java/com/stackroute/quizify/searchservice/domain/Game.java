@@ -27,9 +27,11 @@ public class Game {
     private Genre genre;
     private String level;
     private String imageUrl;
-    private List<String> rules;
-    private long timeDuration;
+    private int numOfQuestion;
+    private int timeDuration;
     private int liked;
     private int playCount;
-    private int numOfQuestion;
+    private List<String> rules;
+    private int pointPerQuestion;
+    private int totalPoints;
 }

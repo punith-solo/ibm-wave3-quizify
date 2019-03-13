@@ -1,7 +1,7 @@
 package com.stackroute.quizify.userauthentication.service;
 
 import com.stackroute.quizify.userauthentication.domain.User;
-import com.stackroute.quizify.userauthentication.exceptions.UserAlreadyExists;
+import com.stackroute.quizify.userauthentication.exceptions.UserAlreadyExistsException;
 import com.stackroute.quizify.userauthentication.repository.UserRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,12 +26,12 @@ public class UserServiceImpl implements UserService {
 
 
     @Override
-    public User saveUser(User user) throws UserAlreadyExists {
+    public User saveUser(User user) throws UserAlreadyExistsException {
         if(userRepo.existsByName(user.getName())){
-            throw new UserAlreadyExists("User Name already exists!!");
+            throw new UserAlreadyExistsException();
         }
-        User userSaved = userRepo.save(user);
-        return userSaved;
+        else
+            return userRepo.save(user);
 
     }
 

@@ -1,6 +1,5 @@
 package com.stackroute.quizify.kafka;
 
-import com.stackroute.quizify.dto.mapper.GameMapper;
 import com.stackroute.quizify.gamemanager.domain.Game;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,14 +11,12 @@ import org.springframework.stereotype.Component;
 @Component
 public class Producer {
 
-    private Environment env;
     private String kafkaTopic;
     private KafkaTemplate<String, Game> kafkaTemplate;
 
     @Autowired
-    public Producer(Environment env, KafkaTemplate<String, Game> kafkaTemplate, GameMapper gameMapper)
+    public Producer(Environment env, KafkaTemplate<String, Game> kafkaTemplate)
     {
-        this.env = env;
         this.kafkaTopic = env.getProperty("kafka.topic");
         this.kafkaTemplate = kafkaTemplate;
     }

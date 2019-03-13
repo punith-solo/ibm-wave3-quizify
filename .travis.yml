@@ -23,13 +23,7 @@ before_install:
 after_success:
   - bash <(curl -s https://codecov.io/bash)
   - cd kafka
-  - bin/kafka-topics.sh --delete --topic questions --zookeeper localhost:2181
   - bin/kafka-server-stop.sh
   - sleep 5
   - bin/zookeeper-server-stop.sh
-  - sleep 5
-  - cd ../
-  - rm -rf kafka
-  - ls
-  - cd ../
-  - ls
+
