@@ -13,8 +13,7 @@ export class JsonService {
     return this.http.get('http://localhost:3000/category');
   }
 
-  getTopicFromJsonServer()
-  {
+  getTopicFromJsonServer() {
     return this.http.get('http://localhost:3000/topic');
   }
 
