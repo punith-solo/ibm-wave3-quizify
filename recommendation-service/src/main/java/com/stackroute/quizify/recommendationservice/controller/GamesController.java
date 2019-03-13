@@ -45,13 +45,13 @@ public class GamesController {
     }
 
     @ApiOperation("Get games played by a user")
-    @GetMapping("/{userId}")
+    @GetMapping("/games/{userId}")
     public List<Game> getAllGamesPlayedByAUser(@PathVariable("userId") long userId) {
         return gamessService.getAllGamesPlayedByAUser(userId);
     }
 
     @ApiOperation("Get games liked by a user")
-    @GetMapping("/{userId}")
+    @GetMapping("/likes/{userId}")
     public List<Game> getAllGamesLikedByAUser(@PathVariable("userId") long userId) {
         return gamessService.getAllGamesLikedByAUser(userId);
     }

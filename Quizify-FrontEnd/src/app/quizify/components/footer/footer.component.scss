@@ -1,31 +1,54 @@
+
+@media screen and (min-width: 601px) {
+ 
+  .icons{
+    color: #ccaa2b;
+    margin-right:1%;
+    padding: 1%;
+    font-size: 25px;
+    float: right;
+  }
+  #copyright
+ {
+  font-size: 20px;
+ }
+}
+
+
+@media screen and (max-width: 600px) {
+
+.icons{
+   color: #ccaa2b;
+   margin-right:1%;
+   padding: 0.5%;
+   font-size: 20px;
+ }
+ #copyright
+ {
+  font-size: 20px;
+ }
+}
 #copyright
  {
  color: #ccaa2b;
  float: left;
  padding-left: 1.5%;
- padding-top: 0.8%;
+ padding-top: 1%;
  margin: auto;
  position: relative;
  font-family: cursive;
  font-style: italic;
- font-size: 20px;
+ 
  }
  #footercss
 {
+ background-color:black !important;
  position: relative;
- top: 94%;
- background-color:black;
+ top: 92%;
+ height: 60px;
  width: 100%;
- height: 10%;
- position: fixed;
  z-index: 1;
  opacity: 1;
  }
+ 
 
- .icons{
-   color: #ccaa2b;
-   margin-right:1%;
-   padding: 1%;
-   float: right;
-   font-size: 25px;
- }

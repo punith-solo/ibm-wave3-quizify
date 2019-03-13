@@ -1,29 +1,41 @@
 
 @media screen and (min-width: 601px) {
-  // #logo {
-  //   font-size: 40px;
-  // }
+  #name {
+    font-size: 35px;
+  }
   #slogan {
-    font-size: 25px;
+    font-size: 20px;
+  }
+  #header{
+    height: 10%;
+  }
+  #logo{
+    margin-left: 2%;
+  margin-top: 0.5%;
+  width: 5%;
+  height: 5%;
   }
 }
 
 /* If the screen size is 600px wide or less, set the font-size of <div> to 30px */
 @media screen and (max-width: 600px) {
-  // #logo {
-  //   font-size: 30px;
-  // }
-  #slogan {
-    font-size: 15px; 
+  #name {
+    font-size: 20px;
   }
-  // #header{
-  //   z-index: 1;
-  //   width: 100%;
-  //   background-color: black !important;
-  //   opacity: 0.8;
-  //   position: fixed;
-  //   height: 5%;
-  //  }
+  #slogan {
+    font-size: 10px; 
+  }
+
+  #header{
+    height: 5%;
+   }
+
+   #logo{
+    margin-left: 2%;
+    margin-top: 0.5%;
+    width: 10%;
+    height: 5%;
+  }
 }
 
  #header{
@@ -32,39 +44,21 @@
   background-color: black !important;
   opacity: 0.9;
   position: fixed;
-  height: 10%;
- }
 
- #logo{
-  margin: auto;
-  float: left;
-  width: 70%;
-  height: 80%;
-}
+ }
 
 #logo{
   color: black;
-  font-size: 2vw;
-  text-decoration: none; 
-  text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
-  margin-left: 2%;
-  margin-top: 0.7%;
-  width: 5%;
-  height: 5%;
+  margin: auto;
+  float: left;
+  
   color: #ccaa2b;
   margin-left: 0.5%;
 }
 
-// #logo{
-//   color: black;
-//   font-size: vw; /* Responsive font size */
-//   text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
-//   margin-left: 2%;
-//   margin-top: 0.7%;
-// }
 #name{
   color: #ccaa2b;
-  font-size: 2vw;
+  // font-size: 2vw;
   font-weight: bold;
   font-style: italic;
   font-family: cursive;
@@ -79,7 +73,7 @@
 }
 #slogan {
   color:whitesmoke;
-  font-size: 1.2vw;
+  // font-size: 1.2vw;
   font-style: oblique;
   font-family: cursive;
   margin: 0 auto; 
