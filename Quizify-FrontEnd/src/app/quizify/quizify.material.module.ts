@@ -15,6 +15,7 @@ import {MatRadioModule} from '@angular/material/radio';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+
 // import { FlexLayoutModule } from '@angular/flex-layout';
 import {MatStepperModule} from '@angular/material/stepper';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
@@ -41,6 +42,7 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
        MatChipsModule,
        MatSelectModule,
        RouterModule, MatStepperModule, MatProgressSpinnerModule, MatButtonToggleModule,
+       MatGridListModule,
       // FlexLayoutModule,
        MatCheckboxModule,
        MatIconModule,
