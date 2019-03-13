@@ -4,6 +4,7 @@ package com.stackroute.quizify.recommendationservice.controller;
 import com.stackroute.quizify.recommendationservice.domain.LikesTopic;
 import com.stackroute.quizify.recommendationservice.domain.User;
 import com.stackroute.quizify.recommendationservice.service.LikesTopicService;
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -13,6 +14,7 @@ import java.util.List;
 @CrossOrigin
 @RestController
 @RequestMapping("/rest/neo4j/likestopic")
+@Api(description = "Operations on User likes topic Relationships")
 public class LikesTopicController {
 
     LikesTopicService likesTopicService;

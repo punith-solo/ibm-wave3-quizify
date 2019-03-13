@@ -1,9 +1,7 @@
 package com.stackroute.quizify.kafka;
 
 import com.stackroute.quizify.dto.mapper.*;
-import com.stackroute.quizify.dto.model.GameDTO;
-import com.stackroute.quizify.dto.model.SinglePlayerDTO;
-import com.stackroute.quizify.dto.model.UserDTO;
+import com.stackroute.quizify.dto.model.*;
 import com.stackroute.quizify.recommendationservice.domain.*;
 import com.stackroute.quizify.recommendationservice.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +10,7 @@ import org.springframework.messaging.handler.annotation.Payload;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
+import java.util.ListIterator;
 
 
 @Component
@@ -45,7 +44,7 @@ public class Consumer {
         this.singlePlayerMapper=singlePlayerMapper;
     }
 
-    @KafkaListener(topics = "game", groupId = "recommendation-game-consumer", containerFactory = "kafkaListenerGameContainerFactory")
+    @KafkaListener(topics = "games", groupId = "recommendation-game-consumer", containerFactory = "kafkaListenerGameContainerFactory")
     public void receiveGame(@Payload GameDTO payload) {
         System.out.println("-----------------------------------------------------------------------------------------------------------------------------------------");
         System.out.println("Game Received To Recommendation : ");
@@ -75,7 +74,7 @@ public class Consumer {
 
     }
 
-    @KafkaListener(topics = "user", groupId = "recommendation-user-consumer", containerFactory = "kafkaListenerUserContainerFactory")
+    @KafkaListener(topics = "users", groupId = "recommendation-user-consumer", containerFactory = "kafkaListenerUserContainerFactory")
     public void receiveUser(@Payload UserDTO payload) {
         System.out.println("----------------------------------------------------------------------------------------------------------------------------------------");
         System.out.println("User Received To Recommendation : ");
@@ -103,20 +102,20 @@ public class Consumer {
         userService.create(user);
     }
 
-//    @KafkaListener(topics = "singlePlayer", groupId = "recommendation-single-player-consumer", containerFactory = "kafkaListenerSinglePlayerContainerFactory")
-//    public void receiveSinglePlayer(@Payload SinglePlayerDTO payload) {
-//        System.out.println("-------------------------------------------------------------------------------------------------------------------------------------");
-//        System.out.println("SinglePlayer Received To Recommendation : ");
-//        System.out.println(payload);
-//        System.out.println("-------------------------------------------------------------------------------------------------------------------------------------");
-//        this.singlePlayer=this.singlePlayerMapper.singlePlayerDTOToSinglePlayer(payload);
-//        singlePlayer.setGameId(payload.getGame());
+    @KafkaListener(topics = "single-player", groupId = "recommendation-single-player-consumer", containerFactory = "kafkaListenerSinglePlayerContainerFactory")
+    public void receiveSinglePlayer(@Payload SinglePlayerDTO payload) {
+        System.out.println("-------------------------------------------------------------------------------------------------------------------------------------");
+        System.out.println("SinglePlayer Received To Recommendation : ");
+        System.out.println(payload);
+        System.out.println("-------------------------------------------------------------------------------------------------------------------------------------");
+        this.singlePlayer=this.singlePlayerMapper.singlePlayerDTOToSinglePlayer(payload);
+//        singlePlayer.setGame(payload.getGame());
 //        singlePlayer.setUserId(payload.getPlayerId());
-//
-//        System.out.println(" gameId  "+singlePlayer.getGameId()  +"  userId   "+singlePlayer.getUserId());
-//
-//        playedRelationshipService.createRelationship(singlePlayer);
-//    }
+
+        System.out.println(" gameId  "+singlePlayer.toString());
+
+        playedRelationshipService.createRelationship(singlePlayer);
+    }
 
 }
 

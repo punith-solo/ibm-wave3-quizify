@@ -30,15 +30,15 @@ public class PlayedRelationshipServiceImpl implements PlayedRelationshipService 
 
     @Override
     public Played createRelationship(SinglePlayer singlePlayer) {
-        long userId= singlePlayer.getUserId();
-        log.info(" user ------------------------- /n " + userId);
+        String userName= singlePlayer.getPlayerName();
+        log.info(" user ------------------------- /n " + userName);
         Game game= singlePlayer.getGame();
         log.info("game-------------------------------/n"+game.getId());
         long gameId=game.getId();
         int playCount=game.getPlayCount();
         playCount=playCount+1;
         game.setPlayCount(playCount);
-        return playedRelationshipRepository.createRelationship(userId,gameId);
+        return playedRelationshipRepository.createRelationship(userName,gameId);
     }
 
 }

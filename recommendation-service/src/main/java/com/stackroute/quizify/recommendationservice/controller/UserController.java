@@ -2,6 +2,7 @@ package com.stackroute.quizify.recommendationservice.controller;
 
 import com.stackroute.quizify.recommendationservice.domain.User;
 import com.stackroute.quizify.recommendationservice.service.UserService;
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -11,6 +12,8 @@ import java.util.List;
 @CrossOrigin
 @RestController
 @RequestMapping("/rest/neo4j/user")
+
+@Api(description = "Operations on User Nodes")
 public class UserController {
 
     private UserService userService;

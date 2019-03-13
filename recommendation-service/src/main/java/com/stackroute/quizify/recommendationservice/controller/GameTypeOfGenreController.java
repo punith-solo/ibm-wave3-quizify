@@ -3,6 +3,7 @@ package com.stackroute.quizify.recommendationservice.controller;
 import com.stackroute.quizify.recommendationservice.domain.Game;
 import com.stackroute.quizify.recommendationservice.domain.GameTypeOfGenre;
 import com.stackroute.quizify.recommendationservice.service.GameTypeOfGenreService;
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -12,6 +13,7 @@ import java.util.List;
 @CrossOrigin
 @RestController
 @RequestMapping("/rest/neo4j/gametypeofgenre")
+@Api(description = "Operations on Game type of Genre Relationships")
 public class GameTypeOfGenreController {
 
         GameTypeOfGenreService gameTypeOfGenreService;

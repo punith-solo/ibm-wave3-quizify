@@ -44,10 +44,11 @@ public class UserServiceImpl implements UserService {
         long id= user.getId();
         String name= user.getName();
         String gender= user.getGender();
-        List<Game> playedGames=user.getPlayedGames();
+//        List<Game> playedGames=user.getPlayedGames();
         log.info("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
-        log.info("user node to be created -> id: "+id+"name"+name+"gender"+gender);
-        User user1 =userRepository.createNode(id,name,gender,playedGames);
+        log.info("user node to be created -> id: "+id+"  name "+name+" gender  "+gender);
+//        User user1 =userRepository.createNode(id,name,gender,playedGames);
+        User user1 =userRepository.createNode(id,name,gender);
         log.info("============================================================control to liketopic service===================================================================================");
         likesTopicService.createRelationship(user);
         log.info("============================================================control to likegenre service===================================================================================");

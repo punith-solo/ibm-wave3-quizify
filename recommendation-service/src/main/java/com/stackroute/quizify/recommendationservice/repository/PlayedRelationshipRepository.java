@@ -14,8 +14,8 @@ public interface PlayedRelationshipRepository extends Neo4jRepository<Played,Str
     @Query("MATCH p=(User)-[r:Played]->(Game) RETURN p")
     public List<Played> getAllRelationships();
 
-    @Query("MATCH (p:User),(t:Game) WHERE p.id={userId} and t.id={gameId} CREATE (p)-[q:Played]->(t) RETURN p,q,t")
-    Played createRelationship(long userId,long gameId);
+    @Query("MATCH (p:User),(t:Game) WHERE p.name={userName} and t.id={gameId} CREATE (p)-[q:Played]->(t) RETURN p,q,t")
+    Played createRelationship(String userName, long gameId);
 
 //    @Query("MATCH (p:User)-[r:Played]->(t:Game) WHERE p.id={userId} and t.id={gameId} DELETE r RETURN 'relationship deleted' ")
 //    Played deleteRelationship(@Param("userId") Long userId, @Param("gameId") long gameId);

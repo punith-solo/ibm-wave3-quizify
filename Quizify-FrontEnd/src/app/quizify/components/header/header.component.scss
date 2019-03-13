@@ -11,9 +11,9 @@
   }
   #logo{
     margin-left: 2%;
-  margin-top: 0.5%;
-  width: 5%;
-  height: 5%;
+    margin-top: 0.5%;
+    width: 5%;
+    height: 5%;
   }
 }
 
@@ -38,19 +38,17 @@
   }
 }
 
- #header{
-  z-index: 100;
+#header{
+  z-index: 1;
   width: 100%;
   background-color: black !important;
   position: fixed;
-
  }
 
 #logo{
   color: black;
   margin: auto;
   float: left;
-  
   color: #ccaa2b;
   margin-left: 0.5%;
 }
@@ -67,6 +65,7 @@
   transform: translate(-50%, -50%);
   mix-blend-mode: screen; 
 }
+
 #slogan {
   color:whitesmoke;
   // font-size: 1.2vw;
@@ -80,14 +79,16 @@
   transform: translate(-50%, -50%);
   mix-blend-mode: screen; 
 }
+
 .wrap
- {
+{
   float: right;
   padding-right: 2.5%;
-  margin-top: -60px ;
+  margin-top: 15px ;
 }
 
-.button{
+.button
+{
   background-color: black;
   color: #ccaa2b;
   border: 2px solid #ccaa2b;
