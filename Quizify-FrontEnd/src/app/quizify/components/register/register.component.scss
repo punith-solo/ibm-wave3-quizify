@@ -1,7 +1,7 @@
 #reg {
    background-image: linear-gradient(to bottom, rgb(236, 236, 203), rgba(196, 196, 218, 0.651)),
   url("https://blog.hubspot.com/hs-fs/hub/53/file-2408128213-png/00-Blog_Thinkstock_Images/tagline-quiz.png");
-  height: 680px;
+  height: 700px;
   overflow-x: hidden;
 
   overflow-y: hidden;
@@ -9,14 +9,18 @@
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
-  margin-top: 60px;
+  // margin-top: 60px;
   // margin-top: 45px;
   // margin-left: -2px;
   // margin-right: -2px;
-  margin-bottom: 2px;
-  padding-bottom: 34px;
+  // margin-bottom: 2px;
+  // padding-bottom: 34px;
 
 }
+
+// #registration{
+//   margin-top: 160px;
+// }
 .example-card {
   flex-wrap: wrap;
 }

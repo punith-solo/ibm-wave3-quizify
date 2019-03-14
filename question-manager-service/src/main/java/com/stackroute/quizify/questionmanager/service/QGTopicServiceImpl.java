@@ -9,8 +9,13 @@ import org.springframework.stereotype.Service;
 @Service
 public class QGTopicServiceImpl implements QGTopicService {
 
-	@Autowired
+//	@Autowired
 	private QGTopicRepository qgTopicRepository;
+
+	@Autowired
+	public QGTopicServiceImpl(QGTopicRepository qgTopicRepository) {
+		this.qgTopicRepository = qgTopicRepository;
+	}
 
 	@Override
 	public Topic addTopic(Topic topic) {

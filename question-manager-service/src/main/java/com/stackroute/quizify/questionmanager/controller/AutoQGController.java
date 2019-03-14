@@ -7,6 +7,8 @@ import com.stackroute.quizify.questionmanager.service.QGCategoryService;
 import com.stackroute.quizify.questionmanager.service.QGTopicService;
 import com.stackroute.quizify.questionmanager.service.SparQLQueryService;
 import io.micrometer.core.annotation.Timed;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -21,20 +23,27 @@ import java.util.Random;
 @CrossOrigin("*")
 @RequestMapping("/api/v1/question-generator")
 @RestController
+@Api(description="Auto Question Manager Service")
 public class AutoQGController {
 
-	@Autowired
 	private QGCategoryService qGCategoryService;
 
-	@Autowired
 	private QGTopicService qgTopicService;
 
-	@Autowired
 	private SparQLQueryService sparQLQueryService;
+
+	@Autowired
+	public AutoQGController(QGCategoryService qGCategoryService, QGTopicService qgTopicService, SparQLQueryService sparQLQueryService){
+		this.qGCategoryService = qGCategoryService;
+		this.qgTopicService = qgTopicService;
+		this.sparQLQueryService = sparQLQueryService;
+
+	}
 
 	/*
 	 * Get all questions in a topic by topic name and also with category ID
 	 */
+	@ApiOperation("Gives all auto-generated questions for a topic and category")
 	@Timed(value = "qg.get.AuroGenerationquestions", histogram = true, percentiles = { 0.95 }, extraTags = { "version", "1.0" })
 	@RequestMapping(value = "/category/{categoryId}/topic/{topicId}/auto-questions", method = RequestMethod.GET)
 

@@ -1,6 +1,10 @@
 <app-header></app-header>
+
+<!-- <br> -->
+
+<div id="registration">
 <mat-horizontal-stepper linear id="reg" #stepper>
-  <mat-step  [stepControl]="formGroup1">
+  <mat-step  id="step" [stepControl]="formGroup1">
     <ng-template matStepLabel>
       Fill the details
     </ng-template>
@@ -204,3 +208,5 @@
     </form>
   </mat-step>
 </mat-horizontal-stepper>
+</div>
+<app-footer></app-footer>

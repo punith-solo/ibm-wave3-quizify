@@ -9,35 +9,42 @@ import org.springframework.stereotype.Service;
 @Service
 public class QGCategoryServiceImpl implements QGCategoryService {
 
+
+//	@Autowired
+	private QGCategoryRepository qGCategoryRepository;
+
 	@Autowired
-	private QGCategoryRepository qGRedisRepository;
+	public QGCategoryServiceImpl(QGCategoryRepository qGCategoryRepository)
+	{
+		this.qGCategoryRepository = qGCategoryRepository;
+	}
 
 	@Override
 	public Category addCategory(Category category) {
-		qGRedisRepository.save(category);
+		qGCategoryRepository.save(category);
 		return category;
 	}
 
 	@Override
 	public Iterable<Category> findAllCategories() {
-		Iterable<Category> categoryList = qGRedisRepository.findAll();
+		Iterable<Category> categoryList = qGCategoryRepository.findAll();
 		return categoryList;
 	}
 
 	@Override
 	public Category findCategoryId(long categoryId) {
-		Category foundCategory = qGRedisRepository.findById(categoryId);
+		Category foundCategory = qGCategoryRepository.findById(categoryId);
 		return foundCategory;
 	}
 
 	@Override
 	public Category findByCategoryName(String categoryName) {
-		Category foundByCategoryName = qGRedisRepository.findByName(categoryName);
+		Category foundByCategoryName = qGCategoryRepository.findByName(categoryName);
 		return foundByCategoryName;
 	}
 
 	@Override
 	public Category updateByCategoryId(Category category) {
-		return qGRedisRepository.save(category);
+		return qGCategoryRepository.save(category);
 	}
 }

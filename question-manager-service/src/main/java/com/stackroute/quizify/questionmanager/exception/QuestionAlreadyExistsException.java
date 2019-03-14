@@ -8,6 +8,7 @@ package com.stackroute.quizify.questionmanager.exception;
 public class QuestionAlreadyExistsException extends Exception {
 
     public QuestionAlreadyExistsException() {
+        super();
 
     }
 }

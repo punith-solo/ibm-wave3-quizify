@@ -5,6 +5,7 @@ import com.stackroute.quizify.questionmanager.domain.Topic;
 import com.stackroute.quizify.questionmanager.service.QGCategoryService;
 import com.stackroute.quizify.questionmanager.service.QGTopicService;
 import io.micrometer.core.annotation.Timed;
+import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.*;
 @CrossOrigin("*")
 @RequestMapping("/api/v1/question-generator")
 @RestController
+@Api(description="Add/Update Category/Topic")
 public class QGController {
 
 	@Autowired
@@ -45,7 +47,7 @@ public class QGController {
 	 */
 	@Timed(value = "qg.get.categories", histogram = true, percentiles = { 0.95 }, extraTags = { "version", "1.0" })
 	@RequestMapping(value = "/category", method = RequestMethod.GET)
-	public ResponseEntity<Iterable<Category>> getAllCategories(Category category) {
+	public ResponseEntity<Iterable<Category>> getAllCategories() {
 		Iterable<Category> allCategories = qGCategoryService.findAllCategories();
 
 		return new ResponseEntity<Iterable<Category>>(allCategories, HttpStatus.OK);
@@ -98,7 +100,7 @@ public class QGController {
 	 */
 	@Timed(value = "qg.get.topics", histogram = true, percentiles = { 0.95 }, extraTags = { "version", "1.0" })
 	@RequestMapping(value = "/topic", method = RequestMethod.GET)
-	public ResponseEntity<Iterable<Topic>> getAllTopics(Topic topic) {
+	public ResponseEntity<Iterable<Topic>> getAllTopics() {
 		Iterable<Topic> allTopics = qGTopicService.findAllTopics();
 
 		return new ResponseEntity<Iterable<Topic>>(allTopics, HttpStatus.OK);
