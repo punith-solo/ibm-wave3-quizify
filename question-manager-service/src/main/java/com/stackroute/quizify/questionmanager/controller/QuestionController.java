@@ -1,11 +1,11 @@
 package com.stackroute.quizify.questionmanager.controller;
 
+import com.stackroute.quizify.questionmanager.domain.Question;
 import com.stackroute.quizify.questionmanager.exception.EnoughQuestionsNotFound;
 import com.stackroute.quizify.questionmanager.exception.NoQuestionFoundException;
 import com.stackroute.quizify.questionmanager.exception.QuestionAlreadyExistsException;
 import com.stackroute.quizify.questionmanager.exception.QuestionDoesNotExistException;
 import com.stackroute.quizify.questionmanager.service.QuestionService;
-import com.stackroute.quizify.questionmanager.domain.Question;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;

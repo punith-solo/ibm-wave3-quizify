@@ -1,7 +1,10 @@
 package com.stackroute.quizify.questionmanager.domain;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 /*
  * The Annotation "@Data" is used as a convenient shortcut annotation that bundles the features
@@ -23,7 +26,10 @@ import org.springframework.data.annotation.Id;
  * The Field "timeStamp" is used to store the Timestamp of last time the document is edited.
  */
 
+@Document(collection = "categories")
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class Category {
     @Id
     private long id;

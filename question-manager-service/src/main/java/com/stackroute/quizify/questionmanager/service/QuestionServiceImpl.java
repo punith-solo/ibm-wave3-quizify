@@ -7,6 +7,7 @@ import com.stackroute.quizify.questionmanager.exception.QuestionAlreadyExistsExc
 import com.stackroute.quizify.questionmanager.exception.QuestionDoesNotExistException;
 
 import com.stackroute.quizify.questionmanager.repository.QuestionRepository;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,6 +21,7 @@ import java.util.List;
  * Spring @Service annotation is used with classes that provide business functionalities/logics.
  */
 
+@Slf4j
 @Service
 public class QuestionServiceImpl implements QuestionService {
 
@@ -45,6 +47,8 @@ public class QuestionServiceImpl implements QuestionService {
                 question.setId(1);
             else
                 question.setId(this.questionRepository.findTopByOrderByIdDesc().get().getId()+1);
+            log.info("New Question Added : \n");
+            log.info(""+question);
             return this.questionRepository.save(question);
         }
 

@@ -1,21 +1,16 @@
-package com.stackroute.quizify.questionmanager.service;
+package com.stackroute.quizify.questionmanager.service.sparQL;
 
 
 import com.stackroute.quizify.questionmanager.domain.Topic;
-import com.stackroute.quizify.questionmanager.repository.QGTopicRepository;
+import com.stackroute.quizify.questionmanager.repository.sparQL.QGTopicRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class QGTopicServiceImpl implements QGTopicService {
 
-//	@Autowired
-	private QGTopicRepository qgTopicRepository;
-
 	@Autowired
-	public QGTopicServiceImpl(QGTopicRepository qgTopicRepository) {
-		this.qgTopicRepository = qgTopicRepository;
-	}
+	private QGTopicRepository qgTopicRepository;
 
 	@Override
 	public Topic addTopic(Topic topic) {
