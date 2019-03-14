@@ -9,9 +9,6 @@ import org.springframework.stereotype.Component;
 
 
 @Component
-//@Data
-//@Primary
-//@Configuration
 public class FeedDataApplicationListener implements ApplicationListener<ContextRefreshedEvent> {
     private UserRepository userRepository;
 
@@ -24,10 +21,6 @@ public class FeedDataApplicationListener implements ApplicationListener<ContextR
     public void onApplicationEvent(ContextRefreshedEvent contextRefreshedEvent)
     {
         userRepository.save(new User(0,"admin", "123", "admin"));
-        userRepository.save(new User(0,"player1", "123", "player"));
-        userRepository.save(new User(0,"player2", "123", "player"));
-        userRepository.save(new User(0,"player3", "123", "player"));
-
     }
 
 

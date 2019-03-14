@@ -2,7 +2,7 @@ package com.stackroute.quizify.searchservice.controller;
 
 import com.stackroute.quizify.searchservice.domain.Game;
 import com.stackroute.quizify.searchservice.exception.GenreDoesNotExistsException;
-import com.stackroute.quizify.searchservice.exception.NoGameFoundException;
+import com.stackroute.quizify.searchservice.exception.NoGamesFoundException;
 import com.stackroute.quizify.searchservice.exception.TopicDoesNotExistsException;
 import com.stackroute.quizify.searchservice.service.UniversalService;
 import io.swagger.annotations.Api;
@@ -27,27 +27,8 @@ public class UniversalController {
 
     @ApiOperation(value = "Search Games by any Search key")
     @GetMapping("/search/{searchKey}")
-    public ResponseEntity<?> searchTopicByStartsWith(@PathVariable String searchKey){
-        try {
-            return new ResponseEntity<List<Game>>(this.universalService.searchGame(searchKey), HttpStatus.OK);
-        }
-        catch (TopicDoesNotExistsException | NoGameFoundException | GenreDoesNotExistsException e)
-        {
-            return new ResponseEntity<String>(e.getMessage(), HttpStatus.NOT_FOUND);
-        }
+    public ResponseEntity<?> searchTopicByStartsWith(@PathVariable String searchKey) throws NoGamesFoundException, TopicDoesNotExistsException, GenreDoesNotExistsException {
+        return new ResponseEntity<List<Game>>(this.universalService.searchGame(searchKey), HttpStatus.OK);
     }
-
-    @ApiOperation(value = "Delete Game")
-    @DeleteMapping("/search/{topicName}/{genreName}/{gameId}")
-    public ResponseEntity<?> searchTopicByStartsWith(@PathVariable String topicName, @PathVariable String genreName, @PathVariable long gameId){
-        try {
-            return new ResponseEntity<Game>(this.universalService.deleteGame(topicName, genreName, gameId), HttpStatus.OK);
-        }
-        catch (TopicDoesNotExistsException | NoGameFoundException | GenreDoesNotExistsException e)
-        {
-            return new ResponseEntity<String>(e.getMessage(), HttpStatus.NOT_FOUND);
-        }
-    }
-
 
 }

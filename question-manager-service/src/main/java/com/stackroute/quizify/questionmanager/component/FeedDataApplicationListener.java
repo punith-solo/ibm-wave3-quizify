@@ -48,19 +48,31 @@ public class FeedDataApplicationListener implements ApplicationListener<ContextR
     public FeedDataApplicationListener(QuestionService questionService) {
         this.questionService = questionService;
 
+<<<<<<< HEAD
 
 //         * Data For Category
 
 
+=======
+        /**
+         * Data For Category
+         */
+>>>>>>> cf21c072dba0fb5589ce411d228db9c7ca874b57
         this.entertainment = new Category();
         this.entertainment.setId(1);
         this.entertainment.setName("Entertainment");
         this.entertainment.setImageUrl("https://mitaanexpress.com/wp-content/uploads/2017/12/336fdcf7d540e4b430a890b63da159c9-1503648561-768x432.png");
 
+<<<<<<< HEAD
 
 //         * Data For Topic
 
 
+=======
+        /**
+         * Data For Topic
+         */
+>>>>>>> cf21c072dba0fb5589ce411d228db9c7ca874b57
         this.movies = new Topic();
         this.movies.setId(1);
         this.movies.setName("Movies");
@@ -71,10 +83,16 @@ public class FeedDataApplicationListener implements ApplicationListener<ContextR
         this.tvShows.setName("TV Shows");
         this.tvShows.setImageUrl("https://tallypress.com/wp-content/uploads/2016/12/9-Popular-TV-shows-with-a-Malaysian-Flavour-1.jpg");
 
+<<<<<<< HEAD
 
 //         * Data For Genre
 
 
+=======
+        /**
+         * Data For Genre
+         */
+>>>>>>> cf21c072dba0fb5589ce411d228db9c7ca874b57
         this.documentary = new Genre();
         this.documentary.setId(1);
         this.documentary.setName("Documentary");

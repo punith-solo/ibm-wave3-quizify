@@ -26,8 +26,6 @@ import java.util.Optional;
 @Repository
 public interface GenreRepository extends MongoRepository<Genres,Long> {
 
-//    List<Genre> searchByGenreName(String genreName);
-
     @Query("{ name: { $regex: '^?0', $options: 'i'} }")
     List<Genres> searchByGenreAlphabet(String genreName);
 

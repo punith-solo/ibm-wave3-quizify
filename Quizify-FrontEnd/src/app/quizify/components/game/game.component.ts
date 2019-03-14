@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { GameserviceService } from '../../services/gameservice.service';
 import { Game } from '../../tsclasses/game';
 import { Category } from '../../tsclasses/category';
 import { Topic } from '../../tsclasses/topic';
 import { Genre } from '../../tsclasses/genre';
+import { AdminGameService } from '../../services/admin-game.service';
 
 // import { Topic } from '../pclasses/topic';
 // import { GameserviceService } from './gameservice.service';
@@ -87,7 +87,7 @@ export class GameComponent implements OnInit {
 
 
 
-  constructor(private gameService: GameserviceService, private snackBar: MatSnackBar) {
+  constructor(private gameService: AdminGameService, private snackBar: MatSnackBar) {
     this.entertainment = new Category();
     this.entertainment.id = 1;
     this.entertainment.name = 'Entertainment';
@@ -257,7 +257,7 @@ export class GameComponent implements OnInit {
      }
   }
   addGame(game: Game) {
-    this.gameService.addGame(game).subscribe(
+    this.gameService.saveGame(game).subscribe(
       response => {
         this.statusCode = response.status;
         if (this.statusCode === 200) {

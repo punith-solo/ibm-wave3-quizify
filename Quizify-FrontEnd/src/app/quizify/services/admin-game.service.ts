@@ -15,8 +15,8 @@ export class AdminGameService {
   private baseUrl: string;
 
   constructor(private http: HttpClient) {
-    // this.baseUrl = 'http://13.232.243.68:8092/game-manager-service/api/v1/game';
-    this.baseUrl = 'http://localhost:8092/game-manager-service/api/v1/games';
+    this.baseUrl = 'https://13.232.243.68:8092/game-manager-service/api/v1/game';
+    // this.baseUrl = 'http://localhost:8092/game-manager-service/api/v1/games';
   }
 
   getAllGames() {
@@ -38,23 +38,23 @@ export class AdminGameService {
     // this.http.delete('http://0.0.0.0:8106/api/v1/search/'+game.topic.name+'/'+game.genre.name+'/'+game.id, { observe: 'response' })
     // .pipe(catchError(this.handleError));
     // console.log('http://0.0.0.0:8106/api/v1/search/'+game.topic.name+'/'+game.genre.name+'/'+game.id);
-    return this.http.delete(this.baseUrl+'/game/'+game.id, { observe: 'response' })
+    return this.http.delete(this.baseUrl + '/game/' + game.id, { observe: 'response' })
     .pipe(catchError(this.handleError));
   }
 
   saveGame(game: Game) {
-    return this.http.post(this.baseUrl+'/game',game, { observe: 'response' })
+    return this.http.post(this.baseUrl + '/game', game, { observe: 'response' })
     .pipe(catchError(this.handleError));
   }
 
   updateGame(game: Game) {
     console.log(game);
-    return this.http.put(this.baseUrl+'/game',game, { observe: 'response' })
+    return this.http.put(this.baseUrl + '/game', game, { observe: 'response' })
     .pipe(catchError(this.handleError));
   }
 
   getGame(gameId: number) {
-    return this.http.get(this.baseUrl+'/game/'+gameId, { observe: 'response' })
+    return this.http.get(this.baseUrl + '/game/' + gameId, { observe: 'response' })
     .pipe(catchError(this.handleError));
   }
 

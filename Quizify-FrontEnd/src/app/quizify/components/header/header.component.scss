@@ -1,61 +1,98 @@
 
+//  media querry
+
 @media screen and (min-width: 601px) {
+
   #name {
+
     font-size: 35px;
+
   }
+
   #slogan {
+
     font-size: 20px;
+
   }
+
   #header{
+
     height: 10%;
+
   }
+
   #logo{
+
     margin-left: 2%;
-    margin-top: 0.5%;
-    width: 5%;
-    height: 5%;
+
+  margin-top: 0.5%;
+
+  width: 5%;
+
+  height: 5%;
+
   }
+
 }
 
 /* If the screen size is 600px wide or less, set the font-size of <div> to 30px */
+
 @media screen and (max-width: 600px) {
+
   #name {
+
     font-size: 20px;
+
   }
+
   #slogan {
+
     font-size: 10px; 
+
   }
 
   #header{
+
     height: 5%;
+
    }
 
    #logo{
-    margin-left: 2%;
-    margin-top: 0.5%;
-    width: 10%;
-    height: 5%;
-  }
-}
 
-#header{
-  z-index: 1;
+    margin-left: 2%;
+
+    margin-top: 0.5%;
+
+    width: 10%;
+
+    height: 5%;
+
+  }
+
+}
+ #header{
+  z-index: 100;
   width: 100%;
   background-color: black !important;
   position: fixed;
+  height: 10%;
  }
 
 #logo{
   color: black;
-  margin: auto;
-  float: left;
+  font-size: 2vw;
+  margin-left: 2%;
+  margin-top: 0.25%;
+  width: 5%;
+  height: 4%;
   color: #ccaa2b;
   margin-left: 0.5%;
 }
 
+
 #name{
   color: #ccaa2b;
-  // font-size: 2vw;
+  font-size: 2vw;
   font-weight: bold;
   width: 50%;
   text-align: center;
@@ -65,10 +102,9 @@
   transform: translate(-50%, -50%);
   mix-blend-mode: screen; 
 }
-
 #slogan {
   color:whitesmoke;
-  // font-size: 1.2vw;
+  font-size: 1.2vw;
   font-style: oblique;
   font-family: cursive;
   width: 50%;
@@ -79,16 +115,14 @@
   transform: translate(-50%, -50%);
   mix-blend-mode: screen; 
 }
-
 .wrap
-{
+ {
   float: right;
   padding-right: 2.5%;
-  margin-top: 15px ;
+  margin-top: -60px ;
 }
 
-.button
-{
+.button{
   background-color: black;
   color: #ccaa2b;
   border: 2px solid #ccaa2b;

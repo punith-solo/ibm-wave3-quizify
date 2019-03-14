@@ -1,22 +1,26 @@
-//package com.stackroute.userregistrationservice.exceptions;
-//
-//
-//import org.springframework.http.HttpStatus;
-//import org.springframework.web.bind.annotation.ControllerAdvice;
-//import org.springframework.web.bind.annotation.ExceptionHandler;
-//import org.springframework.web.bind.annotation.ResponseStatus;
-//
-//@ControllerAdvice
-//
-//public class GloballyExceptionHandler {
-//    @ResponseStatus(value= HttpStatus.BAD_REQUEST, reason="Not all mandatory fields are filled-reason")
-//    @ExceptionHandler(UserNotFoundException.class)
-//    public void handleUpdateException(UserNotFoundException e){
-//
-//    }    @ResponseStatus(value= HttpStatus.CONFLICT, reason="User already exists-reason")
-//    @ExceptionHandler(UserAlreadyExistException.class)
-//    public void handleUserAlreadyExistsException(UserAlreadyExistException e){
-//
-//    }
-//
-//}
+package com.stackroute.quizify.userregistrationservice.exceptions;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.ControllerAdvice;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+
+@ControllerAdvice
+public class GloballyExceptionHandler {
+
+    @ExceptionHandler(UserNotFoundException.class)
+    public ResponseEntity<?> handleUserNotFoundException(UserNotFoundException e){
+        return new ResponseEntity<String>("No User found !", HttpStatus.NOT_FOUND);
+    }
+
+    @ExceptionHandler(UserAlreadyExistException.class)
+    public ResponseEntity<?> handleUserAlreadyExistsException(UserAlreadyExistException e){
+        return new ResponseEntity<String>("User Already Exists !", HttpStatus.CONFLICT);
+    }
+
+    @ExceptionHandler(UserNameExistException.class)
+    public ResponseEntity<?> handleUserNameExistsException(UserNameExistException e){
+        return new ResponseEntity<String>("User Name Already Exists !", HttpStatus.CONFLICT);
+    }
+
+}

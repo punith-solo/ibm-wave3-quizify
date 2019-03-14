@@ -1,10 +1,9 @@
 package com.stackroute.quizify.userregistrationservice.service;
 
-import com.stackroute.quizify.dto.mapper.UserMapper;
-import com.stackroute.quizify.dto.model.UserDTO;
 import com.stackroute.quizify.kafka.Producer;
 import com.stackroute.quizify.userregistrationservice.domain.User;
 import com.stackroute.quizify.userregistrationservice.exceptions.UserAlreadyExistException;
+import com.stackroute.quizify.userregistrationservice.exceptions.UserNameExistException;
 import com.stackroute.quizify.userregistrationservice.exceptions.UserNotFoundException;
 import com.stackroute.quizify.userregistrationservice.repository.UserRepository;
 
@@ -17,34 +16,37 @@ import java.util.List;
 public class UserServiceImpl implements UserService {
     private UserRepository userRepository;
     private Producer producer;
-    private UserMapper userMapper;
+
 
     @Autowired
-    public UserServiceImpl(UserRepository userRepository, Producer producer, UserMapper userMapper) {
+    public UserServiceImpl(UserRepository userRepository, Producer producer) {
         this.userRepository = userRepository;
         this.producer = producer;
-        this.userMapper = userMapper;
     }
 
     @Override
-    public User saveUser(UserDTO userDTO) throws UserAlreadyExistException {
-        if (userRepository.existsById(userDTO.getId())) {
-            throw new UserAlreadyExistException("user already exists");
+    public User saveUser(User user) throws UserAlreadyExistException, UserNameExistException {
+        if (userRepository.existsById(user.getId())) {
+            throw new UserAlreadyExistException();
         }
+        else if(userRepository.existsByName(user.getName()))
+            throw new UserNameExistException();
         else
         {
-            producer.send(userDTO);
             if(this.userRepository.findTopByOrderByIdDesc().isEmpty())
-                userDTO.setId(1);
+                user.setId(1);
             else
-                userDTO.setId(this.userRepository.findTopByOrderByIdDesc().get().getId()+1);
-            return this.userRepository.save(this.userMapper.userDTOToUser(userDTO));
+                user.setId(this.userRepository.findTopByOrderByIdDesc().get().getId()+1);
+            return producer.send(this.userRepository.save(user));
         }
     }
 
     @Override
     public User getUser(long id) throws UserNotFoundException {
-        return userRepository.getById(id);
+        if(this.userRepository.existsById(id))
+            return userRepository.findById(id);
+        else
+            throw new UserNotFoundException();
     }
 
     @Override
@@ -54,14 +56,15 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User updateUser(UserDTO userDTO) throws UserNotFoundException {
-        if (userRepository.existsById(userDTO.getId())) {
-            this.userRepository.save(this.userMapper.userDTOToUser(userDTO));
-            producer.send(userDTO);
-            return this.userMapper.userDTOToUser(userDTO);
+    public User updateUser(User user) throws UserNotFoundException, UserNameExistException {
+        if (userRepository.existsById(user.getId())) {
+            if(userRepository.existsByName(user.getName()))
+                throw new UserNameExistException();
+            else
+                return producer.send(this.userRepository.save(user));
         }
         else
-            throw new UserNotFoundException("user not found");
+            throw new UserNotFoundException();
     }
 
 
@@ -69,12 +72,11 @@ public class UserServiceImpl implements UserService {
     public User deleteUser(long id) throws UserNotFoundException {
 
         if(this.userRepository.existsById(id)) {
-            User user = this.userRepository.findById(id).get();
+            User user = this.userRepository.findById(id);
             this.userRepository.delete(user);
             return user;
         }
         else
-            throw new UserNotFoundException("user not found");
-
+            throw new UserNotFoundException();
     }
 }

@@ -11,6 +11,10 @@ public interface UserRepository extends MongoRepository<User,Long> {
 
     Optional<User> findTopByOrderByIdDesc();
 
-    User getById(long id);
+    User findById(long id);
+    User findByName(String name);
+
+    boolean existsById(long id);
+    boolean existsByName(String name);
 }
 

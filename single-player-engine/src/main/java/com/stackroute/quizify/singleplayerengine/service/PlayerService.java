@@ -1,6 +1,6 @@
 package com.stackroute.quizify.singleplayerengine.service;
 
-import com.stackroute.quizify.kafka.domain.SinglePlayer;
+import com.stackroute.quizify.singleplayerengine.domain.SinglePlayer;
 
 public interface PlayerService {
 

@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { QuestionService } from '../../services/question.service';
 import { Question } from '../../tsclasses/question';
 import { Category } from '../../tsclasses/category';
 import { Topic } from '../../tsclasses/topic';
 import { Genre } from '../../tsclasses/genre';
+import { AdminQuestionService } from '../../services/admin-question.service';
 
 export interface Types {
   value: string;
@@ -83,12 +83,13 @@ export class QuestionGeneratorComponent implements OnInit {
   private question: Question;
 
 
-  constructor(private questionService: QuestionService, private snackBar: MatSnackBar) {
+  constructor(private questionService: AdminQuestionService, private snackBar: MatSnackBar) {
 
     this.entertainment = new Category();
     this.entertainment.id = 1;
     this.entertainment.name='Entertainment';
-    this.entertainment.imageUrl='https://mitaanexpress.com/wp-content/uploads/2017/12/336fdcf7d540e4b430a890b63da159c9-1503648561-768x432.png';
+    this.entertainment.imageUrl =
+    'https://mitaanexpress.com/wp-content/uploads/2017/12/336fdcf7d540e4b430a890b63da159c9-1503648561-768x432.png';
 
         this.movies = new Topic();
         this.movies.id=1;
@@ -98,7 +99,7 @@ export class QuestionGeneratorComponent implements OnInit {
         this.tvShows = new Topic();
         this.tvShows.id=2;
         this.tvShows.name='TV Shows';
-        this.tvShows.imageUrl='https://tallypress.com/wp-content/uploads/2016/12/9-Popular-TV-shows-with-a-Malaysian-Flavour-1.jpg';
+        this.tvShows.imageUrl = 'https://tallypress.com/wp-content/uploads/2016/12/9-Popular-TV-shows-with-a-Malaysian-Flavour-1.jpg';
 
         this.documentary = new Genre();
         this.documentary.id=1;
@@ -350,7 +351,7 @@ export class QuestionGeneratorComponent implements OnInit {
 
 
   saveQuestion(question: Question) {
-    this.questionService.saveQestion(question).subscribe(
+    this.questionService.saveQuestion(question).subscribe(
       response => {
         this.statusCode = response.status;
         if (this.statusCode === 200) {

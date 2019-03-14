@@ -13,11 +13,11 @@ export class AdminQuestionService {
 
 
   constructor(private http: HttpClient) {
-    this.baseUrl = 'http://localhost:8001/api/v1/questions';
+    this.baseUrl = 'https://13.232.243.68:8001/question-manager-service/api/v1/questions';
    }
 
    saveQuestion(question: any) {
-    return this.http.post(this.baseUrl+'/question',question, { observe: 'response' })
+    return this.http.post(this.baseUrl + '/question', question, { observe: 'response' })
     .pipe(catchError(this.handleError));
    }
 

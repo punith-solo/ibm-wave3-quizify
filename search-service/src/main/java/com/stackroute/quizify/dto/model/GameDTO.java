@@ -13,7 +13,6 @@ public class GameDTO {
     private CategoryDTO category;
     private TopicDTO topic;
     private GenreDTO genre;
-    private TagDTO tag;
     private String level;
     private String imageUrl;
     private int numOfQuestion;
@@ -22,4 +21,7 @@ public class GameDTO {
     private int liked;
     private int playCount;
     private List<String> rules;
+    private int pointPerQuestion;
+    private int totalPoints;
+    private int playerScore;
 }

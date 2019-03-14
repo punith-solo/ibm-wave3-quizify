@@ -15,13 +15,10 @@
 ::ng-deep .mat-form-field.mat-form-field-invalid .mat-form-field-label {
   color: black !important;
 }
-h1 {
-  margin-top: 100px;
 
-  padding-left: 1000px;
-}
 mat-form-field {
   color: black;
+  width: 300px;
 }
 mat-form-field {
   .mat-hint,
@@ -31,91 +28,71 @@ mat-form-field {
     color: black;
   }
 }
-mat-card {
-  //float: right;
- 
-  margin-top: 100px;
-  margin-left: 1000px;
-  padding-right: 70px;
-  width: 280px;
-  height: 225px;
-  background-color: whitesmoke;
-  // box-shadow: 10px 10px 10px 10px red;
-  border-radius: 40px;
-  
-}
-.z-depth-3 {
-  box-shadow: 0 0 20px 2px whitesmoke;
-  // box-shadow: 3px 16px 24px white ,
-  //  3px 6px 30px  white,
-  //    3px 8px 10px  white,
-  //  3px 8px 10px  white;
-}
-h2{
-  margin-left:45%;
-  margin-bottom:10px;
- // font-style: italic;
- // text-align: center;
-}
-
-.id {
-  margin-top:-11px;
-  padding-left: 75px;
- 
-  padding-top: 1px;
-  clear: both;
-}
-.password {
-  margin-top:-11px;
-  padding-left: 75px;
-  
-}
-.btn {
-  margin-top:-11px;
-  margin-left:45%;
-  width: 35%;
-  font-size: 20px;
-  border-radius: 20px;
-  border: 2px solid black;
-}
-p {
- // font-style: italic;
-  color: white;
-  top: -165px;
-  margin-left: 26%;
-  font-size: 20px;
-  //  padding-left: 65%;
-  position: relative;
-
-}
-.btn1 {
-  box-shadow: 0 0 20px 2px whitesmoke;
-  top: -190px;
-  position: relative;
-  width: 10%;
-  font-size: 20px;
-  border-radius: 20px;
-  margin-left: 27%;
-  margin-top: 3%;
-  
-  
-}
-mat-label {
-  left: 500px;
-  font-size: 20px;
-}
 
 .container {
   background-image: url("../../../../assets/images/login3.jpg");
-  // opacity: 0.9;
-  height: 640px;
   overflow: hidden;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
-  margin-top: 80px;
-  margin-left: -100px;
-  margin-right: -7px;
+  margin-top: 0px;
+ width: 100%;
+}
+.signup{
+  float: left;
+  width: 50%;
   
+}
+.login{
+  float: left;
+  width:30%;
+  margin-left: 150px;
+}
+.log{
+  position: relative;
+  width: 80%;
+  height: 400px;
+  margin-top: 200px;
+  margin-bottom:150px;
+  margin-left: 100px !important;
+}
+.btn {
+  width: 60%;
+  font-size: 24px;
+  border: 2px solid black;
+  color: black;
+  background-color: white;
+  margin-left: 50px;
+  margin-top: 10px;
+  
+}
+.z-depth-3{
+  box-shadow: 0 0 20px 2px whitesmoke;
+  height: 300px;
+  width: 350px;
+  margin-top: 30px;
+  padding: 20px;
+
+}
+.z-depth-3 h2{
+  text-align: center;
+  font-family: 'Courier New', Courier, monospace;
+  margin-bottom: 20px;
+}
+.reg{
+  height:100px;
+  width:300px;
+  margin:180px;
+  color: white;
+
+}
+.reg p{
+  font-size: 20px;
+}
+.btn1{
+  margin-left:80px;
+  width: 120px;
+  box-shadow: 0 0 20px 2px whitesmoke;
+  font-size: 24px;
 }

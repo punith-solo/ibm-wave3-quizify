@@ -16,12 +16,12 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { QuizifyMaterialModule } from './quizify/quizify.material.module';
 import { FormsModule } from '@angular/forms';
-import { QuestionService } from './quizify/services/question.service';
-import { GameserviceService } from './quizify/services/gameservice.service';
 import { RouterModule } from '@angular/router';
 import { HeaderComponent } from './quizify/components/header/header.component';
 import { JsonService } from './quizify/services/json.service';
 import { FormComponent } from './quizify/components/form/form.component';
+import { AdminGameService } from './quizify/services/admin-game.service';
+import { AdminQuestionService } from './quizify/services/admin-question.service';
 
 
 @NgModule({
@@ -41,8 +41,8 @@ import { FormComponent } from './quizify/components/form/form.component';
     QuizifyMaterialModule,
     MatDialogModule
       ],
-  providers: [QuestionService,
-  GameserviceService, JsonService] ,
+  providers: [AdminGameService,
+  AdminQuestionService, JsonService] ,
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
 
   bootstrap: [AppComponent]

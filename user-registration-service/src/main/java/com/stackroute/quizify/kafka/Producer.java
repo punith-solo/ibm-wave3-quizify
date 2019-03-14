@@ -1,41 +1,30 @@
 package com.stackroute.quizify.kafka;
 
-import com.stackroute.quizify.dto.mapper.UserMapper;
-import com.stackroute.quizify.dto.model.UserDTO;
 import com.stackroute.quizify.userregistrationservice.domain.User;
 import lombok.extern.slf4j.Slf4j;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.env.Environment;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Component;
 
 @Slf4j
 @Component
 public class Producer {
+    private String topic;
 
-    @Value("${kafka.topic}")
-    private  String topic;
-
-    private User payload;
-
-
-    private KafkaTemplate<String, UserDTO> kafkaTemplate;
-    private UserMapper userMapper;
-    private UserDTO userDTO;
+    private KafkaTemplate<String, User> kafkaTemplate;
 
     @Autowired
-    public Producer(KafkaTemplate<String, UserDTO> kafkaTemplate, UserMapper userMapper) {
+    public Producer(Environment env, KafkaTemplate<String, User> kafkaTemplate) {
+        this.topic = env.getProperty("kafka.topic");
         this.kafkaTemplate = kafkaTemplate;
-        this.userMapper = userMapper;
     }
 
-    public UserDTO send(UserDTO payload) {
-        kafkaTemplate.send("users", payload);
+    public User send(User payload) {
+        kafkaTemplate.send(this.topic, payload);
         log.info("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
         log.info("User Sent from User Registration Service : ");
         log.info(""+payload);
-        return this.userDTO;
+        return payload;
     }
 }

@@ -36,7 +36,7 @@ public class Consumer {
 
     private Logger logger = LoggerFactory.getLogger(Consumer.class);
 
-    @KafkaListener(topics = "game", groupId = "search-game-consumers", containerFactory = "kafkaListenerContainerFactory")
+    @KafkaListener(topics = "games", groupId = "search-games-consumers", containerFactory = "kafkaListenerContainerFactory")
     public void receive(@Payload GameDTO payload) {
         recievedGame = this.gameMapper.gameDTOToGame(payload);
         logger.info("------------------------------------------------------------------------------------------------");

@@ -25,7 +25,6 @@ import java.util.Optional;
 
 @Repository
 public interface TopicRepository extends MongoRepository<Topics,Long> {
-//    List<Topic> searchByTopicName(String topicName);
 
     @Query("{ name: { $regex: '^?0', $options: 'i'} }")
     List<Topics> searchByTopicAlphabet(String topicName);
