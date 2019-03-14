@@ -45,4 +45,8 @@ public interface QuestionService {
     List<Question> getAllQuestionsByGenre(String genreName)throws NoQuestionFoundException;
 
     List<Question> getQuestionsByTopicByGenreByLevel(String topicName, String genreName, String level, int numberOfQuestions) throws NoQuestionFoundException, EnoughQuestionsNotFound;
+
+    List<Question> getAllQuestions() throws NoQuestionFoundException;
+
+    boolean checkAvailability(String topicName, String genreName, String level, int numberOfQuestions);
 }

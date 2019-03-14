@@ -1,11 +1,11 @@
 package com.stackroute.quizify.questionmanager.controller;
 
+import com.stackroute.quizify.questionmanager.domain.Question;
 import com.stackroute.quizify.questionmanager.exception.EnoughQuestionsNotFound;
 import com.stackroute.quizify.questionmanager.exception.NoQuestionFoundException;
 import com.stackroute.quizify.questionmanager.exception.QuestionAlreadyExistsException;
 import com.stackroute.quizify.questionmanager.exception.QuestionDoesNotExistException;
 import com.stackroute.quizify.questionmanager.service.QuestionService;
-import com.stackroute.quizify.questionmanager.domain.Question;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -91,6 +91,19 @@ public class QuestionController {
     public ResponseEntity<?> getQuestionsByTopicByGenreByLevel(@PathVariable String topicName, @PathVariable String genreName, @PathVariable String level, @PathVariable int numberOfQuestions) throws EnoughQuestionsNotFound, NoQuestionFoundException {
         return new ResponseEntity<List<Question>>(this.questionService.getQuestionsByTopicByGenreByLevel(topicName, genreName, level, numberOfQuestions), HttpStatus.OK);
     }
+
+    @ApiOperation(value = "Get All Questions")
+    @GetMapping("/questions")
+    public ResponseEntity<?> getAllQuestions() throws NoQuestionFoundException {
+        return new ResponseEntity<List<Question>>(this.questionService.getAllQuestions(), HttpStatus.OK);
+    }
+
+    @ApiOperation(value = "Check Question Availability By Topic By Genre By Level")
+    @GetMapping("/questions/check/{topicName}/{genreName}/{level}/{numberOfQuestions}")
+    public ResponseEntity<?> checkQuestionAvailabilityByTopicByGenreByLevel(@PathVariable String topicName, @PathVariable String genreName, @PathVariable String level, @PathVariable int numberOfQuestions) throws EnoughQuestionsNotFound, NoQuestionFoundException {
+        return new ResponseEntity<Boolean>(this.questionService.checkAvailability(topicName, genreName, level, numberOfQuestions), HttpStatus.OK);
+    }
+
 
 
 

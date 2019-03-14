@@ -1,8 +1,8 @@
 
-mat-card{
+.card1{
 
     width: 700px;
-    height: 600px;
+    height: 500px;
     box-shadow: 1px 5px 15px #CCC;
   border-radius: 3px;
   padding: 2em;
@@ -10,11 +10,9 @@ mat-card{
  // overflow: auto;
   position: relative;
   flex: auto;
- padding-top: 10px;
-   padding-bottom: 10px;
+ padding-top: 75px;
   margin-left: 470px;
   margin-right: 300px;
-  margin-top: 75px;
   opacity: 1;
   background-color: rgb(128, 118, 118);
   
@@ -26,24 +24,23 @@ ul{
     padding: 40px;
 
 }
-.njoy
-{
-padding-top: 200px;
-//padding-left: 390px;
-}
-body{
+
+.card{
     // background-image: url(../../../../assets/images/rule5.jpg);
     background-image: url(../../../../assets/images/rule5.jpg);
+    margin-top: -20px;
+    height: 715px;
     
 }
 .button1{
-    margin-left: 50px;
+    margin-top: 50px;
+    margin-left: 20px;
     margin-right: 200px;
     background-color:rgb(177, 12, 12);
    
 }
 .button2{
-    margin-right: 50px;
+    margin-right: 20px;
     margin-left: 200px;
     background-color: rgb(17, 104, 17);
    

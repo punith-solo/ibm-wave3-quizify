@@ -7,11 +7,13 @@ import com.stackroute.quizify.questionmanager.exception.QuestionAlreadyExistsExc
 import com.stackroute.quizify.questionmanager.exception.QuestionDoesNotExistException;
 
 import com.stackroute.quizify.questionmanager.repository.QuestionRepository;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 /*
@@ -20,6 +22,7 @@ import java.util.List;
  * Spring @Service annotation is used with classes that provide business functionalities/logics.
  */
 
+@Slf4j
 @Service
 public class QuestionServiceImpl implements QuestionService {
 
@@ -45,6 +48,8 @@ public class QuestionServiceImpl implements QuestionService {
                 question.setId(1);
             else
                 question.setId(this.questionRepository.findTopByOrderByIdDesc().get().getId()+1);
+            log.info("New Question Added : \n");
+            log.info(""+question);
             return this.questionRepository.save(question);
         }
 
@@ -189,6 +194,36 @@ public class QuestionServiceImpl implements QuestionService {
                 resultList.add(questionList.get(i));
 
             return resultList;
+        }
+    }
+
+    @Override
+    public List<Question> getAllQuestions() throws NoQuestionFoundException {
+        List<Question> questionList = this.questionRepository.findAll();
+        if(questionList.isEmpty())
+            throw new NoQuestionFoundException();
+        else
+        {
+            questionList.sort(new CustomComparator());
+            return questionList;
+        }
+
+    }
+
+    @Override
+    public boolean checkAvailability(String topicName, String genreName, String level, int numberOfQuestions) {
+        List<Question> questionList = this.questionRepository.getQuestionsByTopicByGenreByLevel(topicName, genreName, level);
+        if (questionList.size()<numberOfQuestions)
+            return false;
+        else
+            return true;
+
+    }
+
+    private class CustomComparator implements Comparator<Question> {
+        @Override
+        public int compare(Question o1, Question o2) {
+            return (int)(o2.getId() - (o1.getId()));
         }
     }
 

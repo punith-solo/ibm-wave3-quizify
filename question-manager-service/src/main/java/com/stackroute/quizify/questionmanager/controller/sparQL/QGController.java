@@ -1,22 +1,19 @@
-package com.stackroute.quizify.questionmanager.controller;
+package com.stackroute.quizify.questionmanager.controller.sparQL;
 
 import com.stackroute.quizify.questionmanager.domain.Category;
 import com.stackroute.quizify.questionmanager.domain.Topic;
-import com.stackroute.quizify.questionmanager.service.QGCategoryService;
-import com.stackroute.quizify.questionmanager.service.QGTopicService;
+import com.stackroute.quizify.questionmanager.service.sparQL.QGCategoryService;
+import com.stackroute.quizify.questionmanager.service.sparQL.QGTopicService;
 import io.micrometer.core.annotation.Timed;
-import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 
-
 @CrossOrigin("*")
 @RequestMapping("/api/v1/question-generator")
 @RestController
-@Api(description="Add/Update Category/Topic")
 public class QGController {
 
 	@Autowired
