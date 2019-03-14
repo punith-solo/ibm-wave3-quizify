@@ -15,14 +15,11 @@ import { LoginComponent } from './components/login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { SearchComponent } from './components/search/search.component';
-import { GameComponent } from './components/game/game.component';
-import { QuestionGeneratorComponent } from './components/question-generator/question-generator.component';
 import { HeaderComponent } from './components/header/header.component';
 import { GamedetailsService } from './services/gamedetails.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { CookieService } from 'ngx-cookie-service';
 import { GamedetailsComponent } from './components/gamedetails/gamedetails.component';
-import { AdminpageComponent } from './components/adminpage/adminpage.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { GameEngineComponent } from './components/game-engine/game-engine.component';
 import { AuthGuard } from './components/auth/auth.guard';
@@ -30,6 +27,9 @@ import { DialogComponent } from './components/dialog/dialog.component';
 import { GameEngineService } from './services/game-engine.service';
 
 import { RuleComponent } from './components/rule/rule.component';
+import { AddGameComponent } from './components/add-game/add-game.component';
+import { AddQuestionComponent } from './components/add-question/add-question.component';
+import { AdminGameLandingComponent } from './components/admin-game-landing/admin-game-landing.component';
 // import {NgMultiSelectDropDownModule} from 'ng-multiselect-dropdown';
 @NgModule({
   declarations: [ CardsComponent,
@@ -39,11 +39,11 @@ import { RuleComponent } from './components/rule/rule.component';
     SearchComponent,
     ProfileUserComponent,
     GamehistoryComponent,
-    GameComponent,
-    QuestionGeneratorComponent,
+    AddGameComponent,
+    AddQuestionComponent,
+    AdminGameLandingComponent,
     HeaderComponent,
     GamedetailsComponent,
-    AdminpageComponent,
     FooterComponent,
     GameEngineComponent,
     DialogComponent,
@@ -86,10 +86,10 @@ import { RuleComponent } from './components/rule/rule.component';
     SearchComponent,
     ProfileUserComponent,
     GamehistoryComponent,
-    GameComponent,
-    QuestionGeneratorComponent,
+    AddGameComponent,
+    AddQuestionComponent,
+    AdminGameLandingComponent,
     GamedetailsComponent,
-    AdminpageComponent,
     HeaderComponent,
     DialogComponent,
     GameEngineComponent,
