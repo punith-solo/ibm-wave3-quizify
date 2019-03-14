@@ -24,7 +24,7 @@ export class GameEngineService {
 
   constructor(private http: HttpClient) {
 
-    this.microServiceUrl = 'http://13.232.243.68:8108/single-player-engine/api/v1/';
+    this.microServiceUrl = 'https://13.232.243.68:8108/single-player-engine/api/v1/';
 
    }
 
