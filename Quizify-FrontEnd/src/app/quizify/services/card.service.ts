@@ -10,7 +10,7 @@ export class CardService {
     }
    getquiz() {
     // this.url = 'http://localhost:3000/quiz';
-    this.url = 'https://13.232.243.68:8104/recommendation-service/rest.neo4j/game/mostplayed';
+    this.url = 'https://13.232.243.68:8104/rest/neo4j/game/mostplayed';
     return this.http.get(this.url);
    }
 
