@@ -1,11 +1,11 @@
 CREATE (Entertainment:Category {id:1, name: 'Entertainment', imageUrl:'https://mitaanexpress.com/wp-content/uploads/2017/12/336fdcf7d540e4b430a890b63da159c9-1503648561-768x432.png'})
-CREATE (Social:Category {id:2, name: 'Social', imageUrl:'https://img-aws.ehowcdn.com/877x500p/s3-us-west-1.amazonaws.com/contentlab.studiod/getty/4f7ae5ca52194d829740d3aeb1f071b8'})
+CREATE (GeneralKnowledge:Category {id:2, name: 'General Knowledge', imageUrl:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-q__zw5itekR6m3KElJCXszSexqu9Ppg2a8mXydaYMTqvhmCo'})
 
 CREATE (Movie:Topic {id:1, name: 'Movie', imageUrl:'https://image.freepik.com/free-vector/cinema-logo_23-2147503279.jpg?1'})
 CREATE (TVshows:Topic {id:2, name: 'TV shows', imageUrl:'https://tallypress.com/wp-content/uploads/2016/12/9-Popular-TV-shows-with-a-Malaysian-Flavour-1.jpg '})
 CREATE (Capitals:Topic {id:3, name: 'Capitals', imageUrl:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjGj-G3G6xQKCPuAdSqckuhdlk4gmmCmBeN7aNKzyb-ALaXlQl'})
-CREATE (USPresidents:Topic {id:4, name: 'US-Presidents', imageUrl:'https://origin2images-rainbowresource.netdna-ssl.com/products/031091.jpg'})
-CREATE (Language:Topic {id:5, name: 'Language', imageUrl:'https://www.theeducator.com/news/wp-content/uploads/2016/04/language-header-1280x640.jpg'})
+CREATE (Presidents:Topic {id:4, name: 'Presidents', imageUrl:'https://origin2images-rainbowresource.netdna-ssl.com/products/031091.jpg'})
+CREATE (Language:Topic {id:5, name: 'Languages', imageUrl:'https://www.theeducator.com/news/wp-content/uploads/2016/04/language-header-1280x640.jpg'})
 
 CREATE (Documentary:Genre {id:1,name: 'Documentary', imageUrl:'https://www.filmsite.org/images/documentary-genre.jpg'})
 CREATE (Talkshow:Genre {id:2,name: 'Reality & Talk shows', imageUrl:'https://cmkt-image-prd.global.ssl.fastly.net/0.1.0/ps/2661428/580/386/m1/fpnw/wm1/c1-.jpg?1494334679&s=b42e439d379c45825713ec1c3421f902'})
@@ -17,10 +17,7 @@ CREATE (Romance:Genre {id:7,name: 'Romance', imageUrl:'https://m.media-amazon.co
 CREATE (SciFi:Genre {id:8,name: 'Sci-Fi & Fantasy', imageUrl:'https://m.media-amazon.com/images/G/01/IMDb/genres/Sci-Fi._CB1513316168_SX233_CR0,0,233,131_AL_.jpg'})
 CREATE (Drama:Genre {id:9,name: 'Drama', imageUrl:'https://m.media-amazon.com/images/G/01/IMDb/genres/Drama._CB1513316168_SX233_CR0,0,233,131_AL_.jpg'})
 CREATE (Historical:Genre {id:10,name: 'Historical', imageUrl:'https://www.listchallenges.com/f/lists/87b065de-25d3-4020-800e-ba0434ecb908.jpg'})
-CREATE (Asia:Genre {id:11,name: 'Asia', imageUrl:'https://img.freepik.com/free-vector/map-asia-continent-with-different-colors_23-2147791358.jpg?size=338&ext=jpg'})
-CREATE (Europe:Genre {id:12,name: 'Europe', imageUrl:'https://www.statravel.co.za/static/za_division_web_live/assets/Europe-map-470x400.jpg'})
-CREATE (Africa:Genre {id:13,name: 'Africa', imageUrl:'http://antyradar.info/wp-content/uploads/political-map-of-africa-africa-political-map-maps-of-africa.gif'})
-CREATE (Australia:Genre {id:14,name: 'Australia', imageUrl:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRw886GQ998nMFyK72ny4Gh1i3mJzLnHVuKHvt-Yo142BAO_FW3Tg'})
+CREATE (Gk:Genre {id:11,name: 'gk', imageUrl:'http://www.puzzleduniya.com/wp-content/uploads/2016/08/GK-Series-10.png'})
 
 CREATE (Narcos:Tag {id:1,name: 'Narcos'})
 CREATE (BreakingBad:Tag {id:2,name: 'Breaking Bad'})
