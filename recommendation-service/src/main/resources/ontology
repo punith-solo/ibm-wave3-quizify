@@ -73,9 +73,22 @@ CREATE (APGK:Tag {id:50,name: 'Ajab Prem Ki Ghazab Kahani'})
 CREATE
 (Movie)-[:is_type_of]->(Entertainment),
 (TVshows)-[:is_type_of]->(Entertainment),
-(Capitals)-[:is_type_of]->(Social),
-(Language)-[:is_type_of]->(Social),
-(USPresidents)-[:is_type_of]->(Social),
+(Capitals)-[:is_type_of]->(GeneralKnowledge),
+(Language)-[:is_type_of]->(GeneralKnowledge),
+(USPresidents)-[:is_type_of]->(GeneralKnowledge),
+
+(Documentary)-[:is_type_of]->(Entertainment),
+(Talkshow)-[:is_type_of]->(Entertainment),
+(Action)-[:is_type_of]->(Entertainment),
+(Thriller)-[:is_type_of]->(Entertainment),
+(comedy)-[:is_type_of]->(Entertainment),
+(Anime)-[:is_type_of]->(Entertainment),
+(Romance)-[:is_type_of]->(Entertainment),
+(SciFi)-[:is_type_of]->(Entertainment),
+(Drama)-[:is_type_of]->(Entertainment),
+(Historical)-[:is_type_of]->(Entertainment),
+(Gk)-[:is_type_of]->(GeneralKnowledge),
+
 
 (KapilSharmaShow)-[:type_of]->(Talkshow),
 (DeathByMagic)-[:type_of]->(Talkshow),

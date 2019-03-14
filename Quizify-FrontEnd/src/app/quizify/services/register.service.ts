@@ -21,15 +21,16 @@ export class RegisterService {
          return this.http.post(this.url + '' , register, {observe: 'response', responseType: 'text' });
    }
    getTopic() {
-      this.topicUrl = 'http://localhost:3000/topic';
+      // this.topicUrl = 'http://localhost:3000/topic';
+      this.topicUrl = 'http://localhost:8104/rest/neo4j/topic/';
       return this.http.get(this.topicUrl);
    }
    getGenre() {
-      this.genreUrl = 'http://localhost:3000/genre';
+      this.genreUrl = 'http://localhost:8104/rest/neo4j/genre/';
       return this.http.get(this.genreUrl);
    }
    profile(userId: string) {
-      this.url = 'http://localhost:8999/api/v1/user/' + userId;
+      this.url = 'http://13.232.243.68:8999/api/v1/user/' + userId;
       return this.http.get(this.url);
       }
 }
