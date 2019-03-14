@@ -13,7 +13,7 @@ export class AdminQuestionService {
 
 
   constructor(private http: HttpClient) {
-    this.baseUrl = 'https://13.232.243.68:8001/question-manager-service/api/v1/questions';
+    this.baseUrl = 'http://13.232.243.68:8001/question-manager-service/api/v1/questions';
    }
 
    saveQuestion(question: any) {
