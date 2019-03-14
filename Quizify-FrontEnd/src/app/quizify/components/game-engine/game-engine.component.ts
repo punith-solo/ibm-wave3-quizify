@@ -86,41 +86,54 @@ export class GameEngineComponent implements OnInit {
           
         } );
       } catch (error) {
-        this.jti = 123;
-        // this.gameengineservice.fetchGame(this.gameId , this.jti).subscribe((res: any) => {
-        //   console.log(res);
-        //   this.singlePlayer.playerId = res.body.playerId;
-        //   this.game = res.body.game;
-        //   console.log(this.game);
+        // this.jti = 123;
+        this.gameengineservice.fetchGame(this.gameId , 'guest').subscribe((res: any) => {
+          console.log(res);
+            // this.singlePlayer.playerId = res.body.playerName;
+            this.game = res.body.game;
+  
+            this.questions = this.game.questions;
+            this.startTimeBar(this.game.timeDuration);
+            // this.startTimer(this.game.timeDuration);
+            this.currentQuestionNumber = 1;
+            if(this.game.level === 'easy')
+              this.scorePerQuetsion = 1;
+            else if(this.game.level === 'medium')
+              this.scorePerQuetsion = 2;
+            else if(this.game.level === 'hard')
+              this.scorePerQuetsion = 3;
+            
+            this.gameScore = this.game.numOfQuestion * this.scorePerQuetsion;
+            this.playerScore = 0;
+            this.gameFinished = false;
+            this.playerAttempted = 0;
+            this.playerAttemptedRight = 0;
+            this.playerAttemptedWrong = 0;
+        });
+
+        // this.jsonServer.getSinglePlayerFromJsonServer().subscribe((res: any) => {
+        //   // console.log(res);
+        //   // this.singlePlayer.playerId = res.body.playerId;
+        //   this.game = res[0].game;
 
         //   this.questions = this.game.questions;
-        //   this.firstQuestion = true;
-        //   this.endQuestion = false;
-        // });
-
-        this.jsonServer.getSinglePlayerFromJsonServer().subscribe((res: any) => {
-          // console.log(res);
-          // this.singlePlayer.playerId = res.body.playerId;
-          this.game = res[0].game;
-
-          this.questions = this.game.questions;
-          this.startTimeBar(this.game.timeDuration);
-          // this.startTimer(this.game.timeDuration);
-          this.currentQuestionNumber = 1;
-          if(this.game.level === 'easy')
-            this.scorePerQuetsion = 1;
-          else if(this.game.level === 'medium')
-            this.scorePerQuetsion = 2;
-          else if(this.game.level === 'hard')
-            this.scorePerQuetsion = 3;
+        //   this.startTimeBar(this.game.timeDuration);
+        //   // this.startTimer(this.game.timeDuration);
+        //   this.currentQuestionNumber = 1;
+        //   if(this.game.level === 'easy')
+        //     this.scorePerQuetsion = 1;
+        //   else if(this.game.level === 'medium')
+        //     this.scorePerQuetsion = 2;
+        //   else if(this.game.level === 'hard')
+        //     this.scorePerQuetsion = 3;
           
-          this.gameScore = this.game.numOfQuestion * this.scorePerQuetsion;
-          this.playerScore = 0;
-          this.gameFinished = false;
-          this.playerAttempted = 0;
-          this.playerAttemptedRight = 0;
-          this.playerAttemptedWrong = 0;
-        });
+        //   this.gameScore = this.game.numOfQuestion * this.scorePerQuetsion;
+        //   this.playerScore = 0;
+        //   this.gameFinished = false;
+        //   this.playerAttempted = 0;
+        //   this.playerAttemptedRight = 0;
+        //   this.playerAttemptedWrong = 0;
+        // });
       }
     });
   }

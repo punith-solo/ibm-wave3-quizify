@@ -24,17 +24,17 @@ export class GameEngineService {
 
   constructor(private http: HttpClient) {
 
-    this.microServiceUrl = 'http://13.232.243.68:8092/single-player-engine/api/v1/';
+    this.microServiceUrl = 'http://quizify.stackroute.io:8092/single-player-engine/api/v1/singlePlayer/';
 
    }
 
-   fetchGame(gameId: number, userName: number) {
+   fetchGame(gameId: number, userName: any) {
 
-     console.log(this.microServiceUrl + 'game/' + gameId);
+     console.log(this.microServiceUrl + userName + '/game/' + gameId);
 
     return this.http
 
-     .get(this.microServiceUrl + 'user/' + userName + '/'  + 'game/' + gameId, { observe: 'response' });
+     .get(this.microServiceUrl + userName + '/game/' + gameId, { observe: 'response' });
 
     }
 

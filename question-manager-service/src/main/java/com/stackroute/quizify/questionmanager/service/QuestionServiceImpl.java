@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 /*
@@ -193,6 +194,36 @@ public class QuestionServiceImpl implements QuestionService {
                 resultList.add(questionList.get(i));
 
             return resultList;
+        }
+    }
+
+    @Override
+    public List<Question> getAllQuestions() throws NoQuestionFoundException {
+        List<Question> questionList = this.questionRepository.findAll();
+        if(questionList.isEmpty())
+            throw new NoQuestionFoundException();
+        else
+        {
+            questionList.sort(new CustomComparator());
+            return questionList;
+        }
+
+    }
+
+    @Override
+    public boolean checkAvailability(String topicName, String genreName, String level, int numberOfQuestions) {
+        List<Question> questionList = this.questionRepository.getQuestionsByTopicByGenreByLevel(topicName, genreName, level);
+        if (questionList.size()<numberOfQuestions)
+            return false;
+        else
+            return true;
+
+    }
+
+    private class CustomComparator implements Comparator<Question> {
+        @Override
+        public int compare(Question o1, Question o2) {
+            return (int)(o2.getId() - (o1.getId()));
         }
     }
 

@@ -30,8 +30,12 @@ public class FeedDataApplicationListener implements ApplicationListener<ContextR
 {
     private GameService gameService;
     private Category entertainment;
+    private Category generalKnowledge;
     private Topic movies;
     private Topic tvShows;
+    private Topic capitals;
+    private Topic presidents;
+    private Topic languages;
     private Genre drama;
     private Genre historical;
     private Genre action;
@@ -42,6 +46,7 @@ public class FeedDataApplicationListener implements ApplicationListener<ContextR
     private Genre scifi;
     private Genre documentary;
     private Genre talkshow;
+    private Genre gk;
     private Game game;
 
     private Environment environment;
@@ -62,6 +67,11 @@ public class FeedDataApplicationListener implements ApplicationListener<ContextR
         this.entertainment.setName("Entertainment");
         this.entertainment.setImageUrl("https://mitaanexpress.com/wp-content/uploads/2017/12/336fdcf7d540e4b430a890b63da159c9-1503648561-768x432.png");
 
+        this.generalKnowledge = new Category();
+        this.generalKnowledge.setId(2);
+        this.generalKnowledge.setName("General Knowledge");
+        this.generalKnowledge.setImageUrl("https://www.quizony.com/general-knowledge-quiz/imageForSharing.png");
+
         /**
          * Data For Topic
          */
@@ -74,6 +84,21 @@ public class FeedDataApplicationListener implements ApplicationListener<ContextR
         this.tvShows.setId(2);
         this.tvShows.setName("TV Shows");
         this.tvShows.setImageUrl("https://tallypress.com/wp-content/uploads/2016/12/9-Popular-TV-shows-with-a-Malaysian-Flavour-1.jpg");
+
+        this.capitals = new Topic();
+        this.capitals.setId(3);
+        this.capitals.setName("Capitals");
+        this.capitals.setImageUrl("https://cdn.shopify.com/s/files/1/0765/0807/products/Screen_Shot_2016-07-14_at_12.35.43_PM_grande.png?v=1532538624");
+
+        this.presidents = new Topic();
+        this.presidents.setId(4);
+        this.presidents.setName("Presidents");
+        this.presidents.setImageUrl("https://i.imgur.com/ZPT1n.png");
+
+        this.languages = new Topic();
+        this.languages.setId(5);
+        this.languages.setName("Languages");
+        this.languages.setImageUrl("https://thumbs.dreamstime.com/b/black-welcome-phrases-different-languages-world-countries-flags-square-illustration-76035959.jpg");
 
         /**
          * Data For Genre
@@ -128,6 +153,11 @@ public class FeedDataApplicationListener implements ApplicationListener<ContextR
         this.historical.setName("Historical");
         this.historical.setImageUrl("https://www.listchallenges.com/f/lists/87b065de-25d3-4020-800e-ba0434ecb908.jpg");
 
+        this.gk = new Genre();
+        this.gk.setId(11);
+        this.gk.setName("GK");
+        this.gk.setImageUrl("http://www.theinterview.in/wp-content/uploads/2017/01/gk1.jpg");
+
     }
 
     @Override
@@ -171,6 +201,9 @@ public class FeedDataApplicationListener implements ApplicationListener<ContextR
                                 case "Entertainment":
                                     this.game.setCategory(this.entertainment);
                                     break;
+                                case "General Knowledge":
+                                    this.game.setCategory(this.generalKnowledge);
+                                    break;
                                 default:
                                     this.game.setCategory(null);
                             }
@@ -183,6 +216,15 @@ public class FeedDataApplicationListener implements ApplicationListener<ContextR
                                     break;
                                 case "TV Shows":
                                     this.game.setTopic(this.tvShows);
+                                    break;
+                                case "Capitals":
+                                    this.game.setTopic(this.capitals);
+                                    break;
+                                case "Presidents":
+                                    this.game.setTopic(this.presidents);
+                                    break;
+                                case "Languages":
+                                    this.game.setTopic(this.languages);
                                     break;
                                 default:
                                     this.game.setTopic(null);
@@ -220,6 +262,9 @@ public class FeedDataApplicationListener implements ApplicationListener<ContextR
                                     break;
                                 case "Reality & Talk Shows":
                                     this.game.setGenre(this.talkshow);
+                                    break;
+                                case "GK":
+                                    this.game.setGenre(this.gk);
                                     break;
                                 default:
                                     this.game.setGenre(null);

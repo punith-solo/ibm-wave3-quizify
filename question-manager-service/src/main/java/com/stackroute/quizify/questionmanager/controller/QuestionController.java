@@ -92,6 +92,19 @@ public class QuestionController {
         return new ResponseEntity<List<Question>>(this.questionService.getQuestionsByTopicByGenreByLevel(topicName, genreName, level, numberOfQuestions), HttpStatus.OK);
     }
 
+    @ApiOperation(value = "Get All Questions")
+    @GetMapping("/questions")
+    public ResponseEntity<?> getAllQuestions() throws NoQuestionFoundException {
+        return new ResponseEntity<List<Question>>(this.questionService.getAllQuestions(), HttpStatus.OK);
+    }
+
+    @ApiOperation(value = "Check Question Availability By Topic By Genre By Level")
+    @GetMapping("/questions/check/{topicName}/{genreName}/{level}/{numberOfQuestions}")
+    public ResponseEntity<?> checkQuestionAvailabilityByTopicByGenreByLevel(@PathVariable String topicName, @PathVariable String genreName, @PathVariable String level, @PathVariable int numberOfQuestions) throws EnoughQuestionsNotFound, NoQuestionFoundException {
+        return new ResponseEntity<Boolean>(this.questionService.checkAvailability(topicName, genreName, level, numberOfQuestions), HttpStatus.OK);
+    }
+
+
 
 
 }
