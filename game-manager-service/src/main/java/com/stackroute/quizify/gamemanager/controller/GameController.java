@@ -86,35 +86,19 @@ public class GameController {
         String level = liveGame.getLevel();
         int numberOfQuestions = liveGame.getNumOfQuestion();
         String url = env.getProperty("current.question-manager.url");
-        String checkUrl = url+"/check/"+topic.getName()+"/"+genre.getName()+"/"+level+"/"+numberOfQuestions;
-        log.info("URL : "+checkUrl);
+        String checkUrl = url+"check/"+topic.getName()+"/"+genre.getName()+"/"+level+"/"+numberOfQuestions;
         boolean checkResult = restTemplate.getForObject(checkUrl, Boolean.class);
         if(checkResult)
         {
             url += "topic/genre/"+topic.getName()+"/"+genre.getName()+"/"+level+"/"+numberOfQuestions;
-            log.info("URL : "+url);
             liveGame.setQuestions(restTemplate.getForObject(url, ArrayList.class));
             return new ResponseEntity<Game>(liveGame, HttpStatus.OK);
         }
         else
         {
-            return new ResponseEntity<String>("Enough Questions Not Found For The Game!", HttpStatus.NOT_FOUND);
+            liveGame.setQuestions(null);
+            return new ResponseEntity<Game>(liveGame, HttpStatus.OK);
         }
-
-
-//        if (genre !=null && topic==null)
-//        {
-//            url += "genre/"+genre.getName()+"/"+level+"/"+numberOfQuestions;
-//
-//        }
-//        else if (genre==null && topic!=null)
-//        {
-//            url += "topic/"+topic.getName()+"/"+level+"/"+numberOfQuestions;
-//        }
-//        else if (genre!=null && topic!=null)
-//        {
-//            url += "topic/genre/"+topic.getName()+"/"+genre.getName()+"/"+level+"/"+numberOfQuestions;
-//        }
 
     }
 

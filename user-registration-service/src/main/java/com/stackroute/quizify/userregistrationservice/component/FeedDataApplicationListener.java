@@ -27,71 +27,13 @@ public class FeedDataApplicationListener implements ApplicationListener<ContextR
     {
         User user = new User();
         user.setId(0);
-        user.setName("kaustav");
-        user.setEmailId("kaustavlogan@gmail.com");
-        user.setPassword("12345");
-        user.setTopics(new ArrayList<>());
-        user.setGenres(new ArrayList<>());
-        user.setGamesPlayed(new ArrayList<>());
-        user.setGender("male");
-
-        try
-        {
-            this.userService.saveUser(user);
-        }
-        catch (UserAlreadyExistException | UserNameExistException e)
-        {
-            e.printStackTrace();
-        }
-
-        user = new User();
-        user.setId(0);
         user.setName("dummy");
         user.setEmailId("dummy@gmail.com");
-        user.setPassword("123");
-        user.setTopics(new ArrayList<>());
-        user.setGenres(new ArrayList<>());
-        user.setGamesPlayed(new ArrayList<>());
-        user.setGender("female");
-
-        try
-        {
-            this.userService.saveUser(user);
-        }
-        catch (UserAlreadyExistException | UserNameExistException e)
-        {
-            e.printStackTrace();
-        }
-
-        user = new User();
-        user.setId(0);
-        user.setName("madhu");
-        user.setEmailId("madhu@gmail.com");
         user.setPassword("12345");
         user.setTopics(new ArrayList<>());
         user.setGenres(new ArrayList<>());
         user.setGamesPlayed(new ArrayList<>());
-        user.setGender("female");
-
-        try
-        {
-            this.userService.saveUser(user);
-        }
-        catch (UserAlreadyExistException | UserNameExistException e)
-        {
-            e.printStackTrace();
-        }
-
-        user = new User();
-        user.setId(0);
-        user.setName("vinay");
-        user.setEmailId("vingu@gmail.com");
-        user.setPassword("1234567890");
-        user.setTopics(new ArrayList<>());
-        user.setGenres(new ArrayList<>());
-        user.setGamesPlayed(new ArrayList<>());
         user.setGender("male");
-
         try
         {
             this.userService.saveUser(user);
@@ -100,63 +42,5 @@ public class FeedDataApplicationListener implements ApplicationListener<ContextR
         {
             e.printStackTrace();
         }
-
-        user = new User();
-        user.setId(0);
-        user.setName("akhila");
-        user.setEmailId("akhila@gmail.com");
-        user.setPassword("1234567");
-        user.setTopics(new ArrayList<>());
-        user.setGenres(new ArrayList<>());
-        user.setGamesPlayed(new ArrayList<>());
-        user.setGender("female");
-
-        try
-        {
-            this.userService.saveUser(user);
-        }
-        catch (UserAlreadyExistException | UserNameExistException e)
-        {
-            e.printStackTrace();
-        }
-
-        user = new User();
-        user.setId(0);
-        user.setName("pratyush");
-        user.setEmailId("pratyush@gmail.com");
-        user.setPassword("1234567890");
-        user.setTopics(new ArrayList<>());
-        user.setGenres(new ArrayList<>());
-        user.setGamesPlayed(new ArrayList<>());
-        user.setGender("male");
-
-        try
-        {
-            this.userService.saveUser(user);
-        }
-        catch (UserAlreadyExistException | UserNameExistException e)
-        {
-            e.printStackTrace();
-        }
-
-        user = new User();
-        user.setId(0);
-        user.setName("guest");
-        user.setEmailId("guest@mail.com");
-        user.setPassword("1234567890");
-        user.setTopics(new ArrayList<>());
-        user.setGenres(new ArrayList<>());
-        user.setGamesPlayed(new ArrayList<>());
-        user.setGender("male");
-
-        try
-        {
-            this.userService.saveUser(user);
-        }
-        catch (UserAlreadyExistException | UserNameExistException e)
-        {
-            e.printStackTrace();
-        }
-
     }
 }
