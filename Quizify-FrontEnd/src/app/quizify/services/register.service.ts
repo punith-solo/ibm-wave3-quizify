@@ -28,10 +28,8 @@ export class RegisterService {
    getGenre() {
       // this.genreUrl = 'http://localhost:3000/genre';
       this.genreUrl='http://quizify-zuul.stackroute.io/recommendation-service/rest/neo4j/genre/';
-      return this.http.get(this.genreUrl);
    }
    profile(userId: string) {
-      this.url = 'http://quizify-zuul.stackroute.io/user-registration-service/api/v1/user/' + userId;
       return this.http.get(this.url);
       }
 }

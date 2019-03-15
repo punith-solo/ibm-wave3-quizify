@@ -7,8 +7,8 @@ import java.util.List;
 public interface LikesGameService {
     List<LikesGame> getAllRelationships();
 
-    LikesGame createRelationship(long userId, long gameId);
+    LikesGame createRelationship(String userName, long gameId);
 
-    LikesGame deleteRelationship(long userId, long gameId);
+    LikesGame deleteRelationship(String userName, long gameId);
 
 }
