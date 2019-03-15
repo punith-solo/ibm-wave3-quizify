@@ -15,22 +15,22 @@ export class CardService {
 
   //  }
    getMovieQuiz() {
-    this.url = 'http://quizify-zuul.stackroute.io/recommendation-service/rest/neo4j/game/topic/name/Movie';
+    this.url = 'https://quizify-zuul.stackroute.io/recommendation-service/rest/neo4j/game/topic/name/Movie';
     return this.http.get(this.url);
 
    }
    getTVShowQuiz() {
-    this.url = 'http://quizify-zuul.stackroute.io/recommendation-service/rest/neo4j/game/topic/name/TV shows';
+    this.url = 'https://quizify-zuul.stackroute.io/recommendation-service/rest/neo4j/game/topic/name/TV shows';
     return this.http.get(this.url);
 
    }
    getCapitalsQuiz() {
-    this.url = 'http://quizify-zuul.stackroute.io/recommendation-service/rest/neo4j/game/topic/name/Capitals';
+    this.url = 'https://quizify-zuul.stackroute.io/recommendation-service/rest/neo4j/game/topic/name/Capitals';
     return this.http.get(this.url);
 
    }
    getPresidentsQuiz() {
-    this.url = 'http://quizify-zuul.stackroute.io/recommendation-service/rest/neo4j/game/topic/name/Presidents';
+    this.url = 'https://quizify-zuul.stackroute.io/recommendation-service/rest/neo4j/game/topic/name/Presidents';
     return this.http.get(this.url);
    }
 }
