@@ -60,6 +60,8 @@ export class GameEngineComponent implements OnInit {
   private blackStar = '../../../../assets/images/black-star.jpg';
   private timer: any;
   private lastQuestionAttempted: boolean;
+  private gameLoaded: boolean;
+  private loading:any = true;
 
   @ViewChild('stepper') stpr: MatStepper;  
 
@@ -75,12 +77,14 @@ export class GameEngineComponent implements OnInit {
       this.lastQuestion = false;
       this.timeBar = 100;
       this.math = Math;
+      this.gameLoaded = false;
      }
   ngOnInit() {
     this.startUp();
   }
 
   startUp() {
+    this.gameLoaded = false;
     this.singlePlayer = new SinglePlayer();
     this.route.params.subscribe((data: any) => {
       this.gameId = data.id;
@@ -93,12 +97,14 @@ export class GameEngineComponent implements OnInit {
         console.log('decoded token id', this.loginToken.jti);
         this.gameengineservice.fetchGame(this.gameId , this.jti).subscribe((res: any) => {
           this.game = res.game;
-          
+          this.loading = false;
         } );
       } catch (error) {
         this.gameengineservice.fetchGame(this.gameId , 'Guest_Player').subscribe((res: any) => {
             this.playerName = res.body.playerName;
             this.game = res.body.game;
+            if(this.game !== undefined)
+              this.gameLoaded = true;
   
             this.questions = this.game.questions;
             this.startTimeBar(this.game.timeDuration);
@@ -111,6 +117,7 @@ export class GameEngineComponent implements OnInit {
             this.playerAttemptedRight = 0;
             this.playerAttemptedWrong = 0;
             this.lastQuestionAttempted = false;
+            this.loading = false;
         });
       }
       this.resultStar = [this.blackStar, this.blackStar, this.blackStar, this.blackStar, this.blackStar];
@@ -181,7 +188,7 @@ export class GameEngineComponent implements OnInit {
         this.playerAttemptedWrong++;
       }
 
-      if(questionNumber === this.game.numOfQuestion)
+      if(questionNumber+1 === this.game.numOfQuestion)
         this.lastQuestionAttempted = true;
     }
     else

@@ -61,7 +61,8 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
        MatSelectModule,
        FormsModule,
        MatRadioModule,
-       MatProgressBarModule
+       MatProgressBarModule,
+       MatProgressSpinnerModule
     ] ,
       schemas: [CUSTOM_ELEMENTS_SCHEMA] ,
       exports: [
@@ -95,7 +96,8 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
           MatSelectModule,
           FormsModule,
           MatRadioModule,
-          MatProgressBarModule
+          MatProgressBarModule,
+          MatProgressSpinnerModule
 
          ]
 
