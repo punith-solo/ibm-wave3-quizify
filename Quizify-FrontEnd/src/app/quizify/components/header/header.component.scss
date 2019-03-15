@@ -12,9 +12,8 @@
 
   }
 .logobar{
-  width:70%;
+  width:85%;
   height: 100%;
-  background-color: blue;
   float: left;
 
 }
@@ -22,47 +21,59 @@
   width: 10%;
   height: 100%;
   margin-left: 0.5%;
+  float: left;
 
 }
 
-
+#logoname{
+  margin-left: 0.5%;
+  width:88%;
+  height: 100%;
+  float:left;
+  text-align: center;
+  line-height: 0.5px;
+  margin-top: 0%;
+ }
 #name{
   color: #ccaa2b;
-  font-size: 30px;
-  font-weight: bold;
-  transform: translate(-50%, -50%);
   mix-blend-mode: screen; 
-
+  font-size: 35px;
+  font-weight: bold;
+  margin-top: 2%;
+  
 }
 #slogan {
   color:whitesmoke;
-  font-size: 20px;
   font-style: oblique;
   font-family: cursive;
-  transform: translate(-50%, -50%);
   mix-blend-mode: screen; 
+  font-size: 20px;
 
 }
 .wrap
  {
-  background-color: green;
-  width:30%;
+  width:15%;
   height:100%;
   float: left;
 
 }
 
-// .button{
-//   background-color: black;
-//   color: #ccaa2b;
-//   border: 2px solid #ccaa2b;
-//   font-size: 25px;
-// }
-// .icon{
-//   height: 50%;
-//   width: 50%;
+.button{
+  background-color: black;
+  color: #ccaa2b;
+  height: 65%;
+  width:50%;
+  border: 2px solid #ccaa2b;
+  font-size: 40px;
+  margin-left:40.0%;
+  margin-top: 5%;
+  padding: 0;
 
-// }
+}
+.icon{
+  height: 50%;
+  width: 50%;
+}
 
 // @media only screen and (max-width: 698px) {
 //   #header{
