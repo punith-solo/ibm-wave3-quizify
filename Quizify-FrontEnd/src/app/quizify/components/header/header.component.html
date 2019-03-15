@@ -15,10 +15,10 @@
         </mat-card-actions>
     </div>
     <div class="wrap" *ngIf=flag >
-        <button  mat-button [matMenuTriggerFor]="menu" class="menubar"><img class="icon" src="../../../../assets/images/logimage1.png" alt="icon-pic"></button>
+        <button  mat-button [matMenuTriggerFor]="menu" class="menubar"><img class="icon" src="../../../../assets/images/gender.png" alt="icon-pic"></button>
         <mat-menu #menu="matMenu">
-            <button class="button" mat-menu-item  [routerLink]="[ '/profileuser']">profile</button>
-            <button class="button" mat-menu-item (click)='logout()'>logout</button>          
+            <button class="button1" mat-menu-item  [routerLink]="[ '/profileuser']">profile</button>
+            <button class="button1" mat-menu-item (click)='logout()'>logout</button>          
         </mat-menu>   
     </div>
 </header>

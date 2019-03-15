@@ -135,8 +135,8 @@ mat-button-toggle:hover,
   background-size: cover;
   text-align: center;
   /* color: white; */
-  padding-top: 100px;
-  height: 100vh;
+  padding-top: 120px;
+  height: 120vh;
 }
 
 mat-button-toggle-group {

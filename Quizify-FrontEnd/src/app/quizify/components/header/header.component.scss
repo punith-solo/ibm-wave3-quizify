@@ -23,6 +23,9 @@
   float: left;
 
 }
+matmenu{
+
+}
 
 #logoname{
   margin-left: 0.5%;
@@ -69,9 +72,22 @@
   margin-top: 8%;
   padding: 0;
 }
+.button1{
+  background-color: black;
+  color: #ccaa2b;
+   height: 65%;
+   width:90%;
+  border: 2px solid #ccaa2b;
+  font-size: 20px;
+  margin-left:3%;
+  margin-top: 8%;
+  padding: 0;
+}
 .icon{
-  height: 50%;
-  width: 50%;
+  height: 45%;
+  width: 45%;
+  margin-right: -55px;
+  border-radius: 50px;
 }
 
 @media only screen and (max-width: 700px) {
@@ -112,4 +128,12 @@
 .logobar{
   width:75%;
 }
+.icon{
+  height: 95%;
+  width: 95%;
+  margin-top:60p;
+  margin-right: -25px;
+  border-radius: 80px;
+}
+
 }
