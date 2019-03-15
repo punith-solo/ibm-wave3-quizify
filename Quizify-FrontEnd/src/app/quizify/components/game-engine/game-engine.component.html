@@ -1,8 +1,18 @@
 <h1 *ngIf="loading">Loading</h1>
-<mat-spinner *ngIf="loading" mode="indeterminate"></mat-spinner>  
+<mat-spinner *ngIf="loading" mode="indeterminate"></mat-spinner>
+<section
+  *ngIf="!loading"
+  id="game-window"
+  class="p-15"
+  [ngClass]="{ 'd-none': !gameLoaded }"
+>
+<mat-chip-list>
+    <mat-chip color="primary" selected [routerLink]="[ '/']" id="backchip">
+      <i class="material-icons">
+        chevron_left
+        </i> Back to Home</mat-chip>
+</mat-chip-list>
 
-
-<section *ngIf = "!loading" id="game-window" class="p-15" [ngClass]="{ 'd-none': !gameLoaded }">
   <article class="mt-20" [ngClass]="{ 'd-none': gameFinished }">
     <section class="row text-center">
       <article class="col-2">
@@ -98,6 +108,19 @@
           >
             Done
           </button>
+
+          <!-- <button
+        mat-raised-button
+        color="primary"
+        class="nav-btn"
+        matTooltip="Exit"
+        (click)="exitGame()"
+        id="exit"
+        >
+        <i class="material-icons">
+          exit_to_app
+        </i>
+        </button> -->
         </section>
         <section class="emojis">
           <img
@@ -114,19 +137,48 @@
           <section class="row">
             <mat-card class="result-card col-3">
               <mat-card-header>
-                <mat-card-title><h2>{{ playerName }}</h2></mat-card-title>
-                <mat-card-subtitle><h3>Game : {{ game.name }}</h3></mat-card-subtitle>
+                <mat-card-title
+                  ><h2>{{ playerName }}</h2></mat-card-title
+                >
+                <mat-card-subtitle
+                  ><h3>Game : {{ game.name }}</h3></mat-card-subtitle
+                >
               </mat-card-header>
               <section>
-                  <img *ngFor="let star of resultStar" src="{{ star }}" alt="Stars" class="star">
+                <img
+                  *ngFor="let star of resultStar"
+                  src="{{ star }}"
+                  alt="Stars"
+                  class="star"
+                />
               </section>
               <mat-card-header>
-                  <mat-card-title><h4>Total Questions : {{ game.numOfQuestion }}</h4></mat-card-title>
-                  <mat-card-title><h4>Player Attempted : {{ playerAttempted }}</h4></mat-card-title>
-                  <mat-card-title><h4>Right Answers : {{ playerAttemptedRight }}</h4></mat-card-title>
-                  <mat-card-title><h4>Wrong Answers : {{ playerAttemptedWrong }}</h4></mat-card-title>
-                  <mat-card-title><h4>Game Score : {{ gameScore }}</h4></mat-card-title>
-                  <mat-card-title><h4>Player's Score : {{ playerScore }}</h4></mat-card-title>
+                <mat-card-title
+                  ><h4>
+                    Total Questions : {{ game.numOfQuestion }}
+                  </h4></mat-card-title
+                >
+                <mat-card-title
+                  ><h4>
+                    Player Attempted : {{ playerAttempted }}
+                  </h4></mat-card-title
+                >
+                <mat-card-title
+                  ><h4>
+                    Right Answers : {{ playerAttemptedRight }}
+                  </h4></mat-card-title
+                >
+                <mat-card-title
+                  ><h4>
+                    Wrong Answers : {{ playerAttemptedWrong }}
+                  </h4></mat-card-title
+                >
+                <mat-card-title
+                  ><h4>Game Score : {{ gameScore }}</h4></mat-card-title
+                >
+                <mat-card-title
+                  ><h4>Player's Score : {{ playerScore }}</h4></mat-card-title
+                >
               </mat-card-header>
             </mat-card>
           </section>
@@ -153,6 +205,20 @@
               replay
             </i>
           </button>
+
+          <!-- <button
+        mat-raised-button
+        color="primary"
+        class="nav-btn"
+        matTooltip="Exit"
+        (click)="exitGame()"
+        id="exit"
+        >
+        <i class="material-icons">
+          exit_to_app
+        </i>
+        </button> -->
+
         </section>
       </mat-step>
     </mat-horizontal-stepper>
