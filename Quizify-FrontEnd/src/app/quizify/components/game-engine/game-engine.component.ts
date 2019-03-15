@@ -58,6 +58,10 @@ export class GameEngineComponent implements OnInit {
   private resultStar: string[];
   private redStar = '../../../../assets/images/red-star.jpg';
   private blackStar = '../../../../assets/images/black-star.jpg';
+  private timer: any;
+  private lastQuestionAttempted: boolean;
+  private gameLoaded: boolean;
+  private loading:any = true;
 
   @ViewChild('stepper') stpr: MatStepper;  
 
@@ -73,8 +77,14 @@ export class GameEngineComponent implements OnInit {
       this.lastQuestion = false;
       this.timeBar = 100;
       this.math = Math;
+      this.gameLoaded = false;
      }
   ngOnInit() {
+    this.startUp();
+  }
+
+  startUp() {
+    this.gameLoaded = false;
     this.singlePlayer = new SinglePlayer();
     this.route.params.subscribe((data: any) => {
       this.gameId = data.id;
@@ -86,20 +96,18 @@ export class GameEngineComponent implements OnInit {
         this.jti = this.loginToken.jti;
         console.log('decoded token id', this.loginToken.jti);
         this.gameengineservice.fetchGame(this.gameId , this.jti).subscribe((res: any) => {
-          // this.singlePlayer.playerId = res.jti;
           this.game = res.game;
-          
+          this.loading = false;
         } );
       } catch (error) {
-        // this.jti = 123;
         this.gameengineservice.fetchGame(this.gameId , 'Guest_Player').subscribe((res: any) => {
-          console.log(res);
             this.playerName = res.body.playerName;
             this.game = res.body.game;
+            if(this.game !== undefined)
+              this.gameLoaded = true;
   
             this.questions = this.game.questions;
             this.startTimeBar(this.game.timeDuration);
-            // this.startTimer(this.game.timeDuration);
             this.currentQuestionNumber = 1;
             this.scorePerQuetsion = this.game.pointPerQuestion;
             this.gameScore = this.game.totalPoints;
@@ -108,34 +116,13 @@ export class GameEngineComponent implements OnInit {
             this.playerAttempted = 0;
             this.playerAttemptedRight = 0;
             this.playerAttemptedWrong = 0;
+            this.lastQuestionAttempted = false;
+            this.loading = false;
         });
-
-        // this.jsonServer.getSinglePlayerFromJsonServer().subscribe((res: any) => {
-        //   // console.log(res);
-        //   // this.singlePlayer.playerId = res.body.playerId;
-        //   this.game = res[0].game;
-
-        //   this.questions = this.game.questions;
-        //   this.startTimeBar(this.game.timeDuration);
-        //   // this.startTimer(this.game.timeDuration);
-        //   this.currentQuestionNumber = 1;
-        //   if(this.game.level === 'easy')
-        //     this.scorePerQuetsion = 1;
-        //   else if(this.game.level === 'medium')
-        //     this.scorePerQuetsion = 2;
-        //   else if(this.game.level === 'hard')
-        //     this.scorePerQuetsion = 3;
-          
-        //   this.gameScore = this.game.numOfQuestion * this.scorePerQuetsion;
-        //   this.playerScore = 0;
-        //   this.gameFinished = false;
-        //   this.playerAttempted = 0;
-        //   this.playerAttemptedRight = 0;
-        //   this.playerAttemptedWrong = 0;
-        // });
       }
       this.resultStar = [this.blackStar, this.blackStar, this.blackStar, this.blackStar, this.blackStar];
     });
+
   }
 
   checkStepper(stepper: MatStepper) {
@@ -201,10 +188,8 @@ export class GameEngineComponent implements OnInit {
         this.playerAttemptedWrong++;
       }
 
-      // if(this.stpr.selectedIndex === this.game.numOfQuestion-1)
-      // {
-      //   this.gameFinished = true;
-      // }
+      if(questionNumber+1 === this.game.numOfQuestion)
+        this.lastQuestionAttempted = true;
     }
     else
     {
@@ -215,23 +200,12 @@ export class GameEngineComponent implements OnInit {
 
   }
 
-  // startTimer(timeDuration: number) {
-  //   this.timeLeft = timeDuration;
-  //   setInterval(() => {
-  //     if (this.timeLeft > 0)
-  //     {
-  //       this.timeLeft--;
-  //     }
-  //     // console.log('time started');
-  //   }, 1000);
-  // }
-
   startTimeBar(timeDuration: number) {
     this.timeLeft = timeDuration;
     timeDuration *= 100;
     let timeLeft = timeDuration;
     let counter = 0;
-    const timer = setInterval(() => {
+    this.timer = setInterval(() => {
       if (timeLeft > 0)
       {
         timeLeft--;
@@ -241,7 +215,7 @@ export class GameEngineComponent implements OnInit {
       else 
       {
         this.gameFinished = true;
-        clearInterval(timer);
+        clearInterval(this.timer);
         this.submitGame();
         
       }
@@ -273,14 +247,14 @@ export class GameEngineComponent implements OnInit {
     this.singlePlayer.playerName= this.playerName;
     this.singlePlayer.game = this.game;
     this.gameengineservice.submitGame(this.singlePlayer).subscribe((res: any) => {
-      console.log(res);
+      //
     });
   }
 
   rePlay() {
-    console.log("Reload");
-    this.router.navigate(['playgame', {id : this.game.id}]);
-    // this.router.navigate(['blank']);
+    clearInterval(this.timer);
+    this.startUp();
+    this.stpr.selectedIndex = 0;
   }
 
 }

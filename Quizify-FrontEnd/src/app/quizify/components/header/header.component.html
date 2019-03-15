@@ -1,10 +1,12 @@
 <header id="header">
-    <div class="logo" >
+    <div class="logobar" >
         <a href="/" >
             <img id="logo" src="../../../../assets/images/logoFinal.jpeg">
         </a>
-        <h4 id="name">QUIZIFY</h4>
-        <p id="slogan">Are you up to the challenge...?</p>
+        <h1 id="logoname">
+        <p id="name">QUIZIFY</p>
+        <p id="slogan">are you up to the challenge...?</p>
+        </h1>
     </div>
 
     <div class="wrap"  *ngIf=userLogged>
@@ -13,7 +15,7 @@
         </mat-card-actions>
     </div>
     <div class="wrap" *ngIf=flag >
-        <button  mat-button [matMenuTriggerFor]="menu" class="menubar"><img class="icon" src="../../../../assets/images/gender.png" alt="icon-pic"></button>
+        <button  mat-button [matMenuTriggerFor]="menu" class="menubar"><img class="icon" src="../../../../assets/images/logimage1.png" alt="icon-pic"></button>
         <mat-menu #menu="matMenu">
             <button class="button" mat-menu-item  [routerLink]="[ '/profileuser']">profile</button>
             <button class="button" mat-menu-item (click)='logout()'>logout</button>          

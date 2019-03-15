@@ -1,4 +1,8 @@
-<section id="game-window" class="p-15">
+<h1 *ngIf="loading">Loading</h1>
+<mat-spinner *ngIf="loading" mode="indeterminate"></mat-spinner>  
+
+
+<section *ngIf = "!loading" id="game-window" class="p-15" [ngClass]="{ 'd-none': !gameLoaded }">
   <article class="mt-20" [ngClass]="{ 'd-none': gameFinished }">
     <section class="row text-center">
       <article class="col-2">
@@ -90,7 +94,7 @@
             color="primary"
             class="nav-btn"
             (click)="submitGame()"
-            [ngClass]="{ 'd-none': !lastQuestion }"
+            [ngClass]="{ 'd-none': !lastQuestionAttempted }"
           >
             Done
           </button>
