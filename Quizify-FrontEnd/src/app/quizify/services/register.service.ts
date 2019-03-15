@@ -22,28 +22,16 @@ export class RegisterService {
    }
    getTopic() {
       // this.topicUrl = 'http://localhost:3000/topic';
-<<<<<<< HEAD
-      this.topicUrl = 'http://localhost:8104/rest/neo4j/topic/';
-      return this.http.get(this.topicUrl);
-   }
-   getGenre() {
-      this.genreUrl = 'http://localhost:8104/rest/neo4j/genre/';
-      return this.http.get(this.genreUrl);
-   }
-   profile(userId: string) {
-      this.url = 'http://13.232.243.68:8999/api/v1/user/' + userId;
-=======
-      this.topicUrl ='http://13.232.243.68:8092/recommendation-service/rest/neo4j/topic/';
+      this.topicUrl = 'http://13.232.243.68:8092/recommendation-service/rest/neo4j/topic/';
       return this.http.get(this.topicUrl);
    }
    getGenre() {
       // this.genreUrl = 'http://localhost:3000/genre';
-      this.genreUrl='http://13.232.243.68:8092/recommendation-service/rest/neo4j/genre/';
+      this.genreUrl = 'http://13.232.243.68:8092/recommendation-service/rest/neo4j/genre/';
       return this.http.get(this.genreUrl);
    }
    profile(userId: string) {
       this.url = 'http://13.232.243.68:8092/user-registration-service/api/v1/user/' + userId;
->>>>>>> bc35ce874144a6b425ec13836a419440a49212ef
       return this.http.get(this.url);
       }
 }
