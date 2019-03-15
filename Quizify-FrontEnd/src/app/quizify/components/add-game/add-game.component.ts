@@ -36,6 +36,7 @@ export class AddGameComponent implements OnInit {
   private gameImageUrl: string;
   private questionNumber: string;
   private timeDuration: string;
+  private pointPerQuestion: string;
 
 
   private gameFormGroup: FormGroup;
@@ -71,6 +72,7 @@ export class AddGameComponent implements OnInit {
           this.gameImageUrl = this.game.imageUrl;
           this.questionNumber = ''+this.game.numOfQuestion;
           this.timeDuration = ''+this.game.timeDuration;
+          this.pointPerQuestion = ''+this.game.pointPerQuestion;
 
           this.gameFormGroup.setValue({
             selectedLevel: this.selectedLevel,
@@ -94,7 +96,7 @@ export class AddGameComponent implements OnInit {
         this.gameImageUrl = '';
         this.questionNumber = '';
         this.timeDuration = '';
-
+        this.pointPerQuestion = '';
         this.isUpdate = false;
       }
       
@@ -123,7 +125,8 @@ export class AddGameComponent implements OnInit {
       gameImageUrl: ['', Validators.required],
       selectedLevel: ['', Validators.required],
       questionNumber: ['', Validators.required],
-      timeDuration: ['', Validators.required]
+      timeDuration: ['', Validators.required],
+      pointPerQuestion: ['', Validators.required]
     });
 
     this.rules = [];
@@ -167,7 +170,8 @@ export class AddGameComponent implements OnInit {
       this.gameFormGroup.get('gameImageUrl').value !== '' &&
       this.gameFormGroup.get('selectedLevel').value !== '' &&
       this.gameFormGroup.get('questionNumber').value !== '' &&
-      this.gameFormGroup.get('timeDuration').value !== ''
+      this.gameFormGroup.get('timeDuration').value !== '' &&
+      this.gameFormGroup.get('pointPerQuestion').value !== ''
       )
       {
         this.gameName = this.gameFormGroup.get('gameName').value;
@@ -175,6 +179,7 @@ export class AddGameComponent implements OnInit {
         this.selectedLevel = this.gameFormGroup.get('selectedLevel').value;
         this.questionNumber = this.gameFormGroup.get('questionNumber').value;
         this.timeDuration = this.gameFormGroup.get('timeDuration').value;
+        this.pointPerQuestion = this.gameFormGroup.get('pointPerQuestion').value;
         stepper.selectedIndex = 4;
       }
     else
@@ -194,6 +199,8 @@ export class AddGameComponent implements OnInit {
     this.game.imageUrl = this.gameImageUrl;
     this.game.numOfQuestion = Number.parseInt(this.questionNumber);
     this.game.timeDuration = Number.parseInt(this.timeDuration);
+    this.game.pointPerQuestion = Number.parseInt(this.pointPerQuestion);
+    this.game.totalPoints = this.game.numOfQuestion * this.game.pointPerQuestion;
       this.gameService.updateGame(this.game).subscribe(
         (response: any) => {
           this.statusCode = response.status;
@@ -230,6 +237,8 @@ export class AddGameComponent implements OnInit {
     this.game.numOfQuestion = Number.parseInt(this.questionNumber);
     this.game.questions = null;
     this.game.timeDuration = Number.parseInt(this.timeDuration);
+    this.game.pointPerQuestion = Number.parseInt(this.pointPerQuestion);
+    this.game.totalPoints = this.game.numOfQuestion * this.game.pointPerQuestion;
     this.game.liked = 0;
     this.game.playCount = 0;
     this.game.rules = this.rules;
