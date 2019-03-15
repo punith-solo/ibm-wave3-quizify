@@ -1,7 +1,7 @@
 #reg {
    background-image: linear-gradient(to bottom, rgb(236, 236, 203), rgba(196, 196, 218, 0.651)),
   url("https://blog.hubspot.com/hs-fs/hub/53/file-2408128213-png/00-Blog_Thinkstock_Images/tagline-quiz.png");
-  height: 700px;
+  height: 750px;
   overflow-x: hidden;
 
   overflow-y: hidden;
@@ -15,11 +15,10 @@
   // margin-right: -2px;
   // margin-bottom: 2px;
   // padding-bottom: 34px;
-}
+  margin-bottom: 0px;
 
-// #registration{
-//   margin-top: 160px;
-// }
+}
+mat-step
 .example-card {
   flex-wrap: wrap;
 }
@@ -32,7 +31,9 @@
 .container2 {
   margin-left: 30px;
 }
-
+// #step{
+//   margin-top: 900px;
+// }
 mat-card {
   margin-top: 10px;
   margin-left: 510px;
@@ -141,32 +142,32 @@ li {
   font-family: sans-serif;
 }
 
-@media (max-width:1032px)
-{
-  .container {
-    padding-left: 150px;
-}
-.mat-card {
-  margin-top: 10px;
-  margin-left: 230px;
-  width: 500px;
-  height: 300px;
-  background-color: gainsboro;
-}
-.inside {
-  padding: 10px;
-  width: auto;
-  height: auto;
-  line-height: 50px;
-  font-weight: bolder;
-  font-size: 2em;
-  text-align: center;
-  padding-top: 10px;
-  margin-bottom: 2px;
-  margin-left: 10px;
-  margin-right: 10px;
-}
-}
+// @media (max-width:1032px)
+// {
+//   .container {
+//     padding-left: 150px;
+// }
+// .mat-card {
+//   margin-top: 10px;
+//   margin-left: 230px;
+//   width: 500px;
+//   height: 300px;
+//   background-color: gainsboro;
+// }
+// .inside {
+//   padding: 10px;
+//   width: auto;
+//   height: auto;
+//   line-height: 50px;
+//   font-weight: bolder;
+//   font-size: 2em;
+//   text-align: center;
+//   padding-top: 10px;
+//   margin-bottom: 2px;
+//   margin-left: 10px;
+//   margin-right: 10px;
+// }
+// }
 
 
 
@@ -330,32 +331,32 @@ h2 {
 }
 }
 
-@media (max-width:1032px)
-{
-  .container {
-    padding-left: 150px;
-}
-.mat-card {
-  margin-top: 10px;
-  margin-left: 230px;
-  width: 500px;
-  height: 300px;
-  background-color: gainsboro;
-}
-.inside {
-  padding: 10px;
-  width: auto;
-  height: auto;
-  line-height: 50px;
-  font-weight: bolder;
-  font-size: 2em;
-  text-align: center;
-  padding-top: 10px;
-  margin-bottom: 2px;
-  margin-left: 10px;
-  margin-right: 10px;
-}
-}
+// @media (max-width:1032px)
+// {
+//   .container {
+//     padding-left: 150px;
+// }
+// .mat-card {
+//   margin-top: 10px;
+//   margin-left: 230px;
+//   width: 500px;
+//   height: 300px;
+//   background-color: gainsboro;
+// }
+// .inside {
+//   padding: 10px;
+//   width: auto;
+//   height: auto;
+//   line-height: 50px;
+//   font-weight: bolder;
+//   font-size: 2em;
+//   text-align: center;
+//   padding-top: 10px;
+//   margin-bottom: 2px;
+//   margin-left: 10px;
+//   margin-right: 10px;
+// }
+// }
 
 
 
