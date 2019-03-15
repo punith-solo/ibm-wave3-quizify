@@ -225,7 +225,6 @@ export class AddGameComponent implements OnInit {
     this.game.category = this.selectedCategory;
     this.game.topic = this.selectedTopic;
     this.game.genre = this.selectedGenre;
-    this.game.tag = null;
     this.game.level = this.selectedLevel;
     this.game.imageUrl = this.gameImageUrl;
     this.game.numOfQuestion = Number.parseInt(this.questionNumber);

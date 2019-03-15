@@ -31,7 +31,7 @@ export class RegisterService {
       return this.http.get(this.genreUrl);
    }
    profile(userId: string) {
-      this.url = 'http://quizify-zuul.stackroute.io/user-registration-service/api/v1/user/' + userId;
+      this.url = 'https://quizify-zuul.stackroute.io/user-registration-service/api/v1/user/' + userId;
       return this.http.get(this.url);
       }
 }

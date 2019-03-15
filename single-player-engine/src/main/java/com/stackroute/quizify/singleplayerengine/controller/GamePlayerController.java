@@ -63,49 +63,8 @@ public class GamePlayerController {
 
 
 
-//    @ApiOperation(value = "Get User Game")
-//
-//    @GetMapping(value = "/game/{id}")
-//
-//    public ResponseEntity<?> getGame( @PathVariable long id)
-//
-//    {
-//        String url = "http://13.232.243.68:8102/api/v1/game/game/" +id;
-//
-//        Game game = restTemplate.getForObject(url, Game.class);
-//
-//
-//
-//        singlePlayer.setGame(game);
-//
-//
-//
-//        return new ResponseEntity<SinglePlayer>(singlePlayer,HttpStatus.OK);
-//
-//    }
-//
-//
-//
-//    @ApiOperation(value = "get user data")
-//
-//    @GetMapping(value="/user/{playerId}")
-//
-//    public ResponseEntity<?> getUser( @PathVariable long playerId)
-//
-//    {
-//
-//        singlePlayer.setPlayerId(playerId);
-//
-//        return new ResponseEntity<SinglePlayer>(singlePlayer,HttpStatus.OK);
-//
-//    }
-
-
-
     @ApiOperation(value = "Get User Game")
-
     @GetMapping(value = "/singlePlayer/{playerName}/game/{id}")
-
     public ResponseEntity<?> getGame(@PathVariable String playerName , @PathVariable long id)
     {
 
@@ -113,28 +72,20 @@ public class GamePlayerController {
 
         Game game = restTemplate.getForObject(url, Game.class);
 
-//        Game game = this.getGameByRest(id);
-
-
-
-        singlePlayer.setGame(game);
-
-
-
-        singlePlayer.setPlayerName(playerName);
-
-
-
-        return new ResponseEntity<SinglePlayer>(singlePlayer,HttpStatus.OK);
-
+        if(game.getQuestions() == null)
+            return new ResponseEntity<String>("Game Is Not Ready Yet !",HttpStatus.NOT_FOUND);
+        else
+        {
+            singlePlayer.setGame(game);
+            singlePlayer.setPlayerName(playerName);
+            return new ResponseEntity<SinglePlayer>(singlePlayer,HttpStatus.OK);
+        }
     }
 
 
 
     @ApiOperation(value = "send User Game")
-
     @PostMapping(value = "/singlePlayer")
-
     public ResponseEntity<?> postGame(@RequestBody SinglePlayer singlePlayer)
     {
         return new ResponseEntity<SinglePlayer>(this.playerService.sendSinglePlayer(singlePlayer), HttpStatus.OK);

@@ -24,7 +24,7 @@ export class GameEngineService {
 
   constructor(private http: HttpClient) {
 
-    this.microServiceUrl = 'http://quizify-zuul.stackroute.io/single-player-engine/api/v1/singlePlayer/';
+    this.microServiceUrl = 'https://quizify-zuul.stackroute.io/single-player-engine/api/v1/singlePlayer/';
 
    }
 
@@ -36,6 +36,11 @@ export class GameEngineService {
 
      .get(this.microServiceUrl + userName + '/game/' + gameId, { observe: 'response' });
 
+    }
+
+    submitGame(singlePlayer: SinglePlayer) {
+      return this.http
+     .post(this.microServiceUrl , singlePlayer, { observe: 'response' });
     }
 
 

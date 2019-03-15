@@ -5,7 +5,7 @@ CREATE (Movie:Topic {id:1, name: 'Movie', imageUrl:'https://image.freepik.com/fr
 CREATE (TVshows:Topic {id:2, name: 'TV shows', imageUrl:'https://tallypress.com/wp-content/uploads/2016/12/9-Popular-TV-shows-with-a-Malaysian-Flavour-1.jpg '})
 CREATE (Capitals:Topic {id:3, name: 'Capitals', imageUrl:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjGj-G3G6xQKCPuAdSqckuhdlk4gmmCmBeN7aNKzyb-ALaXlQl'})
 CREATE (Presidents:Topic {id:4, name: 'Presidents', imageUrl:'https://origin2images-rainbowresource.netdna-ssl.com/products/031091.jpg'})
-CREATE (Language:Topic {id:5, name: 'Languages', imageUrl:'https://www.theeducator.com/news/wp-content/uploads/2016/04/language-header-1280x640.jpg'})
+CREATE (Languages:Topic {id:5, name: 'Languages', imageUrl:'https://www.theeducator.com/news/wp-content/uploads/2016/04/language-header-1280x640.jpg'})
 
 CREATE (Documentary:Genre {id:1,name: 'Documentary', imageUrl:'https://www.filmsite.org/images/documentary-genre.jpg'})
 CREATE (Talkshow:Genre {id:2,name: 'Reality & Talk shows', imageUrl:'https://cmkt-image-prd.global.ssl.fastly.net/0.1.0/ps/2661428/580/386/m1/fpnw/wm1/c1-.jpg?1494334679&s=b42e439d379c45825713ec1c3421f902'})
@@ -73,9 +73,22 @@ CREATE (APGK:Tag {id:50,name: 'Ajab Prem Ki Ghazab Kahani'})
 CREATE
 (Movie)-[:is_type_of]->(Entertainment),
 (TVshows)-[:is_type_of]->(Entertainment),
-(Capitals)-[:is_type_of]->(Social),
-(Language)-[:is_type_of]->(Social),
-(USPresidents)-[:is_type_of]->(Social),
+(Capitals)-[:is_type_of]->(GeneralKnowledge),
+(Languages)-[:is_type_of]->(GeneralKnowledge),
+(Presidents)-[:is_type_of]->(GeneralKnowledge),
+
+(Documentary)-[:is_type_of]->(Entertainment),
+(Talkshow)-[:is_type_of]->(Entertainment),
+(Action)-[:is_type_of]->(Entertainment),
+(Thriller)-[:is_type_of]->(Entertainment),
+(comedy)-[:is_type_of]->(Entertainment),
+(Anime)-[:is_type_of]->(Entertainment),
+(Romance)-[:is_type_of]->(Entertainment),
+(SciFi)-[:is_type_of]->(Entertainment),
+(Drama)-[:is_type_of]->(Entertainment),
+(Historical)-[:is_type_of]->(Entertainment),
+(Gk)-[:is_type_of]->(GeneralKnowledge),
+
 
 (KapilSharmaShow)-[:type_of]->(Talkshow),
 (DeathByMagic)-[:type_of]->(Talkshow),

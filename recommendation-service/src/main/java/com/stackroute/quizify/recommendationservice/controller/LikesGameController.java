@@ -30,14 +30,14 @@ public class LikesGameController {
 
     @ApiOperation("Create relationship of user likes game")
     @PostMapping("/")
-    public LikesGame create(@RequestParam("userId") long userId, @RequestParam("gameId") long gameId){
-        return likesGameService.createRelationship(userId, gameId);
+    public LikesGame create(@RequestParam("userName") String userName, @RequestParam("gameId") long gameId){
+        return likesGameService.createRelationship(userName, gameId);
     }
 
     @ApiOperation("Delete relationship of user likes game")
     @DeleteMapping("/")
-    public LikesGame delete(@RequestParam("userId") long userId, @RequestParam("gameId") long gameId){
-        return likesGameService.deleteRelationship(userId, gameId);
+    public LikesGame delete(@RequestParam("userName") String userName, @RequestParam("gameId") long gameId){
+        return likesGameService.deleteRelationship(userName, gameId);
     }
 
 }
