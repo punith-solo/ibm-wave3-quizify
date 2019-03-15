@@ -15,7 +15,7 @@ export class AdminGameService {
   private baseUrl: string;
 
   constructor(private http: HttpClient) {
-    this.baseUrl = 'http://quizify-zuul.stackroute.io/game-manager-service/api/v1/games';
+    this.baseUrl = 'https://quizify-zuul.stackroute.io/game-manager-service/api/v1/games';
     // this.baseUrl = 'http://localhost:8092/game-manager-service/api/v1/games';
   }
 
@@ -43,6 +43,7 @@ export class AdminGameService {
   }
 
   saveGame(game: Game) {
+    console.log(game);
     return this.http.post(this.baseUrl + '/game', game, { observe: 'response' })
     .pipe(catchError(this.handleError));
   }
