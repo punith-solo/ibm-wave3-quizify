@@ -38,6 +38,8 @@ public class PlayedRelationshipServiceImpl implements PlayedRelationshipService 
         int playCount=game.getPlayCount();
         playCount=playCount+1;
         game.setPlayCount(playCount);
+        int playerScore=game.getPlayerScore();
+
         return playedRelationshipRepository.createRelationship(userName,gameId);
     }
 

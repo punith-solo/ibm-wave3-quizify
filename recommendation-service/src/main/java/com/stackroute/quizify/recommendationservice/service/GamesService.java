@@ -27,4 +27,6 @@ public interface GamesService {
     List<Game> getAllGamesPlayedByAUser(long userId);
 
     List<Game> getAllGamesLikedByAUser(long userId);
+
+    List<Game> getAllGamesByLevel(String level,int playerScore, int totalPoints);
 }

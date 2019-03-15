@@ -58,6 +58,17 @@ public class GamesController {
         return gamessService.getAllGamesLikedByAUser(userId);
     }
 
+    @ApiOperation("Get games by level")
+    @GetMapping("/level/{gameId}/{playerScore}")
+    public List<Game> getAllGamesByLevel(@PathVariable("gameId") long gameId, @PathVariable("playerScore") int playerScore){
+        Game game=gamessService.getone(gameId);
+        System.out.println(game.toString());
+        String level=game.getLevel();
+        int score=playerScore;
+        int totalPoints=game.getTotalPoints();
+        return gamessService.getAllGamesByLevel(level,score,totalPoints);
+    }
+
     @ApiOperation("Get a game by id")
     @GetMapping("/id")
     public Game getOne(@RequestParam("GamesId") long GamesId){
