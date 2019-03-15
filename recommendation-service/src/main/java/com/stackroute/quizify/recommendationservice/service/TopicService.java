@@ -10,4 +10,6 @@ public interface TopicService {
     public List<Topic> getAll();
 
     public List<Topic> getTopicsByCategory(long categoryId);
+
+    public List<Topic> getTopicsByCategoryByName(String categoryName);
 }

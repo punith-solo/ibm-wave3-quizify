@@ -31,8 +31,8 @@ public class GameIsATopicServiceImpl implements GameIsATopicService {
     public GameIsATopic createRelationship(Game game) {
         long gameId=game.getId();
         Topic topic=game.getTopic();
-        long topicId=topic.getId();
-        log.info("======================================================  gameid: "+gameId+"  topicId: "+topicId+"======================================================");
-        return gameIsATopicRepository.createRelationship(gameId,topicId);
+        String topicName=topic.getName();
+        log.info("======================================================  gameid: "+gameId+"  topicId: "+topicName+"======================================================");
+        return gameIsATopicRepository.createRelationship(gameId,topicName);
     }
 }

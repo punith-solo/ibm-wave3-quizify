@@ -31,8 +31,8 @@ public class GameTypeOfGenreServiceImpl implements GameTypeOfGenreService {
     public GameTypeOfGenre createRelationship(Game game) {
         long gameId=game.getId();
         Genre genre=game.getGenre();
-        long genreId=genre.getId();
-        log.info("======================================================  gameid: "+gameId+"  genreId: "+genreId+"======================================================");
-        return gameTypeOfGenreRepository.createRelationship(gameId,genreId);
+        String genreName=genre.getName();
+        log.info("======================================================  gameid: "+gameId+"  genreId: "+genreName+"======================================================");
+        return gameTypeOfGenreRepository.createRelationship(gameId,genreName);
     }
 }

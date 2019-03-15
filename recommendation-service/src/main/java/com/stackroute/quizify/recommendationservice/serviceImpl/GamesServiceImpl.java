@@ -107,6 +107,16 @@ public class GamesServiceImpl implements GamesService {
     }
 
     @Override
+    public List<Game> getAllGamesPlayedByAUserName(String userName) {
+        return gamesRepository.getAllGamesPlayedByAUserName(userName);
+    }
+
+    @Override
+    public List<Game> getAllGamesLikedByAUserName(String userName) {
+        return gamesRepository.getAllGamesLikedByAUserName(userName);
+    }
+
+    @Override
     public List<Game> getAllGamesLikedByAUser(long userId) {
         return gamesRepository.getAllGamesLikedByAUser(userId);
     }

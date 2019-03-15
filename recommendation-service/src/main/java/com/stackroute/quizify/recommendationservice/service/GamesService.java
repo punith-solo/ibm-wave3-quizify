@@ -30,7 +30,11 @@ public interface GamesService {
 
     List<Game> getAllGamesPlayedByAUser(long userId);
 
+    public List<Game> getAllGamesPlayedByAUserName(String userName);
+
     List<Game> getAllGamesLikedByAUser(long userId);
+
+    List<Game> getAllGamesLikedByAUserName(String userName);
 
     List<Game> getAllGamesByLevel(String level,int playerScore, int totalPoints);
 }

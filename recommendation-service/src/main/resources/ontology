@@ -9,7 +9,7 @@ CREATE (Languages:Topic {id:5, name: 'Languages', imageUrl:'https://www.theeduca
 
 CREATE (Documentary:Genre {id:1,name: 'Documentary', imageUrl:'https://www.filmsite.org/images/documentary-genre.jpg'})
 CREATE (Talkshow:Genre {id:2,name: 'Reality & Talk shows', imageUrl:'https://cmkt-image-prd.global.ssl.fastly.net/0.1.0/ps/2661428/580/386/m1/fpnw/wm1/c1-.jpg?1494334679&s=b42e439d379c45825713ec1c3421f902'})
-CREATE (Action:Genre {id:3,name: 'Action', imageUrl:'https://m.media-amazon.com/images/G/01/IMDb/genres/Fantasy._CB1513316168_SX233_CR0,0,233,131_AL_.jpg'})
+CREATE (Action:Genre {id:3,name: 'Action', imageUrl:'https://m.media-amazon.com/images/G/01/IMDb/genres/Action._CB1513316166_SX233_CR0,0,233,131_AL_.jpg'})
 CREATE (Thriller:Genre {id:4,name: 'Thriller & Horror', imageUrl:'https://m.media-amazon.com/images/G/01/IMDb/genres/Thriller._CB1513316169_SX233_CR0,0,233,131_AL_.jpg'})
 CREATE (comedy:Genre {id:5,name: 'Comedy', imageUrl: 'https://m.media-amazon.com/images/G/01/IMDb/genres/Comedy._CB1513316167_SX233_CR0,0,233,131_AL_.jpg'})
 CREATE (Anime:Genre {id:6,name: 'Anime', imageUrl: 'https://m.media-amazon.com/images/G/01/IMDb/genres/Animation._CB1513316167_SX233_CR0,0,233,131_AL_.jpg'})

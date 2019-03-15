@@ -34,7 +34,7 @@ public class PlayedRelationshipServiceImpl implements PlayedRelationshipService 
         log.info(" user ------------------------- /n " + userName);
         Game game= singlePlayer.getGame();
         log.info("game-------------------------------/n"+game.getId());
-        long gameId=game.getId();
+        String  gameId=game.getName();
         int playCount=game.getPlayCount();
         playCount=playCount+1;
         game.setPlayCount(playCount);

@@ -13,7 +13,7 @@ public interface GameIsATopicRepository extends Neo4jRepository<GameIsATopic,Lon
     @Query("MATCH p=(Game)-[r:game_is_a]->(Topic) RETURN p")
     public List<GameIsATopic> getAllRelationships();
 
-    @Query("MATCH (p:Game),(t:Topic) WHERE p.id={gameId} and t.id={topicId} CREATE (p)-[q:game_is_a]->(t) RETURN p,q,t")
-    GameIsATopic createRelationship(long gameId, long topicId);
+    @Query("MATCH (p:Game),(t:Topic) WHERE p.id={gameId} and t.name={topicName} CREATE (p)-[q:game_is_a]->(t) RETURN p,q,t")
+    GameIsATopic createRelationship(long gameId, String topicName);
 }
 

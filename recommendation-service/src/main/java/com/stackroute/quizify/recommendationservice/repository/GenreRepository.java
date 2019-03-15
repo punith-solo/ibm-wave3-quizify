@@ -16,6 +16,6 @@ public interface GenreRepository extends Neo4jRepository<Genre,Long>{
     @Query("MATCH p=(g:Genre)-[r:is_type_of]->(c:Category) WHERE c.id={categoryId}  RETURN g")
     List<Genre> getGenresBycategory(long categoryId);
 
-//    @Query("MATCH (g:Genre) WHERE genreName(g)={genreName} RETURN g")
-//    Genre getByGenreName(String genreName);
+    @Query("MATCH (g:Genre) WHERE g.name={categoryName} RETURN g")
+    List<Genre> getGenresByCategoryName(String categoryName);
 }

@@ -27,4 +27,9 @@ public class TopicServiceImpl implements TopicService {
     public List<Topic> getTopicsByCategory(long categoryId) {
         return topicRepository.getTopicsByCategory(categoryId);
     }
+
+    @Override
+    public List<Topic> getTopicsByCategoryByName(String categoryName) {
+        return topicRepository.getTopicsByCategoryByName(categoryName);
+    }
 }

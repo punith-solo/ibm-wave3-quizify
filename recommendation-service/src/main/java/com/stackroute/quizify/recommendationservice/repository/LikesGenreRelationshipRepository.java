@@ -14,8 +14,8 @@ public interface LikesGenreRelationshipRepository extends Neo4jRepository<Genre,
     @Query("MATCH p=(User)-[r:LikesGenre]->(Genre) RETURN p")
     public List<LikesGenre> getAllRelationships();
 
-    @Query("MATCH (p:User),(t:Genre) WHERE p.id={userId} and t.id={genreId} CREATE (p)-[q:LikesGenre]->(t) RETURN p,q,t")
-    LikesGenre createRelationship(long userId, long genreId);
+    @Query("MATCH (p:User),(t:Genre) WHERE p.id={userId} and t.name={genreName} CREATE (p)-[q:LikesGenre]->(t) RETURN p,q,t")
+    LikesGenre createRelationship(long userId, String genreName);
 
 //    @Query("MATCH (p:User)-[r:LikesGenre]->(t:Genre) WHERE p.id={userId} and t.id={genreId} DELETE r RETURN 'relationship deleted' ")
 //    LikesGenre deleteRelationship(@Param("userId") Long userId, @Param("genreId") long genreId);

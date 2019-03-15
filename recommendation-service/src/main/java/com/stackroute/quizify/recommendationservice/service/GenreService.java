@@ -9,4 +9,6 @@ public interface GenreService {
     public List<Genre> getAll();
 
     List<Genre> getGenresByCategory(long categoryId);
+
+    List<Genre> getGenresByCategoryName(String categoryName);
 }

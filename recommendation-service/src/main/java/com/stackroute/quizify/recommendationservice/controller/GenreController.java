@@ -1,6 +1,7 @@
 package com.stackroute.quizify.recommendationservice.controller;
 
 import com.stackroute.quizify.recommendationservice.domain.Genre;
+import com.stackroute.quizify.recommendationservice.domain.Topic;
 import com.stackroute.quizify.recommendationservice.service.GenreService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -33,5 +34,11 @@ public class GenreController {
     @GetMapping("/{categoryId}")
     public List<Genre> getGenresByCategory(@PathVariable("categoryId") long categoryId){
         return genreService.getGenresByCategory(categoryId);
+    }
+
+    @ApiOperation("Get a topic by name")
+    @GetMapping("/name/{categoryName}")
+    public List<Genre> getTopicsByCategoryName(@PathVariable("categoryName") String categoryName){
+        return genreService.getGenresByCategoryName(categoryName);
     }
 }

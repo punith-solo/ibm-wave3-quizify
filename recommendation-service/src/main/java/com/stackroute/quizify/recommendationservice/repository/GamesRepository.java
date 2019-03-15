@@ -43,8 +43,14 @@ public interface GamesRepository extends Neo4jRepository<Game,Long> {
     @Query("MATCH (ga:Game),(u:User) WHERE u.id={userId} and (u:User)-[:Played]->(g:game) RETURN g")
     public List<Game> getAllGamesPlayedByAUser(@Param("userId") long userId);
 
+    @Query("MATCH (ga:Game),(u:User) WHERE u.name={userName} and (u:User)-[:Played]->(g:game) RETURN g")
+    public List<Game> getAllGamesPlayedByAUserName(@Param("userName") String userName);
+
     @Query("MATCH (ga:Game),(u:User) WHERE u.id={userId} and (u:User)-[:LikesGame]->(g:game) RETURN g")
     List<Game> getAllGamesLikedByAUser(@Param("userId") long userId);
+
+    @Query("MATCH (ga:Game),(u:User) WHERE u.name={userName} and (u:User)-[:LikesGame]->(g:game) RETURN g")
+    List<Game> getAllGamesLikedByAUserName(@Param("userName") String userName);
 
     @Query("MATCH (g:Game) where g.level={level} return g")
     List<Game> getAllGamesByLevel(String level);

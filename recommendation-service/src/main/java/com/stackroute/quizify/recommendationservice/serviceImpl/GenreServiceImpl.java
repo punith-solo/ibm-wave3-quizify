@@ -28,4 +28,9 @@ public class GenreServiceImpl implements GenreService {
     public List<Genre> getGenresByCategory(long categoryId) {
         return genreRepository.getGenresBycategory(categoryId);
     }
+
+    @Override
+    public List<Genre> getGenresByCategoryName(String categoryName) {
+        return genreRepository.getGenresByCategoryName(categoryName);
+    }
 }

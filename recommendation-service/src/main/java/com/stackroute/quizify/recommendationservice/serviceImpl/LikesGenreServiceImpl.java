@@ -38,9 +38,9 @@ public class LikesGenreServiceImpl implements LikesGenreService {
         while(genresIterator.hasNext()){
             Genre genre=genresIterator.next();
             log.info(genre.toString());
-            long genreId=genre.getId();
-            log.info("userId: "+userId+"genreId: "+genreId);
-            likesGenreRelationshipRepository.createRelationship(userId,genreId);
+            String genreName=genre.getName();
+            log.info("userId: "+userId+"genreId: "+genreName);
+            likesGenreRelationshipRepository.createRelationship(userId,genreName);
         }
         return " "; //change as required
     }

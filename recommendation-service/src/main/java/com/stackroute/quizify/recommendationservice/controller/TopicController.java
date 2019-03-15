@@ -34,6 +34,12 @@ public class TopicController {
     public List<Topic> getTopicsByCategory(@PathVariable("categoryId") long categoryId){
         return topicService.getTopicsByCategory(categoryId);
     }
+
+    @ApiOperation("Get a topic by name")
+    @GetMapping("/name/{categoryName}")
+    public List<Topic> getTopicsByCategoryName(@PathVariable("categoryName") String categoryName){
+        return topicService.getTopicsByCategoryByName(categoryName);
+    }
 }
 
 

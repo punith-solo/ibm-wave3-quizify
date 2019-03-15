@@ -13,9 +13,9 @@ public interface LikesGameRelationshipRepository extends Neo4jRepository<LikesGa
     @Query("MATCH p=(User)-[r:LikesGame]->(Game) RETURN p")
     public List<LikesGame> getAllRelationships();
 
-    @Query("MATCH (p:User),(t:Game) WHERE p.name={userName} and t.id={gameId} CREATE (p)-[q:LikesGame]->(t) RETURN p,q,t")
-    LikesGame createRelationship(@Param("userName") String userName, @Param("gameId") long gameId);
+    @Query("MATCH (p:User),(t:Game) WHERE p.name={userName} and t.name={gameName} CREATE (p)-[q:LikesGame]->(t) RETURN p,q,t")
+    LikesGame createRelationship(@Param("userName") String userName, @Param("gameName") String gameName);
 
-    @Query("MATCH (p:User)-[r:LikesGame]->(t:Game) WHERE p.name={userName} and t.id={gameId} DELETE r RETURN 'relationship deleted' ")
-    LikesGame deleteRelationship(@Param("userName") String userName, @Param("gameId") long gameId);
+    @Query("MATCH (p:User)-[r:LikesGame]->(t:Game) WHERE p.name={userName} and t.name={gameName} DELETE r RETURN 'relationship deleted' ")
+    LikesGame deleteRelationship(@Param("userName") String userName, @Param("gameName") String gameName);
 }

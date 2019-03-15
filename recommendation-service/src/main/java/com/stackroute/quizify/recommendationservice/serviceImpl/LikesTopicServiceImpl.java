@@ -38,7 +38,7 @@ public class LikesTopicServiceImpl implements LikesTopicService {
         while(topicsIterator.hasNext()){
             Topic topic=topicsIterator.next();
             log.info(topic.toString());
-            long topicId=topic.getId();
+            String topicId=topic.getName();
             log.info("userId: "+userId+"topicId: "+topicId);
             likesTopicRelationshipRepository.createRelationship(userId,topicId);
         }

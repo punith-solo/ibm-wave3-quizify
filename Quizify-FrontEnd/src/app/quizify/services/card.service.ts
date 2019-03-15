@@ -9,7 +9,7 @@ export class CardService {
       constructor(private http: HttpClient) {
     }
    getQuizGames() {
-    this.url = 'http://quizify-zuul.stackroute.io/recommendation-service/rest/neo4j/game/';
+    this.url = 'https://quizify-zuul.stackroute.io/recommendation-service/rest/neo4j/game/';
     return this.http.get(this.url);
    }
 
