@@ -24,7 +24,7 @@ export class GameEngineService {
 
   constructor(private http: HttpClient) {
 
-    this.microServiceUrl = 'http://quizify.stackroute.io:8092/single-player-engine/api/v1/singlePlayer/';
+    this.microServiceUrl = 'http://quizify-zuul.stackroute.io/single-player-engine/api/v1/singlePlayer/';
 
    }
 

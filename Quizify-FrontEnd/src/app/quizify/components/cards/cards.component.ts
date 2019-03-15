@@ -18,13 +18,12 @@ export class CardsComponent implements OnInit {
   constructor(private cardService: CardService , private gameengineservice: GameEngineService, private searchService: SearchService,
     private router: Router, public dialog: MatDialog) { }
   method: any;
-  quiz: any;
+  quizGame: any;
   dialogResult: any;
 
   ngOnInit() {
-    for (let i = 0; i < 2; i++) {
-    this.cardService.getquiz().subscribe(resposeQuiz => this.quiz = resposeQuiz);
-    }
+    this.cardService.getQuizGames().subscribe(resposeQuiz => this.quizGame = resposeQuiz);
+    console.log(this.cardService.getQuizGames());
   }
   fetchGameId(gameId: number) {
     console.log(gameId);

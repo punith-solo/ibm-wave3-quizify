@@ -8,10 +8,8 @@ export class CardService {
     response: any;
       constructor(private http: HttpClient) {
     }
-   getquiz() {
-    // this.url = 'http://localhost:3000/quiz';
-    // this.url = 'http://localhost:8104/rest/neo4j/game/';
-    this.url = 'http://13.232.243.68:8092/recommendation-service/rest/neo4j/game/';
+   getQuizGames() {
+    this.url = 'http://quizify-zuul.stackroute.io/recommendation-service/rest/neo4j/game/';
     return this.http.get(this.url);
    }
 
