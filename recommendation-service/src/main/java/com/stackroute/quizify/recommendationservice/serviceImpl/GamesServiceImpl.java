@@ -5,12 +5,14 @@ import com.stackroute.quizify.recommendationservice.repository.GamesRepository;
 import com.stackroute.quizify.recommendationservice.service.GameIsATopicService;
 import com.stackroute.quizify.recommendationservice.service.GameTypeOfGenreService;
 import com.stackroute.quizify.recommendationservice.service.GamesService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
+@Slf4j
 public class GamesServiceImpl implements GamesService {
 
     GamesRepository gamesRepository;
@@ -91,5 +93,49 @@ public class GamesServiceImpl implements GamesService {
     @Override
     public List<Game> getAllGamesLikedByAUser(long userId) {
         return gamesRepository.getAllGamesLikedByAUser(userId);
+    }
+
+    @Override
+    public List<Game> getAllGamesByLevel(String level,int playerScore, int totalPoints) {
+        log.info("^^^^^^^^^^^^^^^^^^^^^^^^ playerscore: "+playerScore +"  totalpoints: "+totalPoints+"  level:" +level);
+        double checkPoint=playerScore*100/totalPoints;
+        log.info("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ checkpoint:  "+checkPoint+"^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
+        log.info("level:   easy?=> "+(level.equalsIgnoreCase("easy"))+"  medium?? =>" +(level.equalsIgnoreCase("medium")) + "hard?? =>"+(level=="hard"));
+        if(checkPoint>=75){
+
+            if(level.equalsIgnoreCase("easy")) {
+                log.info("checkpoint >75 and level easy ..... so recommend medium");
+                return gamesRepository.getAllGamesByLevel("medium");
+            }
+            else {
+                log.info("checkpoint >75 and level medium,hard ..... so recommend hard");
+                return gamesRepository.getAllGamesByLevel("hard");
+            }
+        }
+        else if(checkPoint>=40 && checkPoint<75)
+        {
+            if(level.equalsIgnoreCase("easy")) {
+                log.info("checkpoint 40-75 and level easy ..... so recommend easy");
+                return gamesRepository.getAllGamesByLevel("easy");
+            }
+            else if(level.equalsIgnoreCase("medium")){
+                log.info("checkpoint 40-75 and level medium ..... so recommend medium");
+                return gamesRepository.getAllGamesByLevel("medium");
+            }
+            else{
+                log.info("checkpoint 40-75 and level hard ..... so recommend hard");
+                return gamesRepository.getAllGamesByLevel("hard");
+            }
+        }
+        else{
+            if(level.equalsIgnoreCase("hard")) {
+                log.info("checkpoint <40 and level hard ..... so recommend medium");
+                return gamesRepository.getAllGamesByLevel("medium");
+            }
+            else{ // (level=="medium" || level=="easy")
+                log.info("checkpoint <40 and level medium,easy ..... so recommend easy");
+                return gamesRepository.getAllGamesByLevel("easy");
+            }
+        }
     }
 }
