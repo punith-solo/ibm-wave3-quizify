@@ -10,7 +10,6 @@ export class Game {
     category: Category;
     topic: Topic;
     genre: Genre;
-    tag: Tag;
     level: string;
     imageUrl: string;
     numOfQuestion: number;
@@ -19,5 +18,7 @@ export class Game {
     liked: number;
     playCount: number;
     rules: string[];
-
+    pointPerQuestion: number;
+    totalPoints: number;
+    playerScore: number;
 }
