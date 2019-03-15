@@ -51,7 +51,7 @@
  }
 
 .search {
-  background-color: #363636;
+  background-color: #white;
 }
 #search {
   margin-left: 400px;
@@ -62,6 +62,10 @@
   width: 50%;
   height: 60px;
 }
+.mat-form-field-appearance-outline .mat-form-field-outline,
+.mat-form-field-appearance-outline .mat-form-field-outline-thick {
+  caret-color: #ccaa2b !important;
+ }
 
 @media only screen and (max-width: 698px) {
   #search{

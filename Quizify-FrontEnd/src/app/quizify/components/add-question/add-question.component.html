@@ -1,5 +1,10 @@
 <app-header></app-header>
 <section id="add-question">
+    <mat-chip-list>
+        <mat-chip color="primary" selected [routerLink]="[ '/adminpage']"><i class="material-icons">
+            chevron_left
+            </i> Back to Dashboard</mat-chip>
+      </mat-chip-list>
   <section class="row center">
     <article class="col-4">
       <mat-form-field>
@@ -164,3 +169,5 @@
     </article>
   </section>
 </section>
+<app-footer></app-footer>
+

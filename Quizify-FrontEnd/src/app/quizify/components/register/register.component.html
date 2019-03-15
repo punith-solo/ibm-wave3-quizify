@@ -1,8 +1,6 @@
-<app-header></app-header>
-
-<!-- <br> -->
 
 <div id="registration">
+<app-header></app-header>
 <mat-horizontal-stepper linear id="reg" #stepper>
   <mat-step  id="step" [stepControl]="formGroup1">
     <ng-template matStepLabel>
@@ -84,7 +82,7 @@
       <button mat-button class="nextbtn" matStepperNext><b>Next</b></button>
     </form>
   </mat-step>
-  <mat-step [stepControl]="formGroup2" optional>
+  <mat-step [stepControl]="formGroup2" >
     <form [formGroup]="formGroup2">
       <ng-template matStepLabel>
         Select Options
@@ -133,7 +131,7 @@
       </div>
     </form>
   </mat-step>
-  <mat-step  [stepControl]="formGroup3" optional >
+  <mat-step  [stepControl]="formGroup3"  >
     <form [formGroup]="formGroup3">
       <ng-template matStepLabel>
         Check Details
@@ -208,5 +206,5 @@
     </form>
   </mat-step>
 </mat-horizontal-stepper>
-</div>
 <app-footer></app-footer>
+</div>

@@ -10,7 +10,7 @@ export class GamedetailsService {
   constructor(private http: HttpClient) {   }
 
   getDetails() {
-      this.url = 'http://quizify-zuul.stackroute.io/rest/neo4j/games/mostplayed';
+      this.url = 'https://quizify-zuul.stackroute.io/rest/neo4j/games/mostplayed';
       return this.http.get(this.url);
   }
 }

@@ -25,4 +25,29 @@
    padding: 1%;
    float: right;
    font-size: 25px;
+   text-decoration: none;
  }
+ @media only screen and (max-width: 700px) {
+  
+  .icons{
+    color: #ccaa2b;
+    margin-right:1%;
+    padding: 1%;
+    float: right;
+    margin-top: 15px;
+    font-size: 18px;
+    text-decoration: none;
+  }
+  #copyright
+ {
+ color: #ccaa2b;
+ float: left;
+ padding-left: 1.5%;
+ padding-top: 4.8%;
+ margin: auto;
+ position: relative;
+ font-family: cursive;
+ font-style: italic;
+ font-size: 14px;
+ }
+}

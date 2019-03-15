@@ -1,14 +1,14 @@
 
 #card{
-  background-color: #363636;
+  background-color: white;
   width: 100%;
   margin-top:0px;
 }
 .cards{
   width: 95%;
   margin-left: 50px;
-  margin-top: 10px;
-  background-color: #363636;
+  margin-top: -100px;
+  background-color: white;
   display: inline-block;
   position: relative;
   display: flex;
@@ -17,23 +17,29 @@
   // background-color: green;
 }
 .cards h1{
-  color:white;
-  font-size: 20px;
+  color: #ccaa2b;
+  font-size: 40px;
   width: 100%;
+  margin-top: 90px;
+  margin-left: 20px;
 }
 
 .gamecard{
   box-shadow: 10px 19px 38px rgba(0,0,0,0.30), 10px 15px 12px rgba(0,0,0,0.22);
-  background-color: #363636;
+  background-color: #111111;
   margin: 28px;
   height: 300px;
   width: 300px;
+  border-radius: 15px;
 }
  .gamecard img {
  
    height: 200px;
    width: 500px;
    max-width: 100%;
+   border-top-left-radius: 15px;
+   border-top-right-radius: 15px;
+   
  }
  .gamecard .text {
    text-align: center;
@@ -68,9 +74,22 @@
 
   .cards{
     width: 80%;
-    margin: 40px;
-    margin-top: 10px;
+    margin: 30px;
+    margin-top: -180px;
     
   }
+  .mat-fab, .mat-flat-button, .mat-mini-fab, .mat-raised-button {
+    background-color: #ccaa2b; 
+    margin: 2px;
+  }
+  .cards h1{
+    color: #ccaa2b;
+    font-size: 40px;
+    width: 100%;
+    margin-top: 120px;
+     margin-left: 10px;
+    text-align: center;
+  }
+    
  
 }
