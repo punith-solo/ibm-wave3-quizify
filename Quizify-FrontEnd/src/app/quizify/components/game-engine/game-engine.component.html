@@ -1,11 +1,11 @@
 <section id="game-window" class="p-15">
-  <article class="mt-20">
+  <article class="mt-20" [ngClass]="{ 'd-none': gameFinished }">
     <section class="row text-center">
       <article class="col-2">
         <mat-chip-list class="p-10">
-          <mat-chip color="primary" class="time-left" selected>Total Questions : {{
-            game.numOfQuestion
-          }}</mat-chip>
+          <mat-chip color="primary" class="time-left" selected
+            >Total Questions : {{ game.numOfQuestion }}</mat-chip
+          >
         </mat-chip-list>
       </article>
       <article class="col-8">
@@ -85,32 +85,47 @@
           >
             Next
           </button>
+          <button
+            mat-raised-button
+            color="primary"
+            class="nav-btn"
+            (click)="submitGame()"
+            [ngClass]="{ 'd-none': !lastQuestion }"
+          >
+            Done
+          </button>
         </section>
         <section class="emojis">
-          <img src="../../../../assets/images/emojiThinking" alt="Emoji" class="emoji" #emoji>
+          <img
+            src="../../../../assets/images/emojiThinking"
+            alt="Emoji"
+            class="emoji"
+            #emoji
+          />
         </section>
       </mat-step>
       <mat-step>
         <ng-template matStepLabel>Time Up</ng-template>
         <section class="game-result">
-          <h2>
-            Total Questions : {{ game.numOfQuestion }}
-          </h2>
-          <h2>
-            Player Attempted : {{ playerAttempted }}
-          </h2>
-          <h2>
-            Right Answers : {{ playerAttemptedRight }}
-          </h2>
-          <h2>
-            Wrong Answers : {{ playerAttemptedWrong }}
-          </h2>
-          <h2>
-            Game Score : {{ gameScore }}
-          </h2>
-          <h2>
-            Player's Score : {{ playerScore }}
-          </h2>
+          <section class="row">
+            <mat-card class="result-card col-3">
+              <mat-card-header>
+                <mat-card-title><h2>{{ playerName }}</h2></mat-card-title>
+                <mat-card-subtitle><h3>Game : {{ game.name }}</h3></mat-card-subtitle>
+              </mat-card-header>
+              <section>
+                  <img *ngFor="let star of resultStar" src="{{ star }}" alt="Stars" class="star">
+              </section>
+              <mat-card-header>
+                  <mat-card-title><h4>Total Questions : {{ game.numOfQuestion }}</h4></mat-card-title>
+                  <mat-card-title><h4>Player Attempted : {{ playerAttempted }}</h4></mat-card-title>
+                  <mat-card-title><h4>Right Answers : {{ playerAttemptedRight }}</h4></mat-card-title>
+                  <mat-card-title><h4>Wrong Answers : {{ playerAttemptedWrong }}</h4></mat-card-title>
+                  <mat-card-title><h4>Game Score : {{ gameScore }}</h4></mat-card-title>
+                  <mat-card-title><h4>Player's Score : {{ playerScore }}</h4></mat-card-title>
+              </mat-card-header>
+            </mat-card>
+          </section>
         </section>
         <section>
           <button
@@ -119,8 +134,8 @@
             class="nav-btn"
             matTooltip="Like It"
           >
-          <i class="material-icons">
-            favorite_border
+            <i class="material-icons">
+              favorite_border
             </i>
           </button>
           <button
@@ -128,9 +143,10 @@
             color="primary"
             class="nav-btn"
             matTooltip="Play Again"
+            (click)="rePlay()"
           >
-          <i class="material-icons">
-            replay
+            <i class="material-icons">
+              replay
             </i>
           </button>
         </section>
@@ -138,4 +154,3 @@
     </mat-horizontal-stepper>
   </article>
 </section>
-

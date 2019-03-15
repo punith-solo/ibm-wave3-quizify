@@ -4,7 +4,7 @@ import { GameEngineService } from '../../services/game-engine.service';
 
 import { Game } from '../../tsclasses/game';
 
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import * as jwt_decode from 'jwt-decode';
 
@@ -54,6 +54,10 @@ export class GameEngineComponent implements OnInit {
   private playerAttempted: number;
   private playerAttemptedRight: number;
   private playerAttemptedWrong: number;
+  private playerName: string;
+  private resultStar: string[];
+  private redStar = '../../../../assets/images/red-star.jpg';
+  private blackStar = '../../../../assets/images/black-star.jpg';
 
   @ViewChild('stepper') stpr: MatStepper;  
 
@@ -62,7 +66,8 @@ export class GameEngineComponent implements OnInit {
     private route: ActivatedRoute,
     private gameengineservice: GameEngineService,
     private snackBar: MatSnackBar,
-    private jsonServer: JsonService
+    private jsonServer: JsonService,
+    private router: Router
     ) {
       this.firstQuestion = true;
       this.lastQuestion = false;
@@ -81,29 +86,23 @@ export class GameEngineComponent implements OnInit {
         this.jti = this.loginToken.jti;
         console.log('decoded token id', this.loginToken.jti);
         this.gameengineservice.fetchGame(this.gameId , this.jti).subscribe((res: any) => {
-          this.singlePlayer.playerId = res.jti;
+          // this.singlePlayer.playerId = res.jti;
           this.game = res.game;
           
         } );
       } catch (error) {
         // this.jti = 123;
-        this.gameengineservice.fetchGame(this.gameId , 'guest').subscribe((res: any) => {
+        this.gameengineservice.fetchGame(this.gameId , 'Guest_Player').subscribe((res: any) => {
           console.log(res);
-            // this.singlePlayer.playerId = res.body.playerName;
+            this.playerName = res.body.playerName;
             this.game = res.body.game;
   
             this.questions = this.game.questions;
             this.startTimeBar(this.game.timeDuration);
             // this.startTimer(this.game.timeDuration);
             this.currentQuestionNumber = 1;
-            if(this.game.level === 'easy')
-              this.scorePerQuetsion = 1;
-            else if(this.game.level === 'medium')
-              this.scorePerQuetsion = 2;
-            else if(this.game.level === 'hard')
-              this.scorePerQuetsion = 3;
-            
-            this.gameScore = this.game.numOfQuestion * this.scorePerQuetsion;
+            this.scorePerQuetsion = this.game.pointPerQuestion;
+            this.gameScore = this.game.totalPoints;
             this.playerScore = 0;
             this.gameFinished = false;
             this.playerAttempted = 0;
@@ -135,6 +134,7 @@ export class GameEngineComponent implements OnInit {
         //   this.playerAttemptedWrong = 0;
         // });
       }
+      this.resultStar = [this.blackStar, this.blackStar, this.blackStar, this.blackStar, this.blackStar];
     });
   }
 
@@ -200,6 +200,11 @@ export class GameEngineComponent implements OnInit {
         emoji.src = '../../../../assets/images/emojiWrong';
         this.playerAttemptedWrong++;
       }
+
+      // if(this.stpr.selectedIndex === this.game.numOfQuestion-1)
+      // {
+      //   this.gameFinished = true;
+      // }
     }
     else
     {
@@ -237,7 +242,8 @@ export class GameEngineComponent implements OnInit {
       {
         this.gameFinished = true;
         clearInterval(timer);
-        this.stpr.selectedIndex = this.game.numOfQuestion;
+        this.submitGame();
+        
       }
       if(counter === 100)
       {
@@ -248,6 +254,33 @@ export class GameEngineComponent implements OnInit {
         counter = 0;
       }
     }, 10);
+  }
+
+  submitGame(){
+    this.gameFinished = true;
+    this.game.playerScore = this.playerScore;
+    if(this.playerScore/this.game.totalPoints === 1 )
+      this.resultStar = [this.redStar, this.redStar, this.redStar, this.redStar, this.redStar];
+    else if(this.playerScore/this.game.totalPoints >= 0.8 )
+      this.resultStar = [this.redStar, this.redStar, this.redStar, this.redStar, this.blackStar];
+    else if(this.playerScore/this.game.totalPoints >= 0.6 )
+      this.resultStar = [this.redStar, this.redStar, this.redStar, this.blackStar, this.blackStar];
+    else if(this.playerScore/this.game.totalPoints >= 0.4 )
+      this.resultStar = [this.redStar, this.redStar, this.blackStar, this.blackStar, this.blackStar];
+    else if(this.playerScore/this.game.totalPoints >= 0.2 )
+      this.resultStar = [this.redStar, this.blackStar, this.blackStar, this.blackStar, this.blackStar];
+    this.stpr.selectedIndex = this.game.numOfQuestion;
+    this.singlePlayer.playerName= this.playerName;
+    this.singlePlayer.game = this.game;
+    this.gameengineservice.submitGame(this.singlePlayer).subscribe((res: any) => {
+      console.log(res);
+    });
+  }
+
+  rePlay() {
+    console.log("Reload");
+    this.router.navigate(['playgame', {id : this.game.id}]);
+    // this.router.navigate(['blank']);
   }
 
 }

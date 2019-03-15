@@ -2,8 +2,6 @@ import { Game } from './game';
 import { User } from './user';
 
 export class SinglePlayer {
-    playerId: number;
+    playerName: string;
     game: Game;
-    gameScore: number;
-    playerScore: number;
 }

@@ -15,7 +15,7 @@ export class AdminGameService {
   private baseUrl: string;
 
   constructor(private http: HttpClient) {
-    this.baseUrl = 'https://13.232.243.68:8092/game-manager-service/api/v1/game';
+    this.baseUrl = 'https://quizify-zuul.stackroute.io/game-manager-service/api/v1/game';
     // this.baseUrl = 'http://localhost:8092/game-manager-service/api/v1/games';
   }
 

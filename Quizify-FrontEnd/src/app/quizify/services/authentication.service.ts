@@ -12,7 +12,7 @@ export class AuthenticationService {
   constructor(private http: HttpClient, private router: Router) {
   }
 
-   private loginUrl = 'http://13.232.243.68:8092/user-authentication-service/api/user';  // URL to web api
+   private loginUrl = 'http://quizify-zuul.stackroute.io/user-authentication-service/api/user';  // URL to web api
   // private loginUrl = 'http://13.232.243.68:8095/api/user';  // URL to web api
 
   login(user: any): Observable<any> {
