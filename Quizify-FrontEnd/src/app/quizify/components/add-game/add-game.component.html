@@ -1,5 +1,10 @@
 <app-header></app-header>
 <section id="add-game" class="p-15">
+    <mat-chip-list>
+        <mat-chip color="primary" selected [routerLink]="[ '/adminpage']"><i class="material-icons">
+            chevron_left
+            </i> Back to Dashboard</mat-chip>
+      </mat-chip-list>
   <section id="stepper">
     <mat-horizontal-stepper [linear]="false" #stepper>
       <ng-template matStepperIcon="edit">

@@ -14,7 +14,7 @@ export class SearchService {
 
 
   constructor(private http: HttpClient) {
-    this.microServiceUrl = 'http://quizify-zuul.stackroute.io/search-service/api/v1/search/';
+    this.microServiceUrl = 'https://quizify-zuul.stackroute.io/search-service/api/v1/search/';
    }
 
   //  saveGenre(genre: string) {

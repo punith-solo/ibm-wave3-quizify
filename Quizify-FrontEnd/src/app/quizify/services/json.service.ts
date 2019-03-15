@@ -10,16 +10,16 @@ export class JsonService {
 
   getCategoryFromJsonServer()
   {
-    return this.http.get('http://quizify-zuul.stackroute.io/recommendation-service/rest/neo4j/category/');
+    return this.http.get('https://quizify-zuul.stackroute.io/recommendation-service/rest/neo4j/category/');
   }
 
   getTopicFromJsonServer() {
-    return this.http.get('http://quizify-zuul.stackroute.io/recommendation-service/rest/neo4j/topic/');
+    return this.http.get('https://quizify-zuul.stackroute.io/recommendation-service/rest/neo4j/topic/');
   }
 
   getGenreFromJsonServer()
   {
-    return this.http.get('http://quizify-zuul.stackroute.io/recommendation-service/rest/neo4j/genre/');
+    return this.http.get('https://quizify-zuul.stackroute.io/recommendation-service/rest/neo4j/genre/');
   }
 
   getSinglePlayerFromJsonServer()
