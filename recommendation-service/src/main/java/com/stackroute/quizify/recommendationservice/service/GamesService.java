@@ -22,7 +22,11 @@ public interface GamesService {
 
     List<Game> getAllRelatedGamesOfAGenre(long genreId);
 
+    List<Game> getAllRelatedGamesOfAGenreByName(String genreName);
+
     List<Game> getAllRelatedGamesOfATopic(long topicId);
+
+    public List<Game> getAllRelatedGamesOfATopicByName(String topicName);
 
     List<Game> getAllGamesPlayedByAUser(long userId);
 

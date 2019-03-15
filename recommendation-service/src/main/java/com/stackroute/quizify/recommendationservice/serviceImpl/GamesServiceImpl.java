@@ -1,6 +1,9 @@
 package com.stackroute.quizify.recommendationservice.serviceImpl;
 
+import com.stackroute.quizify.recommendationservice.domain.Category;
 import com.stackroute.quizify.recommendationservice.domain.Game;
+import com.stackroute.quizify.recommendationservice.domain.Genre;
+import com.stackroute.quizify.recommendationservice.domain.Topic;
 import com.stackroute.quizify.recommendationservice.repository.GamesRepository;
 import com.stackroute.quizify.recommendationservice.service.GameIsATopicService;
 import com.stackroute.quizify.recommendationservice.service.GameTypeOfGenreService;
@@ -51,7 +54,10 @@ public class GamesServiceImpl implements GamesService {
         int pointPerQuestion=game.getPointPerQuestion();
         int totalPoints=game.getTotalPoints();
         int playerScore=game.getPlayerScore();
-        Game game1 =gamesRepository.createNode(id,name,playcount,level,imageUrl,numOfQuestion,timeDuration,liked,rules,pointPerQuestion,totalPoints,playerScore);
+//        Category category=game.getCategory();
+//        Topic topic=game.getTopic();
+//        Genre genre=game.getGenre();
+        Game game1 =gamesRepository.createNode(id,name,playcount,level,imageUrl,numOfQuestion,timeDuration,liked,rules,pointPerQuestion,totalPoints,playerScore); //,category,topic,genre
         gameIsATopicService.createRelationship(game);
         gameTypeOfGenreService.createRelationship(game);
         return game1;
@@ -81,8 +87,18 @@ public class GamesServiceImpl implements GamesService {
     }
 
     @Override
+    public List<Game> getAllRelatedGamesOfAGenreByName(String genreName) {
+        return gamesRepository.getAllRelatedGamesOfAGenreByName(genreName);
+    }
+
+    @Override
     public List<Game> getAllRelatedGamesOfATopic(long topicId) {
         return gamesRepository.getAllRelatedGamesOfATopic(topicId);
+    }
+
+    @Override
+    public List<Game> getAllRelatedGamesOfATopicByName(String topicName) {
+        return gamesRepository.getAllRelatedGamesOfATopicByName(topicName);
     }
 
     @Override

@@ -40,10 +40,22 @@ public class GamesController {
         return gamessService.getAllRelatedGamesOfAGenre(genreId);
     }
 
+    @ApiOperation("Get games of a Genre by name")
+    @GetMapping("/genre/name/{genreName}")
+    public List<Game> getAllRelatedGamesOfAGenreByName(@PathVariable("genreName") String genreName) {
+        return gamessService.getAllRelatedGamesOfAGenreByName(genreName);
+    }
+
     @ApiOperation("Get games of a Topic")
     @GetMapping("/topic/{topicId}")
     public List<Game> getAllRelatedGamesOfATopic(@PathVariable("topicId") long topicId) {
         return gamessService.getAllRelatedGamesOfATopic(topicId);
+    }
+
+    @ApiOperation("Get games of a Topic by topic name")
+    @GetMapping("/topic/name/{topicName}")
+    public List<Game> getAllRelatedGamesOfATopicByName(@PathVariable("topicName") String topicName) {
+        return gamessService.getAllRelatedGamesOfATopicByName(topicName);
     }
 
     @ApiOperation("Get games played by a user")
