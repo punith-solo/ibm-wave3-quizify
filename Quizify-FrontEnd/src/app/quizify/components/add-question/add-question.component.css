@@ -88,10 +88,13 @@
 }
 
 #add-question {
-  background-image: url('../../../../assets/images/login1.jpg');
+  /* background-image: url('../../../../assets/images/login1.jpg'); */
  background-repeat: no-repeat;
   background-size: cover;
   padding: 15px;
+  margin-top: 70px;
+  height: 100vh;
+  background-color: white;
   /* color: white; */
 }
 

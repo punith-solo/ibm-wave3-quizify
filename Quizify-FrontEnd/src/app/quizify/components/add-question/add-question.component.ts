@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { JsonService } from '../../services/json.service';
 import { FormBuilder } from '@angular/forms';
-import { MatSnackBar } from '@angular/material';
+import { MatSnackBar, MatTableDataSource, MatPaginator } from '@angular/material';
 import { Category } from '../../tsclasses/category';
 import { Topic } from '../../tsclasses/topic';
 import { Genre } from '../../tsclasses/genre';
@@ -19,6 +19,7 @@ export interface Levels {
   styleUrls: ['./add-question.component.css']
 })
 export class AddQuestionComponent implements OnInit {
+  
   private category: Category;
   private categories: Category[];
   private topic: Topic;
@@ -27,6 +28,7 @@ export class AddQuestionComponent implements OnInit {
   private genres: Genre[];
   private levels: Levels[];
   private question: Question;
+  private questions: Question[];
 
   private selectedCategory: Category;
   private selectedTopic: Topic;
@@ -47,6 +49,11 @@ export class AddQuestionComponent implements OnInit {
 
   statusCode: any;
 
+  private ELEMENT_DATA: PeriodicElement[];
+  displayedColumns: string[] = ['ID', 'Statement', 'Category', 'Topic', 'Category'];
+  dataSource = new MatTableDataSource<PeriodicElement>(this.ELEMENT_DATA);
+  @ViewChild(MatPaginator) paginator: MatPaginator;
+
 
   constructor(
     private jsonServer: JsonService,
@@ -55,6 +62,12 @@ export class AddQuestionComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.dataSource.paginator = this.paginator;
+    this.questionService.getAllQuestions().subscribe((res: any) => {
+      this.questions = res.body;
+      
+    });
+
     this.jsonServer.getCategoryFromJsonServer().subscribe((res: any[]) => {
       this.categories = res;
     });
@@ -252,4 +265,39 @@ export class AddQuestionComponent implements OnInit {
         }
   }
 
+  
+
 }
+
+export interface PeriodicElement {
+  ID: number;
+  Statement: string;
+  Category: string;
+  Topic: string;
+  Genre: string;
+  Level: string;
+  Type: string;
+}
+
+// const ELEMENT_DATA: PeriodicElement[] = [
+//   {position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H'},
+//   {position: 2, name: 'Helium', weight: 4.0026, symbol: 'He'},
+//   {position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li'},
+//   {position: 4, name: 'Beryllium', weight: 9.0122, symbol: 'Be'},
+//   {position: 5, name: 'Boron', weight: 10.811, symbol: 'B'},
+//   {position: 6, name: 'Carbon', weight: 12.0107, symbol: 'C'},
+//   {position: 7, name: 'Nitrogen', weight: 14.0067, symbol: 'N'},
+//   {position: 8, name: 'Oxygen', weight: 15.9994, symbol: 'O'},
+//   {position: 9, name: 'Fluorine', weight: 18.9984, symbol: 'F'},
+//   {position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne'},
+//   {position: 11, name: 'Sodium', weight: 22.9897, symbol: 'Na'},
+//   {position: 12, name: 'Magnesium', weight: 24.305, symbol: 'Mg'},
+//   {position: 13, name: 'Aluminum', weight: 26.9815, symbol: 'Al'},
+//   {position: 14, name: 'Silicon', weight: 28.0855, symbol: 'Si'},
+//   {position: 15, name: 'Phosphorus', weight: 30.9738, symbol: 'P'},
+//   {position: 16, name: 'Sulfur', weight: 32.065, symbol: 'S'},
+//   {position: 17, name: 'Chlorine', weight: 35.453, symbol: 'Cl'},
+//   {position: 18, name: 'Argon', weight: 39.948, symbol: 'Ar'},
+//   {position: 19, name: 'Potassium', weight: 39.0983, symbol: 'K'},
+//   {position: 20, name: 'Calcium', weight: 40.078, symbol: 'Ca'},
+// ];

@@ -14,7 +14,7 @@ export class RegisterService {
    constructor(private http: HttpClient) { }
    addUser(register: Register) {
       // this.url = 'http://0.0.0.0:8999/api/v1/user/';
-     this.url = 'http://quizify-zuul.stackroute.io/user-registration-service/api/v1/user/';
+     this.url = 'https://quizify-zuul.stackroute.io/user-registration-service/api/v1/user/';
          this. http.get(this.url).subscribe(resp => {
             this.response = resp;
          });
@@ -22,12 +22,12 @@ export class RegisterService {
    }
    getTopic() {
       // this.topicUrl = 'http://localhost:3000/topic';
-      this.topicUrl ='http://quizify-zuul.stackroute.io/recommendation-service/rest/neo4j/topic/';
+      this.topicUrl ='https://quizify-zuul.stackroute.io/recommendation-service/rest/neo4j/topic/';
       return this.http.get(this.topicUrl);
    }
    getGenre() {
       // this.genreUrl = 'http://localhost:3000/genre';
-      this.genreUrl='http://quizify-zuul.stackroute.io/recommendation-service/rest/neo4j/genre/';
+      this.genreUrl = 'https://quizify-zuul.stackroute.io/recommendation-service/rest/neo4j/genre/';
       return this.http.get(this.genreUrl);
    }
    profile(userId: string) {

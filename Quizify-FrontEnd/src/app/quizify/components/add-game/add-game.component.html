@@ -1,4 +1,10 @@
+<app-header></app-header>
 <section id="add-game" class="p-15">
+    <mat-chip-list>
+        <mat-chip color="primary" selected [routerLink]="[ '/adminpage']"><i class="material-icons">
+            chevron_left
+            </i> Back to Dashboard</mat-chip>
+      </mat-chip-list>
   <section id="stepper">
     <mat-horizontal-stepper [linear]="false" #stepper>
       <ng-template matStepperIcon="edit">
@@ -95,6 +101,8 @@
       <mat-step [stepControl]="gameFormGroup">
         <form [formGroup]="gameFormGroup">
           <ng-template matStepLabel>Give Game Details</ng-template>
+          <br>
+          <br>
           <mat-form-field
             appearance="outline"
             fxLayout="row"
@@ -108,6 +116,7 @@
               required
             />
           </mat-form-field>
+          <br>
           <mat-form-field
             appearance="outline"
             fxLayout="row"
@@ -121,6 +130,7 @@
               required
             />
           </mat-form-field>
+          <br>
           <mat-form-field
             appearance="outline"
             fxLayout="row"
@@ -137,6 +147,7 @@
               </mat-option>
             </mat-select>
           </mat-form-field>
+          <br>
           <mat-form-field
             appearance="outline"
             fxLayout="row"
@@ -152,7 +163,7 @@
               (keypress)="numberOnly($event)"
             />
           </mat-form-field>
-
+          <br>
           <mat-form-field
             appearance="outline"
             fxLayout="row"
@@ -168,7 +179,22 @@
               (keypress)="numberOnly($event)"
             />
           </mat-form-field>
-
+          <br>
+          <mat-form-field
+            appearance="outline"
+            fxLayout="row"
+            fxLayoutAlign="center center"
+          >
+            <mat-label>Enter Point Per Question</mat-label>
+            <input
+              matInput
+              type="number"
+              autocomplete="off"
+              formControlName="pointPerQuestion"
+              required
+              (keypress)="numberOnly($event)"
+            />
+          </mat-form-field>
           <section>
             <button
               mat-raised-button
@@ -216,6 +242,8 @@
                 <ul>
                   <li>Difficulty Level : {{ selectedLevel }}</li>
                   <li>Number of Question : {{ questionNumber }}</li>
+                  <li>Point per Question : {{ pointPerQuestion }}</li>
+                  <li>Total Points : {{ pointPerQuestion*questionNumber }}</li>
                   <li>Total Time : {{ timeDuration }}</li>
                 </ul>
               </mat-card-content>

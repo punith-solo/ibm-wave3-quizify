@@ -13,11 +13,16 @@ export class AdminQuestionService {
 
 
   constructor(private http: HttpClient) {
-    this.baseUrl = 'http://quizify-zuul.stackroute.io/question-manager-service/api/v1/questions';
+    this.baseUrl = 'https://quizify-zuul.stackroute.io/question-manager-service/api/v1/questions';
    }
 
    saveQuestion(question: any) {
     return this.http.post(this.baseUrl + '/question', question, { observe: 'response' })
+    .pipe(catchError(this.handleError));
+   }
+
+   getAllQuestions() {
+    return this.http.get(this.baseUrl, { observe: 'response' })
     .pipe(catchError(this.handleError));
    }
 

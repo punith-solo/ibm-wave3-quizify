@@ -40,10 +40,22 @@ public class GamesController {
         return gamessService.getAllRelatedGamesOfAGenre(genreId);
     }
 
+    @ApiOperation("Get games of a Genre by name")
+    @GetMapping("/genre/name/{genreName}")
+    public List<Game> getAllRelatedGamesOfAGenreByName(@PathVariable("genreName") String genreName) {
+        return gamessService.getAllRelatedGamesOfAGenreByName(genreName);
+    }
+
     @ApiOperation("Get games of a Topic")
     @GetMapping("/topic/{topicId}")
     public List<Game> getAllRelatedGamesOfATopic(@PathVariable("topicId") long topicId) {
         return gamessService.getAllRelatedGamesOfATopic(topicId);
+    }
+
+    @ApiOperation("Get games of a Topic by topic name")
+    @GetMapping("/topic/name/{topicName}")
+    public List<Game> getAllRelatedGamesOfATopicByName(@PathVariable("topicName") String topicName) {
+        return gamessService.getAllRelatedGamesOfATopicByName(topicName);
     }
 
     @ApiOperation("Get games played by a user")
@@ -56,6 +68,17 @@ public class GamesController {
     @GetMapping("/likes/{userId}")
     public List<Game> getAllGamesLikedByAUser(@PathVariable("userId") long userId) {
         return gamessService.getAllGamesLikedByAUser(userId);
+    }
+
+    @ApiOperation("Get games by level")
+    @GetMapping("/level/{gameId}/{playerScore}")
+    public List<Game> getAllGamesByLevel(@PathVariable("gameId") long gameId, @PathVariable("playerScore") int playerScore){
+        Game game=gamessService.getone(gameId);
+        System.out.println(game.toString());
+        String level=game.getLevel();
+        int score=playerScore;
+        int totalPoints=game.getTotalPoints();
+        return gamessService.getAllGamesByLevel(level,score,totalPoints);
     }
 
     @ApiOperation("Get a game by id")
