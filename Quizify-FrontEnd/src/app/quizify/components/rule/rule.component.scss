@@ -1,74 +1,81 @@
 
 .card1{
 
-    width: 700px;
-    height: 500px;
-    box-shadow: 1px 5px 15px #CCC;
-  border-radius: 3px;
-  padding: 2em;
+  width: 600px;
+  height: 400px;
+  box-shadow: 0.5px 0.5px 0.5px 0.5px whitesmoke;
+  border-radius: 5px;
   margin: 1em;
- // overflow: auto;
   position: relative;
   flex: auto;
- padding-top: 75px;
+  padding-top: 75px;
   margin-left: 470px;
   margin-right: 300px;
-  opacity: 1;
+  opacity: 0.4px;
   background-color: rgb(128, 118, 118);
-  
+  font-size: 20px;
+  line-height: 33px;
+  color: white;
 }
-
-ul{
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 20px;
-    padding: 40px;
-
-}
-
 .card{
-    // background-image: url(../../../../assets/images/rule5.jpg);
-    // background-image: url(../../../../assets/images/);
-    margin-top: -20px;
+    background-image: url(../../../../assets/images/1.jpg);
+    margin-top: 20px;
     height: 715px;
-    
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 .button1{
     margin-top: 50px;
-    margin-left: 20px;
-    margin-right: 200px;
-    background-color:rgb(177, 12, 12);
-   
+    margin-left: 30px;
+    margin-right: 80px;
+    background-color:rgb(177, 12, 12); 
+    font-size: 20px; 
+}
+.mat-toolbar {
+    background-color:  rgb(128, 118, 118); 
+    color:  white;
+    font-size: 35px;
 }
 .button2{
-    margin-right: 20px;
-    margin-left: 200px;
+    // margin-right: 10px;
+    margin-left: 180px;
     background-color: rgb(17, 104, 17);
-   
+    font-size: 20px;
 }
 
-b{
-    font-family: Arial, Helvetica, sans-serif;
-    text-align: center;
+@media (max-width:700px){
+    .card1{
+        width: 200px;
+        height: 450px;
+        margin: auto;
+        font-size: 15px; 
+        font-weight: bold;
+      }
+      .card{
+      }
+      .button1{         
+          font-size: 12px; 
+          margin-top: 10px;
+          margin-left: 10px;
+          margin-right: 0px;
+          line-height: 25px;
+          font-weight: bold;
 
+        padding: 1px 1px 1px 1px;
+      }
+      .mat-toolbar {
+          font-size: 25px;
+      }
+      .button2{          
+          font-size: 12px;
+          margin-top: 0px;
+          margin-left: 30px;
+          margin-right: 10px;
+        line-height: 25px;
+        font-weight: bold;
+        padding: 1px 1px 1px 1px;
+      } 
+      .njoy{
+          margin:0px;
+      }
 }
-// .card1{
-//     background-color:cornflowerblue;
-//     opacity: 1.5;
-// }
-// .card{
-//     //background-image: url(../../../../assets/images/rule5.jpg);
-// opacity: 1;
-//     height: 700px;
-//  overflow: hidden;
-//  background-position: center;
-//  background-position-y: 25px;
-//  background-repeat: no-repeat;
-//  background-size: cover;
-//  position: relative;
-//  margin-top: 50px;
-//  margin-left: -100px;
-//  margin-right: -7px;
-// }
-// .s1{
-//     background-color:aqua ;
-// }
