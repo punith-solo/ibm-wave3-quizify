@@ -21,7 +21,7 @@
     
 <div class="njoy">
 <button class="button1" mat-raised-button [routerLink]="[ '/cards' ]" color="primary">Cancel</button>
-<button class="button2" mat-raised-button [routerLink]="[ '/rule']" color="primary">Start Game</button>
+<button class="button2" mat-raised-button (click)="startGame()" color="primary">Start Game</button>
 </div>
 </mat-card>
 </div>

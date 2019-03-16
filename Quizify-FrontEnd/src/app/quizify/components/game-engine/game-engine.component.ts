@@ -36,6 +36,7 @@ export class GameEngineComponent implements OnInit {
   loginToken: LoginToken;
 
   jti: number;
+  aud: string;
 
   private singlePlayer: SinglePlayer;
 
@@ -95,15 +96,25 @@ export class GameEngineComponent implements OnInit {
         this.loginToken = jwt_decode(tokenObtained);
         console.log('decoded token', jwt_decode(tokenObtained));
         this.jti = this.loginToken.jti;
+        this.aud = this.loginToken.aud;
         console.log('decoded token id', this.loginToken.jti);
-        this.gameengineservice.fetchGame(this.gameId , this.jti).subscribe((res: any) => {
-          this.game = res.game;
-          this.loading = false;
+        this.gameengineservice.fetchGame(this.gameId , this.aud).subscribe((res: any) => {
+          this.startGame(res.body.playerName, res.body.game);
         } );
       } catch (error) {
         this.gameengineservice.fetchGame(this.gameId , 'Guest_Player').subscribe((res: any) => {
-            this.playerName = res.body.playerName;
-            this.game = res.body.game;
+          this.startGame(res.body.playerName, res.body.game);
+            
+        });
+      }
+      this.resultStar = [this.blackStar, this.blackStar, this.blackStar, this.blackStar, this.blackStar];
+    });
+
+  }
+
+  startGame(player:string, game:Game) {
+    this.playerName = player;
+            this.game = game;
             if(this.game !== undefined)
               this.gameLoaded = true;
   
@@ -119,11 +130,6 @@ export class GameEngineComponent implements OnInit {
             this.playerAttemptedWrong = 0;
             this.lastQuestionAttempted = false;
             this.loading = false;
-        });
-      }
-      this.resultStar = [this.blackStar, this.blackStar, this.blackStar, this.blackStar, this.blackStar];
-    });
-
   }
 
   checkStepper(stepper: MatStepper) {

@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import {MatCardModule, MatCardHeader} from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button';
-import {MatIconModule, MatGridListModule, MatChipsModule, MatSelectModule, MatCheckboxModule, MatTableModule, MatTabsModule} from '@angular/material';
+import {MatIconModule, MatGridListModule, MatChipsModule, MatSelectModule, MatCheckboxModule, MatTableModule, MatTabsModule, MatPaginatorModule} from '@angular/material';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatTooltipModule} from '@angular/material/tooltip';
@@ -62,7 +62,8 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
        FormsModule,
        MatRadioModule,
        MatProgressBarModule,
-       MatProgressSpinnerModule
+       MatProgressSpinnerModule,
+       MatPaginatorModule
     ] ,
       schemas: [CUSTOM_ELEMENTS_SCHEMA] ,
       exports: [
@@ -97,7 +98,8 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
           FormsModule,
           MatRadioModule,
           MatProgressBarModule,
-          MatProgressSpinnerModule
+          MatProgressSpinnerModule,
+          MatPaginatorModule
 
          ]
 
