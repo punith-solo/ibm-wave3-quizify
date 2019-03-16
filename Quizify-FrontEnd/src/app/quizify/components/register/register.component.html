@@ -2,7 +2,7 @@
 <div id="registration">
 <app-header></app-header>
 <mat-horizontal-stepper linear id="reg" #stepper>
-  <mat-step  id="step" [stepControl]="formGroup1">
+  <mat-step  id="step" [stepControl]="formGroup1" optional>
     <ng-template matStepLabel>
       Fill the details
     </ng-template>
@@ -88,7 +88,7 @@
         Select Options
       </ng-template>
       <section class="container" [(ngModel)]="selectedTopic">
-        <h3>Select Topic</h3>
+        <h3 class="selectTopic">Select Topics</h3>
         <mat-button-toggle
           *ngFor="let topic of topicsList"
           value="{{ topic.name }}"
@@ -96,7 +96,7 @@
           #value1
           (click)="addTopic(topic)"
         >
-          <img
+          <img class="image"
             src="{{ topic.imageUrl }}"
             alt="Pic of {{ topic.name }}"
             height="90px"
@@ -105,7 +105,7 @@
         </mat-button-toggle>
       </section>
       <section class="container2" [(ngModel)]="selectedGenre">
-        <h3>Select Genres</h3>
+        <h3 class="selectGenre">Select Genres</h3>
         <mat-button-toggle
           *ngFor="let genre of genresList"
           value="{{ genre.name }}"
@@ -113,7 +113,7 @@
           #value2
           (click)="addGenre(genre)"
         >
-          <img
+          <img class="image"
             src="{{ genre.imageUrl }}"
             alt="Pic of {{ genre.name }}"
             height="80px"
@@ -206,5 +206,5 @@
     </form>
   </mat-step>
 </mat-horizontal-stepper>
-<app-footer></app-footer>
 </div>
+<app-footer></app-footer>

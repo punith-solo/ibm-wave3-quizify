@@ -9,12 +9,12 @@
     <mat-toolbar class="s1" style=" flex: 1 1 auto;">
         <span>Rules:</span>
     </mat-toolbar>
-    <ul>
-        <li>Number of Questions are fixed.</li>
-        <li>You cannot Go back to the previous question.</li>
-        <li>Time is also fixed.</li>
-        <li>Switching to another window is stricted.</li>
-        <li>One Quiz can be played at a time.</li>
+    <ul id ="rules">
+        <li [class]="rule">Number of Questions are fixed.</li>
+        <li [class]="rule">You cannot Go back to the previous question.</li>
+        <li [class]="rule">Time is also fixed.</li>
+        <li [class]="rule">Switching to another window is stricted.</li>
+        <li [class]="rule">One Quiz can be played at a time.</li>
     </ul>
     
     <!-- This fills the remaining space of the current row -->
