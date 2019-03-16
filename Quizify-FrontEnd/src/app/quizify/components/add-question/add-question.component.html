@@ -1,19 +1,27 @@
-<app-header></app-header>
 <section id="add-question">
-    <mat-chip-list>
-        <mat-chip color="primary" selected [routerLink]="[ '/adminpage']"><i class="material-icons">
-            chevron_left
-            </i> Back to Dashboard</mat-chip>
-      </mat-chip-list>
-  <section class="row center">
+  <mat-chip-list>
+    <mat-chip color="primary" selected [routerLink]="['/adminpage']" class="m-10"
+      ><i class="material-icons">
+        chevron_left
+      </i>
+      Back</mat-chip
+    >
+  </mat-chip-list>
+  <section class="row center t-center">
     <article class="col-4">
       <mat-form-field>
         <mat-select
           placeholder="Select Category"
-          [(ngModel)]="selectedCategory"
+          [(ngModel)]="selectCategory"
+          (selectionChange)="selectedCategory()"
+          class="m-5"
         >
           <mat-option>None</mat-option>
-          <mat-option *ngFor="let category of categories" [value]="category">
+          <mat-option
+            *ngFor="let category of categories"
+            [value]="category"
+            class="m-5"
+          >
             <img src="{{ category.imageUrl }}" alt="" class="icon-image" />
             {{ category.name }}
           </mat-option>
@@ -22,7 +30,11 @@
     </article>
     <article class="col-4">
       <mat-form-field>
-        <mat-select placeholder="Select Topic" [(ngModel)]="selectedTopic">
+        <mat-select
+          placeholder="Select Topic"
+          [(ngModel)]="selectTopic"
+          class="m-5"
+        >
           <mat-option>None</mat-option>
           <mat-option *ngFor="let topic of topics" [value]="topic">
             <img src="{{ topic.imageUrl }}" alt="" class="icon-image" />
@@ -33,7 +45,11 @@
     </article>
     <article class="col-4">
       <mat-form-field>
-        <mat-select placeholder="Select Genre" [(ngModel)]="selectedGenre">
+        <mat-select
+          placeholder="Select Genre"
+          [(ngModel)]="selectGenre"
+          class="m-5"
+        >
           <mat-option>None</mat-option>
           <mat-option *ngFor="let genre of genres" [value]="genre">
             <img src="{{ genre.imageUrl }}" alt="" class="icon-image" />
@@ -44,130 +60,341 @@
     </article>
   </section>
   <section class="row center">
-    <article class="col-6">
+    <article class="col-8">
       <mat-tab-group>
-        <mat-tab label="True/False">
-          <mat-card class="example-container template-card">
-            <mat-form-field>
-              <input
-                matInput
-                placeholder="Question Statement"
-                autocomplete="off"
-                [(ngModel)]="tfStatement"
-              />
-            </mat-form-field>
-
-            <section class="row">
-              <mat-radio-group [(ngModel)]="tfselectedOption" required>
-                <mat-radio-button value="true" class="p-10"
-                  >True</mat-radio-button
-                >
-                <mat-radio-button value="false" class="p-10"
-                  >False</mat-radio-button
-                >
-              </mat-radio-group>
-            </section>
-
-            <mat-form-field>
-              <mat-select
-                placeholder="Select Question Level"
-                [(value)]="tfselectedLevel"
-              >
-                <mat-option *ngFor="let level of levels" [value]="level.value">
-                  {{ level.viewValue }}
-                </mat-option>
-              </mat-select>
-            </mat-form-field>
-            <br />
-            <button
-              mat-raised-button
-              color="primary"
-              class="m-10"
-              (click)="saveTFQuestion()"
-            >
-              Save
-            </button>
-          </mat-card>
-        </mat-tab>
-        <mat-tab label="Multiple Choice">
-          <mat-card class="example-container template-card">
-            <mat-form-field>
+        <mat-tab label="MCQ Question">
+          <mat-card class="template-card">
+            <mat-form-field class="row m-auto">
               <input
                 matInput
                 placeholder="Question Statement"
                 autocomplete="off"
                 [(ngModel)]="mcqStatement"
+                class="col-12"
               />
             </mat-form-field>
 
-            <mat-form-field class="row">
+            <mat-form-field class="row m-auto">
               <input
                 matInput
                 placeholder="Option 1"
                 [(ngModel)]="mcqOption1"
                 autocomplete="off"
+                class="col-12"
               />
             </mat-form-field>
 
-            <mat-form-field class="row">
+            <mat-form-field class="row m-auto">
               <input
                 matInput
                 placeholder="Option 2"
                 [(ngModel)]="mcqOption2"
                 autocomplete="off"
+                class="col-12"
               />
             </mat-form-field>
 
-            <mat-form-field class="row">
+            <mat-form-field class="row m-auto">
               <input
                 matInput
                 placeholder="Option 3"
                 [(ngModel)]="mcqOption3"
                 autocomplete="off"
+                class="col-12"
               />
             </mat-form-field>
 
-            <mat-form-field class="row">
+            <mat-form-field class="row m-auto">
               <input
                 matInput
                 placeholder="Option 4"
                 [(ngModel)]="mcqOption4"
                 autocomplete="off"
+                class="col-12"
               />
             </mat-form-field>
 
-            <section class="row">
-              <mat-radio-group [(ngModel)]="mcqSelectedOption">
-                <mat-radio-button value="mcqOption1" class="p-10">Option 1</mat-radio-button>
-                <mat-radio-button value="mcqOption2" class="p-10">Option 2</mat-radio-button>
-                <mat-radio-button value="mcqOption3" class="p-10">Option 3</mat-radio-button>
-                <mat-radio-button value="mcqOption4" class="p-10">Option 4</mat-radio-button>
+            <section class="width-80 m-auto">
+              <mat-radio-group
+                [(ngModel)]="mcqSelectedOption"
+                class="row m-auto"
+              >
+                <section class="col-3" id="optLabelSect">
+                  <span id="optLabel">Correct Option :</span>
+                </section>
+                <section class="col-9">
+                  <mat-radio-button value="mcqOption1" class="p-5"
+                    >Option 1</mat-radio-button
+                  >
+                  <mat-radio-button value="mcqOption2" class="p-5"
+                    >Option 2</mat-radio-button
+                  >
+                  <mat-radio-button value="mcqOption3" class="p-5"
+                    >Option 3</mat-radio-button
+                  >
+                  <mat-radio-button value="mcqOption4" class="p-5"
+                    >Option 4</mat-radio-button
+                  >
+                </section>
               </mat-radio-group>
             </section>
-            <mat-form-field class="row">
+            <mat-form-field class="row m-auto">
               <mat-select
                 placeholder="Select Question Level"
                 [(value)]="mcqSelectedLevel"
               >
+                <mat-option>
+                  None
+                </mat-option>
                 <mat-option *ngFor="let level of levels" [value]="level.value">
                   {{ level.viewValue }}
                 </mat-option>
               </mat-select>
             </mat-form-field>
-            <br>
-            <button
-            mat-raised-button
-            color="primary"
-            class="m-10"
-              (click)="saveMcqQuestion()"
-            >
-              Save
-            </button>
+            <section class="row">
+              <article class="col-12 t-center">
+                <button
+                  mat-raised-button
+                  color="primary"
+                  class="m-10"
+                  (click)="saveMcqQuestion()"
+                >
+                  Save
+                </button>
+              </article>
+            </section>
           </mat-card>
+        </mat-tab>
+
+        <mat-tab label="T/F Question">
+          <mat-card class="template-card">
+            <mat-form-field class="row m-auto">
+              <input
+                matInput
+                placeholder="Question Statement"
+                autocomplete="off"
+                [(ngModel)]="tfStatement"
+                class="col-12"
+              />
+            </mat-form-field>
+
+            <section class="width-80 m-auto">
+              <mat-radio-group [(ngModel)]="tfselectedOption" class="row">
+                <section class="col-3" id="optLabelSect">
+                  <span id="optLabel">Correct Option :</span>
+                </section>
+                <section class="col-9">
+                  <mat-radio-button value="true" class="p-10"
+                    >True</mat-radio-button
+                  >
+                  <mat-radio-button value="false" class="p-10"
+                    >False</mat-radio-button
+                  >
+                </section>
+              </mat-radio-group>
+            </section>
+
+            <mat-form-field class="row m-auto">
+              <mat-select
+                placeholder="Select Question Level"
+                [(value)]="tfselectedLevel"
+              >
+                <mat-option>
+                  None
+                </mat-option>
+                <mat-option *ngFor="let level of levels" [value]="level.value">
+                  {{ level.viewValue }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+            <section class="row">
+              <article class="col-12 t-center">
+                <button
+                  mat-raised-button
+                  color="primary"
+                  class="m-10"
+                  (click)="saveTFQuestion()"
+                >
+                  Save
+                </button>
+              </article>
+            </section>
+          </mat-card>
+        </mat-tab>
+
+        <mat-tab label="Auto Generate Questions">
+          <mat-card class="template-card">
+            <mat-form-field class="row m-auto">
+              <mat-select
+                placeholder="Select Question Level"
+                [(value)]="autoSelectedLevel"
+              >
+                <mat-option>
+                  None
+                </mat-option>
+                <mat-option *ngFor="let level of levels" [value]="level.value">
+                  {{ level.viewValue }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+
+            <mat-form-field class="row m-auto">
+              <mat-select
+                placeholder="Select Question Type"
+                [(value)]="autoSelectedType"
+              >
+                <mat-option>
+                  None
+                </mat-option>
+                <mat-option *ngFor="let type of types" [value]="type.value">
+                  {{ type.viewValue }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+
+            <section>
+              <article class="mat-elevation-z8">
+                <table mat-table [dataSource]="dataSource">
+                  <ng-container matColumnDef="id">
+                    <th mat-header-cell *matHeaderCellDef>ID.</th>
+                    <td mat-cell *matCellDef="let element">{{ element.id }}</td>
+                  </ng-container>
+
+                  <ng-container matColumnDef="statement">
+                    <th mat-header-cell *matHeaderCellDef>Statement</th>
+                    <td mat-cell *matCellDef="let element">
+                      {{ element.statement }}
+                    </td>
+                  </ng-container>
+
+                  <ng-container matColumnDef="level">
+                    <th mat-header-cell *matHeaderCellDef>Level</th>
+                    <td mat-cell *matCellDef="let element">
+                      {{ element.level }}
+                    </td>
+                  </ng-container>
+
+                  <ng-container matColumnDef="category">
+                    <th mat-header-cell *matHeaderCellDef>Category</th>
+                    <td mat-cell *matCellDef="let element">
+                      {{ element.category }}
+                    </td>
+                  </ng-container>
+
+                  <ng-container matColumnDef="topic">
+                    <th mat-header-cell *matHeaderCellDef>Topic</th>
+                    <td mat-cell *matCellDef="let element">
+                      {{ element.topic }}
+                    </td>
+                  </ng-container>
+
+                  <ng-container matColumnDef="genre">
+                    <th mat-header-cell *matHeaderCellDef>Genre</th>
+                    <td mat-cell *matCellDef="let element">
+                      {{ element.genre }}
+                    </td>
+                  </ng-container>
+
+                  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                  <tr
+                    mat-row
+                    *matRowDef="let row; columns: displayedColumns"
+                  ></tr>
+                </table>
+
+                <mat-paginator
+                  [pageSizeOptions]="[5, 10, 20]"
+                  showFirstLastButtons
+                ></mat-paginator>
+              </article>
+            </section>
+
+            <section class="row">
+              <article class="col-12 t-center">
+                <button
+                  mat-raised-button
+                  color="primary"
+                  class="m-10"
+                  (click)="autoGenerateQuestion()"
+                >
+                  Generate
+                </button>
+              </article>
+            </section>
+          </mat-card>
+        </mat-tab>
+        <mat-tab label="All Questions">
+          <section class="p-10">
+            <article class="mat-elevation-z8">
+              <table mat-table [dataSource]="dataSourceAll">
+                <ng-container matColumnDef="id">
+                  <th mat-header-cell *matHeaderCellDef>ID.</th>
+                  <td mat-cell *matCellDef="let element">{{ element.id }}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="statement">
+                  <th mat-header-cell *matHeaderCellDef>Statement</th>
+                  <td mat-cell *matCellDef="let element">
+                    {{ element.statement }}
+                  </td>
+                </ng-container>
+
+                <ng-container matColumnDef="correctAnswer">
+                  <th mat-header-cell *matHeaderCellDef>Correct Answer</th>
+                  <td mat-cell *matCellDef="let element">
+                    {{ element.correctAnswer }}
+                  </td>
+                </ng-container>
+
+                <ng-container matColumnDef="level">
+                  <th mat-header-cell *matHeaderCellDef>Level</th>
+                  <td mat-cell *matCellDef="let element">
+                    {{ element.level }}
+                  </td>
+                </ng-container>
+
+                <ng-container matColumnDef="type">
+                  <th mat-header-cell *matHeaderCellDef>Type</th>
+                  <td mat-cell *matCellDef="let element">{{ element.type }}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="category">
+                  <th mat-header-cell *matHeaderCellDef>Category</th>
+                  <td mat-cell *matCellDef="let element">
+                    {{ element.category.name }}
+                  </td>
+                </ng-container>
+
+                <ng-container matColumnDef="topic">
+                  <th mat-header-cell *matHeaderCellDef>Topic</th>
+                  <td mat-cell *matCellDef="let element">
+                    {{ element.topic.name }}
+                  </td>
+                </ng-container>
+
+                <ng-container matColumnDef="genre">
+                  <th mat-header-cell *matHeaderCellDef>Genre</th>
+                  <td mat-cell *matCellDef="let element">
+                    {{ element.genre.name }}
+                  </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumnsAll"></tr>
+                <tr
+                  mat-row
+                  *matRowDef="let row; columns: displayedColumnsAll"
+                ></tr>
+              </table>
+
+              <mat-paginator
+                [pageSizeOptions]="[5, 10, 20]"
+                showFirstLastButtons
+                #AllPaginator
+              ></mat-paginator>
+            </article>
+          </section>
         </mat-tab>
       </mat-tab-group>
     </article>
   </section>
 </section>
-<app-footer></app-footer>
-
