@@ -5,7 +5,7 @@
   z-index: 1;
   width: 100%;
   background-color: black !important;
-  opacity: 0.9;
+  opacity: 1;
   position: fixed;
   height: 10%;
   margin-top: 0%;
@@ -58,7 +58,6 @@ matmenu{
   width:15%;
   height:100%;
   float: left;
-
 }
 
 .button{
@@ -68,7 +67,7 @@ matmenu{
   // width:50%;
   border: 2px solid #ccaa2b;
   font-size: 20px;
-  margin-left:45%;
+  margin-right:3%;
   margin-top: 8%;
   padding: 0;
 }

@@ -1,7 +1,7 @@
 #reg {
    background-image: linear-gradient(to bottom, rgb(236, 236, 203), rgba(196, 196, 218, 0.651)),
   url("https://blog.hubspot.com/hs-fs/hub/53/file-2408128213-png/00-Blog_Thinkstock_Images/tagline-quiz.png");
-  height: 750px;
+  height:105vh;
   overflow-x: hidden;
 
   overflow-y: hidden;
@@ -169,9 +169,26 @@ li {
 // }
 // }
 
+@media (max-width: 375px){
+.inside[_ngcontent-c1][_ngcontent-c1][_ngcontent-c1][_ngcontent-c1] {
+    padding: 5px;
+    width: auto;
+    height: auto;
+    line-height: 50px;
+    font-weight: bolder;
+    font-size: 2em;
+    text-align: center;
+    margin-left: 0px;
+    margin-bottom: 2px;
+}
+}
 
 
-@media (max-width: 768px) {
+@media (max-width: 750px) {
+ 
+  #selectGenre{
+    margin-left: 10px;
+  }
 .mat-card {
     margin-top: 10px;
     margin-left: 100px;
@@ -179,16 +196,50 @@ li {
     height: 300px;
     background-color: gainsboro;
 }
+.container2[_ngcontent-c1][_ngcontent-c1] h3[_ngcontent-c1][_ngcontent-c1] {
+  display: flex;
+  margin-left: 13px;
+}
+.container[_ngcontent-c1][_ngcontent-c1][_ngcontent-c1] h3[_ngcontent-c1][_ngcontent-c1][_ngcontent-c1] {
+  display: flex;
+  margin-left: -108px;
+}
+.image{
+  width: 150px;
+  height: 75px;
+}
 .inside {
-    padding: 1.5px;
-    height: auto;
-    width: auto;
+    height: 15px;
+    width: 15px;
     /* height: 120px; */
     line-height: 50px;
     font-weight: bolder;
     font-size: 2em;
     text-align: center;
-    margin-left: auto;
+    margin-left: 0px;;
+
+}
+.inside1 {
+  height: 15px;
+  width: 15px;
+  /* height: 120px; */
+  line-height: 50px;
+  font-weight: bolder;
+  font-size: 2em;
+  text-align: center;
+}
+.inside1[_ngcontent-c1][_ngcontent-c1][_ngcontent-c1] {
+  padding: 2px;
+  margin-left: -164px;
+  margin-right: 118px;
+  margin-bottom: 8px;
+}
+
+.inside[_ngcontent-c1][_ngcontent-c1][_ngcontent-c1] {
+  padding: 2px;
+  margin-left: 22px;
+  margin-bottom: 10px;
+  margin-right: -9px;
 }
 .prebtn {
     margin-right: 537px;
