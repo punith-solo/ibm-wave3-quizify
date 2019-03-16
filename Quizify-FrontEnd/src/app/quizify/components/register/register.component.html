@@ -82,7 +82,7 @@
       <button mat-button class="nextbtn" matStepperNext><b>Next</b></button>
     </form>
   </mat-step>
-  <mat-step [stepControl]="formGroup2" >
+  <mat-step [stepControl]="formGroup2" optional>
     <form [formGroup]="formGroup2">
       <ng-template matStepLabel>
         Select Options
@@ -131,7 +131,7 @@
       </div>
     </form>
   </mat-step>
-  <mat-step  [stepControl]="formGroup3"  >
+  <mat-step  [stepControl]="formGroup3"  optional>
     <form [formGroup]="formGroup3">
       <ng-template matStepLabel>
         Check Details

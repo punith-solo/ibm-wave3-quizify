@@ -11,7 +11,7 @@ import java.util.List;
 
 @CrossOrigin
 @RestController
-@RequestMapping("/rest/neo4j/likesgame")
+@RequestMapping("/rest/neo4j")
 @Api(description = "Operations on User likes game Relationships")
 public class LikesGameController {
 
@@ -23,21 +23,26 @@ public class LikesGameController {
     }
 
     @ApiOperation("Get all relationships of user likes game")
-    @GetMapping("/")
+    @GetMapping("/likesgame")
     public List<LikesGame> getAll(){
         return likesGameService.getAllRelationships();
     }
 
     @ApiOperation("Create relationship of user likes game")
-    @PostMapping("/")
-    public LikesGame create(@RequestParam("userName") String userName, @RequestParam("gameName") String gameName){
-        return likesGameService.createRelationship(userName, gameName);
+    @PostMapping("/likes/user/{userName}/game/{gameId}")
+    public LikesGame create(@PathVariable("userName") String userName, @PathVariable("gameId") long gameId){
+        return likesGameService.createRelationship(userName, gameId);
     }
+//   @ApiOperation("Create relationship of user likes game")
+//    @PostMapping("/likes/user/{userName}/game/{gameName}")
+//    public LikesGame create(@PathVariable("userName") String userName, @PathVariable("gameName") String gameName){
+//        return likesGameService.createRelationship(userName, gameName);
+//    }
 
-    @ApiOperation("Delete relationship of user likes game")
-    @DeleteMapping("/")
-    public LikesGame delete(@RequestParam("userName") String userName, @RequestParam("gameName") String gameName){
-        return likesGameService.deleteRelationship(userName, gameName);
-    }
+//    @ApiOperation("Delete relationship of user likes game")
+ //   @DeleteMapping("/dislikes/user/{userName}/game/{gameName}")
+// public LikesGame delete(@PathVariable("userName") String userName, @PathVariable("gameName") String gameName){
+  //      return likesGameService.deleteRelationship(userName, gameName);
+    //}
 
 }

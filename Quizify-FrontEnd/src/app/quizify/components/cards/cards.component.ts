@@ -7,6 +7,8 @@ import { MatDialog } from '@angular/material';
 import { DialogComponent } from '../dialog/dialog.component';
 import { SearchService } from '../../services/search.service';
 import { Game } from '../../tsclasses/game';
+import * as jwt_decode from 'jwt-decode';
+import { LoginToken } from '../../tsclasses/login-token';
 
 @Component({
   selector: 'app-cards',
@@ -14,7 +16,9 @@ import { Game } from '../../tsclasses/game';
   styleUrls: ['./cards.component.scss']
 })
 export class CardsComponent implements OnInit {
-
+  loginToken: any;
+  aud: String;
+  reg: Object;
 
   constructor(private cardService: CardService , private gameengineservice: GameEngineService, private searchService: SearchService,
     private router: Router, public dialog: MatDialog) { }
@@ -26,7 +30,7 @@ export class CardsComponent implements OnInit {
   gamesTVShows: Game[];
   gamesPresidents: Game[];
   gamesCapitals: Game[];
-  
+  gamesLanguages: Game[];
   i: number;
   j: number;
 
@@ -59,10 +63,32 @@ export class CardsComponent implements OnInit {
     this.cardService.getTVShowQuiz().subscribe((res: any) => {
       this.gamesTVShows = res;
     });
+    this.cardService.getLanguagesQuiz().subscribe((res: any) => {
+      this.gamesLanguages = res;
+    });
   }
   fetchGameId(gameId: number) {
     console.log(gameId);
     this.router.navigate(['playgame', {id : gameId}]);
+   }
+
+   likesGame(gameName: number) {
+    console.log(gameName);
+    try {
+      const tokenObtained = localStorage.getItem('token');
+      this.loginToken = jwt_decode(tokenObtained);
+      console.log('decoded token', jwt_decode(tokenObtained));
+      this.aud = this.loginToken.aud;
+      console.log("username : " + this.aud);
+      console.log('decoded token id', this.loginToken.jti);
+      this.cardService.likesGame(gameName, this.aud).subscribe(data => {
+        this.reg = data;
+        // console.log(res);
+        console.log( this.reg);
+     });
+      } catch (error) {
+        console.log(error);
+      }
    }
 
    openDialog(q) {

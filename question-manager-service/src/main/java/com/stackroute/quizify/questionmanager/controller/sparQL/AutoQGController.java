@@ -52,6 +52,8 @@ public class AutoQGController {
 		Category category = details.getCategory();
 		Topic topic = details.getTopic();
 		Genre genre = details.getGenre();
+		String type = details.getType();
+		String level = details.getLevel();
 		String topicName=topic.getName();
 		List<Question> listQuestions = new ArrayList<>();
 
@@ -72,8 +74,8 @@ public class AutoQGController {
 				question.setGenre(genre);
 				question.setStatement(
 						questionStem + data.getResults().getBindings().get(c).getCountry().getValue() + "?");
-				question.setLevel("easy");
-				question.setType("MCQ");
+				question.setLevel(level);
+				question.setType(type);
 				listOptions.add(data.getResults().getBindings().get(i).getCapital().getValue());
 				listOptions.add(data.getResults().getBindings().get(j).getCapital().getValue());
 				listOptions.add(data.getResults().getBindings().get(c).getCapital().getValue());
@@ -104,8 +106,8 @@ public class AutoQGController {
 				question.setGenre(genre);
 				question.setStatement(questionStem
 						+ data.getResults().getBindings().get(c).getPresident().getValue() + " Died ?");
-				question.setLevel("hard");
-				question.setType("MCQ");
+				question.setLevel(level);
+				question.setType(type);
 				listOptions.add(data.getResults().getBindings().get(i).getDod().getValue() + " & "
 						+ data.getResults().getBindings().get(i).getCause().getValue());
 				listOptions.add(data.getResults().getBindings().get(j).getDod().getValue() + " & "
@@ -141,8 +143,8 @@ public class AutoQGController {
 				question.setGenre(genre);
 				question.setStatement(questionStem
 						+ data.getResults().getBindings().get(c).getItemLabel_en().getValue() + " ?");
-				question.setLevel("medium");
-				question.setType("MCQ");
+				question.setLevel(level);
+				question.setType(type);
 				listOptions.add(data.getResults().getBindings().get(i).getOfficial_language().getValue());
 				listOptions.add(data.getResults().getBindings().get(j).getOfficial_language().getValue());
 				listOptions.add(data.getResults().getBindings().get(c).getOfficial_language().getValue());

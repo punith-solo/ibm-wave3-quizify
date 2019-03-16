@@ -24,8 +24,9 @@ public class LikesGameServiceImpl implements LikesGameService {
     }
 
     @Override
-    public LikesGame createRelationship(String userName, String gameName) {
-        return likesGameRelationshipRepository.createRelationship(userName,gameName);
+    public LikesGame createRelationship(String userName, long gameId) {
+
+        return likesGameRelationshipRepository.createRelationship(userName,gameId);
     }
 
     @Override

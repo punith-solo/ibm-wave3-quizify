@@ -7,7 +7,7 @@ import java.util.List;
 public interface LikesGameService {
     List<LikesGame> getAllRelationships();
 
-    LikesGame createRelationship(String userName, String gameName);
+    LikesGame createRelationship(String userName, long gameName);
 
     LikesGame deleteRelationship(String userName, String gameName);
 
