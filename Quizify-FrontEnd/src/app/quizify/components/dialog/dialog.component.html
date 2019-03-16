@@ -1,7 +1,7 @@
-<section class=container>
+<section class="cardcomponentDetails">
   <h2 mat-dialog-title>Description of {{ data.q.name }}</h2>
   <mat-dialog-content class="mat-typography">
-      <p><img class="id" src="{{data.q.imageUrl}}"></p>
+      <p><img class="imgid" src="{{data.q.imageUrl}}"></p>
         <ul>
             <li>The level of this game is {{ data.q.level }}</li>
             <li>Total number of questions is {{ data.q.numOfQuestion }}</li>
@@ -12,10 +12,8 @@
   </mat-dialog-content>
   <mat-dialog-actions align="end">
     <button mat-button mat-dialog-close>Cancel</button>
-    <button mat-button  mat-dialog-close [routerLink]="[ '/rule' ]">Play</button>
-    
-    
+    <button mat-button  mat-dialog-close [routerLink]="[ '/rule' ]">Next</button>    
   </mat-dialog-actions>
-  </section>
+</section>
   
   

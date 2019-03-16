@@ -9,20 +9,18 @@ export class CardService {
     response: any;
       constructor(private http: HttpClient) {
     }
-
   //  getQuizGames() {
   //   this.url = 'http://quizify-zuul.stackroute.io/recommendation-service/rest/neo4j/game/';
   //   return this.http.get(this.url);
 
   //  }
    getMovieQuiz() {
-    this.url = 'https://quizify-zuul.stackroute.io/recommendation-service/rest/neo4j/game/topic/name/Movie';
-
+    this.url = 'https://quizify-zuul.stackroute.io/recommendation-service/rest/neo4j/game/topic/name/Movies';
     return this.http.get(this.url);
 
    }
    getTVShowQuiz() {
-    this.url = 'https://quizify-zuul.stackroute.io/recommendation-service/rest/neo4j/game/topic/name/TV shows';
+    this.url = 'https://quizify-zuul.stackroute.io/recommendation-service/rest/neo4j/game/topic/name/TV Shows';
     return this.http.get(this.url);
 
    }
@@ -34,6 +32,17 @@ export class CardService {
    getPresidentsQuiz() {
     this.url = 'https://quizify-zuul.stackroute.io/recommendation-service/rest/neo4j/game/topic/name/Presidents';
     return this.http.get(this.url);
+   }
+   getLanguagesQuiz() {
+    this.url = 'https://quizify-zuul.stackroute.io/recommendation-service/rest/neo4j/game/topic/name/Languges';
+    return this.http.get(this.url);
+   }
+
+   likesGame(gameName: number, userName: String){
+      this.url='https://quizify-zuul.stackroute.io/recommendation-service/rest/neo4j/likes/user/';
+      // this.url = 'http://localhost:8104/rest/neo4j/likes/user/';
+      console.log(this.url + userName + '/game/' + gameName);
+      return this.http.post(this.url + userName + '/game/' + gameName, { observe: 'response' });
    }
 }
 

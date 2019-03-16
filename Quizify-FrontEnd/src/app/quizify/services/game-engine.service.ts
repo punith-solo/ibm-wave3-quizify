@@ -21,6 +21,7 @@ export class GameEngineService {
   private errorStatus: string;
 
   private errorBody: string;
+  url: string;
 
   constructor(private http: HttpClient) {
 
@@ -43,5 +44,9 @@ export class GameEngineService {
      .post(this.microServiceUrl , singlePlayer, { observe: 'response' });
     }
 
-
+    recommendGames(gameId: number, playerScore: number) {
+      this.url = 'https://quizify-zuul.stackroute.io/recommendation-service/rest/neo4j/game/level/';
+      console.log(this.url + gameId + '/game/' + playerScore);
+      return this.http.get(this.url + gameId + '/' + playerScore, { observe: 'response' });
+    }
 }

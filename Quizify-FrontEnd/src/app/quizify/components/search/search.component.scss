@@ -3,7 +3,7 @@
 .cards{
   width: 100%;
   margin-top: 100px;
-  background-color: #363636;
+  background-color: white;
   display: inline-block;
   position: relative;
   display: flex;
@@ -13,7 +13,7 @@
 
 .gamecard{
   box-shadow: 10px 19px 38px rgba(0,0,0,0.30), 10px 15px 12px rgba(0,0,0,0.22);
-  background-color: #363636;
+  background-color:rgb(12, 11, 11);
   margin: 10px;
   height: 300px;
    width: 320px;
@@ -51,7 +51,7 @@
  }
 
 .search {
-  background-color: #white;
+  background-color: white;
 }
 #search {
   margin-left: 400px;

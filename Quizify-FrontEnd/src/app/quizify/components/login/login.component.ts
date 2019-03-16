@@ -65,7 +65,6 @@ login() {
 } ,
 error => {
   console.log('wrong credentials');
-  window.alert('wrong credentials');
 });
 
 }

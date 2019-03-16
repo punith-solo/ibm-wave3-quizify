@@ -62,8 +62,9 @@ export class GameEngineComponent implements OnInit {
   private lastQuestionAttempted: boolean;
   private gameLoaded: boolean;
   private loading:any = true;
-
+  private gamesList: Game[];
   @ViewChild('stepper') stpr: MatStepper;  
+  
 
 
   constructor( 
@@ -249,12 +250,22 @@ export class GameEngineComponent implements OnInit {
     this.gameengineservice.submitGame(this.singlePlayer).subscribe((res: any) => {
       //
     });
+    this.recommendGames(this.gameId);
   }
 
   rePlay() {
     clearInterval(this.timer);
     this.startUp();
     this.stpr.selectedIndex = 0;
+  }
+
+  recommendGames(gameId: number) {
+    console.log(this.playerScore);
+    this.gameengineservice.recommendGames(gameId, this.playerScore).subscribe((res: any) => {
+      this.gamesList = res;
+      console.log(res);
+    });
+    console.log(this.gamesList);
   }
 
 }
