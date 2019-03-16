@@ -30,11 +30,10 @@ const routes: Routes = [
   {path: 'add-game', component: AddGameComponent},
   {path: 'register', component: RegisterComponent},
   { path: 'login', component: CardsComponent},
-  {path: 'search', component: SearchComponent},
   { path: 'add-question', component: AddQuestionComponent },
   { path: 'adminpage', component: AdminGameLandingComponent, canActivate: [AuthGuard] },
   { path: 'rule', component: RuleComponent},
-    { path: '**', component: CardsComponent}
+  { path: '**', component: CardsComponent}
 
 ];
 

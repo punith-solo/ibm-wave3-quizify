@@ -47,7 +47,7 @@ import { AdminGameLandingComponent } from './components/admin-game-landing/admin
     FooterComponent,
     GameEngineComponent,
     DialogComponent,
-    RuleComponent
+    RuleComponent,
      ],
      providers: [ CardService, CookieService, GamedetailsService, AuthGuard, GameEngineService,
       { provide: MatDialogModule, useValue: {} },
@@ -93,7 +93,8 @@ import { AdminGameLandingComponent } from './components/admin-game-landing/admin
     HeaderComponent,
     DialogComponent,
     GameEngineComponent,
-    FooterComponent   ],
+    FooterComponent,
+    ],
 
 })
 export class QuizifyModule { }
