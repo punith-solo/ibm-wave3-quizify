@@ -1,101 +1,19 @@
-
 <app-header></app-header>
-<!-- 
-    <section
-
-      class="laststep"
-
-      fxLayout
-
-      fxLayout="column"
-
-      fxLayoutAlign="center center"
-
-      fxLayoutGap="10px"
-
-    >
-
-    <div class = "col">
-    </div>
-
-
-
-  <mat-card class="col1">
-    
-    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS5TUuXmx_ZWDtD3i0Dzeow2nQn1GrAjPYbqWUlAI8trL7440G2">
-  <br/>
-  <br/>
-    <label class="step1">Name :-{{ reg.name }}</label> <br />
-
-    <br />
-
-
-
-    <label class="step1">EmailId :-{{ reg.emailId }}</label> <br />
-
-   <br>
-    
-
-    <label class="step1">Gender :-{{ reg.gender }}</label> <br />
-
-    <br />
-    <label class="step1">{{ reg.topics }}</label> <br /><br>
-    <label class="step1">{{ reg.genres }}</label> <br />
-
-
-
-
-
-
-
-    <div class="btn1">
-
-    <button mat-raised-button (click)="onEdit()">Edit</button>
-    </div>
-
-  
-    </mat-card>
-  </section> -->
-
-
-
-  <section
-
+<section
 class="laststep">
 
 <mat-card class="col1">
-
-<h3>Personal Information</h3>
-<br>
-<br>
- 
-    <img height=220px width= 120px src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQin6eiGYjlKFrKhpf2wvAQJQ37HpqpRDQmcBPFX31q_RFZEW__gw">
-<br>
-<br>
-
-<label class="step1">Name : {{ reg.name }}</label> <br />
-
-<br />
-
-<label class="step1">Email-Id : {{ reg.emailId }}</label> <br />
-
-<br />
-
-
-
-
-
-
-<label class="step1">Gender : {{ reg.gender }}</label> <br />
-
-<br />
-
-
-<label class="step1">Topics :-{{ reg.topics }}</label> <br /><br>
-<label class="step1">Genre -:{{ reg.genres }}</label> <br />
-
-
-
-<!-- <button mat-raised-button class ="btn"(click)="edit($event)" type="submit">Edit</button> -->
-
+<mat-card-title>
+  Personal Information</mat-card-title>
+  <!-- <img mat-card-avatar  height=220px width= 120px src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQin6eiGYjlKFrKhpf2wvAQJQ37HpqpRDQmcBPFX31q_RFZEW__gw"> -->
+  <mat-card-subtitle
+    class="step1">Name : {{ reg.name }}</mat-card-subtitle>
+  <mat-card-subtitle
+    class="step1">Email-Id : {{ reg.emailId }}</mat-card-subtitle>
+  <mat-card-subtitle
+    class="step1">Gender : {{ reg.gender }}</mat-card-subtitle> 
+<mat-card-subtitle class="step1">Topics :-{{ reg.topics }}</mat-card-subtitle>
+<mat-card-subtitle class="step1">Genre -:{{ reg.genres }}</mat-card-subtitle>
 </mat-card>
+</section>
+<app-footer></app-footer>
