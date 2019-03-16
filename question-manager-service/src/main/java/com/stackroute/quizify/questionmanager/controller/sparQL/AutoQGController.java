@@ -73,7 +73,7 @@ public class AutoQGController {
 				question.setStatement(
 						questionStem + data.getResults().getBindings().get(c).getCountry().getValue() + "?");
 				question.setLevel("easy");
-				question.setType("MCQ");
+				question.setType("mcq");
 				listOptions.add(data.getResults().getBindings().get(i).getCapital().getValue());
 				listOptions.add(data.getResults().getBindings().get(j).getCapital().getValue());
 				listOptions.add(data.getResults().getBindings().get(c).getCapital().getValue());
@@ -105,7 +105,7 @@ public class AutoQGController {
 				question.setStatement(questionStem
 						+ data.getResults().getBindings().get(c).getPresident().getValue() + " Died ?");
 				question.setLevel("hard");
-				question.setType("MCQ");
+				question.setType("mcq");
 				listOptions.add(data.getResults().getBindings().get(i).getDod().getValue() + " & "
 						+ data.getResults().getBindings().get(i).getCause().getValue());
 				listOptions.add(data.getResults().getBindings().get(j).getDod().getValue() + " & "
@@ -142,7 +142,7 @@ public class AutoQGController {
 				question.setStatement(questionStem
 						+ data.getResults().getBindings().get(c).getItemLabel_en().getValue() + " ?");
 				question.setLevel("medium");
-				question.setType("MCQ");
+				question.setType("mcq");
 				listOptions.add(data.getResults().getBindings().get(i).getOfficial_language().getValue());
 				listOptions.add(data.getResults().getBindings().get(j).getOfficial_language().getValue());
 				listOptions.add(data.getResults().getBindings().get(c).getOfficial_language().getValue());

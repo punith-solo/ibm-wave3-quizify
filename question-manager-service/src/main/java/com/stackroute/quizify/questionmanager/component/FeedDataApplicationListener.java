@@ -262,6 +262,7 @@ public class FeedDataApplicationListener implements ApplicationListener<ContextR
 
                 }
 
+
                 this.questionService.addNewQuestion(this.question);
             }
         }
