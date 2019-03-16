@@ -10,4 +10,6 @@ public class QuestionDetails {
     private Category category;
     private Topic topic;
     private Genre genre;
+    private String type;
+    private String level;
 }
