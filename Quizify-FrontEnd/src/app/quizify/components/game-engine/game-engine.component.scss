@@ -278,7 +278,7 @@
   }
 
   #game-window {
-    height: 97vh !important;
+    min-height: 97vh !important;
     overflow: hidden !important;
   }
 }
@@ -333,3 +333,26 @@
   background-color: black;
   cursor: pointer;
 }
+
+.gamecard{
+  box-shadow: 10px 19px 38px rgba(0,0,0,0.30), 10px 15px 12px rgba(0,0,0,0.22);
+  background-color: #111111;
+  margin: 28px;
+  height: 300px;
+  width: 300px;
+  border-radius: 15px;
+}
+ .gamecard img {
+ 
+   height: 200px;
+   width: 500px;
+   max-width: 100%;
+   border-top-left-radius: 15px;
+   border-top-right-radius: 15px;
+   
+ }
+ .gamecard .text {
+   text-align: center;
+   margin-top: -10px;
+    color: #ccaa2b;   
+ }

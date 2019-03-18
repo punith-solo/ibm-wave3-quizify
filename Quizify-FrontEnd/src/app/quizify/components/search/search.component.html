@@ -10,7 +10,7 @@
     </mat-form-field>
   </div>
 
-  <main class="cards"  >
+  <main class="cards"  *ngIf="loaded">
     <article class="gamecard" *ngFor='let q of games'>
       <img src="{{q.imageUrl}}" alt="Sample photo">
       <div class="text">

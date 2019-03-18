@@ -1,8 +1,8 @@
 <app-header></app-header>
 <div class="container">
-  <main class="log">
-    <div class="signup">
-      <div class="reg">
+  <main class="log" class="row">
+    <div class="signup" class="col-6 t-center">
+      <div class="reg m-auto">
       <p >Not An Existing User .. ?</p>
       <form>
         <button
@@ -16,8 +16,8 @@
       </form>
     </div>
     </div>
-    <div class="login">
-      <mat-card class="z-depth-3">
+    <div class="login col-6 t-center">
+      <mat-card class="z-depth-3 m-auto">
         <h2>Login</h2>
         <form [formGroup]="user" (ngSubmit)="login()">
           <mat-form-field appearance="outline" class="id">

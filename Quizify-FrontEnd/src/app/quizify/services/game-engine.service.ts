@@ -46,7 +46,7 @@ export class GameEngineService {
 
     recommendGames(gameId: number, playerScore: number) {
       this.url = 'https://quizify-zuul.stackroute.io/recommendation-service/rest/neo4j/game/level/';
-      console.log(this.url + gameId + '/game/' + playerScore);
+      console.log(this.url + gameId + '/' + playerScore);
       return this.http.get(this.url + gameId + '/' + playerScore, { observe: 'response' });
     }
 }

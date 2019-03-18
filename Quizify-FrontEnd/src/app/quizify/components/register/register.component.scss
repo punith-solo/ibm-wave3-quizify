@@ -1,8 +1,7 @@
 #reg {
    background-image: linear-gradient(to bottom, rgb(236, 236, 203), rgba(196, 196, 218, 0.651)),
   url("https://blog.hubspot.com/hs-fs/hub/53/file-2408128213-png/00-Blog_Thinkstock_Images/tagline-quiz.png");
-  height:105vh;
-  overflow-x: hidden;
+  min-height:105vh;
 
   overflow-y: hidden;
   background-position: center;
@@ -767,4 +766,104 @@ h2 {
     margin-bottom: 55px;
 }
 
+}
+
+
+.row {
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: wrap !important;
+  justify-content: center !important;
+  width: 100% !important;
+}
+
+[class*="col-"] {
+  width: 100% !important;
+}
+
+@media only screen and (min-width: 768px) {
+  .col-1 {
+    width: 8.33% !important;
+  }
+  .col-2 {
+    width: 16.66% !important;
+  }
+  .col-3 {
+    width: 25% !important;
+  }
+  .col-4 {
+    width: 33.33% !important;
+  }
+  .col-5 {
+    width: 41.66% !important;
+  }
+  .col-6 {
+    width: 50% !important;
+  }
+  .col-7 {
+    width: 58.33% !important;
+  }
+  .col-8 {
+    width: 66.66% !important;
+  }
+  .col-9 {
+    width: 75% !important;
+  }
+  .col-10 {
+    width: 83.33% !important;
+  }
+  .col-11 {
+    width: 91.66% !important;
+  }
+  .col-12 {
+    width: 100% !important;
+  }
+}
+
+.p-20 {
+    padding: 20px !important;
+}
+
+.p-15 {
+  padding: 15px !important;
+}
+
+.p-10 {
+  padding: 10px !important;
+}
+
+.p-5 {
+  padding: 5px !important;
+}
+
+.p-auto {
+    padding: auto !important;
+}
+
+.m-20 {
+    margin: 20px !important;
+}
+
+.m-15 {
+  margin: 15px !important;
+}
+
+.m-10 {
+  margin: 10px !important;
+}
+
+.m-5 {
+  margin: 5px !important;
+}
+
+.m-auto {
+    margin: auto !important;
+}
+
+.p-auto {
+  padding: auto !important;
+}
+
+.t-center {
+  text-align: center !important;
 }

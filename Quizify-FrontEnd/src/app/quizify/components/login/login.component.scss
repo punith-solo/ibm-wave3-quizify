@@ -36,8 +36,10 @@ mat-form-field {
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
-  margin-top: 0px;
+  padding-top: 150px;
+  padding-bottom: 50px;
  width: 100%;
+ min-height: 98vh;
 }
 .signup{
   float: left;
@@ -47,15 +49,15 @@ mat-form-field {
 .login{
   float: left;
   width:30%;
-  margin-left: 150px;
+  // margin-left: 150px;
 }
 .log{
   position: relative;
   width: 80%;
   height: 400px;
-  margin-top: 200px;
-  margin-bottom:150px;
-  margin-left: 100px !important;
+  // margin-top: 200px;
+  // margin-bottom:150px;
+  // margin-left: 100px !important;
 }
 .btn {
   width: 60%;
@@ -63,8 +65,8 @@ mat-form-field {
   border: 2px solid black;
   color: black;
   background-color: white;
-  margin-left: 50px;
-  margin-top: 10px;
+  // margin-left: 50px;
+  // margin-top: 10px;
   
 }
 .z-depth-3{
@@ -83,7 +85,7 @@ mat-form-field {
 .reg{
   height:100px;
   width:300px;
-  margin:180px;
+  // margin:180px;
   color: white;
 
 }
@@ -91,8 +93,108 @@ mat-form-field {
   font-size: 20px;
 }
 .btn1{
-  margin-left:80px;
+  // margin-left:80px;
   width: 120px;
   box-shadow: 0 0 20px 2px whitesmoke;
   font-size: 24px;
+  background-color: white !important;
+}
+
+.row {
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: wrap !important;
+  justify-content: center !important;
+  width: 100% !important;
+}
+
+[class*="col-"] {
+  width: 100% !important;
+}
+
+@media only screen and (min-width: 768px) {
+  .col-1 {
+    width: 8.33% !important;
+  }
+  .col-2 {
+    width: 16.66% !important;
+  }
+  .col-3 {
+    width: 25% !important;
+  }
+  .col-4 {
+    width: 33.33% !important;
+  }
+  .col-5 {
+    width: 41.66% !important;
+  }
+  .col-6 {
+    width: 50% !important;
+  }
+  .col-7 {
+    width: 58.33% !important;
+  }
+  .col-8 {
+    width: 66.66% !important;
+  }
+  .col-9 {
+    width: 75% !important;
+  }
+  .col-10 {
+    width: 83.33% !important;
+  }
+  .col-11 {
+    width: 91.66% !important;
+  }
+  .col-12 {
+    width: 100% !important;
+  }
+}
+
+.p-20 {
+    padding: 20px !important;
+}
+
+.p-15 {
+  padding: 15px !important;
+}
+
+.p-10 {
+  padding: 10px !important;
+}
+
+.p-5 {
+  padding: 5px !important;
+}
+
+.p-auto {
+    padding: auto !important;
+}
+
+.m-20 {
+    margin: 20px !important;
+}
+
+.m-15 {
+  margin: 15px !important;
+}
+
+.m-10 {
+  margin: 10px !important;
+}
+
+.m-5 {
+  margin: 5px !important;
+}
+
+.m-auto {
+    margin: auto !important;
+}
+
+.p-auto {
+  padding: auto !important;
+}
+
+.t-center {
+  text-align: center !important;
 }

@@ -1,5 +1,5 @@
 import { Router } from '@angular/router';
-import { Component, OnInit, Input, Inject } from '@angular/core';
+import { Component, OnInit, Input, Inject, ViewEncapsulation } from '@angular/core';
 import { Gamesearch } from '../../tsclasses/gamesearch';
 import { SearchService } from '../../services/search.service';
 import { GameEngineService } from '../../services/game-engine.service';
@@ -10,14 +10,18 @@ import { DialogComponent } from '../dialog/dialog.component';
 @Component({
   selector: 'app-search',
   templateUrl: './search.component.html',
-  styleUrls: ['./search.component.scss']
+  styleUrls: ['./search.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class SearchComponent implements OnInit {
 
   Gamesearch: any;
   private games: Gamesearch[];
   dialogResult: any;
-  constructor(private router: Router, private searchService: SearchService, public dialog: MatDialog) { }
+  loaded: boolean;
+  constructor(private router: Router, private searchService: SearchService, public dialog: MatDialog) {
+    this.loaded = false;
+   }
 
   ngOnInit() {
 
@@ -31,9 +35,12 @@ export class SearchComponent implements OnInit {
   search(value) {
     if (value === '') {
       this.games = null;
+      this.loaded = false;
     } else {
     this.searchService.searchByTopicOrGenreOrQuizStartsWith(value).subscribe((res: any) => {
       this.games = res.body;
+      this.loaded = true;
+        
       console.log(res);
       console.log(this.games);
     });

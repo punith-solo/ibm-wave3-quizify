@@ -268,7 +268,7 @@ export class GameEngineComponent implements OnInit {
   recommendGames(gameId: number) {
     console.log(this.playerScore);
     this.gameengineservice.recommendGames(gameId, this.playerScore).subscribe((res: any) => {
-      this.gamesList = res;
+      this.gamesList = res.body;
       console.log(res);
     });
     console.log(this.gamesList);

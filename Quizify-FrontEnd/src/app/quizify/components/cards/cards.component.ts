@@ -1,5 +1,5 @@
 import { CardService } from './../../services/card.service';
-import { Component, OnInit } from '@angular/core' ;
+import { Component, OnInit, ViewEncapsulation } from '@angular/core' ;
 import { GameEngineService } from '../../services/game-engine.service';
 import { RootContext } from '@angular/core/src/render3/interfaces/view';
 import { Router } from '@angular/router';
@@ -13,7 +13,8 @@ import { LoginToken } from '../../tsclasses/login-token';
 @Component({
   selector: 'app-cards',
   templateUrl: './cards.component.html',
-  styleUrls: ['./cards.component.scss']
+  styleUrls: ['./cards.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class CardsComponent implements OnInit {
   loginToken: any;
