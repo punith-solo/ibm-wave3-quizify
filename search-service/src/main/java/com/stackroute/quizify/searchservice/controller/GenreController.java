@@ -25,7 +25,7 @@ public class GenreController {
         this.genreService = genreService;
     }
 
-    @ApiOperation(value = "Save Genre")
+    @ApiOperation(value = "Save Genre to database")
     @PostMapping("/search/genre")
     public ResponseEntity<?> saveGenre(@RequestBody Genres genres) throws GenreAlreadyExistsException {
         return new ResponseEntity<Genres>(genreService.saveGenre(genres), HttpStatus.OK);
